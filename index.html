@@ -845,6 +845,7 @@
     font-family: 'Cormorant Garant', serif;
     font-size: 2.15rem;
     font-weight: 500;
+    font-style: italic;
     color: var(--ink);
     margin-bottom: 0.85rem;
     padding-right: 8rem;
@@ -855,6 +856,9 @@
     font-size: 1.75rem;
     line-height: 1.85;
     color: var(--ink-light);
+  }
+
+  .event-description em {
     font-style: italic;
   }
 
@@ -1042,7 +1046,7 @@ const events = [
     title: "La Citadelle et les tribus celtes face aux soldats de César",
     description: "<strong>Ier siècle av. J.-C.</strong> Yourcenar remonte aux strates les plus anciennes du paysage familial : la citadelle — éperon fortifié, oppidum de terre et de bois — où des tribus celtes, Nerviens ou Ménapes, vinrent se réfugier devant l'avancée des légions de César à travers la Gaule belgique. L'épisode n'a pas de date précise : il appartient à ce temps d'avant les archives, celui que Yourcenar reconstitue par la géologie du terrain, les noms de lieux, les traces dans le sol. Ce qui l'intéresse n'est pas le fait militaire mais la permanence du geste — des êtres humains cherchant un abri dans un pli de la terre, bien avant que quiconque ne songe à y bâtir un manoir ou à y planter un nom de famille.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 11
   },
   {
@@ -1051,7 +1055,7 @@ const events = [
     title: "Les petits bronzes gallo-romains et les lourds bijoux des invasions barbares",
     description: "<strong>Ier–Ve siècle.</strong> Parmi les vestiges exhumés de cette terre du Nord, Yourcenar relève deux couches d'objets : les petits bronzes votifs de l'époque gallo-romaine — figurines modestes, offrandes à des dieux à demi oubliés — et les lourds bijoux, fibules et torques, du temps des invasions barbares. Le contraste dit tout : la finesse d'un monde romanisé, puis le poids brut d'un monde en recomposition. Yourcenar ne fait pas de l'archéologie ; elle lit dans ces objets la succession des présences humaines sur un même sol, la superposition des civilisations dont chacune efface et conserve à la fois la précédente. C'est sa manière à elle de faire de l'histoire : par la matière, par le toucher, par ce qui reste quand les noms ont disparu.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 12
   },
   {
@@ -1059,7 +1063,7 @@ const events = [
     title: "Mélisande",
     description: "Mélisande — le prénom évoque irrésistiblement la créature de Maeterlinck et de l'opéra de Debussy, être de fuite et d'opacité, celle qu'on ne parvient jamais à saisir. Yourcenar s'arrête sur elle précisément parce qu'elle échappe : on ne sait presque rien de Mélisande, comme on ne sait presque rien de la plupart des femmes qui ont traversé ces siècles. Le parallèle avec <strong>Fernande</strong>, la propre mère de Marguerite, est saisissant : malgré la proximité dans le temps, malgré les photographies et les lettres, Fernande reste elle aussi une figure opaque, reconstruite par fragments et par conjectures. Ce que Yourcenar montre à travers Mélisande, c'est que l'opacité n'est pas un accident de l'histoire lointaine — elle est la condition même de notre rapport aux êtres, fussent-ils nos plus proches. La distance temporelle ne fait qu'officialiser un mystère déjà présent.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 3
   },
   {
@@ -1068,7 +1072,7 @@ const events = [
     title: "Don Juan d'Autriche et le Pourrissoir de l'Escurial",
     description: "<strong>1er octobre 1578.</strong> Don Juan d'Autriche — fils naturel de Charles Quint, vainqueur de Lépante, gouverneur des Pays-Bas espagnols — meurt à trente-trois ans dans un camp militaire près de Namur, probablement du typhus. Son corps est rapatrié en Espagne pour être enseveli à l'Escurial. Yourcenar retient un détail macabre et caractéristique : le <em>Pourrissoir</em>, cette chambre souterraine du monastère où les dépouilles royales achevaient de se décomposer avant d'être transférées dans leurs tombeaux définitifs. L'image concentre tout ce qui fascine Yourcenar dans l'histoire des Habsbourg : la pompe et la pourriture, la grandeur politique et la vérité des corps, l'empire qui se pense éternel et la chair qui ne l'est pas.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 10
   },
   {
@@ -1077,7 +1081,7 @@ const events = [
     title: "Hans Bockhold et la répression des Anabaptistes de Münster",
     description: "<strong>1534–1535.</strong> Hans Bockhold — connu aussi sous le nom de Jan de Leyde ou Jan Bockelson — s'empare de la ville de Münster à la tête d'un mouvement anabaptiste radical, instaurant un régime théocratique millénariste avant d'être repris et exécuté avec une brutalité exemplaire par les forces catholiques et luthériennes coalisées. Yourcenar convoque cette répression comme l'une des grandes violences religieuses de l'Europe du Nord — un épisode qui hante <em>L'Œuvre au Noir</em>, où la mère de Zénon et son mari périssent dans ce cataclysme. Dans <em>Le Labyrinthe du Monde</em>, la référence tisse un fil entre l'histoire familiale des Flandres et la longue mémoire des persécutions idéologiques en Europe.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 4
   },
   {
@@ -1086,7 +1090,7 @@ const events = [
     title: "Le drame de l'Indochine française",
     description: "<strong>1945–1954.</strong> La guerre d'Indochine oppose la France au Viêt Minh de Hô Chi Minh dans une lutte acharnée pour l'indépendance de ce qui deviendra le Viêtnam, le Laos et le Cambodge. Neuf ans de guerre coloniale épuisante, menée dans l'aveuglement politique et militaire, qui se solde par une défaite française totale. Yourcenar y voit l'un des symptômes d'un monde en train de se défaire — l'empire européen confronté à l'irréversibilité de l'histoire.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 8
   },
   {
@@ -1095,7 +1099,7 @@ const events = [
     title: "Les morts de Diên Biên Phu",
     description: "<strong>7 mai 1954.</strong> La chute du camp retranché de Diên Biên Phu marque la défaite militaire décisive de la France face au Viêt Minh du général Giáp. Cinquante-six jours de siège, des milliers de morts, la reddition de douze mille soldats français. Événement traumatique qui signe la fin de la présence française en Indochine et anticipe les Accords de Genève. Yourcenar nomme les morts — geste caractéristique : derrière l'événement géopolitique, les corps individuels, les vies interrompues.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 9
   },
   {
@@ -1104,7 +1108,7 @@ const events = [
     title: "L'insurrection hongroise",
     description: "<strong>Octobre–Novembre 1956.</strong> Soulèvement populaire à Budapest contre le régime communiste soviétique, écrasé dans le sang par l'intervention des chars de l'Armée rouge. Des milliers de morts, deux cent mille réfugiés. L'insurrection révèle la nature répressive du bloc soviétique et plonge la gauche intellectuelle européenne dans une crise profonde. Pour Yourcenar, c'est l'un des visages du monde contemporain — la violence d'État contre les peuples, sous une autre bannière idéologique que celle des fascismes qu'elle a déjà traversés.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 7
   },
   {
@@ -1113,7 +1117,7 @@ const events = [
     title: "L'enlèvement de Ben Bella",
     description: "<strong>Octobre 1956.</strong> L'armée française détourne un avion civil marocain transportant Ahmed Ben Bella et quatre autres dirigeants du FLN en route de Rabat vers Tunis, les faisant arrêter à Alger. Acte de piraterie aérienne contre un pays neutre, l'incident exacerbe considérablement la Guerre d'Algérie. Ben Bella restera emprisonné jusqu'à l'indépendance en 1962, avant de devenir le premier président de l'Algérie libre.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 5
   },
   {
@@ -1122,7 +1126,7 @@ const events = [
     title: "L'équipée de Suez",
     description: "<strong>Octobre–Novembre 1956.</strong> Opération militaire coordonnée de la France, du Royaume-Uni et d'Israël contre l'Égypte, après la nationalisation du Canal de Suez par Nasser. Le mot <em>équipée</em> — entre équipée et mésaventure — trahit le ton de Yourcenar : les deux puissances européennes, sous la pression américaine et soviétique, sont contraintes au retrait. Marqueur de la fin définitive de la puissance impériale européenne, une humiliation déguisée en opération militaire.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 6
   },
   {
@@ -1131,7 +1135,7 @@ const events = [
     title: "Naissance de Marguerite de Crayencour",
     description: "<strong>8 juin 1903, Bruxelles.</strong> Marguerite Cleenewerck de Crayencour naît avenue Louise. Sa mère, Fernande de Cartier de Marchienne, meurt dix jours plus tard des suites de l'accouchement. L'événement qui ouvre le chapitre et lui donne son nom.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 1
   },
   {
@@ -1140,8 +1144,224 @@ const events = [
     title: "« Cette grande masse de vie intelligente... »",
     description: "Au haut du berceau de la nouveau-née se balance une croix d'ivoire ornée d'une tête d'angelot — pieux bibelot que Fernande a probablement fait bénir. L'ivoire provient d'un éléphant tué dans la forêt congolaise, dont les défenses ont été vendues à bas prix par des indigènes à quelque trafiquant belge. La fillette est <em>« déjà prise, comme dans un filet, dans les réalités de la souffrance animale et de la peine humaine »</em>. Vertigineuse remontée dans le temps profond depuis un objet du quotidien bourgeois.",
     book: 1,
-    chapter: "L'accouchement",
+    chapter: "L'Accouchement",
     textOrder: 2
+  },
+  {
+    year: 1366,
+    month: "",
+    title: "« Un certain chevalier Libier de Quartier »",
+    description: "Marié à Ide de Hollogne, Libier de Quartier est <em>« maître à temps »</em> de la cité de Liège en 1366. Dans la principauté épiscopale de Liège, les maîtres à temps étaient les deux bourgmestres élus de la cité — magistrats temporaires choisis par les 32 corporations de métiers, par opposition aux charges héréditaires ou princières. Yourcenar ancre la généalogie familiale dans l'histoire communale liégeoise.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 13
+  },
+  {
+    year: 1099,
+    month: "",
+    title: "L'Ordre Saint-Jean-de-Jérusalem",
+    description: "Louis-Joseph de C., ancêtre de Fernande, <em>« acquiert les droits seigneuriaux sur Flémalle-Grande, jadis commanderie de l'Ordre de Saint-Jean-de-Jérusalem »</em>. Cet ordre religieux et militaire catholique, aussi connu sous le nom de Chevaliers Hospitaliers, fut fondé après la première croisade pour soigner les pèlerins malades en Terre sainte. Devenu puissance militaire majeure, l'Ordre gouverna successivement Rhodes puis Malte, et perdure aujourd'hui sous le nom d'Ordre souverain de Malte.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 14
+  },
+  {
+    year: 1637,
+    month: "16 avril",
+    title: "Le meurtre du bourgmestre La Ruelle",
+    description: "Sébastien La Ruelle, bourgmestre de Liège et chef du parti populaire des Grignoux, est assassiné lors d'un guet-apens organisé par René de Renesse, comte de Warfusée. Yourcenar distingue le <em>« parti des réformes »</em> — les Grignoux, défenseurs des libertés communales — du <em>« côté de la mitre »</em>, fidèle au prince-évêque : les ancêtres de Fernande étaient de ce dernier bord. Cinq bourgmestres liégeois avaient péri sur l'échafaud au XVII<sup>e</sup> siècle et un sixième fut assassiné. <em>« Vers 1637, un échevin noble supposé avoir participé au meurtre du bourgmestre La Ruelle fut déchiré par la foule qui, dit-on, goûta au sang du malheureux et lacéra sa chair à coups de dents. »</em>",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 15
+  },
+  {
+    year: 705,
+    month: "",
+    title: "« Le légendaire Saint Hubert »",
+    description: "Yourcenar présente Liège comme une <em>« cité ecclésiastique fondée, assure-t-on, par le légendaire Saint Hubert »</em>. Successeur de l'évêque Lambert, assassiné vers 705, Hubert fit édifier à Liège une basilique et y transféra les reliques de son prédécesseur. Ce transfert donna naissance à un culte majeur et fit de Liège le siège du diocèse de Tongres-Maastricht. Saint Hubert est considéré comme le fondateur et le premier évêque de la ville.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 16
+  },
+  {
+    year: 1000,
+    month: "",
+    title: "« La splendeur précoce de Liège aux environs de l'an Mille »",
+    description: "Aux environs de l'an Mille, Liège est une des capitales intellectuelles de l'Europe. Sous l'évêque Notger (972–1008), premier prince-évêque, la ville se transforme : il bâtit un palais, fortifie la cité, fonde des écoles qui attirent des étudiants de tout le continent. On surnomme Liège « l'Athènes du Nord ». Sept collégiales et deux abbayes bénédictines forment une couronne d'églises autour de la cathédrale Saint-Lambert. La Renaissance carolingienne (VIII<sup>e</sup>–IX<sup>e</sup> s.) avait relancé la copie de manuscrits et la sculpture d'ivoires sous l'impulsion de Charlemagne ; la Renaissance ottonienne (X<sup>e</sup>–XI<sup>e</sup> s.), sous les empereurs saxons, porte l'orfèvrerie, l'enluminure et l'émaillerie mosane à un éclat qui rivalisait avec Byzance. C'est de cette double efflorescence que naîtront les ivoires, émaux et évangéliaires que Yourcenar célèbre.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 17
+  },
+  {
+    year: 800,
+    month: "",
+    title: "« Ce Charlemagne que nous avons à tort ou à raison naturalisé l'un des nôtres »",
+    description: "Yourcenar évoque Liège comme <em>« berceau de la famille de ce Charlemagne que nous avons à tort ou à raison naturalisé l'un des nôtres, ardemment mêlée au mouvement si français de la première croisade, enrichissant de ses légendes nos chansons de geste »</em>. L'empereur carolingien, couronné en 800, avait des liens avec la région mosane par sa famille, les Pépinides de Herstal, près de Liège.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 18
+  },
+  {
+    year: 1480,
+    month: "",
+    title: "« Son fol peuple dont parle Commynes »",
+    description: "Philippe de Commynes, chroniqueur du XV<sup>e</sup> siècle, décrit le peuple liégeois comme un <em>« fol peuple »</em> — colérique et gai, dévot et anticlérical, fier de sa ville <em>« où il se disait par jour autant de messes qu'à Rome »</em>, mais vivant cinq ans sous le coup de l'excommunication. Commynes fut témoin des guerres entre les Liégeois et Charles le Téméraire, qui mit la ville à sac en 1468.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 19
+  },
+  {
+    year: 1741,
+    month: "",
+    title: "« La musique de Grétry et plus tard celle de César Franck »",
+    description: "Dans son portrait de Liège, Yourcenar cite deux compositeurs majeurs nés dans la cité. André-Ernest-Modeste Grétry (1741–1813), maître de l'opéra-comique français, et César Franck (1822–1890), figure centrale de la musique romantique française. Deux Liégeois qui rayonnèrent bien au-delà de leur ville natale.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 20
+  },
+  {
+    year: 1789,
+    month: "",
+    title: "« L'équipée de Théroigne de Méricourt »",
+    description: "Yourcenar mentionne <em>« la flambée d'enthousiasme causée par la Déclaration des Droits de l'Homme, et jusqu'à l'équipée de Théroigne de Méricourt »</em>. Anne-Josèphe Terwagne, dite Théroigne de Méricourt (1762–1817), née à Marcourt dans la principauté de Liège, fut surnommée « la Belle Liégeoise ». Figure féminine majeure de la Révolution française, elle réclama l'égalité politique des femmes et appela à la création de « phalanges d'amazones ». Fouettée publiquement par des femmes jacobines en 1793, elle sombra dans la folie et passa vingt-trois ans internée à la Salpêtrière.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 21
+  },
+  {
+    year: 1110,
+    month: "",
+    title: "« Les fonts baptismaux de Saint-Barthélemy »",
+    description: "Yourcenar s'arrête sur les fonts baptismaux de l'église Saint-Barthélemy, <em>« sculptés vers 1110 »</em>, œuvre d'un certain Renier de Huy. Ce chef-d'œuvre de l'art mosan, en laiton, représente des scènes de baptême d'un réalisme saisissant. Yourcenar y voit un art qui <em>« semble en avance de quatre siècles ou en retard d'un millénaire »</em> — prélude aux drapés et nus savants de Ghiberti, et en même temps rappel des bas-reliefs de la Rome d'Auguste.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 22
+  },
+  {
+    year: 1210,
+    month: "",
+    title: "« Le panthéiste David de Dinant »",
+    description: "Yourcenar évoque un <em>« philosophe du pays de Liège qui pensa à l'antique un siècle plus tard »</em> — David de Dinant (~1160–ap. 1215), né à Dinant dans la principauté de Liège. Inspiré d'Anaximandre et de Sénèque, il enseigna un panthéisme radical : Dieu, l'intellect et la matière sont une seule et même substance. <em>« Quis est Deus? Mens Universi. »</em> Ses Quaternuli furent condamnés et brûlés par le synode de Paris en 1210 (Yourcenar écrit qu'il fut lui-même brûlé, mais il semble avoir fui). Thomas d'Aquin et Albert le Grand le réfutèrent ; Giordano Bruno, quatre siècles plus tard, revendiqua explicitement sa thèse.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 23
+  },
+  {
+    year: 1248,
+    month: "",
+    title: "« Le Cologne d'Albert le Grand »",
+    description: "Yourcenar situe Liège <em>« entre le Cologne d'Albert le Grand et le Paris d'Abélard »</em>, étape sur les routes médiévales de l'esprit. Albert le Grand (Albertus Magnus, ~1200–1280), dominicain, fonda en 1248 le studium generale de Cologne, où il forma Thomas d'Aquin. Philosophe universel — théologie, sciences naturelles, alchimie —, il fut le premier à commenter l'ensemble de l'œuvre d'Aristote en latin. Cologne et Liège, toutes deux villes d'Empire sur le Rhin et la Meuse, partageaient un même espace intellectuel.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 24
+  },
+  {
+    year: 1115,
+    month: "",
+    title: "« Le Paris d'Abélard »",
+    description: "L'autre pôle du triangle intellectuel dans lequel Yourcenar inscrit Liège. Pierre Abélard (1079–1142) enseigna la dialectique à Paris dès 1102, attirant des foules d'étudiants et posant les fondations de ce qui deviendrait l'Université. Célèbre pour sa méthode du Sic et Non — confronter les autorités contradictoires pour forger un jugement —, il est aussi inséparable de son histoire d'amour avec Héloïse. <em>« En contact avec Rome et Clairvaux par le va-et-vient des clercs et des hommes d'Église, Liège reste jusqu'à la fin du XIII<sup>e</sup> siècle une étape sur les routes de l'esprit. »</em>",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 25
+  },
+  {
+    year: 1312,
+    month: "août",
+    title: "« Leur Oradour »",
+    description: "Yourcenar décrit l'histoire liégeoise comme <em>« le perpétuel jeu de bascule entre Grands et Petits »</em> — les Grands étant les lignages patriciens, familles enrichies par le commerce, alliées à la noblesse et au prince-évêque ; les Petits, les artisans des corporations de métiers, le bas clergé, le menu peuple. Dans la nuit du 3 au 4 août 1312, les Petits enferment et brûlent vifs environ deux cents chevaliers et patriciens réfugiés dans la collégiale Saint-Martin. L'événement, connu sous le nom de Måle Saint-Martin, est l'un des épisodes les plus sanglants des luttes sociales de l'Europe médiévale. Dix échevins sur quatorze périssent ; l'aristocratie liégeoise est décapitée. Yourcenar y voit l'Oradour de Liège — comparaison vertigineuse qui rapproche un massacre médiéval du crime nazi de 1944.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 26
+  },
+  {
+    year: 1408,
+    month: "",
+    title: "« L'évêque Jean de Bavière jette à la Meuse les meneurs des métiers »",
+    description: "Après la bataille d'Othée (23 septembre 1408), où 6 000 à 8 000 miliciens liégeois sont massacrés par les armées coalisées de Bourgogne et de Hainaut, le prince-évêque Jean de Bavière exerce une répression féroce. Yourcenar écrit qu'il <em>« jette à la Meuse les meneurs des métiers, leurs femmes et des prêtres ayant pris leur parti »</em>. Toutes les chartes et libertés de la cité sont supprimées.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 27
+  },
+  {
+    year: 1468,
+    month: "octobre",
+    title: "« De froid, de faim et de sommeil »",
+    description: "Charles le Téméraire met Liège à sac en octobre 1468, après avoir forcé Louis XI à y assister. Les Petits fuient dans les <em>« sauvages solitudes de l'Ardenne »</em> et y meurent <em>« de froid, de faim et de sommeil »</em>, ou sont égorgés par des seigneurs rebelles soucieux de rentrer en grâce. Yourcenar note que Libert de Quartier et sa femme Yvette de Rutinghem — les ancêtres de Fernande — approuvèrent sans doute cette façon de <em>« faire maison nette »</em>.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 28
+  },
+  {
+    year: 1477,
+    month: "",
+    title: "« Les Ducs de Bourgogne »",
+    description: "Yourcenar décrit les Grands liégeois s'appuyant sur <em>« les Ducs de Bourgogne, chez lesquels la féodalité s'enveloppe déjà d'une fantastique splendeur de soleil couchant, dont ils légueront la nostalgie aux Habsbourg »</em>. En 1477, Marie de Bourgogne, fille de Charles le Téméraire, épouse Maximilien de Habsbourg : les territoires bourguignons passent aux Habsbourg, et avec eux toute une culture de cour — l'Ordre de la Toison d'or, le cérémonial féodal — qui deviendra le modèle du pouvoir habsbourgeois. La « nostalgie » est celle d'une grandeur féodale déjà crépusculaire.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 29
+  },
+  {
+    year: 1568,
+    month: "juin",
+    title: "« Les Gueux » et « le comte Egmont »",
+    description: "Yourcenar élargit le tableau à l'ensemble des Pays-Bas : <em>« grands seigneurs rebelles, les Gueux se sentent soutenus par le petit peuple des Flandres, et en tirent gloire ; le comte Egmont est pleuré par la populace de Bruxelles »</em>. Les Gueux — nobles néerlandais qui s'opposèrent à la politique de Philippe II d'Espagne — adoptèrent leur surnom avec fierté. Lamoral, comte d'Egmont (1522–1568), héros de Saint-Quentin et Gravelines, fut décapité à Bruxelles le 5 juin 1568 sur ordre du duc d'Albe. La même dynamique Grands-Petits que Yourcenar décrit à Liège se rejoue à l'échelle des Pays-Bas.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 30
+  },
+  {
+    year: 1540,
+    month: "août",
+    title: "« Un certain Calvin »",
+    description: "La Réforme effleure Liège sans s'y implanter. Yourcenar note que <em>« la peste hérétique paraît chez ces Liégeois moins virulente qu'ailleurs »</em> — on se débarrasse vite des Anabaptistes, dont les doctrines séduisent les misérables. Puis ce détail généalogique : la veuve d'un de ces insurgés s'en va à Strasbourg et y épouse <em>« un certain Calvin »</em>. Il s'agit d'Idelette de Bure, veuve de l'anabaptiste Jean Stordeur de Liège, que Jean Calvin épousa en août 1540.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 31
+  },
+  {
+    year: 1585,
+    month: "août",
+    title: "La reprise d'Anvers",
+    description: "Lors des troubles du siècle suivant, la principauté ecclésiastique reste fidèle au <em>« maître étranger »</em> — le roi d'Espagne Philippe II — et fait ainsi de bonnes affaires : les piques des Gardes Wallonnes furent peut-être forgées à Liège, et inversement celles des soldats de Guillaume d'Orange, la contrebande d'armes étant une activité quasi officielle. <em>« Quand en 1585 Jean de Quartier convole avec Barbe du Château, fille d'un commissaire de la Cité, la reprise d'Anvers et de L'Écluse par les troupes espagnoles fut sans doute l'occasion de joyeux commentaires des hommes de la noce ; les femmes, elles, je suppose, s'occupaient surtout de la toilette de la mariée. »</em> La chute d'Anvers (août 1585), reprise par Alexandre Farnèse, marque la fin de la révolte des Pays-Bas méridionaux.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 32
+  },
+  {
+    year: 1678,
+    month: "",
+    title: "Le Traité de Nimègue",
+    description: "Une génération plus tard, le fils de Jean épouse Isabelle de Sclessin, mais le contexte a changé : <em>« la cherté et les intrigues de l'étranger ont provoqué des troubles »</em>. Les protestants des Provinces-Unies (la République néerlandaise) et le Roi Très Chrétien (Louis XIV de France) soudoient les revendications des Petits — Liège est prise en étau entre les deux puissances rivales, chacune cherchant à instrumentaliser les Grignoux. Mais les meneurs <em>« finiront mal »</em>, et les négociateurs du traité de Nimègue (1678), qui règle la guerre de Hollande, refusent de recevoir leurs émissaires. L'Évêque — Maximilien-Henri de Bavière, prince-évêque francophile — a gagné <em>« définitivement, c'est à dire pour un siècle »</em>. Sous l'absolutisme, le Liège rococo coule des jours tranquilles, même si les élégants <em>« Chiroux »</em> coiffés en queue d'hirondelle se font encore conspuer par les <em>« Grignoux »</em> en frac ou en bourgeron.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 33
+  },
+  {
+    year: 1750,
+    month: "",
+    title: "Petits et Grands",
+    description: "À Liège, les Grands — lignages patriciens, prince-évêque, haut clergé — et les Petits — artisans des corporations de métiers, ouvriers, bas clergé — restent liés par ce que Yourcenar appelle une <em>« symbiose hostile »</em>. Au XVIIIe siècle, la principauté est l'un des plus grands centres armuriers d'Europe : l'évêque en tire ses revenus, les ancêtres de Fernande remplissent les coffres, et les ouvriers dépendent des guerres et des modes lointaines. Les princes-évêques de la famille s'emploient à étouffer chez les Petits les idées nouvelles venues de France — mais l'industrie est devenue un dogme laïque auquel personne ne contredit.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 34
+  },
+  {
+    year: 1756,
+    month: "",
+    title: "La Guerre de Sept Ans",
+    description: "Le conflit mondial de 1756–1763 oppose la France et l'Autriche à la Prusse et la Grande-Bretagne sur trois continents. Pour Liège, c'est surtout une manne : Yourcenar note que la subsistance des fabricants d'armes dépend du bon état des affaires mondiales — mousquets, pistolets d'arçon, fines lames à pommeau ciselé. La principauté, officiellement neutre, vend à tous les belligérants. Yourcenar glisse une série d'acheteurs vertigineuse : les armées de la Guerre de Sept Ans, le bandit Cartouche, le Werther de Goethe qui se sert d'un pistolet pour se brûler la cervelle, les gentilshommes des salons de Bruxelles.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 35
+  },
+  {
+    year: 1760,
+    month: "",
+    title: "Voltaire contre les fêtes chômées",
+    description: "Yourcenar situe les ancêtres de Fernande dans un siècle où Voltaire <em>« se fait l'écho de la voix publique en protestant contre l'Église qui, par ses fêtes chômées, prive l'ouvrier de jours de travail »</em>. La critique des jours fériés religieux était un cheval de bataille des Lumières : dans l'<em>Encyclopédie</em>, les physiocrates calculaient que la France perdait des millions de journées de travail par an. En 1778, la suppression de nombreuses fêtes chômées fut effectivement décrétée en France. L'industrie — y compris les armes à feu — est devenue <em>« un dogme laïque qui aura la vie dure »</em>.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 36
   }
 ];
 
