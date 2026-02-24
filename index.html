@@ -6,6 +6,8 @@
 <title>Le Fil du Labyrinthe — Références Historiques</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
   :root {
     --cream: #f5f0e8;
@@ -992,6 +994,64 @@
     .empty-state { font-size: 1rem; padding: 2rem; }
     .event-count { font-size: 0.75rem; margin-top: 1.25rem; padding-top: 1rem; }
   }
+  /* ─── MAP ────────────────────────────────────────────────────────────────── */
+  .map-section {
+    margin-top: 0.75rem;
+  }
+
+  .map-container {
+    margin-top: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    height: 450px;
+  }
+
+  #map {
+    height: 100%;
+    width: 100%;
+    background: var(--parchment);
+  }
+
+  .map-tooltip {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    border-radius: 2px;
+    padding: 0.35rem 0.7rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    max-width: 350px;
+  }
+
+  .map-tooltip.leaflet-tooltip-top::before {
+    border-top-color: var(--ink);
+  }
+
+  .map-custom-popup .leaflet-popup-content-wrapper {
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    background: var(--parchment);
+    padding: 0;
+  }
+
+  .map-custom-popup .leaflet-popup-content {
+    margin: 0.75rem;
+    font-family: 'EB Garamond', serif;
+  }
+
+  .map-custom-popup .leaflet-popup-tip {
+    background: var(--parchment);
+  }
+
+  @media (max-width: 700px) {
+    .map-section { }
+    .map-container { height: 350px; }
+  }
+
 </style>
 </head>
 <body>
@@ -1028,6 +1088,11 @@
     <div class="density-labels">
       <span class="density-label" id="density-label-start"></span>
       <span class="density-label" id="density-label-end"></span>
+    </div>
+  </div>
+  <div class="map-section">
+    <div class="map-container open" id="map-container">
+      <div id="map"></div>
     </div>
   </div>
   <div id="timeline"></div>
@@ -1841,8 +1906,202 @@ function downloadPage() {
 }
 
 // ─── INIT ────────────────────────────────────────────────────────────────────
+// ─── MAP ──────────────────────────────────────────────────────────────────────
+const eventCoords = {
+  // textOrder: [lat, lng, locationName]
+  1: [50.85, 4.35, "Bruxelles"],                    // Naissance Marguerite
+  2: [50.60, 5.46, "Flémalle"],                      // Ivoire
+  3: [50.64, 5.57, "Liège"],                          // Mélisande (Liège cultural world)
+  4: [52.00, 7.63, "Münster"],                        // Anabaptistes
+  5: [36.75, 3.06, "Alger"],                          // Ben Bella
+  6: [30.00, 32.57, "Suez"],                          // Suez
+  7: [47.50, 19.08, "Budapest"],                      // Hongrie
+  8: [16.00, 108.00, "Indochine"],                    // Indochine
+  9: [21.38, 103.02, "Diên Biên Phu"],               // Diên Biên Phu
+  10: [40.59, -4.15, "El Escorial"],                  // Don Juan d'Autriche
+  11: [50.60, 5.46, "Flémalle"],                      // Libier de Quartier
+  12: [31.77, 35.23, "Jérusalem"],                    // Ordre Saint-Jean
+  13: [50.64, 5.57, "Liège"],                         // Fonts baptismaux
+  14: [50.26, 4.91, "Dinant"],                        // David de Dinant
+  15: [50.64, 5.57, "Liège"],                         // Meurtre La Ruelle
+  16: [50.64, 5.57, "Liège"],                         // Saint Hubert
+  17: [50.64, 5.57, "Liège"],                         // Splendeur an Mille
+  18: [50.77, 6.08, "Aix-la-Chapelle"],              // Charlemagne
+  19: [50.64, 5.57, "Liège"],                         // Commynes
+  20: [50.64, 5.57, "Liège"],                         // Grétry/Franck
+  21: [48.86, 2.35, "Paris"],                         // Théroigne
+  22: [50.60, 5.46, "Flémalle"],                      // Citadelle celtes
+  23: [50.60, 5.46, "Flémalle"],                      // Bronzes gallo-romains
+  24: [50.94, 6.96, "Cologne"],                       // Albert le Grand
+  25: [48.86, 2.35, "Paris"],                         // Abélard
+  26: [50.64, 5.57, "Liège"],                         // Oradour / Mal Saint-Martin
+  27: [50.64, 5.57, "Liège"],                         // Jean de Bavière
+  28: [50.64, 5.57, "Liège"],                         // De froid (sac de Liège)
+  29: [47.32, 5.04, "Dijon"],                         // Ducs de Bourgogne
+  30: [50.85, 4.35, "Bruxelles"],                     // Gueux / Egmont
+  31: [48.58, 7.75, "Strasbourg"],                    // Calvin
+  32: [51.22, 4.40, "Anvers"],                        // Reprise d'Anvers
+  33: [51.84, 5.87, "Nimègue"],                       // Traité de Nimègue
+  34: [50.64, 5.57, "Liège"],                         // Petits et Grands
+  35: [50.64, 5.57, "Liège"],                         // Guerre de Sept Ans
+  36: [50.64, 5.57, "Liège"],                         // Voltaire fêtes
+  37: [50.60, 5.46, "Flémalle"],                      // Thierry de Flémalle
+  38: [50.60, 5.46, "Flémalle"],                      // Légionnaire tongre
+  39: [50.94, 6.96, "Cologne"],                       // Hadrien
+  40: [50.60, 5.46, "Flémalle"],                      // Chasse sauvage
+  41: [50.60, 5.50, "Seraing"],                       // Locomotive
+  42: [50.49, 5.87, "Spa"],                           // Pierre le Grand
+  43: [56.84, 60.60, "Iekaterinbourg"],              // Cave Ekaterinenbourg
+  44: [50.49, 5.87, "Spa"],                           // Joseph II
+  45: [59.33, 18.07, "Stockholm"],                    // Gustave III
+  46: [50.64, 5.57, "Liège"],                         // Casanova
+  47: [50.60, 5.46, "Flémalle"],                      // Guerre en dentelles
+};
+
+let map = null;
+let mapMarkers = [];
+
+function initMap() {
+  map = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true,
+  }).setView([50.5, 5.5], 7);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 18,
+  }).addTo(map);
+
+  renderMapMarkers();
+  setTimeout(() => map.invalidateSize(), 200);
+}
+
+function renderMapMarkers() {
+  if (!map) return;
+
+  // Clear existing markers
+  mapMarkers.forEach(m => map.removeLayer(m));
+  mapMarkers = [];
+
+  // Group events by location
+  const locationGroups = {};
+
+  events.forEach((e, idx) => {
+    const coords = eventCoords[e.textOrder];
+    if (!coords) return;
+
+    const isFiltered = activeChapters.has(e.chapter) && matchesSearch(e);
+    if (!isFiltered) return;
+
+    const key = `${coords[0]},${coords[1]}`;
+    if (!locationGroups[key]) {
+      locationGroups[key] = { lat: coords[0], lng: coords[1], location: coords[2], events: [] };
+    }
+    locationGroups[key].events.push({ ...e, dataIndex: idx });
+  });
+
+  Object.values(locationGroups).forEach(group => {
+    const primaryColor = bookColors[group.events[0].book];
+    const count = group.events.length;
+    const markerSize = count > 1 ? Math.min(28 + count * 2, 40) : 20;
+
+    const icon = L.divIcon({
+      className: 'custom-marker',
+      html: `<div style="
+        width: ${markerSize}px;
+        height: ${markerSize}px;
+        border-radius: 50%;
+        background: ${count > 1 ? primaryColor : primaryColor};
+        border: 2px solid #f5f0e8;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #f5f0e8;
+        font-family: 'Cormorant SC', serif;
+        font-size: ${count > 1 ? '0.85rem' : '0'};
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s;
+      ">${count > 1 ? count : ''}</div>`,
+      iconSize: [markerSize, markerSize],
+      iconAnchor: [markerSize / 2, markerSize / 2],
+    });
+
+    // Build popup content
+    const locationLabel = `<div style="font-family:'Cormorant SC',serif; font-size:0.85rem; color:#8a7f6e; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; padding-bottom:4px; border-bottom:1px solid #e0d9cc;">${group.location}</div>`;
+
+    const items = group.events.map(e => {
+      const displayYear = e.year < 0 ? `${Math.abs(e.year)} av. J.-C.` : e.year;
+      const color = bookColors[e.book];
+      const plainTitle = e.title.replace(/<[^>]*>/g, '');
+      return `<button onclick="map.closePopup(); scrollToEvent(${e.dataIndex})" style="
+        display: block;
+        width: 100%;
+        padding: 0.4rem 0.6rem;
+        font-family: 'EB Garamond', serif;
+        font-style: italic;
+        font-size: 0.95rem;
+        color: #1a1610;
+        background: none;
+        border: none;
+        border-left: 3px solid ${color};
+        text-align: left;
+        cursor: pointer;
+        transition: background 0.1s;
+        line-height: 1.3;
+        margin-bottom: 2px;
+      " onmouseover="this.style.background='rgba(0,0,0,0.04)'" onmouseout="this.style.background='none'">
+        <span style="font-style:normal; font-family:'Cormorant SC',serif; font-size:0.8rem; opacity:0.6; margin-right:0.3rem;">${displayYear}</span>${plainTitle}
+      </button>`;
+    }).join('');
+
+    const popupContent = locationLabel + items;
+
+    const marker = L.marker([group.lat, group.lng], { icon })
+      .bindPopup(popupContent, {
+        maxWidth: 320,
+        maxHeight: 300,
+        className: 'map-custom-popup',
+      })
+      .addTo(map);
+
+    // For single events, also bind a tooltip (hover label like density strip)
+    if (count === 1) {
+      const e = group.events[0];
+      const displayYear = e.year < 0 ? `${Math.abs(e.year)} av. J.-C.` : e.year;
+      const plainTitle = e.title.replace(/<[^>]*>/g, '');
+      marker.bindTooltip(`${displayYear} — ${plainTitle}`, {
+        direction: 'top',
+        offset: [0, -markerSize / 2],
+        className: 'map-tooltip',
+      });
+    } else {
+      marker.bindTooltip(`${group.location} — ${count} réf.`, {
+        direction: 'top',
+        offset: [0, -markerSize / 2],
+        className: 'map-tooltip',
+      });
+    }
+
+    mapMarkers.push(marker);
+  });
+
+  // Keep initial view on Belgium — user can zoom out to find distant markers
+}
+
+// Update map when filters change
+const originalRender = render;
+render = function() {
+  originalRender();
+  if (map) {
+    renderMapMarkers();
+  }
+};
+
 buildLegend();
 render();
+initMap();
 </script>
 </body>
 </html>
