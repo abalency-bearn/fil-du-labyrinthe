@@ -1052,6 +1052,37 @@
     .map-container { height: 350px; }
   }
 
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .back-to-top.visible {
+    opacity: 0.7;
+    pointer-events: auto;
+  }
+
+  .back-to-top:hover {
+    opacity: 1;
+  }
 </style>
 </head>
 <body>
@@ -1124,9 +1155,9 @@ const events = [
     textOrder: 12
   },
   {
-    year: 1550,
+    year: 1892,
     title: "Mélisande",
-    description: "Mélisande — le prénom évoque irrésistiblement la créature de Maeterlinck et de l'opéra de Debussy, être de fuite et d'opacité, celle qu'on ne parvient jamais à saisir. Yourcenar s'arrête sur elle précisément parce qu'elle échappe : on ne sait presque rien de Mélisande, comme on ne sait presque rien de la plupart des femmes qui ont traversé ces siècles. Le parallèle avec <strong>Fernande</strong>, la propre mère de Marguerite, est saisissant : malgré la proximité dans le temps, malgré les photographies et les lettres, Fernande reste elle aussi une figure opaque, reconstruite par fragments et par conjectures. Ce que Yourcenar montre à travers Mélisande, c'est que l'opacité n'est pas un accident de l'histoire lointaine — elle est la condition même de notre rapport aux êtres, fussent-ils nos plus proches. La distance temporelle ne fait qu'officialiser un mystère déjà présent.",
+    description: "Maurice Maeterlinck (1862–1949), dramaturge belge et prix Nobel de littérature (1911), publie <em>Pelléas et Mélisande</em> en 1892 ; Debussy en tire son opéra en 1902. Mélisande — le prénom évoque irrésistiblement cette créature de fuite et d'opacité, celle qu'on ne parvient jamais à saisir. Yourcenar s'arrête sur elle précisément parce qu'elle échappe : on ne sait presque rien de Mélisande, comme on ne sait presque rien de la plupart des femmes qui ont traversé ces siècles. Le parallèle avec <strong>Fernande</strong>, la propre mère de Marguerite, est saisissant : malgré la proximité dans le temps, malgré les photographies et les lettres, Fernande reste elle aussi une figure opaque, reconstruite par fragments et par conjectures. Ce que Yourcenar montre à travers Mélisande, c'est que l'opacité n'est pas un accident de l'histoire lointaine — elle est la condition même de notre rapport aux êtres, fussent-ils nos plus proches. La distance temporelle ne fait qu'officialiser un mystère déjà présent.",
     book: 1,
     chapter: "L'Accouchement",
     textOrder: 3
@@ -1526,6 +1557,204 @@ const events = [
     book: 1,
     chapter: "La Tournée des Châteaux",
     textOrder: 47
+  },
+  {
+    year: 1500,
+    month: "",
+    title: "Charles Quint et les armuriers des Pays-Bas",
+    description: "Charles Quint (1500–1558), empereur du Saint-Empire romain germanique et souverain de l'Empire espagnol, né à Gand — « Charles de Gand » comme l'appelle Yourcenar. Augsbourg était le centre de la manufacture d'armes européenne au XVI<sup>e</sup> siècle, siège de la célèbre dynastie d'armuriers Helmschmid qui fournissait les Habsbourg. La légende familiale des Bilquin veut que l'un d'eux ait fabriqué pour Charles une cuirasse ou une épée, mais celui-ci se fournissait surtout à Augsbourg.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 48
+  },
+  {
+    year: 855,
+    month: "",
+    title: "Lothaire et les cartulaires des Baillencourt",
+    description: "Lothaire II (835–869), roi de Lotharingie — ce territoire entre la France et les terres germaniques dont descendent les régions modernes de la Lorraine et des Pays-Bas. Les cartulaires sont des registres manuscrits médiévaux consignant les donations foncières, les privilèges et les actes juridiques des monastères et des églises ; figurer dans l'un d'eux depuis l'époque de Lothaire situe les racines de la famille Baillencourt au IX<sup>e</sup> siècle.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 49
+  },
+  {
+    year: 1346,
+    month: "26 août",
+    title: "La bataille de Crécy et le sobriquet de Courcol",
+    description: "<strong>26 août 1346.</strong> La guerre de Cent Ans (1337–1453) est une série de conflits entre les royaumes d'Angleterre et de France pour la couronne française, déclenchée lorsqu'Édouard III d'Angleterre revendiqua le trône par la lignée capétienne de sa mère. Elle transforma les deux nations, dévastant la France par des invasions récurrentes, la famine et la peste, et consolida en définitive l'identité nationale française. La bataille de Crécy fut l'un de ses premiers et plus catastrophiques engagements : les archers anglais sous Édouard III écrasèrent la cavalerie française, et les chevaliers français, chargeant en désordre, piétinèrent leurs propres arbalétriers génois et leur infanterie dans la confusion. L'une des pires défaites françaises de la période médiévale. Un ancêtre de la lignée maternelle de Yourcenar reçut le sobriquet de « Courcol » sur ce champ de bataille.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 50
+  },
+  {
+    year: 1349,
+    month: "",
+    title: "Sir Hugh Le Despenser et Edward — Tewkesbury Abbey",
+    description: "Sir Hugh Le Despenser (v.1308–1349) et son fils Edward (v.1336–1375) appartenaient à la puissante famille Despenser, grands seigneurs féodaux anglais dont les générations précédentes avaient été les favoris d'Édouard II et furent exécutés pour cela. Hugh rétablit le prestige familial par le service militaire, combattant à Crécy ; Edward poursuivit à Poitiers (1356), autre grande victoire anglaise de la guerre de Cent Ans. Leurs tombeaux subsistent à l'abbaye de Tewkesbury, dans le Gloucestershire. Sacheverell Sitwell (1897–1988), écrivain et critique d'art anglais, frère d'Edith et d'Osbert, connu pour ses études sur l'art et l'architecture baroques.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 51
+  },
+  {
+    year: 1735,
+    month: "",
+    title: "Le Prince de Ligne à Beloeil",
+    description: "Charles-Joseph, prince de Ligne (1735–1814), maréchal, diplomate et homme de lettres d'origine belge, considéré comme l'une des figures les plus cultivées de l'Europe du XVIII<sup>e</sup> siècle. Son château de Beloeil, dans le Hainaut, était un centre de la vie culturelle aristocratique. Ses mémoires et sa correspondance (plus de 40 volumes) lui valurent d'être comparé à Voltaire.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 52
+  },
+  {
+    year: 1780,
+    month: "",
+    title: "Charles de Lorraine à Mariemont",
+    description: "Charles-Alexandre de Lorraine (1712–1780), beau-frère de l'impératrice Marie-Thérèse, fut gouverneur des Pays-Bas autrichiens de 1744 jusqu'à sa mort. Sa résidence de Mariemont, près de Charleroi, était un ancien pavillon de chasse qu'il transforma en domaine majeur. Madame de Meuse, dite « la Pelote », était sa maîtresse officielle de longue date. Elle recevait 40 000 livres par an à une époque où le salaire annuel d'un maçon était de 200.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 53
+  },
+  {
+    year: 1792,
+    month: "",
+    title: "Dumouriez, Valmy, et l'occupation de Marchienne",
+    description: "Charles-François Dumouriez (1739–1823), général français. En 1792, les monarchies européennes — la Prusse et l'Autriche en tête — formèrent une coalition pour écraser la Révolution française et restaurer Louis XVI. Le duc de Brunswick, commandant l'armée prussienne, publia un manifeste menaçant Paris de destruction totale si la famille royale était maltraitée — ce qui ne fit qu'attiser la fureur révolutionnaire. L'armée prussienne envahit la France par la Champagne, mais fut arrêtée à Valmy (20 septembre 1792) par les troupes de Dumouriez et de Kellermann. Victoire davantage symbolique que tactique — une canonnade plus qu'une bataille rangée — elle prouva que l'armée révolutionnaire pouvait tenir face aux armées professionnelles des monarchies. Goethe, présent dans le camp prussien, aurait dit ce soir-là : « De ce lieu et de ce jour date une nouvelle époque dans l'histoire du monde. » Dumouriez mena ensuite l'armée française dans les Pays-Bas autrichiens. Le château de Marchienne, site stratégique, fut occupé par les troupes françaises. Il fit défection aux Autrichiens en 1793.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 54
+  },
+  {
+    year: 1793,
+    month: "",
+    title: "Saint-Just, commissaire aux armées du Nord",
+    description: "Louis Antoine de Saint-Just (1767–1794), plus jeune membre du Comité de salut public, proche allié de Robespierre, envoyé comme <em>commissaire aux armées du Nord</em> en 1793–94 pour imposer la discipline dans les forces républicaines. Connu pour sa rigueur implacable et son allure juvénile — il avait 26 ans. Ses missions dans le Nord, notamment à Strasbourg et sur le front des Flandres, sont documentées par sa correspondance avec le Comité. Guillotiné avec Robespierre en thermidor (juillet 1794).",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 55
+  },
+  {
+    year: 1791,
+    month: "",
+    title: "Le prêtre réfractaire caché dans la chapelle",
+    description: "Après la Constitution civile du clergé (1790), les prêtres qui refusèrent de prêter le serment de fidélité au nouvel ordre constitutionnel furent appelés <em>prêtres réfractaires</em> ou <em>non-assermentés</em>. Ils risquaient l'arrestation, la déportation et l'exécution ; beaucoup furent cachés par des familles sympathisantes tout au long de la période révolutionnaire, célébrant la messe en secret.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 56
+  },
+  {
+    year: 1794,
+    month: "",
+    title: "Jemappes, Fleurus, et l'annexion de la Belgique",
+    description: "La bataille de Jemappes (6 novembre 1792) et la bataille de Fleurus (26 juin 1794) — toutes deux livrées près de Charleroi dans les Pays-Bas autrichiens pendant la guerre de la Première Coalition (1792–1797), premier grand conflit militaire des guerres de la Révolution française, dans lequel une coalition de monarchies européennes tenta d'écraser la jeune République française. La France remporta les deux de manière décisive. Jemappes ouvrit la Belgique à la conquête française ; Fleurus la scella définitivement. Le 1<sup>er</sup> octobre 1795, les Pays-Bas autrichiens furent formellement annexés par la France, devenant des départements français — ils le resteraient jusqu'à la défaite de Napoléon en 1815. « Kaiserlick » (de l'allemand <em>Kaiserlich</em>) était le terme courant pour désigner les soldats impériaux autrichiens.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 57
+  },
+  {
+    year: 1789,
+    month: "",
+    title: "La Révolution française",
+    description: "La Révolution française éclate en 1789 dans un pays en crise financière, aggravée par les dépenses de la guerre d'indépendance américaine et par des récoltes catastrophiques. Louis XVI convoque les États généraux — assemblée des trois ordres (clergé, noblesse, tiers état) — pour la première fois depuis 1614. Le tiers état se proclame Assemblée nationale, prête le serment du Jeu de Paume (20 juin 1789), et la Bastille tombe le 14 juillet. En quelques mois, les privilèges féodaux sont abolis, la Déclaration des droits de l'homme est adoptée, et les biens du clergé sont nationalisés. La monarchie constitutionnelle instaurée en 1791 ne survit que deux ans : la tentative de fuite du roi (Varennes, juin 1791), la guerre contre l'Autriche et la Prusse (avril 1792), et l'insurrection du 10 août 1792 précipitent la chute de la royauté. La République est proclamée le 22 septembre 1792. En quatre ans, la France passe de la monarchie absolue à la république révolutionnaire.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 58
+  },
+  {
+    year: 1793,
+    month: "21 janvier",
+    title: "L'exécution de Louis XVI",
+    description: "<strong>21 janvier 1793.</strong> Le procès de Louis XVI devant la Convention nationale s'ouvre en décembre 1792. La question divise profondément l'assemblée. Les Girondins — députés souvent issus de la bourgeoisie provinciale, partisans d'une république modérée et fédéraliste — cherchent à sauver le roi ou à en appeler au peuple par référendum. Les Montagnards — regroupés autour de Robespierre, Danton et Marat, siégeant sur les bancs élevés de la Convention — poussent à l'exécution. Saint-Just, à vingt-cinq ans, prononce un discours décisif : il argue que le roi ne peut être jugé comme un citoyen mais doit être traité en ennemi, et que le juger c'est déjà douter de la République. Louis est condamné à mort par 387 voix contre 334. Il est guillotiné le 21 janvier 1793 sur la place de la Révolution (aujourd'hui place de la Concorde).",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 59
+  },
+  {
+    year: 1793,
+    month: "1793–1794",
+    title: "La Terreur et le Comité de salut public",
+    description: "<strong>1793–1794.</strong> Face à l'invasion étrangère, aux soulèvements intérieurs (Vendée, fédéralisme girondin) et à la crise économique, la Convention instaure en septembre 1793 un gouvernement révolutionnaire fondé sur la terreur comme instrument de salut public. Le Comité de salut public — douze membres dont Robespierre, Saint-Just, Couthon et Carnot — concentre le pouvoir exécutif. Le Tribunal révolutionnaire juge et condamne à un rythme croissant. Les factions révolutionnaires sont éliminées l'une après l'autre : les Hébertistes d'abord (partisans de la déchristianisation radicale et du contrôle économique, emmenés par Jacques-René Hébert, journaliste du <em>Père Duchesne</em>), guillotinés en mars 1794 ; puis les Dantonistes (partisans de la clémence et de la fin de la Terreur, regroupés autour de Georges Danton et de Camille Desmoulins, ami d'enfance de Robespierre), guillotinés en avril 1794. La logique de la Terreur dévore ses propres architectes : chaque victoire contre une faction renforce les survivants tout en rétrécissant leur base.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 60
+  },
+  {
+    year: 1794,
+    month: "27 juillet",
+    title: "Thermidor — la chute de Robespierre",
+    description: "<strong>9 thermidor an II (27 juillet 1794).</strong> Une coalition hétéroclite de conventionnels — certains par conviction modérée, d'autres par peur d'être les prochains sur la liste — vote la mise en accusation de Robespierre, Saint-Just et leurs alliés. Saint-Just, qui avait préparé un discours pour cette séance, est interrompu par Tallien et ne peut en lire que les premiers paragraphes. Le texte, retrouvé après son arrestation, révèle un ton nettement plus conciliant que celui de Robespierre la veille : il ouvre par « Je ne suis d'aucune faction ; je les combattrai toutes », accuse nommément Billaud-Varenne et Collot d'Herbois d'avoir accaparé le pouvoir au sein du Comité, mais ne demande pas leur arrestation — seulement qu'ils se justifient. Là où Robespierre avait cédé au désespoir, Saint-Just croyait encore, ou voulait croire, qu'une réconciliation était possible. Robespierre et ses partisans se réfugient à l'Hôtel de Ville, mais la Commune de Paris ne parvient pas à les défendre. Dans la confusion, Robespierre reçoit une balle dans la mâchoire — on ne sait toujours pas s'il s'agissait d'une tentative de suicide ou du tir d'un gendarme. Georges Couthon (1755–1794), juriste paralysé des deux jambes, membre du Comité et principal rédacteur de la loi du 22 prairial qui avait accéléré les condamnations, est retrouvé au bas d'un escalier. Augustin Robespierre (1763–1794), frère cadet de Maximilien et conventionnel, se jette par une fenêtre. Le lendemain, le 10 thermidor, Robespierre, Saint-Just, Couthon et dix-neuf autres sont guillotinés sans procès. La Terreur prend fin ; la Convention thermidorienne qui lui succède démantèle le gouvernement révolutionnaire.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 61
+  },
+  {
+    year: 1815,
+    month: "",
+    title: "Le Congrès de Vienne et le Royaume des Pays-Bas",
+    description: "Le Congrès de Vienne (1814–1815), qui redessina la carte de l'Europe après la défaite de Napoléon, fusionna les anciens Pays-Bas autrichiens (Belgique) avec la République des Provinces-Unies pour former le Royaume-Uni des Pays-Bas sous Guillaume I<sup>er</sup> d'Orange (1772–1843). L'objectif était de créer un État tampon contre la France. De nombreuses familles belges firent confirmer leurs titres de noblesse par le nouveau souverain, démarche rendue nécessaire par les bouleversements successifs — annexion française, puis transfert aux Pays-Bas — qui avaient fragilisé les anciens privilèges.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 62
+  },
+  {
+    year: 1830,
+    month: "",
+    title: "Naissance d'Arthur de C.",
+    description: "Arthur de C., grand-père de Marguerite Yourcenar, naît de l'union de Joseph-Ghislain et de Flore Drion, mariés au château de la Boverie à Suarlée, non loin de Namur, au début de la tumultueuse année 1830. Flore Drion, héritière de vingt ans, mourut peu après.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 63
+  },
+  {
+    year: 1830,
+    month: "Août–septembre",
+    title: "La révolution belge de 1830",
+    description: "En août-septembre 1830, la Belgique se soulève contre le régime de Guillaume I<sup>er</sup> des Pays-Bas, jugé trop centralisateur et trop favorable aux intérêts néerlandais. L'insurrection éclate à Bruxelles après une représentation de <em>La Muette de Portici</em> d'Auber, dont l'air « Amour sacré de la patrie » enflamme le public. En quelques semaines, un gouvernement provisoire proclame l'indépendance. La Conférence de Londres reconnaît le nouvel État en janvier 1831 et lui impose une neutralité perpétuelle. Léopold de Saxe-Cobourg devient le premier roi des Belges en juillet 1831.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 64
+  },
+  {
+    year: 1692,
+    month: "Juin",
+    title: "Le siège de Namur par Louis XIV",
+    description: "En juin 1692, Louis XIV assiège et prend la ville de Namur, place forte des Pays-Bas espagnols, dans le cadre de la guerre de la Ligue d'Augsbourg (1688–1697). Namur appartenait alors à Charles II d'Espagne (1661–1700), dit « l'Ensorcelé », dernier roi Habsbourg d'Espagne — souverain aussi des Pays-Bas, de Naples, de Sicile, du Milanais et des Indes. Né gravement affaibli par des générations de consanguinité dynastique, sans héritier, il régna sous la tutelle successive de sa mère, de son demi-frère et de ses ministres. Louis XIV, son cousin germain et beau-frère (ayant épousé sa demi-sœur Marie-Thérèse), revendiquait des provinces des Pays-Bas espagnols au nom d'une dot jamais versée. Les guerres de Louis XIV contre l'Espagne — de Dévolution (1667–68), de Hollande (1672–78), de la Ligue d'Augsbourg (1688–97) — arrachèrent à Charles II la Franche-Comté, l'Artois, une partie de la Flandre et le Luxembourg. Le siège de Namur, dirigé par Vauban, dura un mois et fut considéré comme un triomphe militaire — Boileau le célébra dans une ode. Louis XIV y assista en grande pompe. La ville fut reprise par Guillaume III d'Orange en 1695. À la mort de Charles II en 1700, son testament désigna le petit-fils de Louis XIV comme héritier, déclenchant la guerre de Succession d'Espagne (1701–1714) qui transféra les Pays-Bas aux Habsbourg d'Autriche.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 66
+  },
+  {
+    year: 1704,
+    month: "",
+    title: "La querelle des Rites et le Récollet missionnaire en Chine",
+    description: "La querelle des Rites chinois (fin XVII<sup>e</sup>–XVIII<sup>e</sup> siècle) opposa les Jésuites aux autres ordres missionnaires — Franciscains, Dominicains, Récollets — sur la question de savoir si les convertis chinois pouvaient continuer à pratiquer les rites confucéens de vénération des ancêtres. Les Jésuites plaidaient pour la tolérance, arguant qu'il s'agissait de rites civils et non religieux ; les Franciscains et les Dominicains y voyaient de l'idolâtrie. Le pape Clément XI (1649–1721, pontife de 1700 à 1721) trancha contre les Jésuites en 1704 et de nouveau en 1715, interdisant les rites chinois. La controverse empoisonna les missions catholiques en Chine pendant un siècle.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 65
+  },
+  {
+    year: 1793,
+    month: "",
+    title: "Les Jacobins à Charleroi",
+    description: "Le Club des Jacobins — officiellement la « Société des Amis de la Constitution » — fut fondé à Paris en 1789 par des députés bretons réunis dans l'ancien couvent dominicain de la rue Saint-Honoré (les Dominicains étaient surnommés « Jacobins » en France depuis leur installation rue Saint-Jacques au XIII<sup>e</sup> siècle). D'abord modéré, le club se radicalisa progressivement : après le départ des Feuillants (1791) puis l'élimination des Girondins (1793), il devint le bastion des Montagnards — Robespierre, Saint-Just, Couthon — et le principal instrument de la Terreur, avec un réseau de plus de mille clubs affiliés en province. Après la victoire de Jemappes (novembre 1792), des clubs jacobins furent établis dans les villes occupées des Pays-Bas autrichiens, imposant des contributions financières aux notables locaux sous menace de dénonciation ou d'arrestation. Ces levées forcées, souvent exigées dans des délais de quelques heures, servaient à financer l'effort de guerre et à briser les élites de l'Ancien Régime.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 67
+  },
+  {
+    year: 1815,
+    month: "18 juin",
+    title: "Waterloo — le dîner avec le maréchal Ney",
+    description: "<strong>18 juin 1815.</strong> Michel Ney (1769–1815), maréchal d'Empire, surnommé « le Brave des braves » par Napoléon. Rallié aux Bourbons après la première abdication, il promit à Louis XVIII d'arrêter Napoléon lors des Cent-Jours, puis se rallia à l'Empereur à Lons-le-Saunier. À Waterloo (18 juin 1815), il commanda les charges de cavalerie contre les carrés anglais et eut plusieurs chevaux tués sous lui. Après la défaite, il fut arrêté, jugé par la Chambre des pairs et fusillé le 7 décembre 1815. La bataille de Waterloo, livrée à vingt kilomètres au sud de Bruxelles, mit fin définitivement au règne de Napoléon.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 68
+  },
+  {
+    year: 1770,
+    month: "",
+    title: "Swedenborg et les sutras hindous",
+    description: "Emanuel Swedenborg (1688–1772), scientifique, philosophe et mystique suédois, abandonna à cinquante-six ans une carrière scientifique brillante pour se consacrer à la théologie visionnaire. Il affirmait avoir eu des visions du monde spirituel et communiquer avec les anges. Ses écrits, mêlant cosmologie, exégèse biblique et récits de l'au-delà, exercèrent une influence considérable sur le romantisme européen — Blake, Balzac, Baudelaire le lurent. Les sutras hindous, quant à eux, circulaient dans les milieux cultivés européens depuis les premières traductions du sanskrit au XVIII<sup>e</sup> siècle, notamment par les orientalistes britanniques de la Société asiatique du Bengale, fondée en 1784.",
+    book: 1,
+    chapter: "La Tournée des Châteaux",
+    textOrder: 69
   }
 ];
 
@@ -1911,7 +2140,7 @@ const eventCoords = {
   // textOrder: [lat, lng, locationName]
   1: [50.85, 4.35, "Bruxelles"],                    // Naissance Marguerite
   2: [50.60, 5.46, "Flémalle"],                      // Ivoire
-  3: [50.64, 5.57, "Liège"],                          // Mélisande (Liège cultural world)
+  3: [51.05, 3.72, "Gand"],                             // Mélisande (Maeterlinck)
   4: [52.00, 7.63, "Münster"],                        // Anabaptistes
   5: [36.75, 3.06, "Alger"],                          // Ben Bella
   6: [30.00, 32.57, "Suez"],                          // Suez
@@ -1956,6 +2185,28 @@ const eventCoords = {
   45: [59.33, 18.07, "Stockholm"],                    // Gustave III
   46: [50.64, 5.57, "Liège"],                         // Casanova
   47: [50.60, 5.46, "Flémalle"],                      // Guerre en dentelles
+  48: [50.95, 3.72, "Gand"],                           // Charles Quint
+  49: [50.64, 5.57, "Liège"],                           // Lothaire / Baillencourt
+  50: [50.25, 1.85, "Crécy-en-Ponthieu"],              // Bataille de Crécy
+  51: [51.99, -2.16, "Tewkesbury"],                    // Le Despenser tombs
+  52: [50.55, 3.73, "Beloeil"],                         // Prince de Ligne
+  53: [50.40, 4.27, "Mariemont"],                       // Charles de Lorraine
+  54: [50.41, 4.29, "Marchienne-au-Pont"],             // Dumouriez / occupation
+  55: [50.41, 4.29, "Marchienne-au-Pont"],             // Saint-Just
+  56: [50.41, 4.29, "Marchienne-au-Pont"],             // Prêtre réfractaire
+  57: [50.41, 4.43, "Fleurus"],                         // Jemappes / Fleurus
+  58: [48.86, 2.35, "Paris"],                            // Révolution française
+  59: [48.86, 2.35, "Paris"],                            // Exécution Louis XVI
+  60: [48.86, 2.35, "Paris"],                            // Terreur / Comité
+  61: [48.86, 2.35, "Paris"],                            // Thermidor
+  62: [48.21, 16.37, "Vienne"],                          // Congrès de Vienne
+  63: [50.47, 4.86, "Suarlée"],                          // Naissance Arthur
+  64: [50.85, 4.35, "Bruxelles"],                        // Révolution belge
+  65: [39.91, 116.39, "Pékin"],                           // Querelle des Rites
+  66: [50.47, 4.87, "Namur"],                             // Siège de Namur
+  67: [50.41, 4.44, "Charleroi"],                         // Jacobins Charleroi
+  68: [50.71, 4.41, "Waterloo"],                          // Waterloo / Ney
+  69: [50.41, 4.29, "Marchienne-au-Pont"],               // Swedenborg / sutras
 };
 
 let map = null;
@@ -2102,6 +2353,12 @@ render = function() {
 buildLegend();
 render();
 initMap();
+</script>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">↑</button>
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 600);
+});
 </script>
 </body>
 </html>
