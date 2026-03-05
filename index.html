@@ -843,104 +843,108 @@
 
   @media (max-width: 700px) {
     /* Header */
-    header { padding: 1.5rem 1.25rem 1.25rem; }
-    header::after { left: 1.25rem; right: 1.25rem; }
+    header { padding: 1.25rem 1rem 1rem; }
+    header::after { left: 1rem; right: 1rem; }
     h1 { font-size: 1.05rem; line-height: 1.5; }
-    .header-image { max-height: 160px; margin: 1rem 0 0; }
-    .header-image img { height: 160px; }
+    .header-image { max-height: 180px; margin: 0.75rem 0 0; }
+    .header-image img { height: 180px; }
 
     /* Legend & meta */
     .book-legend { gap: 0.5rem; }
-    .book-dropdown-trigger { font-size: 0.95rem; gap: 0.35rem; }
-    .legend-dot { width: 8px; height: 8px; }
+    .book-dropdown-trigger { font-size: 0.85rem; gap: 0.35rem; }
+    .legend-dot { width: 7px; height: 7px; }
     .dropdown-arrow { font-size: 0.6rem; }
     .book-dropdown-menu { min-width: 170px; padding: 0.4rem 0.25rem; }
-    .chapter-item { font-size: 0.95rem; padding: 0.35rem 0.55rem; gap: 0.45rem; }
+    .chapter-item { font-size: 0.85rem; padding: 0.3rem 0.5rem; gap: 0.4rem; }
     .chapter-check { width: 11px; height: 11px; font-size: 0.55rem; }
-    .chapter-count { font-size: 0.85rem; }
+    .chapter-count { font-size: 0.75rem; }
 
     /* Chapter chips (legacy cleanup) */
     .chapter-filter { display: none; }
 
-    /* View tabs */
-    .view-tabs { padding: 0.8rem 1.25rem; gap: 1.25rem; }
-    .tab-btn { font-size: 1.05rem; }
-
     /* Controls bar */
-    .controls-bar { flex-wrap: wrap; gap: 0.6rem; padding: 0.6rem 0; }
-    .search-box { width: 100%; flex: none; }
-    .search-box input { width: 100%; font-size: 1.0rem; padding: 0.35rem 1.8rem 0.35rem 2rem; }
+    .controls-bar { flex-wrap: wrap; gap: 0.5rem; padding: 0.5rem 0; }
+    .search-box { width: 100%; flex: none; order: 2; }
+    .search-box input { width: 100%; font-size: 0.85rem; padding: 0.35rem 1.8rem 0.35rem 1.8rem; }
     .search-box input:focus { width: 100%; }
-    .search-icon { font-size: 1.1rem; left: 0.6rem; }
-    .search-clear { font-size: 0.95rem; right: 0.5rem; }
-    .controls-trigger {
-    border-radius: 6px; font-size: 0.9rem; padding: 0.35rem 0.9rem; }
+    .search-icon { font-size: 0.95rem; left: 0.5rem; }
+    .search-clear { font-size: 0.85rem; right: 0.5rem; }
+    .controls-trigger { border-radius: 6px; font-size: 0.8rem; padding: 0.35rem 1rem; }
     .controls-menu { padding: 0.5rem; }
     #filtres-menu { min-width: 240px; }
-    .active-filters { gap: 0.4rem; }
-    .filter-pill {
-    border-radius: 6px; font-size: 0.9rem; padding: 0.2rem 0.6rem; gap: 0.35rem; }
-    .filter-pill .pill-dot { width: 6px; height: 6px; }
+    .active-filters { gap: 0.4rem; padding: 0.5rem 0 0; }
+    .filter-pill { border-radius: 6px; font-size: 0.8rem; padding: 0.2rem 0.6rem; gap: 0.3rem; }
+    .filter-pill .pill-dot { width: 5px; height: 5px; }
     .filter-pill .pill-x { font-size: 0.6rem; }
 
     /* Density strip / period minimap */
-    .density-strip { margin: 2rem 0 1.5rem; padding: 0 1.25rem; }
+    .density-strip { margin: 1rem 0 0.75rem; padding: 0 1rem; }
     .period-strip { display: none; }
     .density-dots { height: 2.5rem; }
-    .density-dot { width: 7px; height: 7px; }
-    .density-label { font-size: 0.9rem; top: calc(30% + 1.2rem); }
-    .density-landmark { font-size: 0.9rem; top: calc(30% + 1.2rem); }
+    .density-dot { width: 5px; height: 5px; }
+    .density-label { font-size: 0.75rem; top: calc(30% + 1rem); }
+    .density-landmark { font-size: 0.75rem; top: calc(30% + 1rem); }
     .landmark-full { display: none; }
     .landmark-short { display: block; }
     .density-landmark::before { height: 0.35rem; }
-    .density-cluster { width: 22px; height: 22px; border-width: 1.5px; }
-    .cluster-count { font-size: 0.9rem; }
-    .density-filter-label { font-size: 1.05rem; }
-    .density-filter-confirm { font-size: 0.9rem; padding: 0.3rem 0.9rem; }
+    .density-cluster { width: 18px; height: 18px; border-width: 1.5px; }
+    .cluster-count { font-size: 0.7rem; }
+    .density-filter-label { font-size: 0.85rem; }
+    .density-filter-confirm { font-size: 0.8rem; padding: 0.3rem 0.9rem; }
+    .density-filter-row { margin-top: 0.5rem; }
 
     /* Timeline wrapper */
-    .timeline-wrapper { padding: 3rem 1.25rem 3rem; }
+    .timeline-wrapper { padding: 1.5rem 1rem 3rem; }
 
     /* Spine */
-    .timeline-spine { left: calc(1.25rem + 65px); }
+    .timeline-spine { left: calc(1rem + 55px); }
 
     /* Events */
     .event {
-      grid-template-columns: 65px 1fr;
-      gap: 0 1rem;
-      padding: 1.5rem 0;
+      grid-template-columns: 55px 1fr;
+      gap: 0 0.75rem;
+      padding: 1.25rem 0;
       max-width: none;
     }
 
     /* Date column */
-    .event-date { padding-right: 0.6rem; padding-top: 0.75rem; }
-    .event-year { font-size: 1.1rem; }
+    .event-date { padding-right: 0.5rem; padding-top: 0.75rem; }
+    .event-year { font-size: 1.0rem; }
     .event-era { font-size: 0.5rem; margin-top: 0.1rem; }
     .event-month { font-size: 0.5rem; margin-top: 0.15rem; letter-spacing: 0.03em; }
 
     /* Node */
-    .event-node { width: 7px; height: 7px; right: -3.5px; top: 1rem; }
+    .event-node { width: 6px; height: 6px; right: -3px; top: 1rem; }
     .event:hover .event-node { transform: scale(1.4); }
 
     /* Cards */
-    .event-card { padding: 0.75rem 0 0.75rem 1rem; max-width: none; }
+    .event-card { padding: 0.75rem 0 0.75rem 0.75rem; max-width: none; }
     .event:hover .event-card { transform: none; }
+    .event-card.highlight { padding-right: 1rem; }
+    .event-card.highlight-out { padding-right: 1rem; }
 
     /* Book tag */
-    .book-tag { font-size: 0.5rem; padding: 0.15rem 0.4rem; letter-spacing: 0.03em; top: 0.75rem; }
+    .book-tag { font-size: 0.5rem; padding: 0.15rem 0.35rem; letter-spacing: 0.03em; top: 0.75rem; right: 0; }
 
     /* Title & description */
-    .event-title { font-size: 1.0rem; margin-bottom: 0.3rem; padding-right: 3.5rem; line-height: 1.3; }
-    .event-description { font-size: 1.0rem; line-height: 1.6; }
+    .event-title { font-size: 0.9rem; margin-bottom: 0.25rem; padding-right: 3rem; line-height: 1.3; }
+    .event-description { font-size: 0.9rem; line-height: 1.55; }
 
     /* Empty state & count */
-    .empty-state { font-size: 1.1rem; padding: 2rem; }
-    .event-count { font-size: 0.9rem; margin-top: 1.25rem; padding-top: 1rem; }
+    .empty-state { font-size: 0.95rem; padding: 2rem; }
+    .event-count { font-size: 0.8rem; margin-top: 1rem; padding-top: 0.75rem; }
+
+    /* Back to top */
+    .back-to-top { font-size: 0.85rem; padding: 0.6rem 1.2rem; bottom: 1.5rem; }
   }
   /* ─── MAP ────────────────────────────────────────────────────────────────── */
   .map-section {
     margin-top: 0.75rem;
     margin-bottom: 3rem;
+  }
+
+  .map-mobile-toggle {
+    display: none;
   }
 
   .map-container {
@@ -956,6 +960,75 @@
     height: 100%;
     width: 100%;
     background: #fafafa;
+  }
+
+  /* Fullscreen button (desktop: bottom-right corner) */
+  .map-fullscreen-btn {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    z-index: 1000;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 6px;
+    background: var(--cream);
+    color: var(--rust);
+    border: 1px solid var(--rust);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
+  .map-fullscreen-btn:hover {
+    background: var(--rust);
+    color: #ffffff;
+  }
+
+  /* Close button (only visible in fullscreen) */
+  .map-close-btn {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--rust);
+    color: #ffffff;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  /* Fullscreen state */
+  .map-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+  }
+
+  .map-container.fullscreen .map-fullscreen-btn {
+    display: none;
+  }
+
+  .map-container.fullscreen .map-close-btn {
+    display: flex;
   }
 
   .map-tooltip {
@@ -987,16 +1060,135 @@
   .map-custom-popup .leaflet-popup-content {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    min-width: 200px;
+    min-width: 150px;
   }
 
   .map-custom-popup .leaflet-popup-tip {
     background: #ffffff;
   }
 
+  .popup-location {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #888888;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .popup-item {
+    display: block;
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 1.0rem;
+    color: #1a1610;
+    background: none;
+    border: none;
+    border-left: 3px solid;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.1s;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+
+  .popup-item:hover {
+    background: rgba(0,0,0,0.04);
+  }
+
+  .popup-year {
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-right: 0.3rem;
+  }
+
   @media (max-width: 700px) {
-    .map-section { }
-    .map-container { height: 250px; }
+    .map-section { margin-top: 0.5rem; margin-bottom: 1.5rem; }
+
+    /* Hide map by default, show toggle button */
+    .map-container { display: none; }
+    .map-mobile-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--rust);
+      background: none;
+      border: 1px solid var(--rust);
+      border-radius: 6px;
+      padding: 0.4rem 1.2rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .map-mobile-toggle .ctrl-dot {
+      background: var(--rust);
+    }
+    .map-mobile-toggle .expand-icon {
+      font-size: 0.9rem;
+      margin-left: 0.15rem;
+      opacity: 0.7;
+    }
+    .map-mobile-toggle:hover {
+      background: rgba(208,2,27,0.05);
+    }
+
+    /* When open on mobile, always fullscreen */
+    .map-container.mobile-open {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+    }
+
+    .map-container.mobile-open .map-fullscreen-btn {
+      display: none;
+    }
+
+    .map-container.mobile-open .map-close-btn {
+      display: flex;
+    }
+
+    /* Smaller popups on mobile */
+    .map-custom-popup .leaflet-popup-content-wrapper {
+      padding: 0.3rem 0.3rem;
+    }
+    .map-custom-popup .leaflet-popup-content {
+      min-width: 0;
+    }
+    .popup-location {
+      font-size: 0.65rem;
+      margin-bottom: 4px;
+      padding-bottom: 3px;
+    }
+    .popup-item {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.4rem;
+      line-height: 1.2;
+      border-left-width: 2px;
+      margin-bottom: 1px;
+    }
+    .popup-year {
+      font-size: 0.6rem;
+      margin-right: 0.2rem;
+    }
   }
 
   .back-to-top {
@@ -1004,23 +1196,27 @@
     bottom: 2.5rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 4.5rem;
-    height: 4.5rem;
-    border-radius: 50%;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
     background: var(--rust);
     color: var(--cream);
     border: none;
     cursor: pointer;
-    font-size: 1.8rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
     line-height: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.4rem;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
     z-index: 999;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    white-space: nowrap;
   }
 
   .back-to-top.visible {
@@ -1072,6 +1268,12 @@
   .tab-btn.active { color: var(--ink-light); }
   .view-hidden { display: none !important; }
 
+  @media (max-width: 700px) {
+    .view-tabs { padding: 0.7rem 1rem; gap: 1.5rem; }
+    .tab-btn { font-size: 0.8rem; }
+    .tab-btn::before { width: 4px; height: 4px; }
+  }
+
   /* ─── CONTROLS BAR (sticky) ─── */
   .controls-bar {
     display: flex;
@@ -1098,8 +1300,8 @@
     font-weight: 500;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: var(--rust);
-    background: none;
+    color: #ffffff;
+    background: var(--rust);
     border: 1px solid var(--rust);
     padding: 0.45rem 1.6rem;
     cursor: pointer;
@@ -1110,18 +1312,18 @@
   }
 
   .controls-trigger:hover {
-    background: rgba(208,2,27,0.05);
+    opacity: 0.85;
   }
 
   .controls-dropdown.open .controls-trigger {
-    background: rgba(208,2,27,0.05);
+    opacity: 0.85;
   }
 
   .ctrl-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--rust);
+    background: #ffffff;
     flex-shrink: 0;
   }
 
@@ -1129,7 +1331,7 @@
     font-size: 0.85rem;
     margin-left: 0.15rem;
     transition: transform 0.2s;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   .controls-dropdown.open .controls-trigger .dropdown-arrow {
@@ -1155,6 +1357,38 @@
 
   #filtres-menu {
     min-width: 280px;
+  }
+
+  .filtres-header {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.25rem 0 0.75rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.75rem;
+  }
+
+  .filter-hint {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--rust);
+    padding: 1.3rem 0 0.6rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .filter-hint::before {
+    content: '↑ ';
+  }
+
+  .filter-hint:empty {
+    display: none;
   }
 
   #filtres-menu .book-legend {
@@ -1200,6 +1434,15 @@
 
   #tri-menu .sort-btn:hover:not(.active) {
     background: rgba(0,0,0,0.03);
+  }
+
+  @media (max-width: 700px) {
+    .controls-bar { flex-wrap: wrap; gap: 0.5rem; padding: 0.5rem 0; }
+    .controls-trigger { font-size: 0.8rem; padding: 0.35rem 1rem; }
+    .search-box { width: 100%; flex: none; order: 2; }
+    .search-box input { font-size: 0.85rem; }
+    .active-filters { padding: 0.5rem 0 0; }
+    .filter-pill { font-size: 0.8rem; }
   }
 
 
@@ -1367,10 +1610,10 @@
   .index-detail .pop-entry:hover { background: rgba(0,0,0,0.04); }
 
   @media (max-width: 700px) {
-    .perso-view { padding: 1.5rem 1.25rem 3rem; }
-    .perso-tab-btn { font-size: 0.95rem; }
-    .tree-popover { width: 240px; font-size: 0.88rem; }
-    .back-to-top { width: 4rem; height: 4rem; font-size: 1.6rem; }
+    .perso-view { padding: 1.25rem 1rem 3rem; }
+    .perso-tab-btn { font-size: 0.85rem; }
+    .tree-popover { width: 220px; font-size: 0.85rem; }
+    .back-to-top { font-size: 0.85rem; padding: 0.6rem 1.2rem; }
   }
 </style>
 </head>
@@ -1395,8 +1638,13 @@
     <div class="density-filter-row" id="density-filter-row"></div>
   </div>
   <div class="map-section">
+    <button class="map-mobile-toggle" id="map-mobile-toggle" onclick="toggleMobileMap()">
+      <span class="ctrl-dot"></span>Carte<span class="expand-icon">⛶</span>
+    </button>
     <div class="map-container open" id="map-container">
       <div id="map"></div>
+      <button class="map-fullscreen-btn" id="map-fullscreen-btn" onclick="toggleMapFullscreen()" title="Plein écran">⛶</button>
+      <button class="map-close-btn" id="map-close-btn" onclick="closeMapFullscreen()">✕</button>
     </div>
   </div>
 
@@ -1406,6 +1654,7 @@
         <span class="ctrl-dot"></span>Filtres<span class="dropdown-arrow">▾</span>
       </button>
       <div class="controls-menu" id="filtres-menu">
+        <div class="filtres-header">Afficher uniquement…</div>
         <div class="book-legend" id="legend"></div>
       </div>
     </div>
@@ -1425,6 +1674,7 @@
     </div>
 
     <div class="active-filters" id="active-filters"></div>
+    <div class="filter-hint" id="filter-hint"></div>
   </div>
 
   <div class="timeline-spine"></div>
@@ -2308,6 +2558,33 @@ const events = [
     book: 1,
     chapter: "Deux Voyageurs en Route",
     textOrder: 94
+  },
+  {
+    year: 1860,
+    month: "",
+    title: "« Le positivisme triomphant »",
+    description: "<strong>~1860, Acoz.</strong> Le positivisme — philosophie codifiée par Auguste Comte dans les années 1830–40 — pose que seule la connaissance issue de l'observation et de la mesure a une valeur : science, données empiriques, faits vérifiables, et rejette la métaphysique et la théologie. Dans les années 1860, c'est le courant montant parmi la bourgeoisie anticléricale européenne. En Belgique, le paysage est partagé entre un puissant établissement catholique et une minorité libérale-rationaliste dont le positivisme est le credo. Monsieur Homais, dans <em>Madame Bovary</em> de Flaubert (1857), en est le portrait féroce — pharmacien de province qui brandit la science comme un insigne de supériorité sans rien comprendre en profondeur. L'<em>Origine des espèces</em> de Darwin (1859) vient de bouleverser la vie intellectuelle européenne. L'opposition que trace Yourcenar n'est pas science contre religion mais Monsieur Homais contre le curé Bournaisien — deux caricatures de certitude. La position d'<span class=\"person-link\" data-pid=\"octave\">Octave</span> n'est ni l'une ni l'autre : antispiritualiste mais pas matérialiste, porté à montrer la parenté de l'homme avec l'animal plutôt que sa domination. Les « maigres six mille ans du passé judéo-chrétien » renvoient à la chronologie de l'archevêque Ussher (1650), qui datait la Création de 4004 av. J.-C. — cadre temporel encore dominant pour beaucoup d'Européens instruits jusque dans les années 1860. Teilhard de Chardin (1881–1955), jésuite et paléontologue, tenta de réconcilier la science évolutionniste et la foi catholique. Son idée centrale : l'évolution a une direction spirituelle — la matière évoluant vers la conscience, la conscience vers un « Point Oméga » cosmique qui est essentiellement Dieu. L'Église supprima son œuvre de son vivant ; publiée à titre posthume, elle devint très influente dans les années 1960. C'est la figure qui accomplit ce qu'<span class=\"person-link\" data-pid=\"octave\">Octave</span> ne put faire : tenir Darwin et le Christ dans le même cadre. La synthèse arriva trop tard pour sa génération. Là où <span class=\"person-link\" data-pid=\"remo\">Rémo</span> projette un âge d'or à construire, <span class=\"person-link\" data-pid=\"octave\">Octave</span> est tourné vers un âge d'or perdu — l'harmonie originelle entre l'homme et la nature, que la modernité détruit. C'est ce qui fait de lui un romantique au sens précis : le romantisme est fondamentalement le deuil d'une plénitude disparue.",
+    book: 1,
+    chapter: "Deux Voyageurs en Route",
+    textOrder: 95
+  },
+  {
+    year: 1860,
+    month: "",
+    title: "« Rémo et l'Âge d'Or »",
+    description: "<strong>~1860, Acoz.</strong> L'Âge d'Or vient d'Hésiode (<em>Les Travaux et les Jours</em>, VIIIe s. av. J.-C.) : un premier âge de l'humanité sans labeur, sans souffrance, sans injustice. Au XIXe siècle, l'idée s'inverse : l'âge d'or n'est plus derrière nous mais devant. Condorcet (<em>Esquisse d'un tableau historique des progrès de l'esprit humain</em>, 1795) pose la diffusion du savoir comme moteur du progrès moral. Les républicains de 1848 et la tradition socialiste héritent de cette foi : l'humanité avance vers un paradis à construire. Les lois Ferry (1881–82), rendant l'enseignement gratuit, laïque et obligatoire, en sont l'aboutissement politique. <span class=\"person-link\" data-pid=\"remo\">Rémo</span> appartient à ce courant — Michelet, Hugo, la conviction que l'ignorance est à l'origine de toutes les injustices et l'instruction le remède. C'est l'exact symétrique d'<span class=\"person-link\" data-pid=\"octave\">Octave</span>, qui pleure un âge d'or perdu : les deux frères regardent dans des directions opposées le long de la même route. Ses repères : l'abolition de l'esclavage américain par Lincoln (1863), le paupérisme (terme forgé dans les années 1830 pour la nouvelle misère industrielle), Kolokotronis (Theodoros Kolokotronis, 1770–1843, héros de l'indépendance grecque — figure classique de l'imaginaire révolutionnaire romantique). Chromo : chromolithographie, image populaire en couleur produite en masse au XIXe siècle, sentimentale et sans profondeur. Yourcenar utilise le mot pour la vision que <span class=\"person-link\" data-pid=\"remo\">Rémo</span> a du peuple — vive et sincère mais aplatie. Puis le cadre chronologique dévastateur : Sadowa (1866), Sedan (1870), les tranchées de 1914, les camps, Hiroshima — tout ce que cette confiance précède.",
+    book: 1,
+    chapter: "Deux Voyageurs en Route",
+    textOrder: 96
+  },
+  {
+    year: 1862,
+    month: "",
+    title: "« Les soldats de Garibaldi »",
+    description: "<strong>~1862, route des Alpes.</strong> <span class=\"person-link\" data-pid=\"octave\">Octave</span> traverse les Alpes et rencontre d'anciens soldats de <span class=\"person-link\" data-pid=\"garibaldi\">Garibaldi</span> — le révolutionnaire italien dont les campagnes pour l'unification (1860–61) viennent de s'achever. Ces hommes en loques se dirigent vers l'Argentine, partie de la vague massive d'émigration italienne qui suivit les déceptions économiques de l'unification. Le soldat qui chante sur le talus — « Dansa, canta, poverello... » — est une scène que Yourcenar met en place comme l'effondrement de la vision romantique de l'Italie dans son après-coup matériel.",
+    book: 1,
+    chapter: "Deux Voyageurs en Route",
+    textOrder: 97
   }
 ];
 
@@ -2325,9 +2602,14 @@ const bookNames = {
 };
 
 // ─── STATE ───────────────────────────────────────────────────────────────────
-let activeChapters = new Set(events.map(e => e.chapter));
+let activeChapters = new Set(); // empty = show all (unfiltered)
 let openDropdown = null;
 let sortMode = 'chrono'; // 'chrono' or 'text'
+
+// When no chapters selected, everything is visible
+function isChapterVisible(chapter) {
+  return activeChapters.size === 0 || activeChapters.has(chapter);
+}
 
 const fullBookNames = {
   1: 'I. Souvenirs Pieux',
@@ -2411,7 +2693,6 @@ function closeAllControlsMenus() {
 }
 
 function toggleChapter(name) {
-  if (activeChapters.has(name) && activeChapters.size === 1) return;
   if (activeChapters.has(name)) {
     activeChapters.delete(name);
   } else {
@@ -2433,7 +2714,7 @@ function updateChapterItems() {
 function updateBookStates() {
   [1, 2, 3].forEach(book => {
     const bookChapters = events.filter(e => e.book === book).map(e => e.chapter);
-    const anyActive = bookChapters.some(ch => activeChapters.has(ch));
+    const anyActive = activeChapters.size === 0 || bookChapters.some(ch => activeChapters.has(ch));
     const dropdown = document.getElementById(`book-dropdown-${book}`);
     if (dropdown && bookChapters.length > 0) {
       dropdown.classList.toggle('inactive', !anyActive);
@@ -2496,7 +2777,7 @@ function renderDensityStrip() {
   const positioned = events.map((e, i) => ({
     event: e, index: i,
     pct: yearToPosition(e.year),
-    active: activeChapters.has(e.chapter)
+    active: isChapterVisible(e.chapter)
   }));
 
   // Cluster nearby dots
@@ -2558,7 +2839,7 @@ function renderDensityStrip() {
     const tmp = document.createElement('span');
     tmp.innerHTML = p.label;
     const label = tmp.textContent;
-    const count = events.filter(e => e.year >= p.from && e.year < p.to && activeChapters.has(e.chapter)).length;
+    const count = events.filter(e => e.year >= p.from && e.year < p.to && isChapterVisible(e.chapter)).length;
     filterRow.innerHTML = `
       <button class="density-filter-confirm" onclick="confirmPeriodFilter(${pendingPeriod})">
         Filtrer par période — ${label} — ${count} référence${count !== 1 ? 's' : ''}
@@ -2595,7 +2876,7 @@ function filterByPeriod(index) {
 
 function confirmPeriodFilter(index) {
   const p = periods[index];
-  const count = events.filter(e => e.year >= p.from && e.year < p.to && activeChapters.has(e.chapter)).length;
+  const count = events.filter(e => e.year >= p.from && e.year < p.to && isChapterVisible(e.chapter)).length;
   const tmp = document.createElement('span');
   tmp.innerHTML = p.label;
   activeYearRange = { from: p.from, to: p.to, label: tmp.textContent, count };
@@ -2651,6 +2932,7 @@ function scrollToEvent(dataIndex) {
 // ─── ACTIVE FILTERS DISPLAY ─────────────────────────────────────────────────
 function updateActiveFilters() {
   const container = document.getElementById('active-filters');
+  const hint = document.getElementById('filter-hint');
 
   let html = [...activeChapters].map(ch => {
     const book = events.find(e => e.chapter === ch)?.book;
@@ -2671,6 +2953,12 @@ function updateActiveFilters() {
   }
 
   container.innerHTML = html;
+
+  // Show hint when unfiltered
+  const isUnfiltered = activeChapters.size === 0 && !activeYearRange && !searchQuery;
+  hint.textContent = isUnfiltered
+    ? `${events.length} références — utilisez les filtres pour explorer par livre ou chapitre`
+    : '';
 }
 
 // ─── RENDER ──────────────────────────────────────────────────────────────────
@@ -2702,7 +2990,7 @@ function render() {
   const sorted = sortMode === 'chrono'
     ? [...events].sort((a, b) => a.year - b.year || a.textOrder - b.textOrder)
     : [...events].sort((a, b) => a.book - b.book || a.textOrder - b.textOrder);
-  const filtered = sorted.filter(e => activeChapters.has(e.chapter) && matchesSearch(e) && matchesYearRange(e));
+  const filtered = sorted.filter(e => isChapterVisible(e.chapter) && matchesSearch(e) && matchesYearRange(e));
 
   if (filtered.length === 0) {
     container.innerHTML = '<p class="empty-state">Aucun événement pour la sélection en cours.</p>';
@@ -2713,7 +3001,9 @@ function render() {
   container.innerHTML = filtered.map((e, i) => {
     const delay = (i % 8) * 80;
     const displayYear = e.year < 0
-      ? `${Math.abs(e.year)} <span class="event-era">av. J.-C.</span>`
+      ? (Math.abs(e.year) >= 10000
+        ? `~${Math.round(Math.abs(e.year)/1000)}k <span class="event-era">av. J.-C.</span>`
+        : `${Math.abs(e.year)} <span class="event-era">av. J.-C.</span>`)
       : e.year;
     return `
       <div class="event" style="transition-delay:${delay}ms" data-book="${e.book}">
@@ -2849,6 +3139,36 @@ const eventCoords = {
 let map = null;
 let mapMarkers = [];
 
+function toggleMapFullscreen() {
+  const container = document.getElementById('map-container');
+  container.classList.toggle('fullscreen');
+  document.body.style.overflow = container.classList.contains('fullscreen') ? 'hidden' : '';
+  setTimeout(() => map.invalidateSize(), 100);
+}
+
+function closeMapFullscreen() {
+  const container = document.getElementById('map-container');
+  container.classList.remove('fullscreen');
+  container.classList.remove('mobile-open');
+  document.body.style.overflow = '';
+  setTimeout(() => map.invalidateSize(), 100);
+}
+
+function toggleMobileMap() {
+  const container = document.getElementById('map-container');
+  if (container.classList.contains('mobile-open')) {
+    closeMapFullscreen();
+  } else {
+    container.classList.add('mobile-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => map.invalidateSize(), 100);
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMapFullscreen();
+});
+
 function initMap() {
   map = L.map('map', {
     scrollWheelZoom: true,
@@ -2878,7 +3198,7 @@ function renderMapMarkers() {
     const coords = eventCoords[e.textOrder];
     if (!coords) return;
 
-    const isFiltered = activeChapters.has(e.chapter) && matchesSearch(e);
+    const isFiltered = isChapterVisible(e.chapter) && matchesSearch(e);
     if (!isFiltered) return;
 
     const key = `${coords[0]},${coords[1]}`;
@@ -2917,30 +3237,16 @@ function renderMapMarkers() {
     });
 
     // Build popup content
-    const locationLabel = `<div style="font-family:'Inter',sans-serif; font-size:0.85rem; color:#888888; letter-spacing:0.03em; text-transform:uppercase; margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid #e0e0e0;">${group.location}</div>`;
+    const locationLabel = `<div class="popup-location">${group.location}</div>`;
 
     const items = group.events.map(e => {
-      const displayYear = e.year < 0 ? `${Math.abs(e.year)} av. J.-C.` : e.year;
+      const displayYear = e.year < 0
+        ? (Math.abs(e.year) >= 10000 ? `~${Math.round(Math.abs(e.year)/1000)}k av. J.-C.` : `${Math.abs(e.year)} av. J.-C.`)
+        : e.year;
       const color = bookColors[e.book];
       const plainTitle = e.title.replace(/<[^>]*>/g, '');
-      return `<button onclick="map.closePopup(); scrollToEvent(${e.dataIndex})" style="
-        display: block;
-        width: 100%;
-        padding: 0.4rem 0.6rem;
-        font-family: 'Inter', sans-serif;
-        font-style: normal;
-        font-size: 1.0rem;
-        color: #1a1610;
-        background: none;
-        border: none;
-        border-left: 3px solid ${color};
-        text-align: left;
-        cursor: pointer;
-        transition: background 0.1s;
-        line-height: 1.3;
-        margin-bottom: 2px;
-      " onmouseover="this.style.background='rgba(0,0,0,0.04)'" onmouseout="this.style.background='none'">
-        <span style="font-style:normal; font-family:'Inter',sans-serif; font-size:0.8rem; opacity:0.6; margin-right:0.3rem;">${displayYear}</span>${plainTitle}
+      return `<button class="popup-item" onclick="map.closePopup(); closeMapFullscreen(); scrollToEvent(${e.dataIndex})" style="border-left-color:${color}">
+        <span class="popup-year">${displayYear}</span>${plainTitle}
       </button>`;
     }).join('');
 
@@ -2948,8 +3254,7 @@ function renderMapMarkers() {
 
     const marker = L.marker([group.lat, group.lng], { icon })
       .bindPopup(popupContent, {
-        maxWidth: 340,
-        minWidth: 240,
+        maxWidth: 240,
         autoPan: true,
         autoPanPadding: [60, 60],
         className: 'map-custom-popup',
@@ -3701,7 +4006,7 @@ function renderIndex() {
   }).join('');
 }
 </script>
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">↑</button>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">↑ Haut</button>
 <script>
 window.addEventListener('scroll', () => {
   document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 600);
