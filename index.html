@@ -1503,10 +1503,12 @@
 
   .tree-popover {
     position: absolute; top: 10px; right: 10px;
-    width: 240px; background: #fdfcf7;
-    border-radius: 5px; padding: 12px 14px;
-    box-shadow: 0 4px 20px rgba(26,22,16,0.14);
-    z-index: 100; font-size: 0.82rem; line-height: 1.45;
+    width: 260px; background: #ffffff;
+    border-radius: 8px; padding: 1rem 1.2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    border: 1px solid var(--border);
+    z-index: 100; font-size: 0.9rem; line-height: 1.5;
+    font-family: 'Inter', sans-serif;
     pointer-events: none; transition: opacity 0.15s;
     max-height: calc(100% - 20px); overflow-y: auto;
   }
@@ -1516,55 +1518,61 @@
       width: calc(100% - 24px); left: 12px !important; right: 12px !important;
       bottom: 10px; top: auto !important;
       max-height: 45%; border-radius: 8px;
-      box-shadow: 0 -4px 24px rgba(26,22,16,0.18);
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.15);
     }
   }
-  .tree-popover .pop-name { font-size: 1.2rem; font-weight: 600; }
-  .tree-popover .pop-dates { font-size: 0.78rem; opacity: 0.6; margin-left: 0.4rem; }
-  .tree-popover .pop-bio { margin-top: 0.4rem; padding-bottom: 0.5rem; color: var(--ink-light); font-size: 1.0rem; }
+  .tree-popover .pop-name { font-size: 1.15rem; font-weight: 600; color: var(--ink); }
+  .tree-popover .pop-dates { font-size: 0.9rem; color: var(--muted); margin-left: 0.4rem; }
+  .tree-popover .pop-bio { margin-top: 0.5rem; padding-bottom: 0.6rem; color: var(--ink-light); font-size: 1.0rem; border-bottom: 1px solid var(--border); }
   .tree-popover .pop-label {
     font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em;
-    font-weight: 600; margin-top: 0.5rem; margin-bottom: 0.25rem;
+    font-weight: 600; margin-top: 0.6rem; margin-bottom: 0.3rem; color: var(--rust);
   }
   .tree-popover .pop-entry {
-    font-size: 0.82rem; padding: 2px 8px; margin-bottom: 2px;
+    font-size: 0.9rem; padding: 4px 8px; margin-bottom: 2px;
     border-left: 2px solid; cursor: pointer;
-    border-radius: 2px; transition: background 0.15s;
+    border-radius: 4px; transition: background 0.15s;
   }
-  .tree-popover .pop-entry:hover { background: rgba(0,0,0,0.04); }
+  .tree-popover .pop-entry:hover { background: rgba(208,2,27,0.06); }
 
   /* Person links in descriptions */
   .person-link {
     cursor: pointer;
-    border-bottom: 1px dotted rgba(120,100,80,0.4);
-    transition: border-color 0.2s;
+    color: var(--rust);
+    border-bottom: 1px dotted rgba(208,2,27,0.4);
+    transition: border-color 0.2s, background 0.2s;
+    border-radius: 4px;
+    padding: 1px 4px;
+    margin: 0 -4px;
   }
   .person-link:hover {
-    border-bottom-color: rgba(120,100,80,0.8);
+    border-bottom-color: transparent;
+    background: rgba(208,2,27,0.1);
   }
 
   /* Person popover (appears in timeline entries) */
   .person-popover {
     position: fixed; z-index: 9999;
-    width: 260px; background: #fdfcf7;
-    border-radius: 5px; padding: 12px 14px;
-    box-shadow: 0 4px 20px rgba(26,22,16,0.18);
-    font-size: 0.82rem; line-height: 1.45;
-    border-left: 3px solid #B5AD9E;
+    width: 280px; background: #ffffff;
+    border-radius: 8px; padding: 1rem 1.2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    border: 1px solid var(--border);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem; line-height: 1.5;
     pointer-events: auto;
     max-height: 320px; overflow-y: auto;
   }
-  .person-popover .pop-name { font-size: 1.2rem; font-weight: 600; }
-  .person-popover .pop-dates { font-size: 1.05rem; margin-left: 0.4rem; color: var(--ink-light); }
-  .person-popover .pop-role { font-size: 0.78rem; color: var(--ink-light); margin-top: 2px; }
-  .person-popover .pop-bio { margin-top: 0.4rem; padding-bottom: 0.5rem; color: var(--ink-light); font-size: 1.0rem; border-bottom: 1px solid rgba(0,0,0,0.06); }
-  .person-popover .pop-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 0.5rem; margin-bottom: 0.3rem; }
+  .person-popover .pop-name { font-size: 1.15rem; font-weight: 600; color: var(--ink); }
+  .person-popover .pop-dates { font-size: 0.95rem; margin-left: 0.4rem; color: var(--muted); }
+  .person-popover .pop-role { font-size: 0.85rem; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .person-popover .pop-bio { margin-top: 0.5rem; padding-bottom: 0.6rem; color: var(--ink-light); font-size: 1.0rem; border-bottom: 1px solid var(--border); }
+  .person-popover .pop-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 0.6rem; margin-bottom: 0.3rem; color: var(--rust); font-weight: 600; }
   .person-popover .pop-entry {
-    font-size: 0.78rem; padding: 3px 6px; margin: 2px 0;
+    font-size: 0.9rem; padding: 4px 8px; margin: 2px 0;
     border-left: 2px solid rgba(0,0,0,0.1); cursor: pointer;
-    border-radius: 2px; transition: background 0.15s;
+    border-radius: 4px; transition: background 0.15s;
   }
-  .person-popover .pop-entry:hover { background: rgba(0,0,0,0.04); }
+  .person-popover .pop-entry:hover { background: rgba(208,2,27,0.06); }
   @media (max-width: 600px) {
     .person-popover { width: calc(100% - 32px); left: 16px !important; bottom: 16px; top: auto !important; max-height: 50vh; }
   }
@@ -1613,7 +1621,7 @@
     border-left: 3px solid; transition: background 0.15s; margin-bottom: 2px;
   }
   .index-row:hover { background: rgba(0,0,0,0.02); }
-  .index-row .idx-name { font-size: 1.2rem; font-weight: 600; }
+  .index-row .idx-name { font-size: 1.2rem; font-weight: 600; color: var(--ink); }
   .index-row .idx-dates { font-size: 1.1rem; color: var(--muted); margin-left: 0.5rem; }
   .index-row .idx-role { font-size: 1.1rem; color: var(--muted); font-style: italic; }
   .index-row .idx-badge {
@@ -1624,11 +1632,11 @@
     margin-top: 0.6rem; padding-top: 0.6rem; font-size: 1.05rem; line-height: 1.55;
   }
   .index-detail .pop-entry {
-    font-size: 1.05rem; padding: 3px 10px; margin-bottom: 2px;
-    border-left: 2px solid; border-radius: 2px; cursor: pointer;
+    font-size: 1.05rem; padding: 4px 10px; margin-bottom: 2px;
+    border-left: 2px solid; border-radius: 4px; cursor: pointer;
     transition: background 0.15s;
   }
-  .index-detail .pop-entry:hover { background: rgba(0,0,0,0.04); }
+  .index-detail .pop-entry:hover { background: rgba(208,2,27,0.06); }
 
   @media (max-width: 700px) {
     .perso-view { padding: 1.25rem 1rem 3rem; }
@@ -3559,25 +3567,24 @@ function showPersonPopover(pid, anchorEl) {
 
   const pop = document.createElement('div');
   pop.className = 'person-popover';
-  pop.style.borderLeftColor = c.bg;
 
   const entries = person.entries.map(e =>
-    `<div class="pop-entry" style="border-left-color:${c.bg}40;color:${c.text}" onclick="event.stopPropagation();closePersonPopover();goToEntry('${e.replace(/'/g,"\\'")}')">${e}</div>`
+    `<div class="pop-entry" style="border-left-color:${c.bg}" onclick="event.stopPropagation();closePersonPopover();goToEntry('${e.replace(/'/g,"\\'")}')">${e}</div>`
   ).join('');
 
   pop.innerHTML = `
-    <span class="pop-name" style="color:${c.text}">${person.name}</span>
-    <span class="pop-dates" style="color:${c.text}">${person.dates}</span>
+    <span class="pop-name">${person.name}</span>
+    <span class="pop-dates">${person.dates}</span>
     ${person.role ? `<div class="pop-role">${person.role}</div>` : ''}
     ${person.bio ? `<div class="pop-bio">${person.bio}</div>` : ''}
-    ${entries ? `<div class="pop-label" style="color:${c.bg}">Apparaît dans</div>${entries}` : ''}
+    ${entries ? `<div class="pop-label">Apparaît dans</div>${entries}` : ''}
   `;
 
   document.body.appendChild(pop);
   personPopover = pop;
 
   const rect = anchorEl.getBoundingClientRect();
-  const popW = 260, popH = pop.offsetHeight;
+  const popW = 280, popH = pop.offsetHeight;
   const vw = window.innerWidth, vh = window.innerHeight;
 
   let left = rect.left + rect.width / 2 - popW / 2;
@@ -3957,17 +3964,16 @@ function showPopover() {
   if (!pop) { pop = document.createElement('div'); pop.className = 'tree-popover'; container.appendChild(pop); }
   pop.setAttribute('data-pop', 'true');
   pop.className = 'tree-popover' + (isPinned ? ' pinned' : '');
-  pop.style.borderColor = c.bg;
 
   const entries = person.entries.map(e =>
-    `<div class="pop-entry" style="border-left-color:${c.bg}40;color:${c.text}" onclick="event.stopPropagation();goToEntry('${e.replace(/'/g,"\\'")}')">${e}</div>`
-  ).join('') || '<div style="font-size:0.82rem;color:#999;font-style:italic">Mentionné dans la généalogie</div>';
+    `<div class="pop-entry" style="border-left-color:${c.bg}" onclick="event.stopPropagation();goToEntry('${e.replace(/'/g,"\\'")}')">${e}</div>`
+  ).join('') || '<div style="font-size:0.9rem;color:var(--muted);font-style:italic">Mentionné dans la généalogie</div>';
 
   pop.innerHTML = `
-    <span class="pop-name" style="color:${c.text}">${person.name}</span>
-    <span class="pop-dates" style="color:${c.text}">${person.dates}</span>
-    ${person.bio ? `<div class="pop-bio" style="border-bottom:1px solid ${c.bg}20">${person.bio}</div>` : ''}
-    <div class="pop-label" style="color:${c.bg}">Apparaît dans</div>
+    <span class="pop-name">${person.name}</span>
+    <span class="pop-dates">${person.dates}</span>
+    ${person.bio ? `<div class="pop-bio">${person.bio}</div>` : ''}
+    <div class="pop-label">Apparaît dans</div>
     ${entries}
   `;
 }
@@ -3990,16 +3996,16 @@ function renderIndex() {
     const c = DYNASTY_COLORS[p.dynasty];
     const isSel = indexSelectedId === p.id;
     const entries = p.entries.map(e =>
-      `<div class="pop-entry" style="border-left-color:${c.bg}40;color:${c.text}" onclick="event.stopPropagation();goToEntry('${e.replace(/'/g,"\\'")}')">${e}</div>`
-    ).join('') || '<div style="font-size:0.82rem;color:#999;font-style:italic">Mentionné dans la généalogie</div>';
+      `<div class="pop-entry" style="border-left-color:${c.bg}" onclick="event.stopPropagation();goToEntry('${e.replace(/'/g,"\\'")}')">${e}</div>`
+    ).join('') || '<div style="font-size:0.9rem;color:var(--muted);font-style:italic">Mentionné dans la généalogie</div>';
 
     return `<div class="index-row" data-irow="true" style="border-left-color:${c.bg};background:${isSel?c.light:'transparent'}" onclick="event.stopPropagation();indexSelectedId=indexSelectedId==='${p.id}'?null:'${p.id}';renderIndex();">
       <div style="flex:1;min-width:0">
-        <div><span class="idx-name" style="color:${c.text}">${p.name}</span><span class="idx-dates">${p.dates}</span></div>
+        <div><span class="idx-name">${p.name}</span><span class="idx-dates">${p.dates}</span></div>
         ${p.role ? `<div class="idx-role">${p.role}</div>` : ''}
-        ${isSel ? `<div class="index-detail" style="border-top:1px solid ${c.bg}20">
+        ${isSel ? `<div class="index-detail" style="border-top:1px solid var(--border)">
           ${p.bio ? `<div style="margin-bottom:0.6rem;color:var(--ink-light)">${p.bio}</div>` : ''}
-          <div class="pop-label" style="color:${c.bg}">Apparaît dans</div>
+          <div class="pop-label" style="color:var(--rust)">Apparaît dans</div>
           ${entries}
         </div>` : ''}
       </div>
