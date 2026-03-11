@@ -2841,6 +2841,51 @@ const events = [
     book: 1,
     chapter: "Deux Voyageurs en Route",
     textOrder: 120
+  },
+  {
+    year: 774,
+    month: "",
+    title: "Sainte Rolende",
+    description: "Rolende (~754–774), fille de <span class=\"person-link\" data-pid=\"didier_lombard\">Didier</span>, roi des Lombards. En 774, après la défaite de <span class=\"person-link\" data-pid=\"didier_lombard\">Didier</span> face à <span class=\"person-link\" data-pid=\"charlemagne\">Charlemagne</span> et l'exil de la famille royale en Gaule, Rolende est promise en mariage à Oger, fils du roi d'Écosse. Refusant le mariage pour se consacrer à Dieu, elle s'enfuit vers le couvent des Onze Mille Vierges à Cologne. Oger la poursuit. Épuisée, elle fait halte au château-ferme de Villers-Poterie, dans une vallée d'Entre-Sambre-et-Meuse, où elle meurt. Son corps est porté en procession à l'église Saint-Michel de Gerpinnes, où ses reliques reposent dans une châsse d'orfèvrerie du XVIe siècle. Chaque lundi de Pentecôte, la « Marche Sainte-Rolende » — 35 km, messe à 3 heures du matin, 3 000 marcheurs en uniformes napoléoniens — traverse Acoz, Villers-Poterie, Hanzinne, Tarcienne. <span class=\"person-link\" data-pid=\"octave\">Octave</span> raconte à la petite <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> sa propre version de la légende — transformant la sainte en une Daphné chrétienne poursuivie par un Apollon barbare.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 121
+  },
+  {
+    year: -5500,
+    month: "",
+    title: "« Des femmes des peuplades des fonds de cabane, venues, dit-on, du Haut-Danube »",
+    description: "Derrière un portrait de <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> adolescente, Yourcenar voit toutes les femmes de cette région depuis des millénaires. « Des femmes des peuplades des fonds de cabane, venues, dit-on, du Haut-Danube » — les peuples néolithiques et de l'âge du bronze de la région Sambre-Meuse. Les <em>fonds de cabane</em> (habitations semi-enterrées) sont les traces archéologiques des premiers peuplements. La migration du Haut-Danube renvoie à la diffusion des peuples agriculteurs d'Europe centrale vers la Belgique actuelle — la culture danubienne ou de la céramique linéaire (~5500 av. J.-C.).",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 122
+  },
+  {
+    year: -390,
+    month: "",
+    title: "« Les hardies filles en braies rayées qui suivaient leurs hommes en Macédoine ou sur les pentes du Capitole »",
+    description: "Derrière un portrait de <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> adolescente, Yourcenar voit toutes les femmes de cette région depuis des millénaires. « Les hardies filles en braies rayées qui suivaient leurs hommes en Macédoine ou sur les pentes du Capitole » — les femmes celtes et germaniques qui accompagnaient leurs hommes en campagne, lors des guerres macédoniennes d'Alexandre et des migrations celtiques qui atteignirent Rome (les Gaulois prirent Rome en 390 av. J.-C.). Les pantalons rayés (<em>braies rayées</em>) sont un marqueur vestimentaire celte et germanique.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 123
+  },
+  {
+    year: -50,
+    month: "",
+    title: "« Celles qui furent vendues à l'encan après les campagnes de César »",
+    description: "Derrière un portrait de <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> adolescente, Yourcenar voit toutes les femmes de cette région depuis des millénaires. « Celles qui furent vendues à l'encan après les campagnes de César » — après les guerres des Gaules (58–50 av. J.-C.), les femmes capturées des tribus belges et gauloises furent vendues comme esclaves aux enchères. Le <em>De Bello Gallico</em> de César décrit ces asservissements de masse.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 124
+  },
+  {
+    year: 1335,
+    month: "",
+    title: "Blanche de Namur",
+    description: "Derrière un portrait de <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> adolescente, Yourcenar voit toutes les femmes de cette région depuis des millénaires. <span class=\"person-link\" data-pid=\"blanche_namur\">Blanche de Namur</span> (~1320–1363), fille de Jean Iᵉʳ, comte de Namur — la même terre que celle des Cartier de Marchienne et des Drion. En 1335, <span class=\"person-link\" data-pid=\"magnus_eriksson\">Magnus IV Eriksson</span> (1317–1374), roi de Suède et de Norvège, de la dynastie des Folkung, surnommé « Smek » (le Baiseur), la remarqua en route pour la France et l'épousa à Stockholm en 1336. <span class=\"person-link\" data-pid=\"blanche_namur\">Blanche</span> ne revit jamais les rives de la Meuse. <span class=\"person-link\" data-pid=\"ste_brigitte\">Sainte Brigitte de Suède</span> (1303–1373), mystique et fondatrice de l'ordre des Brigittines, fut appelée à la cour comme gouvernante de <span class=\"person-link\" data-pid=\"blanche_namur\">Blanche</span> pour l'initier à la culture suédoise. <span class=\"person-link\" data-pid=\"ste_brigitte\">Brigitte</span> réprimanda sévèrement le couple royal pour sa mauvaise gestion du royaume et sa vie dissolue.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 125
   }
 ];
 
@@ -2877,7 +2922,7 @@ const fullBookNames = {
 function buildLegend() {
   const legend = document.getElementById('legend');
   const chaptersPerBook = {};
-  const sorted = [...events].sort((a, b) => a.year - b.year);
+  const sorted = [...events].sort((a, b) => a.textOrder - b.textOrder);
 
   // Gather chapters per book in chronological order
   for (const e of sorted) {
@@ -3378,6 +3423,11 @@ const eventCoords = {
   118: [50.47, 4.72, "Suarlée"],                           // Swedenborg/Drion
   119: [50.47, 4.72, "Suarlée"],                           // Dolly/Mathilde
   120: [37.40, 25.27, "Délos"],                            // Hécate
+  121: [50.33, 4.52, "Gerpinnes"],                         // Sainte Rolende
+  122: [50.41, 4.44, "Entre-Sambre-et-Meuse"],             // Fonds de cabane
+  123: [50.41, 4.44, "Entre-Sambre-et-Meuse"],             // Braies rayées
+  124: [50.41, 4.44, "Entre-Sambre-et-Meuse"],             // César
+  125: [50.47, 4.86, "Namur"],                             // Blanche de Namur
 };
 
 let map = null;
@@ -3619,7 +3669,7 @@ const PEOPLE = [
   {id:"victor_emmanuel",name:"Victor-Emmanuel II",dates:"1820–1878",dynasty:"other_royal",role:"Roi · Piémont-Sardaigne, puis Italie",bio:"Roi de Sardaigne-Piémont (1849), puis premier roi d'Italie (1861–1878). Avec Cavour et Garibaldi, artisan de l'unification italienne.",entries:["La guerre du Piémont","Aspromonte et Mentana — les marches de Garibaldi sur Rome"]},
   {id:"charlotte_belgique",name:"Charlotte de Belgique",dates:"1840–1927",dynasty:"other_royal",role:"Impératrice du Mexique",bio:"Fille de Léopold I<sup>er</sup> des Belges. Épouse l'archiduc Maximilien (1857). Impératrice du Mexique 1864–67. Sombre dans la folie en 1866 après l'échec de ses missions auprès de Napoléon III et du pape. Recluse au château de Bouchout pendant soixante ans.",entries:["L'expédition du Mexique et la tragédie de Charlotte"]},
   {id:"maximilien_mexique",name:"Maximilien du Mexique",dates:"1832–1867",dynasty:"habsbourg_austria",role:"Archiduc, empereur du Mexique",bio:"Archiduc d'Autriche, frère de François-Joseph. Installé empereur du Mexique par Napoléon III (1864). Abandonné par les Français, capturé et fusillé à Querétaro le 19 juin 1867.",entries:["L'expédition du Mexique et la tragédie de Charlotte"]},
-  {id:"charlemagne",name:"Charlemagne",dates:"~742–814",dynasty:"other_royal",role:"Empereur d'Occident",entries:["Ce Charlemagne que nous avons naturalisé"]},
+  {id:"charlemagne",name:"Charlemagne",dates:"~742–814",dynasty:"other_royal",role:"Empereur d'Occident",entries:["Ce Charlemagne que nous avons naturalisé","Sainte Rolende"]},
   {id:"robespierre",name:"Maximilien de Robespierre",dates:"1758–1794",dynasty:"revolution",role:"Membre du Comité de salut public",entries:["La Terreur","Thermidor","L'exécution de Louis XVI","Les Jacobins à Charleroi"]},
   {id:"saint_just",name:"Louis Antoine de Saint-Just",dates:"1767–1794",dynasty:"revolution",role:"Membre du Comité de salut public",entries:["Saint-Just, commissaire aux armées du Nord","L'exécution de Louis XVI","La Terreur","Thermidor"]},
   {id:"couthon",name:"Georges Couthon",dates:"1755–1794",dynasty:"revolution",role:"Membre du Comité de salut public",entries:["La Terreur","Thermidor"]},
@@ -3662,8 +3712,8 @@ const PEOPLE = [
   {id:"calvin",name:"Jean Calvin",dates:"1509–1564",dynasty:"religious",role:"Réformateur",entries:["Un certain Calvin"]},
   {id:"clement_xi",name:"Clément XI",dates:"1649–1721",dynasty:"religious",role:"Pape",entries:["La querelle des Rites"]},
   {id:"pie_ix",name:"Pie IX",dates:"1792–1878",dynasty:"religious",role:"Pape",bio:"Pape 1846–1878 — plus long pontificat de l'histoire (31 ans). D'abord perçu comme libéral, se raidit après 1848. Proclame l'Immaculée Conception (1854), publie le <em>Syllabus</em> (1864), convoque Vatican I (1869–70). Perd les États pontificaux (1870).",entries:["Pie IX et le catholicisme belge"]},
-  {id:"fernande",name:"Fernande de C. de Marchienne",dates:"1872–1903",dynasty:"family",role:"Mère de Marguerite",entries:["Naissance de Marguerite","Mélisande"]},
-  {id:"arthur",name:"Arthur de Cartier de Marchienne",dates:"1831–1890",dynasty:"family",role:"Grand-père maternel de Yourcenar",bio:"Fils de <span class='person-link' data-pid='flore_drion'>Flore Drion</span> et de Joseph-Ghislain de C. de M. Obtint par arrêté royal en 1887 l'ajout « de Marchienne » au nom de famille. Épousa sa cousine germaine <span class='person-link' data-pid='mathilde'>Mathilde Troye</span>. Mort après une longue maladie au château de Suarlée.",entries:["Naissance d'Arthur de C.","« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"fernande",name:"Fernande de Cartier de Marchienne",dates:"1872–1903",dynasty:"family",role:"Mère de Yourcenar",bio:"Cadette des onze enfants d'Arthur et Mathilde. Hérita les torsades rousses de sa mère. Élevée par le Fräulein et ses sœurs aînées Georgine et Zoé. Épousa Michel Cleenewerck de Crayencour en 1900. Morte de fièvre puerpérale onze jours après la naissance de Marguerite.",entries:["Naissance de Marguerite","Mélisande","« La Dolly d'Anna Karénine, sa contemporaine »","Sainte Rolende"]},
+  {id:"arthur",name:"Arthur de Cartier de Marchienne",dates:"1831–1890",dynasty:"family",role:"Grand-père maternel de Yourcenar",bio:"Fils de <span class='person-link' data-pid='flore_drion'>Flore Drion</span> et de Joseph-Ghislain de C. de M. Obtint par arrêté royal en 1887 l'ajout « de Marchienne » au nom de famille. Épousa sa cousine germaine <span class='person-link' data-pid='mathilde'>Mathilde Troye</span>. Décédé le 2 janvier 1890 au château de Suarlée, après une longue maladie qui le confina progressivement à sa propriété, puis à son lit.",entries:["Naissance d'Arthur de C.","« La Dolly d'Anna Karénine, sa contemporaine »"]},
   {id:"marguerite",name:"Marguerite Yourcenar",dates:"1903–1987",dynasty:"family",role:"L'auteur",entries:["Naissance de Marguerite de Crayencour"]},
   {id:"egmont",name:"Comte d'Egmont",dates:"1522–1568",dynasty:"other_royal",role:"Noble des Pays-Bas",entries:["Les Gueux et le comte Egmont"]},
   {id:"horn",name:"Comte de Horn",dates:"1698–1720",dynasty:"other_royal",role:"Noble flamand",bio:"Apparenté aux plus grandes maisons d'Europe. Assassine un courtier à Paris lors de la bulle de Law. Roué vif en place de Grève malgré les supplications de toute la haute noblesse.",entries:["Le comte de Horn et le parallèle aristocratique"]},
@@ -3672,7 +3722,7 @@ const PEOPLE = [
   {id:"la_ruelle",name:"Sébastien La Ruelle",dates:"?–1637",dynasty:"other_royal",role:"Bourgmestre de Liège",entries:["Le meurtre du bourgmestre La Ruelle"]},
   // ─── Family ───
   {id:"remo",name:"Fernand Pirmez (Rémo)",dates:"1844–1872",dynasty:"family",role:"Grand-oncle de Marguerite",bio:"Fils d'Irénée de C. de Marchienne et de Benjamin Pirmez. Irénée est sœur de Flore (mère d'Arthur) et de Zoé (mère de Mathilde) — les grands-parents maternels de Marguerite. Octave lui donne les pseudonymes Rémo, Argyros, Slavoï. Matérialiste, voyageur, pacifiste. Voyage en Algérie, en Grèce, à Paris pendant la Commune où il se lie avec Flourens. Il est assimilé à Julien l'Apostat. Se tue d'une balle le 27 septembre 1872 à Liège — la famille fait passer le suicide pour un accident.",entries:["Julien l'Apostat et le retour au paganisme","L'Année Terrible","Gustave Flourens et la Commune","Les pseudonymes d'Octave et Rémo","« Les Travaux et les Jours, Théocrite, Tibulle, Lucrèce… »","« Le positivisme triomphant »","« Rémo et l'Âge d'Or »","« Cette mer de larmes qu'il emprunte à travers Schopenhauer aux sutras bouddhiques »","Hécate"]},
-  {id:"octave",name:"Octave Pirmez",dates:"1832–1883",dynasty:"family",role:"Grand-oncle de Marguerite",bio:"Fils d'Irénée de C. de Marchienne et de Benjamin Pirmez, frère aîné de Rémo. Idéaliste romantique, écrivain — « le solitaire d'Acoz ». Se voit en jeune Hermès portant Dionysos enfant — son cadet. Rémo lui donne les pseudonymes Cosimo, Zaboï et surtout Héribert. Auteur de <em>Rémo : souvenir d'un frère</em> (1878). Yourcenar lui consacre plus de cent pages.",entries:["Le comte de Horn et le parallèle aristocratique","L'affaire Bocarmé","Les pseudonymes d'Octave et Rémo","« Les Travaux et les Jours, Théocrite, Tibulle, Lucrèce… »","« Le positivisme triomphant »","« Les soldats de Garibaldi »"]},
+  {id:"octave",name:"Octave Pirmez",dates:"1832–1883",dynasty:"family",role:"Grand-oncle de Marguerite",bio:"Fils d'Irénée de C. de Marchienne et de Benjamin Pirmez, frère aîné de Rémo. Idéaliste romantique, écrivain — « le solitaire d'Acoz ». Se voit en jeune Hermès portant Dionysos enfant — son cadet. Rémo lui donne les pseudonymes Cosimo, Zaboï et surtout Héribert. Auteur de <em>Rémo : souvenir d'un frère</em> (1878). Yourcenar lui consacre plus de cent pages.",entries:["Le comte de Horn et le parallèle aristocratique","L'affaire Bocarmé","Les pseudonymes d'Octave et Rémo","« Les Travaux et les Jours, Théocrite, Tibulle, Lucrèce… »","« Le positivisme triomphant »","« Les soldats de Garibaldi »","Sainte Rolende"]},
   // ─── Ancient ───
   {id:"cesar",name:"Jules César",dates:"100–44 av. J.-C.",dynasty:"other_royal",role:"Consul, dictateur · Rome",bio:"Conquérant de la Gaule (58–50 av. J.-C.). Ses <em>Commentaires</em> sont la première source écrite sur les peuples belges.",entries:["La Citadelle et les tribus celtes"]},
   {id:"trajan",name:"Trajan",dates:"53–117",dynasty:"other_royal",role:"Empereur romain",bio:"Premier empereur originaire des provinces (Italica, Hispanie). Commandant des armées de Germanie Inférieure à Cologne avant son accession.",entries:["Ce légionnaire de race tongre","Publius Aelius Hadrianus"]},
@@ -3740,13 +3790,26 @@ const PEOPLE = [
   {id:"amelie_drion",name:"Amélie Drion",dates:"~1812–?",dynasty:"drion",role:"Épouse de Victor Pirmez",bio:"Deuxième des sœurs Drion. Épousa Victor Pirmez, ancien garde d'honneur du roi Guillaume, fils de grands propriétaires de la région.",entries:["« Quelques âmes inquiètes penchées sur les sutras hindous et sur Swedenborg »"]},
   {id:"irenee_drion",name:"Irénée Drion",dates:"~1814–?",dynasty:"drion",role:"Mère d'Octave et Rémo",bio:"Troisième des sœurs Drion. Épousa Benjamin Pirmez, frère de Victor. « Vécut son radicalisme et en mourut au sein d'une famille traditionaliste, fut réputée toute sa vie pour la roideur de ses principes. »",entries:["« Quelques âmes inquiètes penchées sur les sutras hindous et sur Swedenborg »"]},
   {id:"zoe_drion",name:"Zoé Drion",dates:"~1816–?",dynasty:"drion",role:"Mère de Mathilde Troye",bio:"Cadette des sœurs Drion. Épousa Louis Troye, gouverneur du Hainaut (1849–1870). Leur fille Mathilde épousa son cousin germain Arthur — « ce qui me donne deux des sœurs Drion comme arrière-grand-mères ».",entries:["« Quelques âmes inquiètes penchées sur les sutras hindous et sur Swedenborg »"]},
-  {id:"mathilde",name:"Mathilde de C. de M., née Troye",dates:"1834–1873",dynasty:"family",role:"Épouse d'Arthur · Grand-mère de Yourcenar",bio:"Fille de Zoé Drion et de Louis Troye, gouverneur du Hainaut. Cousine germaine de son époux Arthur par les sœurs Drion. Mère de onze enfants dont Fernande (1872–1903), mère de Yourcenar.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"mathilde",name:"Mathilde de C. de M., née Troye",dates:"1834–1873",dynasty:"family",role:"Épouse d'Arthur · Grand-mère de Yourcenar",bio:"Fille de Zoé Drion et de Louis Troye, gouverneur du Hainaut. Cousine germaine de son époux Arthur par les sœurs Drion. Mère de onze enfants dont Fernande (1872–1903), mère de Yourcenar.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »","Sainte Rolende"]},
   {id:"swedenborg",name:"Emanuel Swedenborg",dates:"1688–1772",dynasty:"cultural",role:"Polymathe et mystique suédois",bio:"Scientifique, ingénieur, anatomiste devenu théologien visionnaire. Auteur de <em>Du Ciel et de l'Enfer</em> (1758). Sa théorie des « correspondances » entre monde matériel et spirituel influença Balzac, Baudelaire, Blake, Emerson.",entries:["« Quelques âmes inquiètes penchées sur les sutras hindous et sur Swedenborg »"]},
   {id:"platon",name:"Platon",dates:"~428–348 av. J.-C.",dynasty:"cultural",role:"Philosophe",bio:"Philosophe athénien, fondateur de l'Académie. Théorie des Formes idéales. Auteur de la <em>République</em>, du <em>Banquet</em>, du <em>Phédon</em>.",entries:["« La réponse de Platon n'est pas celle d'Aristote, celle d'Héraclite n'est pas celle d'Empédocle »"]},
   {id:"aristote",name:"Aristote",dates:"384–322 av. J.-C.",dynasty:"cultural",role:"Philosophe",bio:"Élève de Platon, fondateur du Lycée. Logique, physique, métaphysique, éthique, politique, poétique. Précepteur d'Alexandre le Grand.",entries:["« La réponse de Platon n'est pas celle d'Aristote, celle d'Héraclite n'est pas celle d'Empédocle »"]},
   {id:"heraclite",name:"Héraclite",dates:"~535–475 av. J.-C.",dynasty:"cultural",role:"Philosophe présocratique",bio:"D'Éphèse. Le devenir perpétuel, le feu comme principe, l'unité des contraires. « On ne se baigne jamais deux fois dans le même fleuve. »",entries:["« La réponse de Platon n'est pas celle d'Aristote, celle d'Héraclite n'est pas celle d'Empédocle »"]},
   {id:"empedocle",name:"Empédocle",dates:"~490–430 av. J.-C.",dynasty:"cultural",role:"Philosophe présocratique",bio:"D'Agrigente. Les quatre éléments, l'Amour et la Haine comme forces cosmiques, la transmigration des âmes.",entries:["« La réponse de Platon n'est pas celle d'Aristote, celle d'Héraclite n'est pas celle d'Empédocle »"]},
-  {id:"schopenhauer",name:"Arthur Schopenhauer",dates:"1788–1860",dynasty:"cultural",role:"Philosophe",bio:"Auteur de <em>Le Monde comme volonté et comme représentation</em> (1818/1844). Premier philosophe européen majeur à s'engager avec la pensée bouddhiste et hindoue.  L'existence comme souffrance, la Volonté aveugle comme principe du monde.",entries:["« Cette mer de larmes qu'il emprunte à travers Schopenhauer aux sutras bouddhiques »"]}
+  {id:"schopenhauer",name:"Arthur Schopenhauer",dates:"1788–1860",dynasty:"cultural",role:"Philosophe",bio:"Auteur de <em>Le Monde comme volonté et comme représentation</em> (1818/1844). Premier philosophe européen majeur à s'engager avec la pensée bouddhiste et hindoue.  L'existence comme souffrance, la Volonté aveugle comme principe du monde.",entries:["« Cette mer de larmes qu'il emprunte à travers Schopenhauer aux sutras bouddhiques »"]},
+  {id:"joseph_ghislain",name:"Joseph-Ghislain de C. de M.",dates:"~1800–~1840",dynasty:"family",role:"Arrière-grand-père de Yourcenar",bio:"Confirmé dans sa noblesse par Guillaume Iᵉʳ de Hollande en 1824. Colonel de la garde bourgeoise et bourgmestre de Marchienne après 1830. Épousa Flore Drion au château de la Boverie, Suarlée. Mourut quadragénaire.",entries:["« Quelques âmes inquiètes penchées sur les sutras hindous et sur Swedenborg »"]},
+  {id:"isabelle_cartier",name:"Isabelle de C. de M.",dates:"1855–1917",dynasty:"family",role:"Fille aînée d'Arthur et Mathilde",bio:"Dite Isa. Épousa son cousin le baron Georges de Cartier d'Yves. Trois enfants : un fils aîné (continua la lignée), une fille Mathilde — maladive, « affublée d'un hideux béret, fait l'effet d'une totale maldonne : elle quittera ce monde de bonne heure » — et Louise, héroïque infirmière de la Grande Guerre, forte blonde aux yeux bleus, adorée et redoutée de son hôpital. Louise mourut d'un cancer dû aux rayons X. Yourcenar la visita en 1954.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"georgine",name:"Georgine de C. de M.",dates:"1859–1913",dynasty:"family",role:"Fille d'Arthur et Mathilde",bio:"Photographiée à Vienne, majestueuse, faux air de statue antique. Épousa Henri Manderbach, de Namur, libre penseur. Vers 48 ans, plus qu'une ruine — aveugle, dévorée par le diabète. Ses yeux marrons conservaient un éclat à la fois doux et vif.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"zoe_fille",name:"Zoé de C. de M.",dates:"1862–1904",dynasty:"family",role:"Fille d'Arthur et Mathilde",bio:"Sœur préférée de Fernande. Épousa Hubert Delvaux (~1883). Mère de Suzanne (« jeune Cybèle »). Visage aux méplats structurés — « quelque chose de cette étrangeté de proportions par quoi Léonard définit la beauté. »",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"gaston_cartier",name:"Gaston de C. de M.",dates:"1858–1887",dynasty:"family",role:"Fils d'Arthur et Mathilde, dit « le Simple »",bio:"Dit « Gaston le Simple » — simple d'esprit. Mort en septembre 1887 à Suarlée, huit jours après une violente dispute avec son père <span class='person-link' data-pid='arthur'>Arthur</span>, à l'issue de laquelle il remonta dans sa chambre sans un mot et fut pris d'une fièvre chaude.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"theobald",name:"Théobald de C. de M.",dates:"?–~1920",dynasty:"family",role:"Fils d'Arthur et Mathilde",bio:"S'installa à Bruxelles avec Jeanne et Fernande. Mangea progressivement son capital, calculant d'arriver au chiffre néant à la fin de sa vie. Devint paraplégique. Cartes de visite : « Réciprocités. État paraplégique invariable. » Retrouvé vers 1920 sur la Grand-Place de Bruxelles. Placé à l'asile de Geel.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"octave_petit",name:"Octave de C. de M. (le petit)",dates:"?–?",dynasty:"family",role:"Fils d'Arthur et Mathilde",bio:"Publia un volume d'Octave Pirmez. Globe-trotter. Visitait sa sœur Jeanne entre deux voyages.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"jeanne_cartier",name:"Jeanne de C. de M.",dates:"?–?",dynasty:"family",role:"Fille d'Arthur et Mathilde",bio:"Infirme. Tranquille et un peu froide. Recevait les visiteurs dans son petit jardin d'hiver.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"ste_rolende",name:"Sainte Rolende",dates:"~754–774",dynasty:"religious",role:"Princesse lombarde · Sainte de Gerpinnes",bio:"Fille de Didier, roi des Lombards. Refusa un mariage imposé avec Oger, fils du roi d'Écosse. S'enfuit vers Cologne. Mourut d'épuisement à Villers-Poterie. Reliques à l'église Saint-Michel de Gerpinnes. La « Marche Sainte-Rolende » (lundi de Pentecôte, 35 km, 3 000 marcheurs) traverse Acoz.",entries:["Sainte Rolende"]},
+  {id:"didier_lombard",name:"Didier",dates:"?–786",dynasty:"other_royal",role:"Roi des Lombards",bio:"Dernier roi des Lombards (756–774). Vaincu par Charlemagne en 774 au siège de Pavie. Exilé en Gaule avec sa famille.",entries:["Sainte Rolende"]},
+  {id:"blanche_namur",name:"Blanche de Namur",dates:"~1320–1363",dynasty:"other_royal",role:"Reine · Suède et Norvège",bio:"Fille de Jean Iᵉʳ, comte de Namur. Épousa Magnus IV Eriksson en 1336. Couronnée reine de Suède, Norvège et Scanie à Stockholm. Ne revit jamais les rives de la Meuse.",entries:["Blanche de Namur"]},
+  {id:"magnus_eriksson",name:"Magnus IV Eriksson",dates:"1317–1374",dynasty:"other_royal",role:"Roi · Suède et Norvège",bio:"Dit « Smek » (le Baiseur). Roi de Suède 1319–1364, roi de Norvège 1319–1343. Dynastie des Folkung. Épousa Blanche de Namur en 1336. Sainte Brigitte lui reprocha sa mauvaise gestion du royaume.",entries:["Blanche de Namur"]},
+  {id:"ste_brigitte",name:"Sainte Brigitte de Suède",dates:"1303–1373",dynasty:"religious",role:"Mystique · Fondatrice des Brigittines",bio:"Née Birgitta Birgersdotter. Gouvernante de Blanche de Namur à la cour de Stockholm. Visionnaire, prophétesse, fondatrice de l'ordre du Saint-Sauveur à Vadstena. Canonisée 1391. Patronne de l'Europe.",entries:["Blanche de Namur"]}
 ];
 
 const PEOPLE_MAP = Object.fromEntries(PEOPLE.map(p => [p.id, p]));
