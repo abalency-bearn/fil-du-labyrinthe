@@ -1802,7 +1802,7 @@
 
 <div class="view-tabs">
   <button class="tab-btn active" data-view="timeline" onclick="switchView('timeline')">Chronologie</button>
-  <button class="tab-btn" data-view="personnages" onclick="switchView('personnages')">Personnages</button>
+  <button class="tab-btn" data-view="personnages" onclick="persoFilterPid=null;indexSelectedId=null;switchView('personnages');renderIndex();">Personnages</button>
   <div class="tab-dropdown">
     <button class="tab-btn" onclick="toggleTreeMenu(event)">Arbres<span class="dropdown-arrow" style="margin-left:0.3em">▾</span></button>
     <div class="tab-dropdown-menu" id="tree-menu">
@@ -4049,11 +4049,12 @@ function renderCrossResultsChrono() {
 }
 
 function goToPersonnage(pid) {
-  dynastyFilter = 'all';
-  persoFilterPid = pid;
-  
   switchView('personnages');
   setTimeout(function() {
+    dynastyFilter = 'all';
+    persoFilterPid = pid;
+    indexSelectedId = pid;
+    
     // Reset chip styling
     document.querySelectorAll('.perso-chip').forEach(function(c) {
       var d = c.dataset.dynasty;
@@ -4068,7 +4069,7 @@ function goToPersonnage(pid) {
     if (cl) cl.classList.remove('visible');
     
     renderIndex();
-  }, 300);
+  }, 50);
 }
 
 function goBackToChrono() {
@@ -4447,14 +4448,7 @@ function switchView(view) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
   document.getElementById('timeline-view').classList.toggle('view-hidden', view !== 'timeline');
   document.getElementById('personnages-view').classList.toggle('view-hidden', view !== 'personnages');
-  if (view === 'personnages') {
-    if (!persoInitialized) initPersonnages();
-    // Clear single-person filter so full list shows (goToPersonnage overrides after 300ms)
-    if (typeof persoFilterPid !== 'undefined') {
-      persoFilterPid = null;
-      if (persoInitialized) renderIndex();
-    }
-  }
+  if (view === 'personnages' && !persoInitialized) initPersonnages();
   window.scrollTo({ top: 0 });
 }
 
