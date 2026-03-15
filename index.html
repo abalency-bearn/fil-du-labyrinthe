@@ -1281,16 +1281,16 @@
   .back-to-top {
     position: fixed;
     bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.75rem 1.5rem;
+    left: 4rem;
+    transform: none;
+    padding: 1rem 2rem;
     border-radius: 2rem;
     background: var(--rust);
     color: var(--cream);
     border: none;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: 1.15rem;
     font-weight: 500;
     letter-spacing: 0.03em;
     text-transform: uppercase;
@@ -4943,17 +4943,34 @@ function clearPersoSelection() { pinnedId=null; hoveredId=null; indexSelectedId=
 
 // Navigate to timeline entry
 function goToEntry(title) {
+  // Clear all filters so target event is visible
+  searchQuery = '';
+  var searchInput = document.getElementById('search-input');
+  if (searchInput) searchInput.value = '';
+  var searchClear = document.getElementById('search-clear');
+  if (searchClear) searchClear.classList.remove('visible');
+  activeChapters.clear();
+  activeYearRanges = [];
+  
+  // Clear cross-results
+  var cr = document.getElementById('cross-results-chrono');
+  if (cr) cr.innerHTML = '';
+  
   switchView('timeline');
+  render();
+  
   setTimeout(() => {
+    const target = title.slice(0, 40);
     const cards = document.querySelectorAll('.event-card');
     for (const card of cards) {
-      if (card.querySelector('.event-title')?.textContent?.includes(title.slice(0, 20))) {
+      const titleEl = card.querySelector('.event-title');
+      if (titleEl && titleEl.textContent.includes(target)) {
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         highlightCard(card);
         return;
       }
     }
-  }, 200);
+  }, 300);
 }
 
 // ─── PERSON POPOVER (in descriptions) ───
