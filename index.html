@@ -794,14 +794,17 @@
     color: var(--ink);
   }
   .tree-overlay-close {
-    font-size: 1.3rem;
-    color: var(--rust);
-    background: none;
+    font-size: 1.15rem;
+    color: #fff;
+    background: var(--rust);
     border: none;
+    border-radius: 2rem;
     cursor: pointer;
-    padding: 0.3rem 0.5rem;
-    opacity: 0.7;
+    padding: 0.5rem 1.2rem;
+    opacity: 0.9;
     transition: opacity 0.15s;
+    font-weight: 600;
+    line-height: 1;
   }
   .tree-overlay-close:hover { opacity: 1; }
   .tree-overlay .tree-container {
@@ -4444,7 +4447,14 @@ function switchView(view) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
   document.getElementById('timeline-view').classList.toggle('view-hidden', view !== 'timeline');
   document.getElementById('personnages-view').classList.toggle('view-hidden', view !== 'personnages');
-  if (view === 'personnages' && !persoInitialized) initPersonnages();
+  if (view === 'personnages') {
+    if (!persoInitialized) initPersonnages();
+    // Clear single-person filter so full list shows (goToPersonnage overrides after 300ms)
+    if (typeof persoFilterPid !== 'undefined') {
+      persoFilterPid = null;
+      if (persoInitialized) renderIndex();
+    }
+  }
   window.scrollTo({ top: 0 });
 }
 
@@ -4814,8 +4824,8 @@ const PEOPLE = [
   {id:"marx",name:"Karl Marx",dates:"1818–1883",dynasty:"cultural",role:"Philosophe et économiste",bio:"Auteur du <em>Capital</em> (1867). Mort à Londres le 14 mars 1883.",entries:["Marx et Bakounine"]},
   {id:"bakounine",name:"Mikhaïl Bakounine",dates:"1814–1876",dynasty:"cultural",role:"Révolutionnaire et théoricien anarchiste",bio:"Adversaire de Marx au sein de la Première Internationale. Théoricien de l'anarchisme collectiviste.",entries:["Marx et Bakounine"]},
   {id:"louis_baviere",name:"Louis II de Bavière",dates:"1845–1886",dynasty:"other_royal",role:"Roi · Bavière",bio:"Mécène de Wagner. Constructeur de Neuschwanstein. Noyé dans le lac de Starnberg en 1886.",entries:["Louis de Bavière","« Le Lohengrin soupçonné de démence »"]},
-  {id:"rodolphe",name:"Rodolphe de Habsbourg",dates:"1858–1889",dynasty:"habsburg",role:"Archiduc héritier · Autriche-Hongrie",bio:"Kronprinz. Se suicida avec Marie Vetsera à Mayerling le 30 janvier 1889.",entries:["Mayerling"]},
-  {id:"elisabeth",name:"Élisabeth d'Autriche",dates:"1837–1898",dynasty:"habsburg",role:"Impératrice · Autriche-Hongrie",bio:"Née duchesse en Bavière. Assassinée par un anarchiste à Genève en 1898.",entries:["Mayerling"]},
+  {id:"rodolphe",name:"Rodolphe de Habsbourg",dates:"1858–1889",dynasty:"habsbourg_austria",role:"Archiduc héritier · Autriche-Hongrie",bio:"Kronprinz. Se suicida avec Marie Vetsera à Mayerling le 30 janvier 1889.",entries:["Mayerling"]},
+  {id:"elisabeth",name:"Élisabeth d'Autriche",dates:"1837–1898",dynasty:"habsbourg_austria",role:"Impératrice · Autriche-Hongrie",bio:"Née duchesse en Bavière. Assassinée par un anarchiste à Genève en 1898.",entries:["Mayerling"]},
   {id:"nightingale",name:"Florence Nightingale",dates:"1820–1910",dynasty:"cultural",role:"Infirmière et réformatrice",bio:"Pionnière des soins infirmiers modernes. Revenue de Scutari (guerre de Crimée), elle dirigea depuis son lit la réforme du système hospitalier britannique.",entries:["Florence Nightingale et Henri Dunant"]},
   {id:"dunant",name:"Henri Dunant",dates:"1828–1910",dynasty:"cultural",role:"Fondateur de la Croix-Rouge",bio:"Homme d'affaires genevois. Témoin de Solférino (1859). Fonda le CICR (1863). Premier prix Nobel de la paix (1901).",entries:["Florence Nightingale et Henri Dunant"]},
   {id:"nietzsche",name:"Friedrich Nietzsche",dates:"1844–1900",dynasty:"cultural",role:"Philosophe",bio:"Auteur d'<em>Ainsi parlait Zarathoustra</em> (1883–85). Sombre dans la folie à Turin en janvier 1889.",entries:["Nietzsche à Sils-Maria"]},
@@ -5205,7 +5215,7 @@ function renderTree() {
   // Nodes
   Object.entries(TREE_POS).forEach(([id, pos]) => {
     const p = PEOPLE_MAP[id]; if(!p) return;
-    const c = DYNASTY_COLORS[p.dynasty];
+    const c = DYNASTY_COLORS[p.dynasty] || {bg:'#888',light:'#f5f5f5',text:'#555',label:'?'};
     const isGhost = !!p.ghost;
     const isActive = activeId === id;
     const dimmed = connected && !connected.has(id);
@@ -5381,7 +5391,7 @@ function updateNodeOpacity() {
     g.setAttribute('opacity', dimmed ? 0.15 : baseOpacity);
     const rect = g.querySelector('rect');
     if(!rect) return;
-    const c = DYNASTY_COLORS[p.dynasty];
+    const c = DYNASTY_COLORS[p.dynasty] || {bg:'#888',light:'#f5f5f5',text:'#555',label:'?'};
     const isActive = activeId === nid;
     rect.setAttribute('fill', isActive ? c.light : (isGhost ? '#F8F6F1' : '#FDFCF9'));
     rect.setAttribute('stroke', isActive ? c.bg : (isGhost ? '#DDD8CF' : '#CCC5B8'));
@@ -5439,7 +5449,7 @@ function renderIndex() {
 
   const el = document.getElementById('perso-index-list');
   el.innerHTML = list.map(p => {
-    const c = DYNASTY_COLORS[p.dynasty];
+    const c = DYNASTY_COLORS[p.dynasty] || {bg:'#888',light:'#f5f5f5',text:'#555',label:'?'};
     const isSel = indexSelectedId === p.id;
     const entries = p.entries.map(e =>
       `<div class="pop-entry" style="border-left-color:${c.bg}" onclick="event.stopPropagation();goToEntry('${e.replace(/'/g,"\\'")}')">${e}</div>`
