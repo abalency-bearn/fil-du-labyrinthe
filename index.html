@@ -261,6 +261,59 @@
     flex: 1;
   }
 
+  .cross-results {
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+  }
+  .cross-results:empty { display: none; }
+  .cross-results:not(:empty) + .references-header { padding-top: 1rem; }
+  .cross-results-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--rust);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.8rem;
+  }
+  .cross-result-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3px;
+    cursor: pointer;
+  }
+  .cross-result-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.12s;
+    border-left: 3px solid var(--rust);
+    background: rgba(208, 2, 27, 0.03);
+    white-space: nowrap;
+  }
+  .cross-result-item:hover { background: rgba(208, 2, 27, 0.07); }
+  .cross-result-name { font-size: 0.95rem; font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .cross-result-detail { font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+  .cross-result-hint {
+    font-size: 0.8rem; color: var(--rust); opacity: 0; transition: opacity 0.15s;
+    white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em;
+  }
+  .cross-result-row:hover .cross-result-item { background: rgba(208, 2, 27, 0.07); }
+  .cross-result-row:hover .cross-result-hint { opacity: 1; }
+
+  .perso-back-link {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    font-size: 1.2rem; font-weight: 600; color: var(--rust); cursor: pointer;
+    padding: 0.4rem 0.7rem; border-radius: 4px;
+    background: rgba(208, 2, 27, 0.04);
+    transition: background 0.12s;
+    margin-top: 0.8rem;
+  }
+  .perso-back-link:hover { background: rgba(208, 2, 27, 0.1); }
+
   .search-icon {
     position: absolute;
     left: 0.7rem;
@@ -715,9 +768,53 @@
     bottom: 0;
   }
 
+  /* ─── TREE OVERLAY (fullscreen) ─── */
+  .tree-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 10000;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+  }
+  .tree-overlay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .tree-overlay-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .tree-overlay-close {
+    font-size: 1.3rem;
+    color: var(--rust);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+  }
+  .tree-overlay-close:hover { opacity: 1; }
+  .tree-overlay .tree-container {
+    flex: 1;
+    overflow: auto;
+  }
+  .tree-overlay .perso-legend {
+    padding: 0.5rem 1.5rem;
+  }
+
   /* Timeline container */
   .timeline-wrapper {
-    padding: 3rem 4rem 6rem;
+    padding: 1rem 4rem 6rem;
     position: relative;
   }
 
@@ -1256,6 +1353,47 @@
   }
   .view-hidden { display: none !important; }
 
+  /* ─── TAB DROPDOWN (Arbres) ─── */
+  .tab-dropdown {
+    position: relative;
+    display: inline-flex;
+  }
+  .tab-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 500;
+    min-width: 180px;
+    overflow: hidden;
+  }
+  .tab-dropdown-menu.open { display: block; }
+  .tab-dropdown-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.65rem 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .tab-dropdown-menu button:hover {
+    background: var(--ink);
+    color: #ffffff;
+  }
+  .tab-dropdown-menu button + button {
+    border-top: 1px solid var(--border);
+  }
+
   @media (max-width: 700px) {
     .view-tabs { padding: 0.7rem 1rem; gap: 0.6rem; }
     .tab-btn { font-size: 1.0rem; padding: 0.4rem 1.2rem; }
@@ -1267,7 +1405,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1rem 0;
+    padding: 1.7rem 0 1.7rem;
     margin: 0;
     border-bottom: 1px solid var(--border);
     background: var(--cream);
@@ -1662,6 +1800,13 @@
 <div class="view-tabs">
   <button class="tab-btn active" data-view="timeline" onclick="switchView('timeline')">Chronologie</button>
   <button class="tab-btn" data-view="personnages" onclick="switchView('personnages')">Personnages</button>
+  <div class="tab-dropdown">
+    <button class="tab-btn" onclick="toggleTreeMenu(event)">Arbres<span class="dropdown-arrow" style="margin-left:0.3em">▾</span></button>
+    <div class="tab-dropdown-menu" id="tree-menu">
+      <button onclick="openFamilyTreeOverlay(); closeTreeMenu()">Arbre familial</button>
+      <button onclick="openTreeOverlay(); closeTreeMenu()">Arbre dynastique</button>
+    </div>
+  </div>
 </div>
 
 <div class="timeline-wrapper" id="timeline-view">
@@ -1712,6 +1857,7 @@
     </div>
   </div>
 
+  <div class="cross-results" id="cross-results-chrono"></div>
   <div class="references-header">Références</div>
   <div class="active-filters" id="active-filters"></div>
 
@@ -1733,29 +1879,394 @@
 
 <!-- ═══ PERSONNAGES VIEW ═══ -->
 <div class="perso-view view-hidden" id="personnages-view">
-  <div class="perso-tabs">
-    <button class="perso-tab-btn active" onclick="switchPersoTab('tree')">Arbre dynastique</button>
-    <button class="perso-tab-btn" onclick="switchPersoTab('index')">Index complet</button>
-  </div>
-  <div id="perso-tree-panel">
-    <p class="perso-hint">Survolez pour un aperçu · Cliquez pour fixer le panneau</p>
-    <div class="perso-legend" id="tree-legend"></div>
-    <div class="tree-container" id="tree-container">
-      <div class="tree-zoom-controls">
-        <button class="tree-zoom-btn" onclick="treeZoomIn()">+</button>
-        <button class="tree-zoom-btn" onclick="treeZoomOut()">−</button>
-        <button class="tree-zoom-btn" onclick="treeZoomReset()" style="font-size:0.8rem">⟲</button>
-      </div>
-      <svg id="tree-svg"></svg>
+  <div id="perso-index-panel">
+    <div class="search-box" style="margin-bottom:0.85rem;">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="perso-search" placeholder="Rechercher…" oninput="filterIndex()">
+      <button class="search-clear" id="perso-search-clear" onclick="clearPersoSearchOnly()">✕</button>
     </div>
-  </div>
-  <div id="perso-index-panel" style="display:none">
-    <input type="text" class="perso-search" id="perso-search" placeholder="Rechercher un personnage, un rôle, une entrée…" oninput="filterIndex()">
     <div class="perso-chips" id="perso-chips"></div>
     <div class="perso-count" id="perso-count"></div>
     <div id="perso-index-list"></div>
+    <div id="perso-back-container"></div>
   </div>
 </div>
+
+<!-- Tree overlay (dynastic) — initialized on first open -->
+<div id="tree-overlay" class="tree-overlay" style="display:none">
+  <div class="tree-overlay-header">
+    <span class="tree-overlay-title">Arbre dynastique</span>
+    <button class="tree-overlay-close" onclick="closeTreeOverlay()">✕</button>
+  </div>
+  <p class="perso-hint" style="padding:0.5rem 1.5rem 0">Survolez pour un aperçu · Cliquez pour fixer le panneau</p>
+  <div class="perso-legend" id="tree-legend"></div>
+  <div class="tree-container" id="tree-container">
+    <div class="tree-zoom-controls">
+      <button class="tree-zoom-btn" onclick="treeZoomIn()">+</button>
+      <button class="tree-zoom-btn" onclick="treeZoomOut()">−</button>
+      <button class="tree-zoom-btn" onclick="treeZoomReset()" style="font-size:0.8rem">⟲</button>
+    </div>
+    <svg id="tree-svg"></svg>
+  </div>
+</div>
+
+<div id="family-tree-overlay" class="tree-overlay" style="display:none;background:#ffffff;">
+  <div class="tree-overlay-header">
+    <span class="tree-overlay-title">Arbre familial</span>
+    <button class="tree-overlay-close" onclick="closeFamilyTreeOverlay()">✕</button>
+  </div>
+  <div class="tree-container" id="family-tree-container" style="flex:1;height:100% !important;overflow:hidden;background:#ffffff;border:none;position:relative;">
+    <div class="tree-zoom-controls">
+      <button class="tree-zoom-btn" onclick="ftZoomIn()">+</button>
+      <button class="tree-zoom-btn" onclick="ftZoomOut()">−</button>
+      <button class="tree-zoom-btn" onclick="ftZoomReset()" style="font-size:0.8rem">⟲</button>
+    </div>
+    <div id="family-tree-inner" style="position:absolute;top:0;left:0;transform-origin:0 0;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 575" width="1260" height="575" font-family="'Inter', 'Helvetica Neue', sans-serif">
+  <style>
+    .box-cray { fill: #f0f4f8; stroke: #4a7fad; stroke-width: 0.7; rx: 2; }
+    .n-cray { font-weight: 600; font-size: 7px; fill: #2b5f8a; }
+    .box-drion { fill: #fdf6e3; stroke: #b8860b; stroke-width: 0.7; rx: 2; }
+    .n-drion { font-weight: 600; font-size: 7px; fill: #8b6508; }
+    .box-cdm { fill: #faf0f0; stroke: #b85450; stroke-width: 0.7; rx: 2; }
+    .n-cdm { font-weight: 600; font-size: 7px; fill: #8a3533; }
+    .box-troye { fill: #f0f5f1; stroke: #6a9b73; stroke-width: 0.7; rx: 2; }
+    .n-troye { font-weight: 600; font-size: 7px; fill: #3d6b45; }
+    .box-pirmez { fill: #f3f0f6; stroke: #8b73a8; stroke-width: 0.7; rx: 2; }
+    .n-pirmez { font-weight: 600; font-size: 7px; fill: #5f4d7a; }
+    .box-other { fill: #f8f8f6; stroke: #bbb8b0; stroke-width: 0.7; rx: 2; }
+    .n-other { font-weight: 600; font-size: 7px; fill: #555; }
+    .box-my { fill: #fff5f5; stroke: #d0021b; stroke-width: 1; rx: 2; }
+    .n-my { font-weight: 700; font-size: 7px; fill: #d0021b; }
+    .d { font-size: 5.5px; fill: #888888; }
+    .title { font-size: 10px; font-weight: 600; fill: #1a1a1a; letter-spacing: 0.02em; text-transform: uppercase; }
+    .l-cray { stroke: #4a7fad; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-drion { stroke: #b8860b; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-cdm { stroke: #b85450; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-troye { stroke: #6a9b73; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-pirmez { stroke: #8b73a8; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-other { stroke: #bbb8b0; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-my { stroke: #d0021b; stroke-width: 1.4; fill: none; opacity: 0.4; }
+    .dash { stroke-dasharray: 4,2; }
+  </style>
+  <rect width="1260" height="575" fill="#ffffff"/>
+  <text x="700" y="14" text-anchor="middle" class="title">Ascendance de Marguerite Yourcenar</text>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- GRID: 30px c2c standard. Connector: 7+7+7.    -->
+  <!--                                                 -->
+  <!-- ColE 9kids c:105..345 mid=225                   -->
+  <!-- ColF Arthur c=200, Mathilde c=250, Alix c=280  -->
+  <!--   A×M mid=225=kids mid ✓                        -->
+  <!-- ColG J-G c=185, Flore c=215, mid=200=Arthur ✓  -->
+  <!--   Louis c=250=Mathilde, Zoé c=280=Alix ✓✓      -->
+  <!--   L×Z mid=265=(250+280)/2 ✓                    -->
+  <!-- ColH Stan c=235, duWooz c=265, mid=250=Louis ✓ -->
+  <!--   Ferd c=325, ép c=355                          -->
+  <!-- ColD Marie c=255, Michel c=285                  -->
+  <!-- ColC Charles c=255, Noémi c=285, mid=270        -->
+  <!-- ColB Ch.père c=240, Reine c=270, mid=255=Chas  -->
+  <!-- ColA Bieswal c=255, Coussem c=285, mid=270=Reine -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <!-- ══════ COL A (x=15) ══════ -->
+  <rect x="15" y="245" width="110" height="20" class="box-other"/>
+  <text x="70" y="254" text-anchor="middle" class="n-other">Charles Bieswal</text>
+  <text x="70" y="262" text-anchor="middle" class="d">1755–1814</text>
+  <rect x="15" y="275" width="110" height="20" class="box-other"/>
+  <text x="70" y="284" text-anchor="middle" class="n-other">Marie de Coussemaker</text>
+  <text x="70" y="292" text-anchor="middle" class="d">1760–1797</text>
+  <!-- B×C mid=270 → Reine c=270 -->
+  <line x1="125" y1="255" x2="132" y2="255" class="l-other"/>
+  <line x1="125" y1="285" x2="132" y2="285" class="l-other"/>
+  <line x1="132" y1="255" x2="132" y2="285" class="l-other dash"/>
+  <line x1="132" y1="270" x2="139" y2="270" class="l-other"/>
+  <line x1="139" y1="270" x2="150" y2="270" class="l-other"/>
+
+  <!-- ══════ COL B (x=150) ══════ -->
+  <rect x="150" y="230" width="110" height="20" class="box-cray"/>
+  <text x="205" y="239" text-anchor="middle" class="n-cray">Charles C. de Crayencour</text>
+  <text x="205" y="247" text-anchor="middle" class="d">1792–1850</text>
+  <rect x="150" y="260" width="110" height="20" class="box-other"/>
+  <text x="205" y="269" text-anchor="middle" class="n-other">Reine Bieswal</text>
+  <!-- mid=255 → Charles fils c=255 -->
+  <line x1="260" y1="240" x2="267" y2="240" class="l-cray"/>
+  <line x1="260" y1="270" x2="267" y2="270" class="l-other"/>
+  <line x1="267" y1="240" x2="267" y2="270" class="l-cray dash"/>
+  <line x1="267" y1="255" x2="274" y2="255" class="l-cray"/>
+  <line x1="274" y1="255" x2="285" y2="255" class="l-cray"/>
+
+  <!-- ══════ COL C (x=285) ══════ -->
+  <rect x="285" y="245" width="110" height="20" class="box-cray" style="stroke-width:1.4;"/>
+  <text x="340" y="254" text-anchor="middle" class="n-cray" style="font-weight:700;">Charles C. de Crayencour</text>
+  <text x="340" y="262" text-anchor="middle" class="d">1822–1898</text>
+  <rect x="285" y="275" width="110" height="20" class="box-other" style="stroke-width:1.4;"/>
+  <text x="340" y="284" text-anchor="middle" class="n-other" style="font-weight:700;">Noémi Dufresnes</text>
+  <text x="340" y="292" text-anchor="middle" class="d">1828–1909</text>
+  <!-- mid=270 → Marie(255)+Michel(285) mid=270 ✓ -->
+  <line x1="395" y1="255" x2="402" y2="255" class="l-cray"/>
+  <line x1="395" y1="285" x2="402" y2="285" class="l-other"/>
+  <line x1="402" y1="255" x2="402" y2="285" class="l-cray dash"/>
+  <line x1="402" y1="270" x2="409" y2="270" class="l-cray"/>
+  <line x1="409" y1="255" x2="409" y2="285" class="l-cray"/>
+  <line x1="409" y1="255" x2="420" y2="255" class="l-cray"/>
+  <line x1="409" y1="285" x2="420" y2="285" class="l-cray"/>
+
+  <!-- ══════ COL D (x=420) ══════ -->
+  <rect x="420" y="245" width="110" height="20" class="box-cray"/>
+  <text x="475" y="254" text-anchor="middle" class="n-cray">Marie</text>
+  <text x="475" y="262" text-anchor="middle" class="d">D. 1902</text>
+  <rect x="420" y="275" width="110" height="20" class="box-cray" style="stroke-width:1.4;"/>
+  <text x="475" y="284" text-anchor="middle" class="n-cray" style="font-weight:700;">Michel de Crayencour</text>
+  <text x="475" y="292" text-anchor="middle" class="d">1853–1929</text>
+  <!-- 1er mariage -->
+  <line x1="475" y1="295" x2="475" y2="350" class="l-other dash"/>
+  <text x="492" y="319" class="d" style="font-style:italic;">1er mariage</text>
+  <rect x="420" y="350" width="110" height="20" class="box-other"/>
+  <text x="475" y="359" text-anchor="middle" class="n-other">Berthe</text>
+  <text x="475" y="367" text-anchor="middle" class="d">1881–1899 · Louys de la Grange</text>
+  <rect x="420" y="380" width="110" height="20" class="box-other"/>
+  <text x="475" y="389" text-anchor="middle" class="n-other">Baudouin</text>
+  <text x="475" y="397" text-anchor="middle" class="d">Louys de la Grange</text>
+  <line x1="420" y1="360" x2="413" y2="360" class="l-other"/>
+  <line x1="420" y1="390" x2="413" y2="390" class="l-other"/>
+  <line x1="413" y1="360" x2="413" y2="390" class="l-other"/>
+  <!-- Petit Michel -->
+  <line x1="475" y1="322" x2="530" y2="322" class="l-cray"/>
+  <rect x="530" y="314" width="70" height="16" class="box-cray"/>
+  <text x="565" y="324" text-anchor="middle" class="n-cray">Petit Michel</text>
+
+  <!-- ══════ COL E (x=720): 9 kids c:105..345 ══════ -->
+  <rect x="720" y="95" width="110" height="20" class="box-cdm"/>
+  <text x="775" y="104" text-anchor="middle" class="n-cdm">Isabelle</text>
+  <text x="775" y="112" text-anchor="middle" class="d">1855–1917 · × baron de C. d'Yves</text>
+  <rect x="720" y="125" width="110" height="20" class="box-cdm"/>
+  <text x="775" y="134" text-anchor="middle" class="n-cdm">Ferdinand</text>
+  <text x="775" y="142" text-anchor="middle" class="d">1858–?</text>
+  <rect x="720" y="155" width="110" height="20" class="box-cdm"/>
+  <text x="775" y="164" text-anchor="middle" class="n-cdm">Gaston</text>
+  <text x="775" y="172" text-anchor="middle" class="d">1858–1887</text>
+  <rect x="720" y="185" width="110" height="20" class="box-cdm"/>
+  <text x="775" y="194" text-anchor="middle" class="n-cdm">Georgine</text>
+  <text x="775" y="202" text-anchor="middle" class="d">1859–1913</text>
+  <rect x="720" y="215" width="110" height="20" class="box-cdm"/>
+  <text x="775" y="224" text-anchor="middle" class="n-cdm">Zoé</text>
+  <text x="775" y="232" text-anchor="middle" class="d">1862–1904</text>
+  <rect x="720" y="245" width="110" height="20" class="box-cdm"/>
+  <text x="775" y="254" text-anchor="middle" class="n-cdm">Octave</text>
+  <text x="775" y="262" text-anchor="middle" class="d">1865–1934</text>
+  <rect x="720" y="275" width="110" height="20" class="box-cdm" style="stroke-width:1.4;"/>
+  <text x="775" y="284" text-anchor="middle" class="n-cdm" style="font-weight:700;">Fernande</text>
+  <text x="775" y="292" text-anchor="middle" class="d">1872–1903 · de C. de Marchienne</text>
+  <rect x="720" y="305" width="110" height="20" class="box-cdm"/>
+  <text x="775" y="314" text-anchor="middle" class="n-cdm">Théobald</text>
+  <text x="775" y="322" text-anchor="middle" class="d">1869–1929</text>
+  <rect x="720" y="335" width="110" height="20" class="box-cdm"/>
+  <text x="775" y="344" text-anchor="middle" class="n-cdm">Jeanne</text>
+  <text x="775" y="352" text-anchor="middle" class="d">1888–1924</text>
+
+  <!-- Arthur c=200, Mathilde c=250. Mid=225. Kids mid=225 ✓ -->
+  <line x1="855" y1="200" x2="848" y2="200" class="l-cdm"/>
+  <line x1="855" y1="250" x2="848" y2="250" class="l-troye"/>
+  <line x1="848" y1="200" x2="848" y2="250" class="l-cdm dash"/>
+  <line x1="848" y1="225" x2="841" y2="225" class="l-cdm"/>
+  <line x1="841" y1="105" x2="841" y2="345" class="l-cdm"/>
+  <line x1="841" y1="105" x2="830" y2="105" class="l-cdm"/>
+  <line x1="841" y1="135" x2="830" y2="135" class="l-cdm"/>
+  <line x1="841" y1="165" x2="830" y2="165" class="l-cdm"/>
+  <line x1="841" y1="195" x2="830" y2="195" class="l-cdm"/>
+  <line x1="841" y1="225" x2="830" y2="225" class="l-cdm"/>
+  <line x1="841" y1="255" x2="830" y2="255" class="l-cdm"/>
+  <line x1="841" y1="285" x2="830" y2="285" class="l-cdm"/>
+  <line x1="841" y1="315" x2="830" y2="315" class="l-cdm"/>
+  <line x1="841" y1="345" x2="830" y2="345" class="l-cdm"/>
+
+  <!-- Isabelle's children -->
+  <line x1="720" y1="105" x2="695" y2="105" class="l-other"/>
+  <line x1="695" y1="89" x2="695" y2="121" class="l-other"/>
+  <line x1="695" y1="89" x2="680" y2="89" class="l-other"/>
+  <line x1="695" y1="105" x2="680" y2="105" class="l-other"/>
+  <line x1="695" y1="121" x2="680" y2="121" class="l-other"/>
+  <rect x="610" y="81" width="70" height="16" class="box-other"/>
+  <text x="645" y="91" text-anchor="middle" class="n-other">fils aîné</text>
+  <rect x="610" y="97" width="70" height="16" class="box-other"/>
+  <text x="645" y="107" text-anchor="middle" class="n-other">fille</text>
+  <rect x="610" y="113" width="70" height="16" class="box-other"/>
+  <text x="645" y="123" text-anchor="middle" class="n-other">Louise</text>
+
+  <!-- Zoé's children -->
+  <line x1="720" y1="225" x2="695" y2="225" class="l-cdm"/>
+  <line x1="695" y1="209" x2="695" y2="241" class="l-cdm"/>
+  <line x1="695" y1="209" x2="680" y2="209" class="l-cdm"/>
+  <line x1="695" y1="225" x2="680" y2="225" class="l-cdm"/>
+  <line x1="695" y1="241" x2="680" y2="241" class="l-cdm"/>
+  <rect x="610" y="201" width="70" height="16" class="box-cdm"/>
+  <text x="645" y="211" text-anchor="middle" class="n-cdm">Suzanne</text>
+  <rect x="610" y="217" width="70" height="16" class="box-cdm"/>
+  <text x="645" y="227" text-anchor="middle" class="n-cdm">Laurence</text>
+  <rect x="610" y="233" width="70" height="16" class="box-cdm"/>
+  <text x="645" y="243" text-anchor="middle" class="n-cdm">Fernand</text>
+
+  <!-- ══════ COL F (x=855) ══════ -->
+  <rect x="855" y="190" width="110" height="20" class="box-cdm" style="stroke-width:1.4;"/>
+  <text x="910" y="199" text-anchor="middle" class="n-cdm" style="font-weight:700;">Arthur de C. de Marchienne</text>
+  <text x="910" y="207" text-anchor="middle" class="d">1831–1890</text>
+  <rect x="855" y="240" width="110" height="20" class="box-troye" style="stroke-width:1.4;"/>
+  <text x="910" y="249" text-anchor="middle" class="n-troye" style="font-weight:700;">Mathilde Troye</text>
+  <text x="910" y="257" text-anchor="middle" class="d">1834–1873</text>
+  <rect x="855" y="270" width="110" height="20" class="box-troye"/>
+  <text x="910" y="279" text-anchor="middle" class="n-troye">Alix Troye</text>
+  <text x="910" y="287" text-anchor="middle" class="d">× Jean Tserstevens</text>
+
+  <!-- ══════ COL G (x=990) ══════ -->
+  <!-- J-G c=185, Flore c=215. Mid=200=Arthur ✓ -->
+  <rect x="990" y="175" width="110" height="20" class="box-cdm"/>
+  <text x="1045" y="184" text-anchor="middle" class="n-cdm">Joseph-Ghislain de C. de M.</text>
+  <text x="1045" y="192" text-anchor="middle" class="d">D. 1844</text>
+  <rect x="990" y="205" width="110" height="20" class="box-drion"/>
+  <text x="1045" y="214" text-anchor="middle" class="n-drion">Flore Drion</text>
+  <text x="1045" y="222" text-anchor="middle" class="d">~1811–~1831</text>
+  <line x1="990" y1="185" x2="983" y2="185" class="l-cdm"/>
+  <line x1="990" y1="215" x2="983" y2="215" class="l-drion"/>
+  <line x1="983" y1="185" x2="983" y2="215" class="l-cdm dash"/>
+  <line x1="983" y1="200" x2="976" y2="200" class="l-cdm"/>
+  <line x1="976" y1="200" x2="965" y2="200" class="l-cdm"/>
+
+  <!-- Louis c=250=Mathilde ✓, Zoé c=280=Alix ✓. Mid=265 -->
+  <rect x="990" y="240" width="110" height="20" class="box-troye"/>
+  <text x="1045" y="249" text-anchor="middle" class="n-troye">Louis Troye</text>
+  <text x="1045" y="257" text-anchor="middle" class="d">D. 1875</text>
+  <rect x="990" y="270" width="110" height="20" class="box-drion"/>
+  <text x="1045" y="279" text-anchor="middle" class="n-drion">Zoé Drion</text>
+  <text x="1045" y="287" text-anchor="middle" class="d">D. 1888</text>
+  <line x1="990" y1="250" x2="983" y2="250" class="l-troye"/>
+  <line x1="990" y1="280" x2="983" y2="280" class="l-drion"/>
+  <line x1="983" y1="250" x2="983" y2="280" class="l-troye dash"/>
+  <line x1="983" y1="265" x2="976" y2="265" class="l-troye"/>
+  <line x1="976" y1="250" x2="976" y2="280" class="l-troye"/>
+  <line x1="976" y1="250" x2="965" y2="250" class="l-troye"/>
+  <line x1="976" y1="280" x2="965" y2="280" class="l-troye"/>
+
+  <!-- Amélie c=310, Irénée c=340 -->
+  <rect x="990" y="300" width="110" height="20" class="box-drion"/>
+  <text x="1045" y="309" text-anchor="middle" class="n-drion">Amélie Drion</text>
+  <text x="1045" y="317" text-anchor="middle" class="d">× Victor Pirmez</text>
+  <rect x="990" y="330" width="110" height="20" class="box-drion"/>
+  <text x="1045" y="339" text-anchor="middle" class="n-drion">Irénée Drion</text>
+  <text x="1045" y="347" text-anchor="middle" class="d">D. 1894</text>
+
+  <!-- Benjamin c=370, Henri c=400, Victor c=430, Hyacinthe c=460 -->
+  <rect x="990" y="360" width="110" height="20" class="box-pirmez"/>
+  <text x="1045" y="369" text-anchor="middle" class="n-pirmez">Benjamin Pirmez</text>
+  <text x="1045" y="377" text-anchor="middle" class="d">D. 1854</text>
+  <rect x="990" y="390" width="110" height="20" class="box-pirmez"/>
+  <text x="1045" y="399" text-anchor="middle" class="n-pirmez">Henri Pirmez</text>
+  <rect x="990" y="420" width="110" height="20" class="box-pirmez"/>
+  <text x="1045" y="429" text-anchor="middle" class="n-pirmez">Victor Pirmez</text>
+  <rect x="990" y="450" width="110" height="20" class="box-pirmez"/>
+  <text x="1045" y="459" text-anchor="middle" class="n-pirmez">Hyacinthe Pirmez</text>
+
+  <!-- Irénée×Benjamin mid=355 → Octave(340)+Rémo(370) mid=355 ✓ -->
+  <line x1="990" y1="340" x2="983" y2="340" class="l-drion"/>
+  <line x1="990" y1="370" x2="983" y2="370" class="l-pirmez"/>
+  <line x1="983" y1="340" x2="983" y2="370" class="l-pirmez dash"/>
+  <line x1="983" y1="355" x2="976" y2="355" class="l-pirmez"/>
+  <line x1="976" y1="340" x2="976" y2="370" class="l-pirmez"/>
+  <line x1="976" y1="340" x2="965" y2="340" class="l-pirmez"/>
+  <line x1="976" y1="370" x2="965" y2="370" class="l-pirmez"/>
+  <rect x="865" y="330" width="100" height="20" class="box-pirmez"/>
+  <text x="915" y="339" text-anchor="middle" class="n-pirmez">Octave Pirmez</text>
+  <text x="915" y="347" text-anchor="middle" class="d">1832–1883</text>
+  <rect x="865" y="360" width="100" height="20" class="box-pirmez"/>
+  <text x="915" y="369" text-anchor="middle" class="n-pirmez">Rémo Pirmez</text>
+  <text x="915" y="377" text-anchor="middle" class="d">1843–1872</text>
+
+  <!-- Pirmez siblings bar -->
+  <line x1="1100" y1="370" x2="1107" y2="370" class="l-pirmez"/>
+  <line x1="1107" y1="370" x2="1107" y2="460" class="l-pirmez"/>
+  <line x1="1107" y1="400" x2="1100" y2="400" class="l-pirmez"/>
+  <line x1="1107" y1="430" x2="1100" y2="430" class="l-pirmez"/>
+  <line x1="1107" y1="460" x2="1100" y2="460" class="l-pirmez"/>
+
+  <!-- ══════ COL H (x=1120) ══════ -->
+  <!-- Stanislas c=235, du Wooz c=265. Mid=250=Louis ✓ -->
+  <rect x="1120" y="225" width="110" height="20" class="box-troye"/>
+  <text x="1175" y="234" text-anchor="middle" class="n-troye">Stanislas Troye</text>
+  <rect x="1120" y="255" width="110" height="20" class="box-other"/>
+  <text x="1175" y="264" text-anchor="middle" class="n-other">Isabelle du Wooz</text>
+  <line x1="1120" y1="235" x2="1113" y2="235" class="l-troye"/>
+  <line x1="1120" y1="265" x2="1113" y2="265" class="l-other"/>
+  <line x1="1113" y1="235" x2="1113" y2="265" class="l-troye dash"/>
+  <line x1="1113" y1="250" x2="1106" y2="250" class="l-troye"/>
+  <line x1="1106" y1="250" x2="1100" y2="250" class="l-troye"/>
+
+  <!-- Robeaulx c=295, Ferdinand c=325, épouse c=355 -->
+  <rect x="1120" y="285" width="110" height="20" class="box-drion"/>
+  <text x="1175" y="294" text-anchor="middle" class="n-drion">Mme de Robeaulx</text>
+  <rect x="1120" y="315" width="110" height="20" class="box-drion" style="stroke-width:0.9;"/>
+  <text x="1175" y="324" text-anchor="middle" class="n-drion">Ferdinand Drion</text>
+  <text x="1175" y="332" text-anchor="middle" class="d">~1769–1829</text>
+  <rect x="1120" y="345" width="110" height="20" class="box-other" style="stroke-dasharray:3,2;"/>
+  <text x="1175" y="357" text-anchor="middle" class="d" style="font-style:italic;">épouse</text>
+  <!-- Robeaulx+Ferdinand siblings -->
+  <line x1="1230" y1="295" x2="1237" y2="295" class="l-drion"/>
+  <line x1="1230" y1="325" x2="1237" y2="325" class="l-drion"/>
+  <line x1="1237" y1="295" x2="1237" y2="325" class="l-drion"/>
+
+  <!-- Ferdinand×épouse mid=340 → daughters bar (Flore 215, Zoé 280, Amélie 310, Irénée 340) -->
+  <line x1="1120" y1="325" x2="1113" y2="325" class="l-drion"/>
+  <line x1="1120" y1="355" x2="1113" y2="355" class="l-other"/>
+  <line x1="1113" y1="325" x2="1113" y2="355" class="l-drion dash"/>
+  <line x1="1113" y1="340" x2="1106" y2="340" class="l-drion"/>
+  <line x1="1106" y1="215" x2="1106" y2="340" class="l-drion"/>
+  <line x1="1106" y1="215" x2="1100" y2="215" class="l-drion"/>
+  <line x1="1106" y1="280" x2="1100" y2="280" class="l-drion"/>
+  <line x1="1106" y1="310" x2="1100" y2="310" class="l-drion"/>
+  <line x1="1106" y1="340" x2="1100" y2="340" class="l-drion"/>
+
+  <!-- ══════ MARGUERITE ══════ -->
+  <!-- Michel c=285, Fernande c=285 -->
+  <line x1="530" y1="285" x2="620" y2="285" class="l-cray"/>
+  <line x1="720" y1="285" x2="630" y2="285" class="l-cdm"/>
+  <line x1="620" y1="285" x2="620" y2="445" class="l-cray dash"/>
+  <line x1="630" y1="285" x2="630" y2="445" class="l-cdm dash"/>
+  <line x1="620" y1="445" x2="630" y2="445" class="l-my dash"/>
+  <line x1="625" y1="445" x2="625" y2="465" class="l-my"/>
+  <rect x="560" y="465" width="130" height="30" class="box-my"/>
+  <text x="625" y="479" text-anchor="middle" class="n-my">Marguerite Yourcenar</text>
+  <text x="625" y="489" text-anchor="middle" class="d">1903–1987</text>
+
+  <!-- ══════ LEGEND ══════ -->
+  <line x1="30" y1="520" x2="1230" y2="520" stroke="#e8e8e8" stroke-width="0.4"/>
+
+  <text x="50" y="538" class="n-other" style="font-style:italic;font-size:6px;">Famille paternelle</text>
+  <rect x="145" y="530" width="10" height="10" class="box-cray"/>
+  <text x="161" y="539" class="n-cray">Crayencour</text>
+
+  <text x="50" y="556" class="n-other" style="font-style:italic;font-size:6px;">Famille maternelle</text>
+  <rect x="145" y="548" width="10" height="10" class="box-cdm"/>
+  <text x="161" y="557" class="n-cdm">Cartier de Marchienne</text>
+  <rect x="270" y="548" width="10" height="10" class="box-drion"/>
+  <text x="286" y="557" class="n-drion">Drion</text>
+  <rect x="320" y="548" width="10" height="10" class="box-troye"/>
+  <text x="336" y="557" class="n-troye">Troye</text>
+  <rect x="375" y="548" width="10" height="10" class="box-pirmez"/>
+  <text x="391" y="557" class="n-pirmez">Pirmez</text>
+
+  <rect x="445" y="530" width="10" height="28" class="box-other"/>
+  <text x="461" y="548" class="n-other">Autres</text>
+
+  <line x1="520" y1="537" x2="550" y2="537" class="l-other"/>
+  <text x="557" y="541" class="n-other">filiation</text>
+  <line x1="520" y1="555" x2="550" y2="555" class="l-other dash"/>
+  <text x="557" y="559" class="n-other">mariage</text>
+</svg>
+
+    </div>
+  </div>
+</div>
+
+
 
 <script>
 // ─── DATA ────────────────────────────────────────────────────────────────────
@@ -2886,6 +3397,267 @@ const events = [
     book: 1,
     chapter: "Fernande",
     textOrder: 125
+  },
+  {
+    year: 1890,
+    month: "",
+    title: "« Thaïs, Madame Chrysanthème et Cruelle Énigme »",
+    description: "<strong>~1893, Bruxelles.</strong> Trois romans à couverture jaune — signal du « dangereux » pour une jeune fille de bonne famille. <em>Thaïs</em> (1890), roman d'<span class=\"person-link\" data-pid=\"anatole_france\">Anatole France</span> : un moine du désert entreprend de convertir une courtisane d'Alexandrie ; il y perd son âme, elle y trouve le salut. <em>Madame Chrysanthème</em> (1887), roman de <span class=\"person-link\" data-pid=\"loti\">Pierre Loti</span> : un officier de marine français contracte un « mariage » temporaire avec une Japonaise à Nagasaki — exotisme de vitrine, regard colonial à peine déguisé en mélancolie. <em>Cruelle Énigme</em> (1885), roman de <span class=\"person-link\" data-pid=\"bourget\">Paul Bourget</span> : un jeune homme découvre l'adultère de sa mère — psychologie bourgeoise, analyse minutieuse des sentiments et des convenances blessées. Les couvertures jaunes sont celles des éditions Charpentier et Fasquelle, reconnaissables entre toutes.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 126
+  },
+  {
+    year: 1879,
+    month: "",
+    title: "« La Nora d'Ibsen s'apprêtant à danser la tarentelle »",
+    description: "<em>Et Dukkehjem</em> (<em>Une maison de poupée</em>, 1879), drame d'<span class=\"person-link\" data-pid=\"ibsen\">Henrik Ibsen</span>. Nora Helmer, épouse modèle en apparence, a secrètement contracté une dette pour sauver la vie de son mari. Quand la vérité éclate, elle découvre qu'elle n'a jamais été traitée en égale et quitte son foyer. La tarentelle qu'elle danse au deuxième acte, de plus en plus frénétique, est le moment où le masque craque : danse de fête qui devient danse de désespoir. Christiania : ancien nom d'Oslo jusqu'en 1925.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 127
+  },
+  {
+    year: 1893,
+    month: "",
+    title: "Le duc de Brancas et Maria Walewska",
+    description: "<strong>~1893, Bruxelles.</strong> Anecdotes de salon que <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> sort au bal pour signaler qu'elle a lu. Le duc de Brancas : vraisemblablement le comte de Brancas (~1620–1681), célèbre pour ses distractions légendaires, modèle du Ménalque de <span class=\"person-link\" data-pid=\"la_bruyere\">La Bruyère</span> dans <em>Les Caractères</em> (1688). <span class=\"person-link\" data-pid=\"walewska\">Maria Walewska</span> (1786–1817), comtesse polonaise, maîtresse de Napoléon — figure romanesque par excellence.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 128
+  },
+  {
+    year: 1835,
+    month: "",
+    title: "« Harmonie, harmonie, langue que pour l'amour inventa le génie… »",
+    description: "Vers d'<span class=\"person-link\" data-pid=\"musset\">Alfred de Musset</span>, tirés du poème <em>Lucie</em> (1835, repris dans <em>Premières Poésies</em> sous le titre <em>Le Saule</em>). <span class=\"person-link\" data-pid=\"musset\">Musset</span> y célèbre la musique comme la seule langue capable de dire ce que les mots ne peuvent pas. Yourcenar applique la citation aux émotions de <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> — « cette définition, juste seulement pour un certain type de sensibilités romantiques, convenait exactement aux émotions de Fernande pendant au moins une saison ». Bach et <span class=\"person-link\" data-pid=\"franck\">César Franck</span> se changèrent pour elle en ruissellements tendres.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 129
+  },
+  {
+    year: 1897,
+    month: "",
+    title: "« Un des bons élèves de Widor »",
+    description: "<strong>~1897, Bruxelles.</strong> <span class=\"person-link\" data-pid=\"widor\">Charles-Marie Widor</span> (1844–1937), organiste et compositeur français. Organiste de Saint-Sulpice à Paris pendant soixante-quatre ans (1870–1934), sur le grand orgue Cavaillé-Coll. Successeur de <span class=\"person-link\" data-pid=\"franck\">César Franck</span> comme professeur d'orgue au Conservatoire de Paris (1890), puis professeur de composition (1896). Parmi ses élèves : Louis Vierne, Marcel Dupré, Charles Tournemire, Albert Schweitzer, Darius Milhaud, Arthur Honegger, Edgard Varèse. Inventeur de la symphonie pour orgue — dix au total. Le baron H., mélomane et dilettante, se disait l'un de ses élèves.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 130
+  },
+  {
+    year: 1430,
+    month: "",
+    title: "Donatello",
+    description: "<span class=\"person-link\" data-pid=\"donatello\">Donatello</span> (Donato di Niccolò di Betto Bardi, ~1386–1466), sculpteur florentin, figure majeure du premier Quattrocento. La femme du <span class=\"person-link\" data-pid=\"baron_h\">baron H.</span> est décrite entourée, pendant ses grossesses, de « reproductions de statues antiques et de bas-reliefs de Donatello » — croyance populaire selon laquelle la contemplation d'œuvres belles pendant la grossesse influe sur la beauté de l'enfant.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 131
+  },
+  {
+    year: 1895,
+    month: "",
+    title: "La Madone de Dresde et la Glyptothèque de Munich",
+    description: "<strong>~1895, Allemagne.</strong> Lors de ses voyages, <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> visite Dresde et Munich. La Madone de Dresde : la <em>Madonna Sixtina</em> (1512–1513) de <span class=\"person-link\" data-pid=\"raphael\">Raphaël</span>, conservée à la Gemäldegalerie Alte Meister depuis 1754 — l'une des peintures les plus célèbres au monde. La Glyptothèque de Munich : musée de sculpture antique grecque et romaine, construit de 1816 à 1830 sur la Königsplatz par Leo von Klenze pour Louis Iᵉʳ de Bavière — que « la Fräulein toutefois jugeait indécents ».",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 132
+  },
+  {
+    year: 1890,
+    month: "",
+    title: "« Hedda Gabler… Tonio Kröger… Gustav von Aschenbach… Oswald Alving »",
+    description: "<strong>~1895, Allemagne.</strong> Galerie de personnages littéraires que <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> croise, en puissance, dans les pensions allemandes. Hedda Gabler : héroïne d'<span class=\"person-link\" data-pid=\"ibsen\">Ibsen</span> (1890), femme d'un érudit terne, dévorée d'ennui, qui finit par se suicider. George Tesman, son mari, prend des notes sur l'industrie domestique au Moyen Âge — incarnation de la médiocrité universitaire. Tonio Kröger : héros de la nouvelle éponyme de <span class=\"person-link\" data-pid=\"thomas_mann\">Thomas Mann</span> (1903), artiste déchiré entre la vie bourgeoise et la vocation créatrice. Gustav von Aschenbach : protagoniste de <em>La Mort à Venise</em> de <span class=\"person-link\" data-pid=\"thomas_mann\">Thomas Mann</span> (1912), écrivain vieillissant hanté par la beauté d'un adolescent dans une Venise en proie au choléra. Oswald Alving : fils dans <em>Les Revenants</em> d'<span class=\"person-link\" data-pid=\"ibsen\">Ibsen</span> (1881), jeune peintre atteint de syphilis héréditaire, dont la mère découvre que la maladie vient du père qu'elle avait cru respectable. Tous sont des figures de l'inadéquation entre les aspirations et le réel.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 133
+  },
+  {
+    year: 1900,
+    month: "",
+    title: "« Le Lohengrin soupçonné de démence »",
+    description: "<strong>~1900, lac de Starnberg.</strong> <span class=\"person-link\" data-pid=\"michel\">Michel</span> et <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> voguent sur le lac de Starnberg dans un vieux vapeur doré qui fut jadis une embarcation royale, cherchant sur la berge l'endroit où le « Lohengrin soupçonné de démence » trouva la mort — <span class=\"person-link\" data-pid=\"louis_baviere\">Louis II de Bavière</span>, retrouvé dans les eaux peu profondes du lac le 13 juin 1886, entraînant avec lui le Dr Bernhard von Gudden (1824–1886), psychiatre qui l'avait fait déclarer aliéné sans jamais l'avoir examiné — « un gros médecin aliéniste à lunettes et à parapluie ». Lohengrin : chevalier mystérieux arrivé sur une barque tirée par un cygne dans l'opéra de <span class=\"person-link\" data-pid=\"wagner\">Wagner</span> (1850), qui sauve Elsa de Brabant à condition qu'elle ne lui demande jamais son nom — l'amour fondé sur le secret, qui se détruit à l'instant où l'on pose la question. <span class=\"person-link\" data-pid=\"louis_baviere\">Louis II</span> s'identifiait à cette figure au point de faire construire une grotte artificielle avec lac souterrain et cygne à Linderhof.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 134
+  },
+  {
+    year: 1900,
+    month: "",
+    title: "« Les sinuosités discrètes d'une silhouette de Helleu »",
+    description: "<strong>~1900.</strong> <span class=\"person-link\" data-pid=\"helleu\">Paul-César Helleu</span> (1859–1927), peintre, pastelliste et graveur à la pointe sèche. Portraitiste attitré des femmes de la Belle Époque — la duchesse de Marlborough, la comtesse Greffulhe, Helena Rubinstein. Ami de Sargent, Boldini, Proust (qui s'inspira de lui pour le personnage d'Elstir dans <em>À la recherche du temps perdu</em>). Ses silhouettes féminines — ligne souple, profil penché, élégance sans effort — définissent un type. Les photographies de <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> montrent ces mêmes sinuosités, contre l'esthétique de « la ligne haricot » que le demi-frère de Yourcenar jugera ridicule cinquante ans plus tard.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 135
+  },
+  {
+    year: 1853,
+    month: "Janvier",
+    title: "« Le majestueux vestige… du mariage d'Eugénie de Montijo avec Napoléon III »",
+    description: "<strong>30 janvier 1853, Notre-Dame de Paris.</strong> <span class=\"person-link\" data-pid=\"napoleon_iii\">Napoléon III</span> (1808–1873) épousa <span class=\"person-link\" data-pid=\"eugenie_montijo\">Eugénie de Montijo</span> (1826–1920), comtesse de Teba, aristocrate espagnole née à Grenade. Faute d'avoir trouvé de princesse parmi les cours européennes — qui méprisaient le parvenu Bonaparte —, l'Empereur choisit par inclination : « J'ai préféré une femme que j'aime et que je respecte à une femme inconnue. » Cérémonie civile aux Tuileries le 29, religieuse à Notre-Dame le 30, dans une cathédrale en plein chantier de restauration par Viollet-le-Duc, habillée pour l'occasion d'un porche en trompe-l'œil. Au mariage de <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> et <span class=\"person-link\" data-pid=\"michel\">Michel</span>, le 8 novembre 1900, la mère de Michel porte encore un « taffetas gris ou gorge-de-pigeon » qui rappelle cette époque — majestueux vestige du Second Empire dans une église de paroisse bruxelloise.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 136
+  },
+  {
+    year: 1640,
+    month: "",
+    title: "« Une austérité janséniste et de vieilles élégances royalistes »",
+    description: "Le jansénisme : mouvement théologique catholique né au XVIIe siècle de l'<em>Augustinus</em> (1640) de <span class=\"person-link\" data-pid=\"jansen\">Cornelius Jansen</span> (1585–1638), évêque d'Ypres — flamand, comme les Drion et les Cartier. Doctrine de la grâce efficace : l'homme est corrompu par le péché originel, le salut ne dépend pas de ses mérites mais de la seule volonté divine. Rigueur morale absolue, méfiance de la mondanité, austérité liturgique. Le mouvement s'enracina à Port-Royal, fut porté par Pascal (<em>Les Provinciales</em>, 1656–57) et combattu par les Jésuites et <span class=\"person-link\" data-pid=\"louis_xiv\">Louis XIV</span>, qui fit raser Port-Royal-des-Champs en 1710. Condamné par les bulles <em>Cum occasione</em> (1653) et <em>Unigenitus</em> (1713), le jansénisme survécut comme sensibilité plutôt que comme doctrine — une certaine raideur du geste et du vêtement, un catholicisme sans ornement, souvent associé dans le nord de la France et en Belgique aux familles royalistes de vieille noblesse.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 137
+  },
+  {
+    year: 1900,
+    month: "",
+    title: "« Barnabooth… le Marcel de Proust… les personnages de Thomas Mann, d'Arnold Bennett et d'Henry James »",
+    description: "Galerie d'écrivains et de personnages littéraires qui peuplent le même monde que <span class=\"person-link\" data-pid=\"michel\">Michel</span> et <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> — celui des grands hôtels européens vers 1900. Barnabooth : milliardaire apatride et poète, alter ego de <span class=\"person-link\" data-pid=\"larbaud\">Valery Larbaud</span> (1881–1957), dont les <em>Poèmes par un riche amateur</em> (1908) puis le journal intime (1913) cartographient l'Europe des wagons-lits et des palaces. Le « Marcel » de Proust : le narrateur d'<em>À la recherche du temps perdu</em>, qui observe la comédie mondaine depuis le Grand Hôtel de Balbec. Les personnages de <span class=\"person-link\" data-pid=\"thomas_mann\">Thomas Mann</span> : Aschenbach au Lido, Tonio Kröger entre Lübeck et le Danemark. <span class=\"person-link\" data-pid=\"bennett\">Arnold Bennett</span> (1867–1931), romancier anglais, auteur de <em>The Grand Babylon Hotel</em> (1902) et du cycle des <em>Five Towns</em> — chroniqueur de la bourgeoisie provinciale anglaise projetée dans le monde. <span class=\"person-link\" data-pid=\"henry_james\">Henry James</span> (1843–1916), romancier américain — <em>Portrait of a Lady</em> (1881), <em>The Wings of the Dove</em> (1902) — dont les Américains en Europe, entre innocence et corruption, hantent exactement les mêmes halls.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 138
+  },
+  {
+    year: 1900,
+    month: "",
+    title: "La Grande-Duchesse, l'Archiduc, Sarah Bernhardt",
+    description: "Les figures que <span class=\"person-link\" data-pid=\"michel\">Michel</span> et <span class=\"person-link\" data-pid=\"fernande\">Fernande</span> croisent dans les grands hôtels. La Grande-Duchesse — vraisemblablement russe, les grandes-duchesses de Russie étant omniprésentes dans les palaces européens vers 1900. L'Archiduc — vraisemblablement un Habsbourg, le contexte étant un cabinet particulier du Sacher à Vienne, dont les <em>Separées</em> étaient fréquentées par les archiducs Otto (1865–1906) et Ferdinand Karl (1868–1915), photographiés dans ces mêmes salons. <span class=\"person-link\" data-pid=\"bernhardt\">Sarah Bernhardt</span> (1844–1923), actrice française, la plus célèbre de son temps — « la Voix d'or », « la Divine Sarah » — soupe avec son impresario dans le hall.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 139
+  },
+  {
+    year: 1900,
+    month: "",
+    title: "« Les collections du Prince Colonna ou du Baron de Rothschild »",
+    description: "Deux collections privées, emblèmes d'un monde où l'art appartient encore aux familles. Le prince Colonna : la Galleria Colonna au Palazzo Colonna, Rome — Grande Galerie plus longue que celle de Versailles, Tintoret, Guerchin, Bronzino, Carrache. Habitée par la même famille depuis vingt générations, ouverte au public un seul matin par semaine. Le baron de Rothschild : vraisemblablement la branche parisienne, dont les hôtels particuliers — rue du Faubourg-Saint-Honoré (baron Edmond, 1845–1934), rue Saint-Florentin (baron Alphonse, 1827–1905) — abritaient des collections majeures accessibles uniquement sur invitation.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 140
+  },
+  {
+    year: 1618,
+    month: "Mai",
+    title: "La Défenestration de Prague et Jan Masaryk",
+    description: "<strong>23 mai 1618, Prague.</strong> Les heiduques — soldats irréguliers d'Europe centrale, à l'origine bandits des marches hongroises devenus miliciens au service des nobles protestants — et les reîtres — cavaliers mercenaires allemands, souvent protestants, dont le nom vient de l'allemand <em>Reiter</em> (cavalier) — jetèrent deux gouverneurs catholiques impériaux, Vilém Slavata et Jaroslav Bořita de Martinice, par la fenêtre du conseil au château du Hradschin. Les deux hommes chutèrent d'environ vingt mètres dans les douves et survécurent — les catholiques attribuèrent leur survie à l'intervention de la Vierge, les protestants à un tas de fumier. L'incident déclencha la révolte de Bohême et, par enchaînement, la guerre de Trente Ans (1618–1648). <span class=\"person-link\" data-pid=\"masaryk\">Jan Masaryk</span> (1886–1948), ministre des Affaires étrangères de Tchécoslovaquie, fils du fondateur de la République Tomáš Masaryk (1850–1937), retrouvé mort sous la fenêtre de sa salle de bains au palais Czernin le 10 mars 1948, deux semaines après le coup d'État communiste. Suicide ou assassinat : la question n'est toujours pas tranchée.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 141
+  },
+  {
+    year: 1900,
+    month: "",
+    title: "« L'âpre génie de Bruant et l'argot pathétique de Rictus »",
+    description: "<span class=\"person-link\" data-pid=\"bruant\">Aristide Bruant</span> (1851–1925), chansonnier et cabaretier. Fondateur du Mirliton à Montmartre, immortalisé par les affiches de Toulouse-Lautrec — chapeau noir, écharpe rouge, cape. Chansons en argot sur la misère des faubourgs parisiens : <em>Nini Peau d'Chien</em>, <em>À la Villette</em>, <em>À Batignolles</em>. <span class=\"person-link\" data-pid=\"rictus\">Jehan Rictus</span> (Gabriel Randon, 1867–1933), poète des <em>Soliloques du pauvre</em> (1897), monologues en vers libres en langue populaire d'un vagabond qui parle à Dieu depuis le trottoir. Deux voix du Paris populaire de la Belle Époque qui accèdent, par le cabaret et le livre, au public bourgeois.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 142
+  },
+  {
+    year: 1899,
+    month: "",
+    title: "« La guerre des Boers surexcite l'anglophobie française »",
+    description: "<strong>1899–1902.</strong> Seconde guerre des Boers. Conflit né de la rivalité entre la Grande-Bretagne et les deux républiques boers d'Afrique australe — le Transvaal et l'État libre d'Orange — pour le contrôle des mines d'or du Witwatersrand, découvertes en 1886. Les Boers (du néerlandais <em>boer</em>, fermier) sont les descendants des colons hollandais, allemands et huguenots français installés au Cap depuis le XVIIe siècle, parlant l'afrikaans. Le président du Transvaal <span class=\"person-link\" data-pid=\"kruger\">Paul Kruger</span> (1825–1904) refuse d'accorder des droits civiques aux <em>Uitlanders</em> (étrangers, majoritairement britanniques) affluant vers les mines. Après l'échec du raid Jameson (1895–96), tentative de coup de force britannique avortée, la guerre éclate en octobre 1899. Les Boers remportent d'abord plusieurs victoires (sièges de Ladysmith, Kimberley, Mafeking), mais la supériorité numérique britannique finit par l'emporter. Les Boers passent à la guérilla ; les Britanniques répondent par la politique de la terre brûlée et les camps de concentration — les premiers du nom — où meurent environ 28 000 civils boers et un nombre au moins égal de Noirs africains. Paix de Vereeniging, 31 mai 1902 : les républiques boers deviennent colonies britanniques. L'opinion continentale, française en particulier, avait violemment pris parti pour les Boers. Les Cafres (terme péjoratif pour les populations noires d'Afrique australe, de l'arabe <em>kāfir</em>, infidèle) n'entraient pas dans le débat.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 143
+  },
+  {
+    year: 1900,
+    month: "",
+    title: "« Le récit des atrocités des Boxers »",
+    description: "<strong>1899–1901, Chine.</strong> La révolte des Boxers (Yìhétuán, « Milice de la justice et de la concorde ») : mouvement populaire xénophobe et anti-chrétien, né dans le Shandong parmi les paysans ruinés par les sécheresses et les concessions étrangères. Les Boxers pratiquaient des arts martiaux rituels censés les rendre invulnérables aux balles. Soutenus par l'impératrice douairière <span class=\"person-link\" data-pid=\"cixi\">Cixi</span> (1835–1908), ils massacrent des missionnaires et des chrétiens chinois, puis assiègent les légations étrangères à Pékin pendant cinquante-cinq jours (juin–août 1900). Une expédition internationale de huit nations (France, Grande-Bretagne, Allemagne, Russie, Japon, États-Unis, Italie, Autriche-Hongrie) lève le siège le 14 août 1900. Les troupes alliées se livrent au pillage systématique de Pékin. Le protocole de paix (7 septembre 1901) impose à la Chine une indemnité colossale de 450 millions de taëls d'argent et le droit de stationner des troupes étrangères sur son sol.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 144
+  },
+  {
+    year: 1900,
+    month: "Juillet",
+    title: "« L'assassinat d'Humbert Iᵉʳ d'Italie »",
+    description: "<strong>29 juillet 1900, Monza.</strong> <span class=\"person-link\" data-pid=\"humbert_i\">Humbert Iᵉʳ</span> (Umberto I, 1844–1900), roi d'Italie depuis 1878, fils de Victor-Emmanuel II. Assassiné par <span class=\"person-link\" data-pid=\"bresci\">Gaetano Bresci</span> (1869–1901), tisserand et anarchiste italien émigré à Paterson, New Jersey, revenu en Italie pour venger les ouvriers tués lors de la répression des émeutes de Milan en mai 1898 — le général Bava Beccaris avait fait tirer au canon sur la foule, et le roi l'avait décoré. Bresci tira quatre coups de revolver à la sortie d'un concours de gymnastique. Troisième attentat contre Humbert en vingt-deux ans de règne. L'assassinat s'inscrit dans la vague d'attentats anarchistes de la fin du siècle : président Sadi Carnot (Lyon, 1894), premier ministre Cánovas del Castillo (Espagne, 1897), impératrice Élisabeth d'Autriche (Genève, 1898), président McKinley (Buffalo, 1901).",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 145
+  },
+  {
+    year: 1894,
+    month: "",
+    title: "L'Affaire et les Congrégations",
+    description: "L'Affaire : l'affaire Dreyfus (1894–1906). Le capitaine <span class=\"person-link\" data-pid=\"dreyfus\">Alfred Dreyfus</span> (1859–1935), officier juif alsacien, condamné en 1894 pour espionnage au profit de l'Allemagne sur la base de preuves falsifiées par le commandant Henry. Le véritable coupable, le commandant Esterhazy, est acquitté en 1898. Zola publie « J'accuse…! » dans <em>L'Aurore</em> (13 janvier 1898). L'affaire divise la France en deux camps irréconciliables — dreyfusards (Zola, Clemenceau, Jaurès, Péguy) contre antidreyfusards (armée, Église, droite nationaliste, Ligue des Patriotes) — et précipite la séparation de l'Église et de l'État. Dreyfus est finalement réhabilité en 1906. Les Congrégations : la loi sur les associations (1901) puis la loi Combes (1904) entraînent la fermeture de milliers d'établissements congréganistes et l'expulsion de France de nombreux ordres religieux — jésuites, assomptionnistes, maristes, bénédictins. La loi de séparation des Églises et de l'État est votée le 9 décembre 1905.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 146
+  },
+  {
+    year: 1849,
+    month: "Octobre",
+    title: "« Le sympathique vieil empereur… naguère appelé le Roi des Pendus »",
+    description: "<span class=\"person-link\" data-pid=\"franz_joseph\">François-Joseph Iᵉʳ</span> (1830–1916), empereur d'Autriche (1848–1916), roi de Hongrie (1867–1916). Soixante-huit ans de règne — le plus long d'Europe après Louis XIV. Monté sur le trône à dix-huit ans au milieu du Printemps des peuples (1848). Le « Roi des Pendus » : surnom gagné lors de l'écrasement de la révolution hongroise de 1849, quand le général Haynau (surnommé « la Hyène de Brescia ») fit pendre treize généraux hongrois à Arad le 6 octobre 1849, avec l'approbation du jeune empereur. La répression fut rendue possible par l'intervention de l'armée russe de Nicolas Iᵉʳ. Le Compromis austro-hongrois de 1867 transforma l'Empire en double monarchie. Frère fusillé au Mexique (Maximilien, 1867), fils suicidé à Mayerling (Rodolphe, 1889), femme assassinée à Genève (Élisabeth, 1898), héritier abattu à Sarajevo (François-Ferdinand, 1914).",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 147
+  },
+  {
+    year: 1900,
+    month: "",
+    title: "« Les saints momifiés des cryptes de Kiev… les chatoiements des émaux de Fabergé »",
+    description: "L'Empire russe vers 1900. La Laure des Catacombes de Kiev (Pechersk Lavra) : monastère orthodoxe fondé en 1051, l'un des plus anciens et des plus vénérés de la chrétienté orientale. Ses grottes abritent les corps naturellement momifiés de plus de cent moines médiévaux, vénérés comme reliques. Kiev comptait plus de trois cents églises aux dômes dorés. Fabergé : maison de joaillerie impériale russe, fondée à Saint-Pétersbourg en 1842 par Gustav Fabergé. Les œufs de Pâques impériaux (1885–1917), commandés par Alexandre III puis Nicolas II pour les tsarines, constituent le sommet de l'orfèvrerie russe — émaux cloisonnés, or, pierres précieuses, mécanismes miniatures. Cinquante-deux œufs produits en tout, dont quarante-six ont survécu.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 148
+  },
+  {
+    year: 1900,
+    month: "",
+    title: "« Le Grand Soir » et l'Europe politique vers 1900",
+    description: "<em>Le Grand Soir</em> : expression consacrée des milieux anarchistes et socialistes français à partir des années 1880, désignant la nuit mythique de la révolution finale — celle où l'ordre bourgeois s'effondrerait définitivement. L'expression circule dans la presse ouvrière, chez les syndicalistes révolutionnaires de la CGT (fondée 1895) et dans les cercles anarchistes, et elle est à la fois un article de foi et un objet d'ironie. En 1900, l'Europe vit dans un équilibre de puissances armées jusqu'aux dents. La France, républicaine depuis 1870, est déchirée par l'Affaire Dreyfus et le conflit entre l'Église et l'État. L'Angleterre, au faîte de l'Empire, domine les mers et la finance mondiale. L'Empire allemand, proclamé à Versailles en 1871, est la puissance montante — industrielle, militaire, diplomatique — sous Guillaume II (empereur depuis 1888), dont la <em>Weltpolitik</em> inquiète toutes les chancelleries. L'Autriche-Hongrie, double monarchie depuis 1867, est majestueuse par sa vétusté même. L'Empire russe est le plus opaque. Yourcenar le compare au Grand Mogol — l'empire musulman qui régna sur l'Inde de 1526 à 1857, synonyme de puissance fabuleuse et lointaine — et au Grand Daïr — le <em>Daïri</em>, titre donné par les Européens à l'empereur du Japon avant l'ère Meiji, souverain reclus et quasi mythique. Deux images d'un pouvoir immense, ancien, inaccessible. La Russie de Nicolas II (tsar depuis 1894) est un empire autocratique de 130 millions d'habitants, dont l'immense majorité sont des moujiks — paysans russes (<em>мужик</em>), serfs jusqu'en 1861, encore largement illettrés et soumis au <em>mir</em> (commune paysanne). L'industrialisation s'accélère dans les années 1890 sous Witte, mais crée un prolétariat urbain concentré et inflammable. Le pays n'a ni parlement ni constitution. La défaite contre le Japon (1904–05) provoquera la révolution de 1905, le Dimanche rouge, et l'octroi forcé d'une Douma — trop tard et trop peu. Les alliances se cristallisent : Triple-Alliance (Allemagne, Autriche-Hongrie, Italie, 1882) contre ce qui deviendra la Triple-Entente (France, Russie, Grande-Bretagne, 1907). Le Grand Soir n'aura pas lieu — ce qui viendra, en 1914, sera pire.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 149
+  },
+  {
+    year: 1865,
+    month: "",
+    title: "« La Musique de l'Avenir » — Tristan, Isolde, Wotan, les filles du Rhin",
+    description: "<em>Zukunftsmusik</em> (« Musique de l'avenir ») : expression forgée par <span class=\"person-link\" data-pid=\"wagner\">Wagner</span> en 1860 dans un essai adressé à un ami français, reprise par ses partisans et ses détracteurs pour désigner sa révolution musicale — le drame musical continu, la mélodie infinie, le leitmotiv, la dissolution des formes closes (aria, récitatif) au profit d'un flux orchestral ininterrompu. La <em>Romance à l'Étoile</em> : aria de Wolfram au troisième acte de <em>Tannhäuser</em> (1845), morceau mélodique et accessible. <em>Tristan und Isolde</em> (1865) : opéra en trois actes, l'œuvre la plus radicale de Wagner — un seul accord (l'« accord de Tristan ») ouvre un chromatisme qui ne se résout qu'à la mort des amants. Wotan : roi des dieux dans le <em>Ring des Nibelungen</em> (1869–1876), figure de l'autorité piégée par ses propres lois, condamné à assister à la destruction qu'il a lui-même provoquée. Les filles du Rhin (Woglinde, Wellgunde, Flosshilde) : gardiennes de l'or du Rhin au fond du fleuve, dont le vol par le Nibelung Alberich au prologue du cycle (<em>Das Rheingold</em>, 1869) déclenche la catastrophe — et dont le chant clôt <em>Götterdämmerung</em> quand l'or leur est restitué par les eaux. <em>Die Meistersinger von Nürnberg</em> (1868) : unique comédie de Wagner, opéra sur l'art, la tradition et l'innovation. Le troisième acte — le plus long de tout le répertoire wagnérien, près de deux heures — est aussi le plus ambitieux : le monologue de Hans Sachs sur la folie du monde (« Wahn! Wahn! »), le quintette (l'un des rares ensembles vocaux de Wagner, écriture contrapuntique d'une densité extrême), le concours de chant de la Saint-Jean, et le discours final de Sachs sur l'art allemand, mêlant esthétique et nationalisme. C'est l'acte où le Wagner « accessible » bascule vers le Wagner symphoniste — orchestre massif, écriture fuguée, flux continu.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 150
+  },
+  {
+    year: 1913,
+    month: "",
+    title: "« Madame Verdurin est là avec sa coterie »",
+    description: "Madame Verdurin : personnage de Proust (<em>À la recherche du temps perdu</em>), bourgeoise qui constitue autour d'elle un « petit clan » de fidèles — « Nous ferons clan ! Nous ferons clan ! » D'abord ridicule et tyrannique dans <em>Du côté de chez Swann</em> (1913), elle devient au fil du cycle une figure de plus en plus puissante, épousant finalement le prince de Guermantes et accédant au sommet du faubourg Saint-Germain. Son salon est l'un des premiers à défendre la musique de Vinteuil — le compositeur fictif de Proust — et elle revendique Wagner et Debussy avant que le monde ne les adopte. Yourcenar la place à Bayreuth parmi les mondains venus de France applaudir la Musique Nouvelle.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 151
+  },
+  {
+    year: 1886,
+    month: "",
+    title: "« Un volume de Loti »",
+    description: "<span class=\"person-link\" data-pid=\"loti\">Pierre Loti</span> (1850–1923), officier de marine et romancier. Né Louis Marie Julien Viaud à Rochefort. Ses romans transposent ses escales en paysages de mélancolie et de désir : <em>Aziyadé</em> (1879, Constantinople), <em>Le Mariage de Loti</em> (1882, Tahiti), <em>Pêcheur d'Islande</em> (1886, Bretagne), <em>Madame Chrysanthème</em> (1887, Japon). Élu à l'Académie française en 1891 à quarante et un ans. Style sensuel, répétitif, crépusculaire — l'exotisme comme forme du deuil. L'un des écrivains les plus lus de la Belle Époque.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 152
+  },
+  {
+    year: 1870,
+    month: "",
+    title: "« La Péri et La Banshee… La Walkyrie »",
+    description: "Noms des yachts de Michel. <em>La Péri</em> : esprit féminin de la mythologie persane, créature de lumière née du feu, à mi-chemin entre ange et fée — figure popularisée en Europe par les <em>Mille et Une Nuits</em> et par le poème symphonique de Paul Dukas (<em>La Péri</em>, 1912). <em>La Banshee</em> : figure du folklore gaélique irlandais et écossais (<em>bean sídhe</em>, femme du tertre), spectre féminin dont le cri annonce la mort imminente dans une famille. <em>La Walkyrie</em> : les vierges guerrières de la mythologie nordique, qui choisissent les morts au combat et les emmènent au Valhalla — immortalisées par <span class=\"person-link\" data-pid=\"wagner\">Wagner</span> dans <em>Die Walküre</em> (1870), deuxième journée du <em>Ring des Nibelungen</em>. Brünnhilde : la Walkyrie par excellence du cycle, fille de Wotan, qui désobéit à son père pour protéger Siegmund et est punie par un sommeil enchanté sur un rocher cerné de flammes.",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 153
+  },
+  {
+    year: 1903,
+    month: "",
+    title: "« Celui que Barrès vers ce temps-là comparerait aux feux maléfiques d'une opale »",
+    description: "<span class=\"person-link\" data-pid=\"barres\">Maurice Barrès</span> (1862–1923), écrivain et homme politique français. Auteur de la trilogie du <em>Culte du Moi</em> (<em>Sous l'œil des Barbares</em>, 1888 ; <em>Un homme libre</em>, 1889 ; <em>Le Jardin de Bérénice</em>, 1891), puis du <em>Roman de l'énergie nationale</em> — nationaliste, antidreyfusard, député boulangiste, chantre de la terre et des morts. <em>Amori et dolori sacrum : La mort de Venise</em> (1903) est sa méditation crépusculaire sur la ville — Venise comme beauté condamnée, splendeur en décomposition, dont les reflets tiennent du maléfice. Proust admirait le livre et en fit l'éloge dans sa préface à <em>La Bible d'Amiens</em> de Ruskin (1904).",
+    book: 1,
+    chapter: "Fernande",
+    textOrder: 154
   }
 ];
 
@@ -3236,6 +4008,7 @@ function handleSearch(value) {
   searchQuery = value.trim().toLowerCase();
   document.getElementById('search-clear').classList.toggle('visible', searchQuery.length > 0);
   render();
+  renderCrossResultsChrono();
 }
 
 function clearSearch() {
@@ -3243,6 +4016,70 @@ function clearSearch() {
   document.getElementById('search-input').value = '';
   document.getElementById('search-clear').classList.remove('visible');
   render();
+  renderCrossResultsChrono();
+}
+
+function renderCrossResultsChrono() {
+  const el = document.getElementById('cross-results-chrono');
+  if (!el) return;
+  if (!searchQuery || searchQuery.length < 2) { el.innerHTML = ''; return; }
+
+  const matches = PEOPLE.filter(p => !p.ghost && (
+    p.name.toLowerCase().includes(searchQuery) ||
+    (p.role||'').toLowerCase().includes(searchQuery)
+  ));
+
+  if (matches.length === 0) { el.innerHTML = ''; return; }
+
+  const items = matches.slice(0, 8).map(p => {
+    const c = DYNASTY_COLORS[p.dynasty] || {bg:'#888'};
+    return `<div class="cross-result-row" onclick="goToPersonnage('${p.id}')">
+      <div class="cross-result-item" style="border-left-color:${c.bg}">
+        <span class="cross-result-name">${p.name}</span>
+        <span class="cross-result-detail">${p.dates || ''}</span>
+      </div>
+      <span class="cross-result-hint">Voir dans l'index →</span>
+    </div>`;
+  }).join('');
+
+  el.innerHTML = `<div class="cross-results-label">Résultats de l'index des personnages (${matches.length})</div>${items}`;
+}
+
+function goToPersonnage(pid) {
+  dynastyFilter = 'all';
+  persoFilterPid = pid;
+  
+  switchView('personnages');
+  setTimeout(function() {
+    // Reset chip styling
+    document.querySelectorAll('.perso-chip').forEach(function(c) {
+      var d = c.dataset.dynasty;
+      if (!d) { c.classList.add('active'); c.style.background = 'var(--ink)'; c.style.color = 'var(--cream)'; }
+      else { c.classList.remove('active'); c.style.background = 'transparent'; c.style.color = DYNASTY_COLORS[d] ? DYNASTY_COLORS[d].text : 'var(--muted)'; }
+    });
+    
+    // Clear search box and show person by ID
+    var el = document.getElementById('perso-search');
+    if (el) el.value = '';
+    var cl = document.getElementById('perso-search-clear');
+    if (cl) cl.classList.remove('visible');
+    
+    renderIndex();
+  }, 300);
+}
+
+function goBackToChrono() {
+  persoFilterPid = null;
+  indexSelectedId = null;
+  switchView('timeline');
+}
+
+function clearPersoSearchOnly() {
+  document.getElementById('perso-search').value = '';
+  document.getElementById('perso-search-clear').classList.remove('visible');
+  persoFilterPid = null;
+  indexSelectedId = null;
+  renderIndex();
 }
 
 function matchesSearch(e) {
@@ -3428,6 +4265,21 @@ const eventCoords = {
   123: [50.41, 4.44, "Entre-Sambre-et-Meuse"],             // Braies rayées
   124: [50.41, 4.44, "Entre-Sambre-et-Meuse"],             // César
   125: [50.47, 4.86, "Namur"],                             // Blanche de Namur
+  126: [50.85, 4.35, "Bruxelles"],                         // Thaïs, Chrysanthème, Cruelle Énigme
+  128: [50.85, 4.35, "Bruxelles"],                         // Brancas, Walewska
+  130: [48.851, 2.335, "Paris (Saint-Sulpice)"],           // Widor
+  132: [51.053, 13.736, "Dresde"],                         // Madone de Dresde
+  134: [47.90, 11.35, "Lac de Starnberg"],                 // Lohengrin
+  136: [48.853, 2.349, "Notre-Dame de Paris"],             // Mariage Napoléon III
+  139: [48.203, 16.373, "Vienne (Sacher)"],               // Grande-Duchesse, Archiduc
+  140: [41.897, 12.483, "Rome (Palazzo Colonna)"],         // Collections Colonna
+  141: [50.091, 14.401, "Prague (Hradschin)"],             // Défenestration
+  143: [-26.20, 28.04, "Johannesburg (Witwatersrand)"],    // Guerre des Boers
+  144: [39.916, 116.397, "Pékin"],                         // Boxers
+  145: [45.584, 9.274, "Monza"],                           // Assassinat Humbert Ier
+  148: [50.435, 30.559, "Kiev (Pechersk Lavra)"],          // Saints momifiés / Fabergé
+  150: [49.974, 11.585, "Bayreuth"],                       // Musique Nouvelle
+  154: [45.434, 12.338, "Venise"],                         // Barrès, mort de Venise
 };
 
 let map = null;
@@ -3596,12 +4448,201 @@ function switchView(view) {
   window.scrollTo({ top: 0 });
 }
 
-function switchPersoTab(tab) {
-  document.querySelectorAll('.perso-tab-btn').forEach(b => b.classList.toggle('active', b.textContent.includes(tab === 'tree' ? 'Arbre' : 'Index')));
-  document.getElementById('perso-tree-panel').style.display = tab === 'tree' ? '' : 'none';
-  document.getElementById('perso-index-panel').style.display = tab === 'index' ? '' : 'none';
-  clearPersoSelection();
+let treeInitialized = false;
+function openTreeOverlay() {
+  const ov = document.getElementById('tree-overlay');
+  ov.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  if (!treeInitialized) {
+    treeInitialized = true;
+    // Legend
+    const leg = document.getElementById('tree-legend');
+    leg.innerHTML = `
+      <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#B5AD9E" stroke-width="1.3"/></svg> Filiation</span>
+      <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#B5AD9E" stroke-width="1.3" stroke-dasharray="4 3"/></svg> Fils naturel</span>
+      <span><svg width="22" height="12"><rect x="0" y="2" width="22" height="8" rx="2" fill="#F8F6F1" stroke="#DDD8CF" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/></svg> Non mentionné</span>
+      <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#C4785A" stroke-width="2"/></svg><b style="color:#C4785A">∞</b> Mariage</span>
+    ` + ["bourgogne","habsbourg_spain","bourbon","habsbourg_austria","other_royal"].map(k =>
+      `<span><span class="dot" style="background:${DYNASTY_COLORS[k].bg}"></span>${DYNASTY_COLORS[k].label}</span>`
+    ).join('');
+    renderTree();
+    initTreePanZoom();
+  }
 }
+function closeTreeOverlay() {
+  document.getElementById('tree-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// ─── Family tree overlay ───
+let ftInitialized = false;
+let ftZoom = 1, ftPanX = 0, ftPanY = 0;
+const FT_W = 1260, FT_H = 575;
+
+function openFamilyTreeOverlay() {
+  const ov = document.getElementById('family-tree-overlay');
+  ov.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  if (!ftInitialized) {
+    ftInitialized = true;
+    initFamilyTreePanZoom();
+  }
+  // Use rAF to ensure layout is complete before measuring
+  requestAnimationFrame(() => requestAnimationFrame(ftZoomReset));
+}
+function closeFamilyTreeOverlay() {
+  document.getElementById('family-tree-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function ftGetContainer() {
+  return document.getElementById('family-tree-container');
+}
+
+function ftApplyTransform() {
+  const inner = document.getElementById('family-tree-inner');
+  if (inner) inner.style.transform = `translate(${ftPanX}px,${ftPanY}px) scale(${ftZoom})`;
+}
+
+function ftClampPan() {
+  const container = ftGetContainer();
+  if (!container) return;
+  const rect = container.getBoundingClientRect();
+  const vw = rect.width, vh = rect.height;
+  const tw = FT_W * ftZoom, th = FT_H * ftZoom;
+
+  // If tree smaller than viewport: center. If larger: keep edges within viewport.
+  if (tw <= vw) {
+    ftPanX = (vw - tw) / 2;
+  } else {
+    // left edge of tree (ftPanX) must be <= 0 (can't show space on left)
+    // right edge (ftPanX + tw) must be >= vw (can't show space on right)
+    ftPanX = Math.min(0, Math.max(vw - tw, ftPanX));
+  }
+  if (th <= vh) {
+    ftPanY = (vh - th) / 2;
+  } else {
+    ftPanY = Math.min(0, Math.max(vh - th, ftPanY));
+  }
+}
+
+function ftZoomReset() {
+  const container = ftGetContainer();
+  if (!container) return;
+  const rect = container.getBoundingClientRect();
+  if (rect.width === 0 || rect.height === 0) return; // not laid out yet
+  // Fit tree width to container width
+  ftZoom = rect.width / FT_W;
+  ftPanX = 0;
+  ftPanY = (rect.height - FT_H * ftZoom) / 2;
+  ftClampPan();
+  ftApplyTransform();
+}
+
+function ftZoomAt(factor, cx, cy) {
+  const old = ftZoom;
+  const container = ftGetContainer();
+  const minZoom = container ? container.getBoundingClientRect().width / FT_W : 0.5;
+  ftZoom = Math.max(minZoom, Math.min(minZoom * 2, ftZoom * factor));
+  ftPanX = cx - (cx - ftPanX) * (ftZoom / old);
+  ftPanY = cy - (cy - ftPanY) * (ftZoom / old);
+  ftClampPan();
+  ftApplyTransform();
+}
+
+function ftZoomIn() {
+  const c = ftGetContainer();
+  const r = c.getBoundingClientRect();
+  ftZoomAt(1.3, r.width / 2, r.height / 2);
+}
+function ftZoomOut() {
+  const c = ftGetContainer();
+  const r = c.getBoundingClientRect();
+  ftZoomAt(1/1.3, r.width / 2, r.height / 2);
+}
+
+function initFamilyTreePanZoom() {
+  const container = ftGetContainer();
+
+  container.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const rect = container.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    if (e.ctrlKey) {
+      ftZoomAt(Math.exp(-e.deltaY * 0.01), mx, my);
+    } else if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || Math.abs(e.deltaX) > 0) {
+      ftPanX -= e.deltaX;
+      ftPanY -= e.deltaY;
+      ftClampPan();
+      ftApplyTransform();
+    } else {
+      ftZoomAt(e.deltaY > 0 ? 0.88 : 1.14, mx, my);
+    }
+  }, {passive: false});
+
+  let dragging = false, dragX, dragY, panX0, panY0;
+  container.addEventListener('mousedown', (e) => {
+    dragging = true;
+    dragX = e.clientX; dragY = e.clientY;
+    panX0 = ftPanX; panY0 = ftPanY;
+    container.classList.add('dragging');
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    ftPanX = panX0 + (e.clientX - dragX);
+    ftPanY = panY0 + (e.clientY - dragY);
+    ftClampPan();
+    ftApplyTransform();
+  });
+  window.addEventListener('mouseup', () => {
+    if (dragging) { dragging = false; container.classList.remove('dragging'); }
+  });
+
+  let lastTouchDist = 0;
+  container.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      dragging = true;
+      dragX = e.touches[0].clientX; dragY = e.touches[0].clientY;
+      panX0 = ftPanX; panY0 = ftPanY;
+    } else if (e.touches.length === 2) {
+      dragging = false;
+      const dx = e.touches[1].clientX - e.touches[0].clientX;
+      const dy = e.touches[1].clientY - e.touches[0].clientY;
+      lastTouchDist = Math.hypot(dx, dy);
+    }
+  }, {passive: true});
+  container.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 1 && dragging) {
+      ftPanX = panX0 + (e.touches[0].clientX - dragX);
+      ftPanY = panY0 + (e.touches[0].clientY - dragY);
+      ftClampPan();
+      ftApplyTransform();
+    } else if (e.touches.length === 2 && lastTouchDist > 0) {
+      e.preventDefault();
+      const dx = e.touches[1].clientX - e.touches[0].clientX;
+      const dy = e.touches[1].clientY - e.touches[0].clientY;
+      const dist = Math.hypot(dx, dy);
+      const rect = container.getBoundingClientRect();
+      const mx = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
+      const my = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
+      ftZoomAt(dist / lastTouchDist, mx, my);
+      lastTouchDist = dist;
+    }
+  }, {passive: false});
+  container.addEventListener('touchend', () => { dragging = false; lastTouchDist = 0; });
+}
+
+// ─── Arbres dropdown menu ───
+function toggleTreeMenu(e) {
+  e.stopPropagation();
+  document.getElementById('tree-menu').classList.toggle('open');
+}
+function closeTreeMenu() {
+  document.getElementById('tree-menu').classList.remove('open');
+}
+document.addEventListener('click', () => closeTreeMenu());
 
 // ─── People data ───
 const DYNASTY_COLORS = {
@@ -3646,10 +4687,10 @@ const PEOPLE = [
   {id:"leopold_ii_emp",name:"Léopold II",dates:"1747–1792",dynasty:"habsbourg_austria",role:"Empereur · Autriche, Bohême, Hongrie, Pays-Bas",bio:"Empereur 1790–1792. Frère cadet de Joseph II, grand-duc de Toscane pendant 25 ans. Réformateur prudent, meurt subitement deux ans après son accession au trône impérial.",entries:[]},
   {id:"franz_ii",name:"François II / Iᵉʳ",dates:"1768–1835",dynasty:"habsbourg_austria",role:"Empereur · Autriche, Bohême, Hongrie (Pays-Bas perdus 1795)",bio:"Dernier empereur du Saint-Empire (1792–1806), premier empereur d'Autriche (1804–1835). Dissout le Saint-Empire face à Napoléon. Père de Marie-Louise, seconde épouse de Napoléon.",entries:["Le Congrès de Vienne"]},
   {id:"franz_karl",name:"François-Charles",dates:"1802–1878",dynasty:"habsbourg_austria",role:"Archiduc d'Autriche",bio:"Archiduc d'Autriche. Renonce à la succession en faveur de son fils François-Joseph lors de la révolution de 1848. Père de François-Joseph et de Maximilien du Mexique.",entries:[]},
-  {id:"franz_joseph",name:"François-Joseph Iᵉʳ",dates:"1830–1916",dynasty:"habsbourg_austria",role:"Empereur · Autriche-Hongrie, Bohême, Galicie",bio:"Empereur 1848–1916 (68 ans). Accède au trône à 18 ans lors de la révolution de 1848. Perd l'Italie (Solférino, 1859), concède le compromis austro-hongrois (1867). Frère aîné de Maximilien du Mexique.",entries:["Solférino","Sadowa et la Confédération germanique"]},
+  {id:"franz_joseph",name:"François-Joseph Iᵉʳ",dates:"1830–1916",dynasty:"habsbourg_austria",role:"Empereur · Autriche-Hongrie, Bohême, Galicie",bio:"Empereur 1848–1916 (68 ans). Accède au trône à 18 ans lors de la révolution de 1848. Perd l'Italie (Solférino, 1859), concède le compromis austro-hongrois (1867). Frère aîné de Maximilien du Mexique.",entries:["Solférino","Sadowa et la Confédération germanique","« Le sympathique vieil empereur… naguère appelé le Roi des Pendus »"]},
   {id:"henri_iv",name:"Henri IV",dates:"1553–1610",dynasty:"bourbon",role:"Roi · France, Navarre",ghost:true,entries:[]},
   {id:"louis_xiii",name:"Louis XIII",dates:"1601–1643",dynasty:"bourbon",role:"Roi · France, Navarre",ghost:true,entries:[]},
-  {id:"louis_xiv",name:"Louis XIV",dates:"1638–1715",dynasty:"bourbon",role:"Roi · France, Navarre",bio:"Roi 1643–1715 (72 ans de règne). Cousin et beau-frère de Charles II par Marie-Thérèse. Mène cinq guerres contre les Pays-Bas. Son petit-fils Philippe V fonde les Bourbons d'Espagne.",entries:["Le siège de Namur par Louis XIV","Dumouriez, Valmy","De froid, de faim et de sommeil","Le Traité de Nimègue"]},
+  {id:"louis_xiv",name:"Louis XIV",dates:"1638–1715",dynasty:"bourbon",role:"Roi · France, Navarre",bio:"Roi 1643–1715 (72 ans de règne). Cousin et beau-frère de Charles II par Marie-Thérèse. Mène cinq guerres contre les Pays-Bas. Son petit-fils Philippe V fonde les Bourbons d'Espagne.",entries:["Le siège de Namur par Louis XIV","Dumouriez, Valmy","De froid, de faim et de sommeil","Le Traité de Nimègue","« Une austérité janséniste et de vieilles élégances royalistes »"]},
   {id:"grand_dauphin",name:"Louis, Grand Dauphin",dates:"1661–1711",dynasty:"bourbon",role:"Dauphin de France",bio:"Fils de Louis XIV et Marie-Thérèse. Meurt de la variole avant son père. Père de Philippe V d'Espagne.",entries:[]},
   {id:"philippe_v",name:"Philippe V",dates:"1683–1746",dynasty:"bourbon",role:"Roi · Espagne, Naples, Amériques",bio:"Roi d'Espagne 1700–1746. Petit-fils de Louis XIV, héritier de Charles II. Fonde la dynastie Bourbon d'Espagne, qui règne encore aujourd'hui.",entries:["Le siège de Namur par Louis XIV"]},
   {id:"duc_bourgogne",name:"Louis, duc de Bourgogne",dates:"1682–1712",dynasty:"bourbon",role:"Petit-fils de Louis XIV · France",ghost:true,entries:[]},
@@ -3664,7 +4705,7 @@ const PEOPLE = [
   {id:"nicolas_ii",name:"Nicolas II",dates:"1868–1918",dynasty:"other_royal",role:"Dernier tsar de Russie",entries:["Ses timides héritiers"]},
   {id:"gustave_iii",name:"Gustave III",dates:"1746–1792",dynasty:"other_royal",role:"Roi de Suède",entries:["Le comte de Haga"]},
   {id:"napoleon",name:"Napoléon",dates:"1769–1821",dynasty:"other_royal",role:"Empereur des Français",entries:["Waterloo","Le Congrès de Vienne"]},
-  {id:"napoleon_iii",name:"Napoléon III",dates:"1808–1873",dynasty:"other_royal",role:"Empereur des Français",bio:"Empereur 1852–1870. Neveu de Napoléon Iᵉʳ, prend le pouvoir par coup d'État (1851). Modernise Paris et l'économie, mais sa politique étrangère — Mexique, guerre franco-prussienne — aboutit à la catastrophe de Sedan et à la chute de l'Empire.",entries:["L'expédition du Mexique et la tragédie de Charlotte","Le scandale de Tannhäuser à Paris","Aspromonte et Mentana — les marches de Garibaldi sur Rome","L'humiliation de Sedan","La proclamation de la République","L'Empire libéral"]},
+  {id:"napoleon_iii",name:"Napoléon III",dates:"1808–1873",dynasty:"other_royal",role:"Empereur des Français",bio:"Empereur 1852–1870. Neveu de Napoléon Iᵉʳ, prend le pouvoir par coup d'État (1851). Modernise Paris et l'économie, mais sa politique étrangère — Mexique, guerre franco-prussienne — aboutit à la catastrophe de Sedan et à la chute de l'Empire.",entries:["L'expédition du Mexique et la tragédie de Charlotte","Le scandale de Tannhäuser à Paris","Aspromonte et Mentana — les marches de Garibaldi sur Rome","L'humiliation de Sedan","La proclamation de la République","L'Empire libéral","« Le majestueux vestige… du mariage d'Eugénie de Montijo avec Napoléon III »"]},
   {id:"bismarck",name:"Otto von Bismarck",dates:"1815–1898",dynasty:"other_royal",role:"Chancelier · Prusse, Empire allemand",bio:"Ministre-président de Prusse (1862), puis chancelier de l'Empire allemand (1871–1890). Architecte de l'unification allemande par trois guerres successives contre le Danemark, l'Autriche et la France.",entries:["La guerre du Schleswig-Holstein","Sadowa et la Confédération germanique","La proclamation de l'Empire allemand","L'humiliation de Sedan","La proclamation de la République"]},
   {id:"victor_emmanuel",name:"Victor-Emmanuel II",dates:"1820–1878",dynasty:"other_royal",role:"Roi · Piémont-Sardaigne, puis Italie",bio:"Roi de Sardaigne-Piémont (1849), puis premier roi d'Italie (1861–1878). Avec Cavour et Garibaldi, artisan de l'unification italienne.",entries:["La guerre du Piémont","Aspromonte et Mentana — les marches de Garibaldi sur Rome"]},
   {id:"charlotte_belgique",name:"Charlotte de Belgique",dates:"1840–1927",dynasty:"other_royal",role:"Impératrice du Mexique",bio:"Fille de Léopold I<sup>er</sup> des Belges. Épouse l'archiduc Maximilien (1857). Impératrice du Mexique 1864–67. Sombre dans la folie en 1866 après l'échec de ses missions auprès de Napoléon III et du pape. Recluse au château de Bouchout pendant soixante ans.",entries:["L'expédition du Mexique et la tragédie de Charlotte"]},
@@ -3695,13 +4736,13 @@ const PEOPLE = [
   {id:"vauban",name:"Vauban",dates:"1633–1707",dynasty:"cultural",role:"Ingénieur militaire",entries:["Le siège de Namur par Louis XIV"]},
   {id:"cockerill",name:"John Cockerill",dates:"1790–1840",dynasty:"cultural",role:"Industriel",entries:["La première locomotive"]},
   {id:"gretry",name:"A.-E.-M. Grétry",dates:"1741–1813",dynasty:"cultural",role:"Compositeur",entries:["La musique de Grétry"]},
-  {id:"franck",name:"César Franck",dates:"1822–1890",dynasty:"cultural",role:"Compositeur",entries:["La musique de César Franck"]},
+  {id:"franck",name:"César Franck",dates:"1822–1890",dynasty:"cultural",role:"Compositeur",entries:["La musique de César Franck","« Harmonie, harmonie, langue que pour l'amour inventa le génie… »","« Un des bons élèves de Widor »"]},
   {id:"verdi",name:"Giuseppe Verdi",dates:"1813–1901",dynasty:"cultural",role:"Compositeur",entries:["Le comte de Haga"]},
   {id:"sitwell",name:"Sacheverell Sitwell",dates:"1897–1988",dynasty:"cultural",role:"Écrivain",entries:["Sir Hugh Le Despenser"]},
   {id:"malthus",name:"Thomas R. Malthus",dates:"1766–1834",dynasty:"cultural",role:"Pasteur, économiste",bio:"Auteur de l'<em>Essai sur le principe de population</em> (1798). Soutient que seuls famine, guerre et maladie (ou la continence volontaire) empêchent la population de dépasser les ressources. Inspiration majeure de Darwin.",entries:["Malthus et la « production humaine en série »"]},
   {id:"baudelaire",name:"Charles Baudelaire",dates:"1821–1867",dynasty:"cultural",role:"Poète",bio:"Auteur des <em>Fleurs du mal</em> (1857), condamné pour outrage aux bonnes mœurs. Passe ses dernières années à Bruxelles (1864–66), accumulant des notes pour <em>Pauvre Belgique !</em>. Frappé d'aphasie en 1866, meurt à Paris en 1867.",entries:["Baudelaire et les sansonnets aux yeux crevés","Le scandale de Tannhäuser à Paris"]},
   {id:"julien_apostat",name:"Julien l'Apostat",dates:"331–363",dynasty:"other_royal",role:"Empereur romain",bio:"Empereur 361–363. Neveu de Constantin, tente de restaurer le paganisme. Lettré et ascète, auteur du <em>Misopogon</em>. Meurt en campagne contre les Perses.",entries:["Julien l'Apostat et le retour au paganisme"]},
-  {id:"wagner",name:"Richard Wagner",dates:"1813–1883",dynasty:"cultural",role:"Compositeur",bio:"Compositeur allemand. Révolutionne l'opéra avec le concept d'œuvre d'art totale (<em>Gesamtkunstwerk</em>). Le scandale de <em>Tannhäuser</em> à Paris (1861) cristallise les tensions culturelles franco-allemandes.",entries:["Le scandale de Tannhäuser à Paris","Siegfried","Wagner à Venise","Louis de Bavière"]},
+  {id:"wagner",name:"Richard Wagner",dates:"1813–1883",dynasty:"cultural",role:"Compositeur",bio:"Compositeur allemand. Révolutionne l'opéra avec le concept d'œuvre d'art totale (<em>Gesamtkunstwerk</em>). Le scandale de <em>Tannhäuser</em> à Paris (1861) cristallise les tensions culturelles franco-allemandes.",entries:["Le scandale de Tannhäuser à Paris","Siegfried","Wagner à Venise","Louis de Bavière","« Le Lohengrin soupçonné de démence »","« La Musique de l'Avenir » — Tristan, Isolde, Wotan, les filles du Rhin","« La Péri et La Banshee… La Walkyrie »"]},
   {id:"garibaldi",name:"Giuseppe Garibaldi",dates:"1807–1882",dynasty:"other_royal",role:"Général · Italie",bio:"Héros de l'unification italienne. Conquiert le royaume des Deux-Siciles avec ses Mille (1860). Ses deux marches sur Rome échouent à Aspromonte (1862) et Mentana (1867).",entries:["Aspromonte et Mentana — les marches de Garibaldi sur Rome","« Les soldats de Garibaldi »"]},
   {id:"flourens",name:"Gustave Flourens",dates:"1838–1871",dynasty:"cultural",role:"Biologiste, communard",bio:"Destitué de sa chaire au Collège de France pour athéisme. Aventurier politique, se met au service de l'insurrection crétoise. Nommé général des remparts pendant la Commune, abattu par les Versaillais à Chatou le 3 avril 1871.",entries:["Gustave Flourens et la Commune"]},
   {id:"abelard",name:"Pierre Abélard",dates:"1079–1142",dynasty:"cultural",role:"Philosophe",entries:["Le Paris d'Abélard"]},
@@ -3712,7 +4753,7 @@ const PEOPLE = [
   {id:"calvin",name:"Jean Calvin",dates:"1509–1564",dynasty:"religious",role:"Réformateur",entries:["Un certain Calvin"]},
   {id:"clement_xi",name:"Clément XI",dates:"1649–1721",dynasty:"religious",role:"Pape",entries:["La querelle des Rites"]},
   {id:"pie_ix",name:"Pie IX",dates:"1792–1878",dynasty:"religious",role:"Pape",bio:"Pape 1846–1878 — plus long pontificat de l'histoire (31 ans). D'abord perçu comme libéral, se raidit après 1848. Proclame l'Immaculée Conception (1854), publie le <em>Syllabus</em> (1864), convoque Vatican I (1869–70). Perd les États pontificaux (1870).",entries:["Pie IX et le catholicisme belge"]},
-  {id:"fernande",name:"Fernande de Cartier de Marchienne",dates:"1872–1903",dynasty:"family",role:"Mère de Yourcenar",bio:"Cadette des onze enfants d'Arthur et Mathilde. Hérita les torsades rousses de sa mère. Élevée par le Fräulein et ses sœurs aînées Georgine et Zoé. Épousa Michel Cleenewerck de Crayencour en 1900. Morte de fièvre puerpérale onze jours après la naissance de Marguerite.",entries:["Naissance de Marguerite","Mélisande","« La Dolly d'Anna Karénine, sa contemporaine »","Sainte Rolende"]},
+  {id:"fernande",name:"Fernande de Cartier de Marchienne",dates:"1872–1903",dynasty:"family",role:"Mère de Yourcenar",bio:"Cadette des onze enfants d'Arthur et Mathilde. Hérita les torsades rousses de sa mère. Élevée par le Fräulein et ses sœurs aînées Georgine et Zoé. Épousa Michel Cleenewerck de Crayencour en 1900. Morte de fièvre puerpérale onze jours après la naissance de Marguerite.",entries:["Naissance de Marguerite","Mélisande","« La Dolly d'Anna Karénine, sa contemporaine »","Sainte Rolende","« Thaïs, Madame Chrysanthème et Cruelle Énigme »","« La Nora d'Ibsen s'apprêtant à danser la tarentelle »","Le duc de Brancas et Maria Walewska","« Harmonie, harmonie, langue que pour l'amour inventa le génie… »","La Madone de Dresde et la Glyptothèque de Munich","« Hedda Gabler… Tonio Kröger… Gustav von Aschenbach… Oswald Alving »","« Le Lohengrin soupçonné de démence »","« Les sinuosités discrètes d'une silhouette de Helleu »","« Le majestueux vestige… du mariage d'Eugénie de Montijo avec Napoléon III »","« Barnabooth… le Marcel de Proust… les personnages de Thomas Mann, d'Arnold Bennett et d'Henry James »","La Grande-Duchesse, l'Archiduc, Sarah Bernhardt","« Les collections du Prince Colonna ou du Baron de Rothschild »","La Défenestration de Prague et Jan Masaryk","« La guerre des Boers surexcite l'anglophobie française »","« Le récit des atrocités des Boxers »","« L'assassinat d'Humbert Iᵉʳ d'Italie »","L'Affaire et les Congrégations","« Le Grand Soir » et l'Europe politique vers 1900","« La Musique de l'Avenir » — Tristan, Isolde, Wotan, les filles du Rhin","« Madame Verdurin est là avec sa coterie »","« Un volume de Loti »","« La Péri et La Banshee… La Walkyrie »","« Celui que Barrès vers ce temps-là comparerait aux feux maléfiques d'une opale »"]},
   {id:"arthur",name:"Arthur de Cartier de Marchienne",dates:"1831–1890",dynasty:"family",role:"Grand-père maternel de Yourcenar",bio:"Fils de <span class='person-link' data-pid='flore_drion'>Flore Drion</span> et de Joseph-Ghislain de C. de M. Obtint par arrêté royal en 1887 l'ajout « de Marchienne » au nom de famille. Épousa sa cousine germaine <span class='person-link' data-pid='mathilde'>Mathilde Troye</span>. Décédé le 2 janvier 1890 au château de Suarlée, après une longue maladie qui le confina progressivement à sa propriété, puis à son lit.",entries:["Naissance d'Arthur de C.","« La Dolly d'Anna Karénine, sa contemporaine »"]},
   {id:"marguerite",name:"Marguerite Yourcenar",dates:"1903–1987",dynasty:"family",role:"L'auteur",entries:["Naissance de Marguerite de Crayencour"]},
   {id:"egmont",name:"Comte d'Egmont",dates:"1522–1568",dynasty:"other_royal",role:"Noble des Pays-Bas",entries:["Les Gueux et le comte Egmont"]},
@@ -3772,13 +4813,13 @@ const PEOPLE = [
   {id:"verlaine",name:"Paul Verlaine",dates:"1844–1896",dynasty:"cultural",role:"Poète",bio:"Poète symboliste français. Auteur des <em>Fêtes galantes</em> (1869) et de <em>Sagesse</em> (1880). Tire sur Rimbaud à Bruxelles en juillet 1873.",entries:["Rimbaud au Cabaret Vert"]},
   {id:"marx",name:"Karl Marx",dates:"1818–1883",dynasty:"cultural",role:"Philosophe et économiste",bio:"Auteur du <em>Capital</em> (1867). Mort à Londres le 14 mars 1883.",entries:["Marx et Bakounine"]},
   {id:"bakounine",name:"Mikhaïl Bakounine",dates:"1814–1876",dynasty:"cultural",role:"Révolutionnaire et théoricien anarchiste",bio:"Adversaire de Marx au sein de la Première Internationale. Théoricien de l'anarchisme collectiviste.",entries:["Marx et Bakounine"]},
-  {id:"louis_baviere",name:"Louis II de Bavière",dates:"1845–1886",dynasty:"other_royal",role:"Roi · Bavière",bio:"Mécène de Wagner. Constructeur de Neuschwanstein. Noyé dans le lac de Starnberg en 1886.",entries:["Louis de Bavière"]},
+  {id:"louis_baviere",name:"Louis II de Bavière",dates:"1845–1886",dynasty:"other_royal",role:"Roi · Bavière",bio:"Mécène de Wagner. Constructeur de Neuschwanstein. Noyé dans le lac de Starnberg en 1886.",entries:["Louis de Bavière","« Le Lohengrin soupçonné de démence »"]},
   {id:"rodolphe",name:"Rodolphe de Habsbourg",dates:"1858–1889",dynasty:"habsburg",role:"Archiduc héritier · Autriche-Hongrie",bio:"Kronprinz. Se suicida avec Marie Vetsera à Mayerling le 30 janvier 1889.",entries:["Mayerling"]},
   {id:"elisabeth",name:"Élisabeth d'Autriche",dates:"1837–1898",dynasty:"habsburg",role:"Impératrice · Autriche-Hongrie",bio:"Née duchesse en Bavière. Assassinée par un anarchiste à Genève en 1898.",entries:["Mayerling"]},
   {id:"nightingale",name:"Florence Nightingale",dates:"1820–1910",dynasty:"cultural",role:"Infirmière et réformatrice",bio:"Pionnière des soins infirmiers modernes. Revenue de Scutari (guerre de Crimée), elle dirigea depuis son lit la réforme du système hospitalier britannique.",entries:["Florence Nightingale et Henri Dunant"]},
   {id:"dunant",name:"Henri Dunant",dates:"1828–1910",dynasty:"cultural",role:"Fondateur de la Croix-Rouge",bio:"Homme d'affaires genevois. Témoin de Solférino (1859). Fonda le CICR (1863). Premier prix Nobel de la paix (1901).",entries:["Florence Nightingale et Henri Dunant"]},
   {id:"nietzsche",name:"Friedrich Nietzsche",dates:"1844–1900",dynasty:"cultural",role:"Philosophe",bio:"Auteur d'<em>Ainsi parlait Zarathoustra</em> (1883–85). Sombre dans la folie à Turin en janvier 1889.",entries:["Nietzsche à Sils-Maria"]},
-  {id:"ibsen",name:"Henrik Ibsen",dates:"1828–1906",dynasty:"cultural",role:"Dramaturge norvégien",bio:"Auteur d'<em>Un ennemi du peuple</em> (1882), <em>Maison de poupée</em> (1879), <em>Hedda Gabler</em> (1890). En exil volontaire en Italie et en Allemagne de 1868 à 1891.",entries:["« Son prophétique Ennemi du Peuple »"]},
+  {id:"ibsen",name:"Henrik Ibsen",dates:"1828–1906",dynasty:"cultural",role:"Dramaturge norvégien",bio:"Auteur d'<em>Un ennemi du peuple</em> (1882), <em>Maison de poupée</em> (1879), <em>Hedda Gabler</em> (1890). En exil volontaire en Italie et en Allemagne de 1868 à 1891.",entries:["« Son prophétique Ennemi du Peuple »","« La Nora d'Ibsen s'apprêtant à danser la tarentelle »","« Hedda Gabler… Tonio Kröger… Gustav von Aschenbach… Oswald Alving »"]},
   {id:"flaubert",name:"Gustave Flaubert",dates:"1821–1880",dynasty:"cultural",role:"Romancier",bio:"Auteur de <em>Madame Bovary</em> (1857) et de <em>L'Éducation sentimentale</em> (1869). Mort à Croisset en 1880 laissant inachevé <em>Bouvard et Pécuchet</em>.",entries:["« Disparu dès 1880, aussi usé que son Bouvard et son Pécuchet »"]},
   {id:"tennyson",name:"Alfred, Lord Tennyson",dates:"1809–1892",dynasty:"cultural",role:"Poète lauréat · Royaume-Uni",bio:"Poète lauréat britannique de 1850 à 1892. Auteur d'<em>In Memoriam A.H.H.</em> (1850).",entries:["Tennyson"]},
   {id:"conrad",name:"Joseph Conrad",dates:"1857–1924",dynasty:"cultural",role:"Romancier",bio:"Né Józef Teodor Konrad Korzeniowski en Pologne. Marin devenu romancier anglophone. Auteur d'<em>Au cœur des ténèbres</em> (1899).",entries:["Joseph Conrad"]},
@@ -3800,7 +4841,7 @@ const PEOPLE = [
   {id:"joseph_ghislain",name:"Joseph-Ghislain de C. de M.",dates:"~1800–~1840",dynasty:"family",role:"Arrière-grand-père de Yourcenar",bio:"Confirmé dans sa noblesse par Guillaume Iᵉʳ de Hollande en 1824. Colonel de la garde bourgeoise et bourgmestre de Marchienne après 1830. Épousa Flore Drion au château de la Boverie, Suarlée. Mourut quadragénaire.",entries:["« Quelques âmes inquiètes penchées sur les sutras hindous et sur Swedenborg »"]},
   {id:"isabelle_cartier",name:"Isabelle de C. de M.",dates:"1855–1917",dynasty:"family",role:"Fille aînée d'Arthur et Mathilde",bio:"Dite Isa. Épousa son cousin le baron Georges de Cartier d'Yves. Trois enfants : un fils aîné (continua la lignée), une fille Mathilde — maladive, « affublée d'un hideux béret, fait l'effet d'une totale maldonne : elle quittera ce monde de bonne heure » — et Louise, héroïque infirmière de la Grande Guerre, forte blonde aux yeux bleus, adorée et redoutée de son hôpital. Louise mourut d'un cancer dû aux rayons X. Yourcenar la visita en 1954.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
   {id:"georgine",name:"Georgine de C. de M.",dates:"1859–1913",dynasty:"family",role:"Fille d'Arthur et Mathilde",bio:"Photographiée à Vienne, majestueuse, faux air de statue antique. Épousa Henri Manderbach, de Namur, libre penseur. Vers 48 ans, plus qu'une ruine — aveugle, dévorée par le diabète. Ses yeux marrons conservaient un éclat à la fois doux et vif.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
-  {id:"zoe_fille",name:"Zoé de C. de M.",dates:"1862–1904",dynasty:"family",role:"Fille d'Arthur et Mathilde",bio:"Sœur préférée de Fernande. Épousa Hubert Delvaux (~1883). Mère de Suzanne (« jeune Cybèle »). Visage aux méplats structurés — « quelque chose de cette étrangeté de proportions par quoi Léonard définit la beauté. »",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"zoe_fille",name:"Zoé de C. de M.",dates:"1862–1904",dynasty:"family",role:"Fille d'Arthur et Mathilde",bio:"Sœur préférée de <span class='person-link' data-pid='fernande'>Fernande</span>. Épousa <span class='person-link' data-pid='hubert_delvaux'>Hubert Delvaux</span> (~1883). S'installa à A., petit château en pays flamand, dont les vierges baroques d'un sculpteur du XVIIIe siècle ornent l'église. Mère de Suzanne (« jeune Cybèle »), d'un second fils mort en bas âge, et de deux garçons nés après 1890. Après la mort d'<span class='person-link' data-pid='arthur'>Arthur</span> (1890), reçut sa part de la succession de Suarlée et l'héritage Troye. Communiait tous les jours, patronnait le catéchisme, distribuait ses aumônes — « emblème vivant de la résignation ». Visage aux méplats structurés — « quelque chose de cette étrangeté de proportions par quoi Léonard définit la beauté. »",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
   {id:"gaston_cartier",name:"Gaston de C. de M.",dates:"1858–1887",dynasty:"family",role:"Fils d'Arthur et Mathilde, dit « le Simple »",bio:"Dit « Gaston le Simple » — simple d'esprit. Mort en septembre 1887 à Suarlée, huit jours après une violente dispute avec son père <span class='person-link' data-pid='arthur'>Arthur</span>, à l'issue de laquelle il remonta dans sa chambre sans un mot et fut pris d'une fièvre chaude.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
   {id:"theobald",name:"Théobald de C. de M.",dates:"?–~1920",dynasty:"family",role:"Fils d'Arthur et Mathilde",bio:"S'installa à Bruxelles avec Jeanne et Fernande. Mangea progressivement son capital, calculant d'arriver au chiffre néant à la fin de sa vie. Devint paraplégique. Cartes de visite : « Réciprocités. État paraplégique invariable. » Retrouvé vers 1920 sur la Grand-Place de Bruxelles. Placé à l'asile de Geel.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
   {id:"octave_petit",name:"Octave de C. de M. (le petit)",dates:"?–?",dynasty:"family",role:"Fils d'Arthur et Mathilde",bio:"Publia un volume d'Octave Pirmez. Globe-trotter. Visitait sa sœur Jeanne entre deux voyages.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
@@ -3809,7 +4850,36 @@ const PEOPLE = [
   {id:"didier_lombard",name:"Didier",dates:"?–786",dynasty:"other_royal",role:"Roi des Lombards",bio:"Dernier roi des Lombards (756–774). Vaincu par Charlemagne en 774 au siège de Pavie. Exilé en Gaule avec sa famille.",entries:["Sainte Rolende"]},
   {id:"blanche_namur",name:"Blanche de Namur",dates:"~1320–1363",dynasty:"other_royal",role:"Reine · Suède et Norvège",bio:"Fille de Jean Iᵉʳ, comte de Namur. Épousa Magnus IV Eriksson en 1336. Couronnée reine de Suède, Norvège et Scanie à Stockholm. Ne revit jamais les rives de la Meuse.",entries:["Blanche de Namur"]},
   {id:"magnus_eriksson",name:"Magnus IV Eriksson",dates:"1317–1374",dynasty:"other_royal",role:"Roi · Suède et Norvège",bio:"Dit « Smek » (le Baiseur). Roi de Suède 1319–1364, roi de Norvège 1319–1343. Dynastie des Folkung. Épousa Blanche de Namur en 1336. Sainte Brigitte lui reprocha sa mauvaise gestion du royaume.",entries:["Blanche de Namur"]},
-  {id:"ste_brigitte",name:"Sainte Brigitte de Suède",dates:"1303–1373",dynasty:"religious",role:"Mystique · Fondatrice des Brigittines",bio:"Née Birgitta Birgersdotter. Gouvernante de Blanche de Namur à la cour de Stockholm. Visionnaire, prophétesse, fondatrice de l'ordre du Saint-Sauveur à Vadstena. Canonisée 1391. Patronne de l'Europe.",entries:["Blanche de Namur"]}
+  {id:"ste_brigitte",name:"Sainte Brigitte de Suède",dates:"1303–1373",dynasty:"religious",role:"Mystique · Fondatrice des Brigittines",bio:"Née Birgitta Birgersdotter. Gouvernante de Blanche de Namur à la cour de Stockholm. Visionnaire, prophétesse, fondatrice de l'ordre du Saint-Sauveur à Vadstena. Canonisée 1391. Patronne de l'Europe.",entries:["Blanche de Namur"]},
+  {id:"anatole_france",name:"Anatole France",dates:"1844–1924",dynasty:"cultural",role:"Écrivain · Prix Nobel 1921",bio:"Né Jacques-Anatole Thibault. Romancier, poète, critique littéraire. Prix Nobel de littérature 1921. <em>Thaïs</em> (1890), roman de la conversion d'une courtisane d'Alexandrie.",entries:["« Thaïs, Madame Chrysanthème et Cruelle Énigme »"]},
+  {id:"loti",name:"Pierre Loti",dates:"1850–1923",dynasty:"cultural",role:"Écrivain · Officier de marine",bio:"Né Louis Marie Julien Viaud. Officier de marine et romancier. <em>Madame Chrysanthème</em> (1887), récit d'un mariage temporaire au Japon. Académie française 1891.",entries:["« Thaïs, Madame Chrysanthème et Cruelle Énigme »","« Un volume de Loti »"]},
+  {id:"bourget",name:"Paul Bourget",dates:"1852–1935",dynasty:"cultural",role:"Romancier · Critique",bio:"Romancier psychologique, chef de file du roman d'analyse. <em>Cruelle Énigme</em> (1885), <em>Le Disciple</em> (1889). Académie française 1894.",entries:["« Thaïs, Madame Chrysanthème et Cruelle Énigme »"]},
+  {id:"la_bruyere",name:"Jean de La Bruyère",dates:"1645–1696",dynasty:"cultural",role:"Moraliste",bio:"Auteur des <em>Caractères</em> (1688), galerie de portraits moraux de la société française. Le personnage de Ménalque, le distrait, est calqué sur le comte de Brancas.",entries:["Le duc de Brancas et Maria Walewska"]},
+  {id:"walewska",name:"Maria Walewska",dates:"1786–1817",dynasty:"cultural",role:"Comtesse polonaise · Maîtresse de Napoléon",entries:["Le duc de Brancas et Maria Walewska"]},
+  {id:"musset",name:"Alfred de Musset",dates:"1810–1857",dynasty:"cultural",role:"Poète · Dramaturge",bio:"Poète romantique. Auteur des <em>Nuits</em>, de <em>Lorenzaccio</em> (1834), des <em>Premières Poésies</em>. Le poème <em>Lucie</em> (1835) contient le célèbre vers sur la musique : « Fille de la douleur, harmonie ! harmonie ! »",entries:["« Harmonie, harmonie, langue que pour l'amour inventa le génie… »"]},
+  {id:"widor",name:"Charles-Marie Widor",dates:"1844–1937",dynasty:"cultural",role:"Organiste · Compositeur",bio:"Organiste de Saint-Sulpice à Paris pendant 64 ans (1870–1934). Successeur de César Franck au Conservatoire. Inventeur de la symphonie pour orgue (dix au total). Parmi ses élèves : Vierne, Dupré, Tournemire, Schweitzer, Milhaud, Honegger, Varèse.",entries:["« Un des bons élèves de Widor »"]},
+  {id:"donatello",name:"Donatello",dates:"~1386–1466",dynasty:"cultural",role:"Sculpteur · Florence",bio:"Donato di Niccolò di Betto Bardi. Figure majeure du premier Quattrocento florentin. Sculpteur du <em>David</em> en bronze, du <em>Gattamelata</em> de Padoue, des bas-reliefs de San Lorenzo.",entries:["Donatello"]},
+  {id:"raphael",name:"Raphaël",dates:"1483–1520",dynasty:"cultural",role:"Peintre · Architecte",bio:"Raffaello Sanzio da Urbino. La <em>Madonna Sixtina</em> (1512–1513), conservée à la Gemäldegalerie Alte Meister de Dresde depuis 1754, est l'une des peintures les plus célèbres au monde.",entries:["La Madone de Dresde et la Glyptothèque de Munich"]},
+  {id:"thomas_mann",name:"Thomas Mann",dates:"1875–1955",dynasty:"cultural",role:"Écrivain · Prix Nobel 1929",bio:"Romancier et essayiste allemand. <em>Tonio Kröger</em> (1903), nouvelle sur le déchirement entre vie bourgeoise et vocation artistique. <em>Der Tod in Venedig</em> (<em>La Mort à Venise</em>, 1912), récit de la fascination fatale d'un écrivain vieillissant.",entries:["« Hedda Gabler… Tonio Kröger… Gustav von Aschenbach… Oswald Alving »","« Barnabooth… le Marcel de Proust… les personnages de Thomas Mann, d'Arnold Bennett et d'Henry James »"]},
+  {id:"hubert_delvaux",name:"Hubert Delvaux",dates:"?–?",dynasty:"family",role:"Époux de Zoé de C. de M.",bio:"Installé à A., petit château en pays flamand. Libre penseur, peut-être radical, peut-être franc-maçon — méprisé des bonnes familles et du curé. Trompa Zoé sans relâche — Cécile, la femme de chambre, la fille de cuisine, une maîtresse déclarée au village. Après la mort d'un fils en bas âge, proféra des blasphèmes et déclara qu'il n'y avait pas de Bon Dieu. Courtois envers <span class='person-link' data-pid='fernande'>Fernande</span>, sa jeune belle-sœur, « qui sentait sans doute en ce monstre un pauvre homme désorienté ».",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
+  {id:"baron_h",name:"Le baron H.",dates:"?–?",dynasty:"family",role:"Prétendant de Fernande, ~1897–1899",bio:"Aristocrate belge dont l'initiale seule est donnée. Grand-père dans la finance, père associé à des opérations financières récompensées d'un titre. Mélomane, dilettante, collectionneur — se disait l'un des bons élèves de <span class='person-link' data-pid='widor'>Widor</span>. Fit construire un salon de musique dans son hôtel, avec vitraux et divans turcs. <span class='person-link' data-pid='fernande'>Fernande</span>, musicienne elle-même, y plongea pendant deux hivers dans Bach et <span class='person-link' data-pid='franck'>César Franck</span>. Fut distrait, ou prudent — ne vit rien, ou parut ne rien voir. Épousa bien des années plus tard une femme laide, qui s'entoura pendant ses grossesses de reproductions de <span class='person-link' data-pid='donatello'>Donatello</span>.",entries:["« Un des bons élèves de Widor »","Donatello"]},
+  {id:"helleu",name:"Paul-César Helleu",dates:"1859–1927",dynasty:"cultural",role:"Peintre · Graveur",bio:"Peintre, pastelliste et graveur à la pointe sèche. Portraitiste des femmes de la Belle Époque — duchesse de Marlborough, comtesse Greffulhe, Helena Rubinstein. Ami de Sargent, Boldini, Proust (modèle du peintre Elstir dans <em>À la recherche du temps perdu</em>). Ses silhouettes féminines — ligne souple, profil penché, élégance sans effort — définissent un type.",entries:["« Les sinuosités discrètes d'une silhouette de Helleu »"]},
+  {id:"michel",name:"Michel de Crayencour",dates:"1853–1929",dynasty:"family",role:"Père de Yourcenar",bio:"Michel Cleenewerck de Crayencour. Fils de Charles C. de Crayencour (1822–1898) et Noémi Dufresnes (1828–1909). Épouse en premières noces Bertha Louys de la Grange (†1899), puis <span class='person-link' data-pid='fernande'>Fernande de C. de Marchienne</span> en 1900. Père de <span class='person-link' data-pid='marguerite'>Marguerite</span> (1903).",entries:["« Le Lohengrin soupçonné de démence »","« Le majestueux vestige… du mariage d'Eugénie de Montijo avec Napoléon III »","« Barnabooth… le Marcel de Proust… les personnages de Thomas Mann, d'Arnold Bennett et d'Henry James »","La Grande-Duchesse, l'Archiduc, Sarah Bernhardt","« Les collections du Prince Colonna ou du Baron de Rothschild »","La Défenestration de Prague et Jan Masaryk","« La guerre des Boers surexcite l'anglophobie française »","« Le récit des atrocités des Boxers »","L'Affaire et les Congrégations","« Le Grand Soir » et l'Europe politique vers 1900","« La Musique de l'Avenir » — Tristan, Isolde, Wotan, les filles du Rhin","« Un volume de Loti »","« La Péri et La Banshee… La Walkyrie »","« Celui que Barrès vers ce temps-là comparerait aux feux maléfiques d'une opale »"]},
+  {id:"eugenie_montijo",name:"Eugénie de Montijo",dates:"1826–1920",dynasty:"other_royal",role:"Impératrice des Français",bio:"Née María Eugenia Ignacia Agustina de Palafox y Kirkpatrick, comtesse de Teba, aristocrate espagnole née à Grenade. Épousa <span class='person-link' data-pid='napoleon_iii'>Napoléon III</span> le 30 janvier 1853 à Notre-Dame de Paris. Impératrice jusqu'à la chute de l'Empire en 1870.",entries:["« Le majestueux vestige… du mariage d'Eugénie de Montijo avec Napoléon III »"]},
+  {id:"jansen",name:"Cornelius Jansen",dates:"1585–1638",dynasty:"religious",role:"Évêque d'Ypres · Théologien",bio:"Cornelius Jansen (Jansenius). Évêque d'Ypres, auteur de l'<em>Augustinus</em> (1640, posthume), traité sur la grâce et le péché originel d'après saint Augustin. Fondement doctrinal du jansénisme.",entries:["« Une austérité janséniste et de vieilles élégances royalistes »"]},
+  {id:"larbaud",name:"Valery Larbaud",dates:"1881–1957",dynasty:"cultural",role:"Écrivain · Cosmopolite",bio:"Romancier, poète et critique français. Fortune familiale (eaux de Vichy Saint-Yorre). Créateur d'A.O. Barnabooth, milliardaire apatride et poète — son alter ego littéraire. <em>Poèmes par un riche amateur</em> (1908), <em>A.O. Barnabooth</em> (1913), <em>Fermina Márquez</em> (1911). Traducteur de Joyce, Butler, Whitman.",entries:["« Barnabooth… le Marcel de Proust… les personnages de Thomas Mann, d'Arnold Bennett et d'Henry James »"]},
+  {id:"bennett",name:"Arnold Bennett",dates:"1867–1931",dynasty:"cultural",role:"Romancier anglais",bio:"Auteur de <em>The Grand Babylon Hotel</em> (1902) et du cycle des <em>Five Towns</em>. Chroniqueur de la bourgeoisie provinciale anglaise projetée dans le monde.",entries:["« Barnabooth… le Marcel de Proust… les personnages de Thomas Mann, d'Arnold Bennett et d'Henry James »"]},
+  {id:"henry_james",name:"Henry James",dates:"1843–1916",dynasty:"cultural",role:"Romancier américain",bio:"<em>Portrait of a Lady</em> (1881), <em>The Wings of the Dove</em> (1902), <em>The Ambassadors</em> (1903). Ses Américains en Europe — entre innocence et corruption — hantent les mêmes halls d'hôtel que Michel et Fernande.",entries:["« Barnabooth… le Marcel de Proust… les personnages de Thomas Mann, d'Arnold Bennett et d'Henry James »"]},
+  {id:"bernhardt",name:"Sarah Bernhardt",dates:"1844–1923",dynasty:"cultural",role:"Actrice",bio:"Actrice française, la plus célèbre de son temps. Surnommée « la Voix d'or » et « la Divine Sarah ». Tragédienne de génie dans Racine, Hugo, Sardou. Première star internationale du théâtre.",entries:["La Grande-Duchesse, l'Archiduc, Sarah Bernhardt"]},
+  {id:"masaryk",name:"Jan Masaryk",dates:"1886–1948",dynasty:"cultural",role:"Ministre · Tchécoslovaquie",bio:"Fils de Tomáš Masaryk (1850–1937), fondateur de la République tchécoslovaque. Ministre des Affaires étrangères. Retrouvé mort sous la fenêtre du palais Czernin le 10 mars 1948, deux semaines après le coup d'État communiste.",entries:["La Défenestration de Prague et Jan Masaryk"]},
+  {id:"bruant",name:"Aristide Bruant",dates:"1851–1925",dynasty:"cultural",role:"Chansonnier · Cabaretier",bio:"Fondateur du cabaret Le Mirliton à Montmartre. Immortalisé par les affiches de Toulouse-Lautrec. Chansons en argot sur la misère des faubourgs parisiens.",entries:["« L'âpre génie de Bruant et l'argot pathétique de Rictus »"]},
+  {id:"rictus",name:"Jehan Rictus",dates:"1867–1933",dynasty:"cultural",role:"Poète",bio:"Né Gabriel Randon. Auteur des <em>Soliloques du pauvre</em> (1897), monologues en vers libres en langue populaire.",entries:["« L'âpre génie de Bruant et l'argot pathétique de Rictus »"]},
+  {id:"kruger",name:"Paul Kruger",dates:"1825–1904",dynasty:"other_royal",role:"Président · Transvaal",bio:"Stephanus Johannes Paulus Kruger. Président de la République sud-africaine du Transvaal (1883–1900). Figure de la résistance boer à l'impérialisme britannique. Mort en exil à Clarens, Suisse.",entries:["« La guerre des Boers surexcite l'anglophobie française »"]},
+  {id:"cixi",name:"Cixi",dates:"1835–1908",dynasty:"other_royal",role:"Impératrice douairière · Chine",bio:"Impératrice douairière de la dynastie Qing. Régente de facto de la Chine pendant près de cinquante ans. Soutint les Boxers contre les puissances étrangères en 1900.",entries:["« Le récit des atrocités des Boxers »"]},
+  {id:"humbert_i",name:"Humbert Iᵉʳ d'Italie",dates:"1844–1900",dynasty:"other_royal",role:"Roi · Italie",bio:"Umberto I. Roi d'Italie 1878–1900, fils de Victor-Emmanuel II. Assassiné à Monza par l'anarchiste Gaetano Bresci le 29 juillet 1900.",entries:["« L'assassinat d'Humbert Iᵉʳ d'Italie »"]},
+  {id:"bresci",name:"Gaetano Bresci",dates:"1869–1901",dynasty:"cultural",role:"Anarchiste · Régicide",bio:"Tisserand italien émigré à Paterson, New Jersey. Revenu en Italie pour assassiner Humbert Iᵉʳ en représailles de la répression de Milan (1898). Condamné à perpétuité, retrouvé pendu dans sa cellule en mai 1901.",entries:["« L'assassinat d'Humbert Iᵉʳ d'Italie »"]},
+  {id:"dreyfus",name:"Alfred Dreyfus",dates:"1859–1935",dynasty:"cultural",role:"Capitaine · Officier français",bio:"Officier juif alsacien. Condamné en 1894 pour espionnage sur la base de preuves falsifiées. L'Affaire Dreyfus (1894–1906) divisa la France et précipita la séparation de l'Église et de l'État. Réhabilité en 1906.",entries:["L'Affaire et les Congrégations"]},
+  {id:"barres",name:"Maurice Barrès",dates:"1862–1923",dynasty:"cultural",role:"Écrivain · Homme politique",bio:"Auteur de la trilogie du <em>Culte du Moi</em> et du <em>Roman de l'énergie nationale</em>. Nationaliste, antidreyfusard, député boulangiste, chantre de la terre et des morts. <em>Amori et dolori sacrum : La mort de Venise</em> (1903).",entries:["« Celui que Barrès vers ce temps-là comparerait aux feux maléfiques d'une opale »"]}
 ];
 
 const PEOPLE_MAP = Object.fromEntries(PEOPLE.map(p => [p.id, p]));
@@ -3869,7 +4939,7 @@ function getConnected(id) {
   return s;
 }
 
-function clearPersoSelection() { pinnedId=null; hoveredId=null; indexSelectedId=null; renderTree(); renderIndex(); }
+function clearPersoSelection() { pinnedId=null; hoveredId=null; indexSelectedId=null; persoFilterPid=null; renderTree(); renderIndex(); }
 
 // Navigate to timeline entry
 function goToEntry(title) {
@@ -3883,7 +4953,7 @@ function goToEntry(title) {
         return;
       }
     }
-  }, 100);
+  }, 200);
 }
 
 // ─── PERSON POPOVER (in descriptions) ───
@@ -3958,26 +5028,13 @@ document.addEventListener('click', (e) => {
 
 function initPersonnages() {
   persoInitialized = true;
-  // Legend
-  const leg = document.getElementById('tree-legend');
-  leg.innerHTML = `
-    <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#B5AD9E" stroke-width="1.3"/></svg> Filiation</span>
-    <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#B5AD9E" stroke-width="1.3" stroke-dasharray="4 3"/></svg> Fils naturel</span>
-    <span><svg width="22" height="12"><rect x="0" y="2" width="22" height="8" rx="2" fill="#F8F6F1" stroke="#DDD8CF" stroke-width="1" stroke-dasharray="3 2" opacity="0.5"/></svg> Non mentionné</span>
-    <span><svg width="22" height="8"><line x1="0" y1="4" x2="22" y2="4" stroke="#C4785A" stroke-width="2"/></svg><b style="color:#C4785A">∞</b> Mariage</span>
-  ` + ["bourgogne","habsbourg_spain","bourbon","habsbourg_austria","other_royal"].map(k =>
-    `<span><span class="dot" style="background:${DYNASTY_COLORS[k].bg}"></span>${DYNASTY_COLORS[k].label}</span>`
-  ).join('');
-
   // Index chips
   buildChips();
-  renderTree();
-  initTreePanZoom();
   renderIndex();
 
   // Click outside to dismiss
   document.addEventListener('click', e => {
-    if (e.target.closest('[data-pop]') || e.target.closest('[data-tnode]') || e.target.closest('[data-irow]')) return;
+    if (e.target.closest('[data-pop]') || e.target.closest('[data-tnode]') || e.target.closest('[data-irow]') || e.target.closest('.perso-back-link')) return;
     if (pinnedId || indexSelectedId) { clearPersoSelection(); }
   });
 }
@@ -4009,11 +5066,18 @@ function setDynastyFilter(f) {
       c.style.color = active ? '#fff' : DYNASTY_COLORS[d].text;
     }
   });
+  persoFilterPid = null;
   indexSelectedId = null;
   renderIndex();
 }
 
-function filterIndex() { indexSelectedId = null; renderIndex(); }
+function filterIndex() {
+  var q = document.getElementById('perso-search')?.value || '';
+  document.getElementById('perso-search-clear').classList.toggle('visible', q.length > 0);
+  persoFilterPid = null;
+  indexSelectedId = null;
+  renderIndex();
+}
 
 // ─── SVG TREE RENDERING ───
 function svgEl(tag, attrs, children) {
@@ -4025,6 +5089,7 @@ function svgEl(tag, attrs, children) {
 }
 
 function renderTree() {
+  if (!treeInitialized) return;
   const svg = document.getElementById('tree-svg');
   svg.innerHTML = '';
   const activeId = hoveredId || pinnedId;
@@ -4039,6 +5104,33 @@ function renderTree() {
 
   // Main group for pan/zoom
   const mainG = svgEl('g', {id:'tree-group'});
+
+  // ─── Timeline axis (left side) ───
+  const AXIS_X = 12;
+  const axisMarks = [
+    {y:45,  label:'1370', major:false},
+    {y:170, label:'1400', major:true},
+    {y:310, label:'1460', major:false},
+    {y:440, label:'1500', major:true},
+    {y:580, label:'1580', major:false},
+    {y:640, label:'1600', major:true},
+    {y:715, label:'1650', major:false},
+    {y:870, label:'1700', major:true},
+    {y:960, label:'1750', major:false},
+    {y:1140,label:'1790', major:false},
+    {y:1320,label:'1800', major:true},
+    {y:1410,label:'1850', major:false},
+  ];
+  // Vertical axis line
+  mainG.appendChild(svgEl('line',{x1:AXIS_X,y1:20,x2:AXIS_X,y2:1460,stroke:'#C4B9A8','stroke-width':'0.8',opacity:'0.5'}));
+  axisMarks.forEach(m => {
+    // Tick mark
+    mainG.appendChild(svgEl('line',{x1:AXIS_X,y1:m.y,x2:AXIS_X+(m.major?8:5),y2:m.y,stroke:'#C4B9A8','stroke-width':m.major?'1':'0.7',opacity:'0.5'}));
+    // Year label
+    mainG.appendChild(svgEl('text',{x:AXIS_X+2,y:m.y-5,'text-anchor':'start',fill:'#A09888','font-size':m.major?'10':'8.5','font-weight':m.major?'600':'400','font-family':"'Inter',sans-serif",opacity:m.major?'0.7':'0.5'},m.label));
+    // Faint horizontal guideline
+    mainG.appendChild(svgEl('line',{x1:AXIS_X+10,y1:m.y,x2:1380,y2:m.y,stroke:'#D4C9B8','stroke-width':'0.5','stroke-dasharray':'3 6',opacity:m.major?'0.25':'0.15'}));
+  });
 
   // Territory background bands with labels above, right-aligned
   const bands = [
@@ -4156,7 +5248,7 @@ function treeZoomReset() {
 
 function treeZoomAt(factor, cx, cy) {
   const oldZoom = treeZoom;
-  treeZoom = Math.max(0.2, Math.min(2.5, treeZoom * factor));
+  treeZoom = Math.max(0.45, Math.min(2.5, treeZoom * factor));
   treePanX = cx - (cx - treePanX) * (treeZoom / oldZoom);
   treePanY = cy - (cy - treePanY) * (treeZoom / oldZoom);
   applyTreeTransform(); showPopover();
@@ -4309,14 +5401,21 @@ function showPopover() {
 }
 
 // ─── INDEX RENDERING ───
+var persoFilterPid = null;
+
 function renderIndex() {
   const q = (document.getElementById('perso-search')?.value || '').toLowerCase();
   let list = PEOPLE.filter(p => !p.ghost);
-  if (dynastyFilter !== 'all') list = list.filter(p => p.dynasty === dynastyFilter);
-  if (q) list = list.filter(p =>
-    p.name.toLowerCase().includes(q) || (p.role||'').toLowerCase().includes(q) ||
-    p.entries.some(e => e.toLowerCase().includes(q)) || (p.bio||'').toLowerCase().includes(q)
-  );
+  if (persoFilterPid) {
+    list = list.filter(p => p.id === persoFilterPid);
+    indexSelectedId = persoFilterPid;
+  } else {
+    if (dynastyFilter !== 'all') list = list.filter(p => p.dynasty === dynastyFilter);
+    if (q) list = list.filter(p =>
+      p.name.toLowerCase().includes(q) || (p.role||'').toLowerCase().includes(q) ||
+      p.entries.some(e => e.toLowerCase().includes(q)) || (p.bio||'').toLowerCase().includes(q)
+    );
+  }
   list.sort((a,b) => a.name.localeCompare(b.name));
 
   document.getElementById('perso-count').textContent = list.length + ' personnage' + (list.length !== 1 ? 's' : '');
@@ -4329,7 +5428,7 @@ function renderIndex() {
       `<div class="pop-entry" style="border-left-color:${c.bg}" onclick="event.stopPropagation();goToEntry('${e.replace(/'/g,"\\'")}')">${e}</div>`
     ).join('') || '<div style="font-size:0.9rem;color:var(--muted);font-style:italic">Mentionné dans la généalogie</div>';
 
-    return `<div class="index-row" data-irow="true" style="border-left-color:${c.bg};background:${isSel?c.light:'transparent'}" onclick="event.stopPropagation();indexSelectedId=indexSelectedId==='${p.id}'?null:'${p.id}';renderIndex();">
+    return `<div class="index-row" data-irow="true" data-pid="${p.id}" style="border-left-color:${c.bg};background:${isSel?c.light:'transparent'}" onclick="event.stopPropagation();indexSelectedId=indexSelectedId==='${p.id}'?null:'${p.id}';renderIndex();">
       <div style="flex:1;min-width:0">
         <div><span class="idx-name">${p.name}</span><span class="idx-dates">${p.dates}</span></div>
         ${p.role ? `<div class="idx-role">${p.role}</div>` : ''}
@@ -4342,6 +5441,23 @@ function renderIndex() {
       <div class="idx-badge" style="color:${c.bg};background:${c.bg}15">${p.entries.length} entrée${p.entries.length!==1?'s':''}</div>
     </div>`;
   }).join('');
+
+  // Show back link when viewing a single person from Chronologie
+  var bc = document.getElementById('perso-back-container');
+  if (bc) {
+    if (persoFilterPid) {
+      bc.innerHTML = '<div class="perso-back-link" id="perso-back-btn">← Retour à la chronologie</div>';
+      document.getElementById('perso-back-btn').addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        persoFilterPid = null;
+        indexSelectedId = null;
+        switchView('timeline');
+      });
+    } else {
+      bc.innerHTML = '';
+    }
+  }
 }
 </script>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">↑ Haut</button>
