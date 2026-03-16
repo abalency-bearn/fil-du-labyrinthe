@@ -369,6 +369,13 @@
     opacity: 1;
   }
 
+  mark.search-hl {
+    background: rgba(208, 2, 27, 0.12);
+    color: inherit;
+    padding: 0.05em 0.1em;
+    border-radius: 2px;
+  }
+
   .sort-btn {
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
@@ -901,7 +908,7 @@
 
   .event-era {
     font-family: 'Inter', sans-serif;
-    font-size: 0.6rem;
+    font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.03em;
     color: var(--muted);
@@ -912,13 +919,23 @@
 
   .event-month {
     font-family: 'Inter', sans-serif;
-    font-size: 0.6rem;
+    font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.03em;
     color: var(--muted);
     text-transform: uppercase;
     display: block;
     margin-top: 0.25rem;
+  }
+
+  .event-location {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    display: block;
+    margin-top: 0.3rem;
   }
 
   /* Node on the spine */
@@ -1325,6 +1342,8 @@
     padding: 1.2rem 4rem;
     border-bottom: 1px solid var(--border);
     background: var(--cream);
+    position: relative;
+    z-index: 550;
   }
   .tab-btn {
     font-family: 'Inter', sans-serif;
@@ -1370,7 +1389,7 @@
     border: 1px solid var(--border);
     border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 500;
+    z-index: 600;
     min-width: 180px;
     overflow: hidden;
   }
@@ -2883,7 +2902,7 @@ const events = [
     year: 1815,
     month: "18 juin",
     title: "Waterloo — le dîner avec le maréchal Ney",
-    description: "<strong>18 juin 1815.</strong> <span class=\"person-link\" data-pid=\"ney\">Michel Ney</span> (1769–1815), maréchal d'Empire, surnommé « le Brave des braves » par <span class=\"person-link\" data-pid=\"napoleon\">Napoléon</span>. Rallié aux Bourbons après la première abdication, il promit à <span class=\"person-link\" data-pid=\"louis_xvi\">Louis XVI</span>II d'arrêter <span class=\"person-link\" data-pid=\"napoleon\">Napoléon</span> lors des Cent-Jours, puis se rallia à l'Empereur à Lons-le-Saunier. À Waterloo (18 juin 1815), il commanda les charges de cavalerie contre les carrés anglais et eut plusieurs chevaux tués sous lui. Après la défaite, il fut arrêté, jugé par la Chambre des pairs et fusillé le 7 décembre 1815. La bataille de Waterloo, livrée à vingt kilomètres au sud de Bruxelles, mit fin définitivement au règne de <span class=\"person-link\" data-pid=\"napoleon\">Napoléon</span>.",
+    description: "<strong>18 juin 1815.</strong> <span class=\"person-link\" data-pid=\"ney\">Michel Ney</span> (1769–1815), maréchal d'Empire, surnommé « le Brave des braves » par <span class=\"person-link\" data-pid=\"napoleon\">Napoléon</span>. Rallié aux Bourbons après la première abdication, il promit à <span class=\"person-link\" data-pid=\"louis_xviii\">Louis XVIII</span> d'arrêter <span class=\"person-link\" data-pid=\"napoleon\">Napoléon</span> lors des Cent-Jours, puis se rallia à l'Empereur à Lons-le-Saunier. À Waterloo (18 juin 1815), il commanda les charges de cavalerie contre les carrés anglais et eut plusieurs chevaux tués sous lui. Après la défaite, il fut arrêté, jugé par la Chambre des pairs et fusillé le 7 décembre 1815. La bataille de Waterloo, livrée à vingt kilomètres au sud de Bruxelles, mit fin définitivement au règne de <span class=\"person-link\" data-pid=\"napoleon\">Napoléon</span>.",
     book: 1,
     chapter: "La Tournée des Châteaux",
     textOrder: 68
@@ -3661,6 +3680,114 @@ const events = [
     book: 1,
     chapter: "Fernande",
     textOrder: 154
+  },
+  {
+    year: -15000,
+    month: "Paléolithique supérieur",
+    title: "La nuit des temps",
+    description: "<strong>Grottes ornées du Paléolithique supérieur, ~35 000–10 000 av. J.-C.</strong> Les plus anciennes peintures rupestres connues en Europe — Chauvet (~36 000 ans), Lascaux (~17 000 ans), Altamira (~15 000 ans) — témoignent d'un art d'une maîtrise technique stupéfiante : pigments d'ocre et de manganèse soufflés ou appliqués au doigt, exploitation des reliefs de la roche pour donner du volume aux corps des animaux, superpositions complexes de figures. Les hommes du Paléolithique vivaient en petits groupes nomades de chasseurs-cueilleurs, suivant les troupeaux de rennes, de chevaux et de bisons à travers des paysages de toundra et de steppe façonnés par les glaciations. Ils maîtrisaient le feu, taillaient le silex en outils d'une finesse croissante, et enterraient leurs morts selon des rites dont témoignent les sépultures parsemées de fleurs et d'ocre rouge. Vers 3900 av. J.-C., l'agriculture arrive dans le nord de l'Europe — c'est la révolution néolithique : les chasseurs deviennent éleveurs et cultivateurs, construisent des cabanes sur pilotis et des enceintes de pierres sèches, défrichent les forêts, domestiquent le cheval et inventent la roue. En trois cents générations à peine, ces « ingénieux adaptés du néolithique » posent les bases du monde que <span class=\"person-link\" data-pid=\"cesar\">César</span> trouvera en arrivant en Gaule.",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 200
+  },
+  {
+    year: -400,
+    month: "",
+    title: "L'homme de Tollund, contemporain de l'âge du fer danois",
+    description: "<strong>Tourbière de Bjældskovdal, près de Silkeborg, Danemark, ~405–380 av. J.-C.</strong> L'homme de Tollund est l'un des corps des tourbières (<em>bog bodies</em>) les mieux conservés au monde. Découvert en 1950 par deux frères qui coupaient de la tourbe, il gisait en position fœtale à plus de deux mètres de profondeur, un lacet de cuir tressé autour du cou, les yeux fermés, un léger sourire — si bien conservé que ses découvreurs appelèrent d'abord la police, croyant à un meurtre récent. L'analyse de son dernier repas — une bouillie d'orge, de lin et de graines sauvages mêlée de déchets de battage — et la disposition soignée de son corps suggèrent un sacrifice rituel : à l'âge du fer, les communautés du nord de l'Europe déposaient régulièrement des offrandes dans les tourbières, qu'elles considéraient comme des lieux de passage vers l'au-delà. Il est exposé au Musée de Silkeborg.",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 201
+  },
+  {
+    year: -55,
+    month: "",
+    title: "Les Morins de Thérouanne et les Ménapiens de Cassel",
+    description: "<strong>Gaule belgique, Ier siècle av. J.-C.</strong> Les Celtes forment un vaste ensemble de peuples apparentés par la langue, la religion et la culture matérielle, qui se diffusent à travers l'Europe à partir du bassin du Danube et de l'actuelle Autriche au cours du premier millénaire avant notre ère. À leur apogée (IVe–IIIe siècles av. J.-C.), ils occupent un arc immense allant de l'Irlande et de la péninsule Ibérique à l'ouest jusqu'à l'Asie Mineure à l'est (les Galates, Celtes installés en Anatolie, sont ceux auxquels saint Paul adresse une de ses épîtres). Ils ne forment jamais un État unifié mais une mosaïque de peuples (<em>civitates</em>), souvent en conflit les uns avec les autres, gouvernés par des aristocraties guerrières et encadrés par la caste sacerdotale des druides. Ils vivent dans des fermes dispersées et des bourgs fortifiés (<em>oppida</em>), pratiquent l'agriculture, l'élevage, le travail du fer et un commerce à longue distance attesté par les monnaies, les amphores de vin méditerranéen et les objets en or retrouvés dans les sépultures. La Gaule belgique — que <span class=\"person-link\" data-pid=\"cesar\">César</span> distingue de la Gaule celtique proprement dite et de l'Aquitaine — est la partie la plus septentrionale de cet ensemble. Elle s'étend du Rhin à la Marne et de la mer du Nord aux Ardennes. Parmi ses peuples les plus septentrionaux figurent les Morins (<em>Morini</em>, du celtique <em>mori</em>, « mer » — les « gens de la mer »), peuple de marins et de sauniers dont la capitale était Tarvenna (Thérouanne, Pas-de-Calais), et les Ménapiens (<em>Menapii</em>, probablement « gens des marécages »), fermiers et éleveurs dispersés en hameaux dans les plaines marécageuses de Flandre, centrés sur l'oppidum de Cassel (Nord). Les deux peuples résistèrent farouchement à la conquête romaine, se réfugiant dans les forêts denses et les marais inondés où les légions ne pouvaient les suivre. César raconte que par temps humide, cette tactique fonctionnait ; par temps sec, elle échouait. Il leur fallut cinq légions — environ 30 000 soldats — pour soumettre les seuls Ménapiens.",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 202
+  },
+  {
+    year: -52,
+    month: "",
+    title: "« Vercingétorix étranglé… Éponine exécutée »",
+    description: "<strong>Rome et Gaule, 52 av. J.-C. – 78 apr. J.-C.</strong> <span class=\"person-link\" data-pid=\"vercingetorix\">Vercingétorix</span> (c. 82–46 av. J.-C.) était un chef arverne — c'est-à-dire originaire de l'Auvergne actuelle — qui parvint à fédérer la plupart des peuples gaulois contre Rome dans le grand soulèvement de 52 av. J.-C. Après une série de victoires, dont l'incendie d'Avaricum (Bourges) et la défaite romaine de Gergovie, il fut finalement assiégé et vaincu à Alésia (probablement Alise-Sainte-Reine, en Bourgogne). Emprisonné à Rome pendant six ans, il fut étranglé dans sa cellule après le triomphe de <span class=\"person-link\" data-pid=\"cesar\">César</span> en 46 av. J.-C. <span class=\"person-link\" data-pid=\"eponine\">Éponine</span>, elle, vécut un siècle plus tard : femme du chef lingon Julius Sabinus, qui avait participé à la révolte de <span class=\"person-link\" data-pid=\"civilis\">Civilis</span> en 69–70 apr. J.-C., elle se cacha avec son mari dans un souterrain pendant neuf ans, y mettant au monde deux enfants. Découverts et conduits devant l'empereur <span class=\"person-link\" data-pid=\"vespasien\">Vespasien</span>, ils furent tous deux exécutés vers 78 apr. J.-C. L'histoire devint un exemplum célèbre de la fidélité conjugale, reprise par Plutarque et Tacite.",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 203
+  },
+  {
+    year: -50,
+    month: "",
+    title: "Le lointain visage des ancêtres",
+    description: "<strong>Gaule belgique, milieu du Ier siècle av. J.-C.</strong> Les noms de famille que Yourcenar cite ici — Bieswal, Dufresne, Baert de Neuville, Cleenewerck, Crayencour — figurent dans sa propre généalogie paternelle et maternelle. Elle les situe parmi les habitants de la Gaule belgique au moment de la romanisation, lorsque la conquête de <span class=\"person-link\" data-pid=\"cesar\">César</span> transforme en profondeur la société indigène. Mais cette transformation ne fut pas une table rase. Les Romains n'imposèrent jamais l'abandon des religions locales : ils pratiquèrent l'<em>interpretatio romana</em>, identifiant systématiquement les dieux gaulois à des équivalents romains — Teutatès devint Mars ou Mercure, Bélénos devint Apollon, Épona fut adoptée telle quelle dans le culte de la cavalerie romaine. Les vieux sanctuaires de bois et de torchis furent reconstruits en pierre, mais les dieux honorés à l'intérieur restèrent souvent les mêmes, sous de nouveaux noms latins. Les élites gauloises adoptèrent progressivement la langue latine, le droit romain et la <em>tria nomina</em> (les trois noms du citoyen romain — prénom, nom de famille, surnom), tandis que dans les campagnes, les langues celtiques et les cultes ancestraux survécurent des siècles. Ce qui en résulta — la civilisation « gallo-romaine » — n'est ni la victoire de Rome ni la persistance de la Gaule, mais un hybride : des gens celtes parlant un latin de plus en plus teinté de gaulois, commerçant avec des monnaies romaines, vivant sous le droit romain, mais adressant toujours leurs prières à des divinités locales. Le jambon ménapien, salé ou fumé, était exporté jusqu'à Rome ; les lainages tissés dans les ateliers atrébates étaient réputés ; les oies grasses de Gaule belgique voyageaient vers le sud en troupeaux conduits par des bergers. C'est ce monde — transformé mais non effacé — que Yourcenar place au début de sa propre lignée.",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 204
+  },
+  {
+    year: 70,
+    month: "",
+    title: "Claudius Civilis, le résistant batave",
+    description: "<strong>Gaule belgique et Germanie inférieure, 69–70 apr. J.-C.</strong> <span class=\"person-link\" data-pid=\"civilis\">Claudius Civilis</span> (Gaius Julius Civilis) était un chef batave — originaire du delta du Rhin, aux Pays-Bas actuels — qui avait servi dans les auxiliaires romains avant de mener la plus grande révolte du nord de l'Empire. Profitant de l'Année des quatre empereurs (69 apr. J.-C.), une guerre civile où quatre généraux se disputèrent le trône en moins de dix-huit mois, Civilis rallia des peuples gaulois et germaniques le long du Rhin. Un congrès des cités gauloises réuni à Reims débattit de l'indépendance de la Gaule mais ne put s'accorder sur un chef ni une capitale. Le général Petillius Cerialis, envoyé par <span class=\"person-link\" data-pid=\"vespasien\">Vespasien</span>, démantela la coalition en 71. <span class=\"person-link\" data-pid=\"rembrandt\">Rembrandt</span> peignit le serment des conjurés dans <em>La Conspiration de Claudius Civilis</em> (1661–62), toile monumentale commandée pour l'hôtel de ville d'Amsterdam — mais elle fut retirée, et Rembrandt la découpa lui-même. Le fragment survivant est au Nationalmuseum de Stockholm.",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 205
+  },
+  {
+    year: -300,
+    month: "",
+    title: "Teutatès, Bélénos, les Mères, Nahalania, Épona",
+    description: "<strong>Les dieux de la Gaule belgique.</strong> On connaît mal le panthéon gaulois — les druides transmettaient tout par voie orale — et ce que l'on en sait provient surtout de <span class=\"person-link\" data-pid=\"cesar\">César</span> (qui plaque les noms romains), des autels votifs gallo-romains et des représentations figurées. Teutatès (« père de la tribu », de <em>teuta</em>, tribu) : dieu protecteur du clan, assimilé tantôt à Mars, tantôt à Mercure. Lucain le décrit comme « impitoyable », apaisé par le sang des sacrifices humains. Bélénos (« le brillant ») : dieu solaire et guérisseur, associé à Apollon, célébré lors de la fête de Beltaine le 1er mai par de grands feux entre lesquels on faisait passer les troupeaux. Les Mères (<em>Matres</em> ou <em>Matronae</em>) : triades de déesses-mères, divinités de la fécondité et de l'abondance, attestées par des centaines de stèles votives à travers la Gaule et la Germanie. Nahalania (Nehalennia) : déesse protectrice des voyageurs et des marins, vénérée aux IIe–IIIe siècles dans des temples à l'embouchure de l'Escaut, en Zélande. Ses autels, découverts par hasard en 1647 après une tempête, la montrent assise avec une corne d'abondance, des fruits et un chien à ses pieds. Épona : déesse des chevaux et des cavaliers, la seule divinité gauloise adoptée par le culte officiel romain. Elle est représentée assise de côté sur une jument, les pieds posés sur une petite planchette — une amazone paisible. Le « Dieu-Lune conducteur des âmes » que Yourcenar mentionne est probablement un aspect du Mercure gaulois, le dieu le plus vénéré des Gaules selon César, guide des voyageurs et psychopompe (conducteur des morts).",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 206
+  },
+  {
+    year: -300,
+    month: "",
+    title: "Carnac, Stonehenge, Chartres… et le druide Diviciacus",
+    description: "<strong>Les druides et les lieux sacrés.</strong> Les alignements de Carnac (Morbihan), quelque 3 000 menhirs dressés entre 4500 et 2000 av. J.-C., et le cercle de Stonehenge (Wiltshire, Angleterre), édifié par étapes entre ~3000 et ~1500 av. J.-C., sont les vestiges les plus spectaculaires de la culture mégalithique européenne — bien antérieurs aux Celtes eux-mêmes, mais réinvestis par eux comme lieux sacrés. Les druides (<em>dru-wid-es</em>, « les très savants ») formaient la caste sacerdotale des Gaulois : prêtres, juges, enseignants et gardiens de la mémoire collective, ils transmettaient oralement un savoir qui exigeait jusqu'à vingt ans d'apprentissage. Parmi leurs enseignements figurait la métempsycose — la transmigration des âmes d'un corps à un autre après la mort, doctrine qui frappa les auteurs antiques par sa ressemblance avec le pythagorisme, bien que les druides semblent y être parvenus indépendamment. <span class=\"person-link\" data-pid=\"cesar\">César</span> note que cette croyance rendait les guerriers gaulois particulièrement intrépides au combat. Le lieu de réunion annuel des druides était la forêt des Carnutes, près de Chartres, considérée comme le centre sacré de la Gaule. De jeunes Ménapiens pouvaient traverser la Manche pour étudier dans des séminaires druidiques de l'île de Bretagne, où la tradition était réputée la plus ancienne. <span class=\"person-link\" data-pid=\"diviciacus\">Diviciacus</span>, druide éduen, est le seul druide historiquement attesté par son nom : allié de Rome, il se rendit auprès de César et discuta philosophie avec <span class=\"person-link\" data-pid=\"ciceron\">Cicéron</span>, qui rapporte dans son <em>De Divinatione</em> qu'il prétendait connaître les lois de la nature et prédire l'avenir.",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 207
+  },
+  {
+    year: -528,
+    month: "",
+    title: "L'ascète hindou nettoyé de toute illusion",
+    description: "<strong>Bodh Gaya, Inde, VIe siècle av. J.-C.</strong> Siddhārtha Gautama (c. 563–483 av. J.-C.), prince du clan des Śākya dans le nord de l'Inde actuelle, renonça à sa vie de privilèges pour chercher la cause de la souffrance humaine. Après des années d'ascèse, il atteignit l'éveil (<em>bodhi</em>) sous un figuier à Bodh Gaya, devenant le Bouddha — « l'éveillé ». Son enseignement — les Quatre Nobles Vérités et le chemin du milieu entre l'indulgence et la mortification — se répandit à travers l'Asie, atteignant la Chine, le Japon, le Tibet et l'Asie du Sud-Est.",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 208
+  },
+  {
+    year: 33,
+    month: "",
+    title: "La Passion du Christ",
+    description: "<strong>Jérusalem, ~30–33 apr. J.-C.</strong> Jésus de Nazareth, rabbi galiléen issu d'un milieu juif hellénisé, fut condamné à mort par les autorités romaines et religieuses et crucifié à Jérusalem sous le préfet Ponce Pilate. Ses disciples proclamèrent sa résurrection et diffusèrent le message à travers l'Empire romain. En trois siècles, le christianisme passa d'une secte marginale à la religion officielle de l'Empire (édit de Thessalonique, 380).",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 209
+  },
+  {
+    year: 200,
+    month: "",
+    title: "Isis, Harpocrate, Mithra… et le passage au Christ",
+    description: "<strong>La fin du paganisme en Gaule belgique, IIe–VIIe siècle.</strong> La civilisation gallo-romaine n'avait pas attendu le Christ pour superposer les couches religieuses. Aux vieux dieux gaulois, que la romanisation n'avait pas effacés mais rhabillés à la romaine, vinrent s'ajouter des cultes venus d'Orient, portés par les marchands et les légionnaires. Isis, déesse égyptienne de la maternité et de la magie, et son fils Harpocrate (Horus enfant, représenté un doigt sur les lèvres — le geste du silence), étaient honorés dans des temples de la vallée du Rhône et jusqu'en Germanie. Mithra, dieu solaire d'origine perse, dieu des soldats et des serments, célébré dans des sanctuaires souterrains (<em>mithraea</em>) où l'on sacrifiait un taureau, était particulièrement populaire dans les garnisons du Rhin. Aucun de ces dieux n'exigeait l'exclusivité : un même homme pouvait sacrifier à Teutatès le matin, honorer Mithra à midi et porter une amulette d'Isis le soir. Le christianisme, lui, exigeait l'exclusivité — et c'est ce qui rendit la transition si lente et si conflictuelle. Les conversions urbaines commencèrent dès le IIIe siècle, mais dans les campagnes de Gaule belgique, le paganisme persista jusqu'au VIe, voire au VIIe siècle. Le mot <em>paganus</em>, qui donne « païen », signifie littéralement « habitant de la campagne » — et dit tout de la géographie de la résistance. Les récalcitrants cachaient leurs idoles dans les caves et les jardins ; d'autres camouflaient les vieux dieux barbus sous les traits de saints apôtres. « Ce sont ces dieux-là que nous retrouvons vert-de-grisés. »",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 210
+  },
+  {
+    year: 406,
+    month: "",
+    title: "« Le flot quade, vandale, sarmate, alain… déferle du Rhin et de la mer du Nord vers l'Aquitaine »",
+    description: "<strong>La chute de l'Empire romain d'Occident, Ve siècle.</strong> <span class=\"person-link\" data-pid=\"saint_jerome\">Saint Jérôme</span> (c. 347–420), Père de l'Église et traducteur de la Bible en latin (la <em>Vulgate</em>), écrivit depuis son monastère de Bethléem une lettre célèbre — la Lettre 123, adressée à Ageruchia en 409 — qui est un cri d'horreur devant l'effondrement de l'Empire. Il y énumère les peuples qui déferlent sur la Gaule : Quades (peuple germanique du Danube moyen), Vandales (qui traverseront l'Espagne puis l'Afrique du Nord), Sarmates (cavaliers nomades des steppes), Alains (peuple iranien des steppes, réputés pour leur cavalerie lourde), Gépides (peuple germanique de la Pannonie), Hérules (raiders germaniques originaires de Scandinavie), Saxons (peuple de Germanie du Nord qui colonisera la Bretagne), Burgondes (qui donneront leur nom à la Bourgogne) et Alamans (confédération germanique du Haut-Rhin, ancêtres des Souabes et des Alsaciens). Le 31 décembre 406, plusieurs de ces peuples franchirent le Rhin gelé près de Mayence — un événement que l'historiographie traditionnelle retient comme l'un des moments symboliques de la fin de l'Empire d'Occident. La Gaule entière, écrit Jérôme, est à feu et à sang. Nemetacum (Arras) et Bagacum (Bavay) — les villes les plus proches des terres ancestrales de Yourcenar — furent dévastées. Les esclaves prirent la fuite et devinrent des hommes libres ; les riches furent égorgés sur les routes.",
+    book: 2,
+    chapter: "La nuit des temps",
+    textOrder: 211
   }
 ];
 
@@ -4006,9 +4133,36 @@ function updateActiveFilters() {
 // ─── RENDER ──────────────────────────────────────────────────────────────────
 // ─── SEARCH ─────────────────────────────────────────────────────────────────
 let searchQuery = '';
+let searchQueryNorm = '';
+
+function normalizeStr(s) {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
+function highlightSearch(html, query) {
+  if (!query || query.length < 2) return html;
+  const words = query.split(/\s+/).filter(w => w.length >= 2);
+  if (!words.length) return html;
+  return html.replace(/(>[^<]*)/g, function(match) {
+    let text = match;
+    words.forEach(w => {
+      const norm = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const charPattern = norm.split('').map(ch => {
+        const accents = {'a':'[aàâäáãå]','e':'[eèéêë]','i':'[iìîïí]','o':'[oòôöóõ]','u':'[uùûüú]','c':'[cç]','n':'[nñ]','y':'[yÿý]'};
+        return accents[ch] || ch;
+      }).join('');
+      const re = new RegExp('\\b(' + charPattern + ')\\b', 'gi');
+      text = text.replace(re, function(m, p1) {
+        return '<mark class="search-hl">' + p1 + '</mark>';
+      });
+    });
+    return text;
+  });
+}
 
 function handleSearch(value) {
   searchQuery = value.trim().toLowerCase();
+  searchQueryNorm = normalizeStr(value.trim());
   document.getElementById('search-clear').classList.toggle('visible', searchQuery.length > 0);
   render();
   renderCrossResultsChrono();
@@ -4016,6 +4170,7 @@ function handleSearch(value) {
 
 function clearSearch() {
   searchQuery = '';
+  searchQueryNorm = '';
   document.getElementById('search-input').value = '';
   document.getElementById('search-clear').classList.remove('visible');
   render();
@@ -4025,11 +4180,12 @@ function clearSearch() {
 function renderCrossResultsChrono() {
   const el = document.getElementById('cross-results-chrono');
   if (!el) return;
-  if (!searchQuery || searchQuery.length < 2) { el.innerHTML = ''; return; }
+  if (!searchQueryNorm || searchQueryNorm.length < 2) { el.innerHTML = ''; return; }
 
+  const qRe = new RegExp('\\b' + searchQueryNorm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
   const matches = PEOPLE.filter(p => !p.ghost && (
-    p.name.toLowerCase().includes(searchQuery) ||
-    (p.role||'').toLowerCase().includes(searchQuery)
+    qRe.test(normalizeStr(p.name)) ||
+    qRe.test(normalizeStr(p.role||''))
   ));
 
   if (matches.length === 0) { el.innerHTML = ''; return; }
@@ -4087,10 +4243,13 @@ function clearPersoSearchOnly() {
 }
 
 function matchesSearch(e) {
-  if (!searchQuery) return true;
-  const haystack = `${e.title} ${e.description} ${e.year} ${e.month || ''}`.toLowerCase();
-  // Match all words (AND logic)
-  return searchQuery.split(/\s+/).every(word => haystack.includes(word));
+  if (!searchQueryNorm) return true;
+  const haystack = normalizeStr(`${e.title} ${e.description} ${e.year} ${e.month || ''}`);
+  return searchQueryNorm.split(/\s+/).every(word => {
+    if (word.length < 2) return true;
+    const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp('\\b' + escaped + '\\b', 'i').test(haystack);
+  });
 }
 
 function render() {
@@ -4113,17 +4272,19 @@ function render() {
         ? `~${Math.round(Math.abs(e.year)/1000)}k <span class="event-era">av. J.-C.</span>`
         : `${Math.abs(e.year)} <span class="event-era">av. J.-C.</span>`)
       : e.year;
+    const loc = eventCoords[e.textOrder] ? eventCoords[e.textOrder][2] : '';
     return `
       <div class="event" style="transition-delay:${delay}ms" data-book="${e.book}">
         <div class="event-date">
           <span class="event-year">${displayYear}</span>
           ${e.month ? `<span class="event-month">${e.month}</span>` : ''}
+          ${loc ? `<span class="event-location">${loc}</span>` : ''}
           <div class="event-node" style="border-color:${bookColors[e.book]}; background:var(--cream)"></div>
         </div>
         <div class="event-card">
           <div class="book-tag" style="background:${bookColors[e.book]}">Livre ${bookNames[e.book]}</div>
-          <div class="event-title">${e.title}</div>
-          <div class="event-description">${e.description}</div>
+          <div class="event-title">${searchQueryNorm ? highlightSearch(e.title, searchQueryNorm) : e.title}</div>
+          <div class="event-description">${searchQueryNorm ? highlightSearch(e.description, searchQueryNorm) : e.description}</div>
         </div>
       </div>
     `;
@@ -4284,6 +4445,14 @@ const eventCoords = {
   148: [50.435, 30.559, "Kiev (Pechersk Lavra)"],          // Saints momifiés / Fabergé
   150: [49.974, 11.585, "Bayreuth"],                       // Musique Nouvelle
   154: [45.434, 12.338, "Venise"],                         // Barrès, mort de Venise
+  201: [56.17, 9.55, "Silkeborg"],                          // Homme de Tollund
+  202: [50.63, 2.25, "Thérouanne"],                         // Morins et Ménapiens
+  203: [47.54, 4.50, "Alésia (Alise-Sainte-Reine)"],       // Vercingétorix
+  205: [49.25, 4.03, "Reims"],                              // Congrès gaulois / Civilis
+  207: [47.44, -2.95, "Carnac"],                             // Druides / mégalithes
+  208: [24.70, 84.99, "Bodh Gaya"],                          // Bouddha
+  209: [31.78, 35.23, "Jérusalem"],                          // Passion du Christ
+  211: [50.00, 8.27, "Mayence"],                             // Franchissement du Rhin 406
 };
 
 let map = null;
@@ -4769,7 +4938,7 @@ const PEOPLE = [
   {id:"remo",name:"Fernand Pirmez (Rémo)",dates:"1844–1872",dynasty:"family",role:"Grand-oncle de Marguerite",bio:"Fils d'Irénée de C. de Marchienne et de Benjamin Pirmez. Irénée est sœur de Flore (mère d'Arthur) et de Zoé (mère de Mathilde) — les grands-parents maternels de Marguerite. Octave lui donne les pseudonymes Rémo, Argyros, Slavoï. Matérialiste, voyageur, pacifiste. Voyage en Algérie, en Grèce, à Paris pendant la Commune où il se lie avec Flourens. Il est assimilé à Julien l'Apostat. Se tue d'une balle le 27 septembre 1872 à Liège — la famille fait passer le suicide pour un accident.",entries:["Julien l'Apostat et le retour au paganisme","L'Année Terrible","Gustave Flourens et la Commune","Les pseudonymes d'Octave et Rémo","« Les Travaux et les Jours, Théocrite, Tibulle, Lucrèce… »","« Le positivisme triomphant »","« Rémo et l'Âge d'Or »","« Cette mer de larmes qu'il emprunte à travers Schopenhauer aux sutras bouddhiques »","Hécate"]},
   {id:"octave",name:"Octave Pirmez",dates:"1832–1883",dynasty:"family",role:"Grand-oncle de Marguerite",bio:"Fils d'Irénée de C. de Marchienne et de Benjamin Pirmez, frère aîné de Rémo. Idéaliste romantique, écrivain — « le solitaire d'Acoz ». Se voit en jeune Hermès portant Dionysos enfant — son cadet. Rémo lui donne les pseudonymes Cosimo, Zaboï et surtout Héribert. Auteur de <em>Rémo : souvenir d'un frère</em> (1878). Yourcenar lui consacre plus de cent pages.",entries:["Le comte de Horn et le parallèle aristocratique","L'affaire Bocarmé","Les pseudonymes d'Octave et Rémo","« Les Travaux et les Jours, Théocrite, Tibulle, Lucrèce… »","« Le positivisme triomphant »","« Les soldats de Garibaldi »","Sainte Rolende"]},
   // ─── Ancient ───
-  {id:"cesar",name:"Jules César",dates:"100–44 av. J.-C.",dynasty:"other_royal",role:"Consul, dictateur · Rome",bio:"Conquérant de la Gaule (58–50 av. J.-C.). Ses <em>Commentaires</em> sont la première source écrite sur les peuples belges.",entries:["La Citadelle et les tribus celtes"]},
+  {id:"cesar",name:"Jules César",dates:"100–44 av. J.-C.",dynasty:"other_royal",role:"Consul, dictateur · Rome",bio:"Conquérant de la Gaule (58–50 av. J.-C.). Ses <em>Commentaires</em> sont la première source écrite sur les peuples belges.",entries:["La Citadelle et les tribus celtes","Les Morins de Thérouanne et les Ménapiens de Cassel","« Vercingétorix étranglé… Éponine exécutée »","Le lointain visage des ancêtres","Teutatès, Bélénos, les Mères, Nahalania, Épona","Carnac, Stonehenge, Chartres… et le druide Diviciacus"]},
   {id:"trajan",name:"Trajan",dates:"53–117",dynasty:"other_royal",role:"Empereur romain",bio:"Premier empereur originaire des provinces (Italica, Hispanie). Commandant des armées de Germanie Inférieure à Cologne avant son accession.",entries:["Ce légionnaire de race tongre","Publius Aelius Hadrianus"]},
   {id:"nerva",name:"Nerva",dates:"30–98",dynasty:"other_royal",role:"Empereur romain",bio:"Empereur 96–98. Dernier des Flaviens par adoption. Meurt le 27 janvier 98, Trajan lui succède.",entries:["Ce légionnaire de race tongre","Publius Aelius Hadrianus"]},
   {id:"hadrien",name:"Hadrien",dates:"76–138",dynasty:"other_royal",role:"Empereur romain",bio:"Empereur 117–138. Petit-neveu et successeur de Trajan. Sujet des <em>Mémoires d'Hadrien</em> de Yourcenar.",entries:["Publius Aelius Hadrianus"]},
@@ -4883,7 +5052,16 @@ const PEOPLE = [
   {id:"humbert_i",name:"Humbert Iᵉʳ d'Italie",dates:"1844–1900",dynasty:"other_royal",role:"Roi · Italie",bio:"Umberto I. Roi d'Italie 1878–1900, fils de Victor-Emmanuel II. Assassiné à Monza par l'anarchiste Gaetano Bresci le 29 juillet 1900.",entries:["« L'assassinat d'Humbert Iᵉʳ d'Italie »"]},
   {id:"bresci",name:"Gaetano Bresci",dates:"1869–1901",dynasty:"cultural",role:"Anarchiste · Régicide",bio:"Tisserand italien émigré à Paterson, New Jersey. Revenu en Italie pour assassiner Humbert Iᵉʳ en représailles de la répression de Milan (1898). Condamné à perpétuité, retrouvé pendu dans sa cellule en mai 1901.",entries:["« L'assassinat d'Humbert Iᵉʳ d'Italie »"]},
   {id:"dreyfus",name:"Alfred Dreyfus",dates:"1859–1935",dynasty:"cultural",role:"Capitaine · Officier français",bio:"Officier juif alsacien. Condamné en 1894 pour espionnage sur la base de preuves falsifiées. L'Affaire Dreyfus (1894–1906) divisa la France et précipita la séparation de l'Église et de l'État. Réhabilité en 1906.",entries:["L'Affaire et les Congrégations"]},
-  {id:"barres",name:"Maurice Barrès",dates:"1862–1923",dynasty:"cultural",role:"Écrivain · Homme politique",bio:"Auteur de la trilogie du <em>Culte du Moi</em> et du <em>Roman de l'énergie nationale</em>. Nationaliste, antidreyfusard, député boulangiste, chantre de la terre et des morts. <em>Amori et dolori sacrum : La mort de Venise</em> (1903).",entries:["« Celui que Barrès vers ce temps-là comparerait aux feux maléfiques d'une opale »"]}
+  {id:"barres",name:"Maurice Barrès",dates:"1862–1923",dynasty:"cultural",role:"Écrivain · Homme politique",bio:"Auteur de la trilogie du <em>Culte du Moi</em> et du <em>Roman de l'énergie nationale</em>. Nationaliste, antidreyfusard, député boulangiste, chantre de la terre et des morts. <em>Amori et dolori sacrum : La mort de Venise</em> (1903).",entries:["« Celui que Barrès vers ce temps-là comparerait aux feux maléfiques d'une opale »"]},
+  {id:"vercingetorix",name:"Vercingétorix",dates:"c. 82–46 av. J.-C.",dynasty:"other_royal",role:"Chef arverne · Gaule",bio:"Chef arverne qui fédéra les peuples gaulois contre Rome en 52 av. J.-C. Vaincu à Alésia, emprisonné six ans à Rome, étranglé après le triomphe de César.",entries:["« Vercingétorix étranglé… Éponine exécutée »"]},
+  {id:"eponine",name:"Éponine",dates:"?–c. 78 apr. J.-C.",dynasty:"other_royal",role:"Épouse de Julius Sabinus · Gaule",bio:"Femme du chef lingon Julius Sabinus. Se cacha avec lui dans un souterrain pendant neuf ans après la révolte de 69–70, y mettant au monde deux enfants. Exécutée sous Vespasien.",entries:["« Vercingétorix étranglé… Éponine exécutée »"]},
+  {id:"vespasien",name:"Vespasien",dates:"9–79 apr. J.-C.",dynasty:"other_royal",role:"Empereur · Rome",bio:"Fondateur de la dynastie flavienne. Empereur 69–79 apr. J.-C., arrivé au pouvoir après l'Année des quatre empereurs. Fit construire le Colisée.",entries:["« Vercingétorix étranglé… Éponine exécutée »","Claudius Civilis, le résistant batave"]},
+  {id:"civilis",name:"Claudius Civilis",dates:"?–c. 70 apr. J.-C.",dynasty:"other_royal",role:"Chef batave · Germanie inférieure",bio:"Gaius Julius Civilis. Chef batave qui mena une grande révolte contre Rome en 69–70 apr. J.-C., profitant de la guerre civile romaine.",entries:["« Vercingétorix étranglé… Éponine exécutée »","Claudius Civilis, le résistant batave"]},
+  {id:"rembrandt",name:"Rembrandt",dates:"1606–1669",dynasty:"cultural",role:"Peintre · Provinces-Unies",bio:"Rembrandt Harmenszoon van Rijn. Maître du clair-obscur, figure majeure du Siècle d'or néerlandais. <em>La Conspiration de Claudius Civilis</em> (1661–62) fut commandée pour l'hôtel de ville d'Amsterdam mais retirée et découpée par le peintre.",entries:["Claudius Civilis, le résistant batave"]},
+  {id:"diviciacus",name:"Diviciacus",dates:"Ier s. av. J.-C.",dynasty:"other_royal",role:"Druide éduen · Gaule",bio:"Seul druide historiquement attesté par son nom. Allié de Rome, il se rendit auprès de César et discuta philosophie avec Cicéron.",entries:["Carnac, Stonehenge, Chartres… et le druide Diviciacus"]},
+  {id:"ciceron",name:"Cicéron",dates:"106–43 av. J.-C.",dynasty:"other_royal",role:"Orateur, philosophe, consul · Rome",bio:"Marcus Tullius Cicero. Avocat, philosophe et homme d'État romain. Auteur du <em>De Republica</em>, des <em>Tusculanes</em>, du <em>De Divinatione</em> et des <em>Catilinaires</em>.",entries:["Carnac, Stonehenge, Chartres… et le druide Diviciacus"]},
+  {id:"saint_jerome",name:"Saint Jérôme",dates:"c. 347–420",dynasty:"religious",role:"Père de l'Église · Traducteur de la Vulgate",bio:"Eusebius Sophronius Hieronymus. Traducteur de la Bible en latin (la <em>Vulgate</em>). Sa Lettre 123 est un témoignage célèbre de l'effondrement de l'Empire romain.",entries:["« Le flot quade, vandale, sarmate, alain… déferle du Rhin et de la mer du Nord vers l'Aquitaine »"]},
+  {id:"louis_xviii",name:"Louis XVIII",dates:"1755–1824",dynasty:"bourbon",role:"Roi · France",bio:"Frère cadet de Louis XVI. Roi de France 1814–1815 (première Restauration) puis 1815–1824 (seconde Restauration, après les Cent-Jours).",entries:["Waterloo — le dîner avec le maréchal Ney"]}
 ];
 
 const PEOPLE_MAP = Object.fromEntries(PEOPLE.map(p => [p.id, p]));
@@ -4949,6 +5127,7 @@ function clearPersoSelection() { pinnedId=null; hoveredId=null; indexSelectedId=
 function goToEntry(title) {
   // Clear all filters so target event is visible
   searchQuery = '';
+  searchQueryNorm = '';
   var searchInput = document.getElementById('search-input');
   if (searchInput) searchInput.value = '';
   var searchClear = document.getElementById('search-clear');
@@ -5425,17 +5604,21 @@ function showPopover() {
 var persoFilterPid = null;
 
 function renderIndex() {
-  const q = (document.getElementById('perso-search')?.value || '').toLowerCase();
+  const raw = document.getElementById('perso-search')?.value || '';
+  const q = normalizeStr(raw);
   let list = PEOPLE.filter(p => !p.ghost);
   if (persoFilterPid) {
     list = list.filter(p => p.id === persoFilterPid);
     indexSelectedId = persoFilterPid;
   } else {
     if (dynastyFilter !== 'all') list = list.filter(p => p.dynasty === dynastyFilter);
-    if (q) list = list.filter(p =>
-      p.name.toLowerCase().includes(q) || (p.role||'').toLowerCase().includes(q) ||
-      p.entries.some(e => e.toLowerCase().includes(q)) || (p.bio||'').toLowerCase().includes(q)
-    );
+    if (q) {
+      const qRe = new RegExp('\\b' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i');
+      list = list.filter(p =>
+        qRe.test(normalizeStr(p.name)) || qRe.test(normalizeStr(p.role||'')) ||
+        p.entries.some(e => qRe.test(normalizeStr(e))) || qRe.test(normalizeStr(p.bio||''))
+      );
+    }
   }
   list.sort((a,b) => a.name.localeCompare(b.name));
 
