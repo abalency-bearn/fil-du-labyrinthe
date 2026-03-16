@@ -253,6 +253,56 @@
     flex-shrink: 0;
   }
 
+  /* Frise toggle button */
+  .frise-toggle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: var(--rust);
+    border: 1px solid var(--rust);
+    border-radius: 6px;
+    padding: 0.45rem 1.6rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .frise-toggle:hover { opacity: 0.85; }
+  .frise-toggle.active { opacity: 0.85; }
+
+  .frise-switch {
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 16px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 10px;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .frise-switch-knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .frise-toggle.active .frise-switch {
+    background: rgba(255,255,255,0.6);
+  }
+  .frise-toggle.active .frise-switch-knob {
+    transform: translateX(12px);
+  }
+
   /* Search box */
   .search-box {
     position: relative;
@@ -425,12 +475,49 @@
   }
 
   /* Density strip */
+  .density-scroll-wrapper {
+    position: relative;
+  }
+
+  .density-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .density-scroll::-webkit-scrollbar { display: none; }
+
+  .density-arrow {
+    position: absolute;
+    bottom: 1.5rem;
+    transform: none;
+    width: 2rem;
+    height: 3rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--rust);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .density-arrow:hover { opacity: 0.85; }
+  .density-arrow-left { left: 0.5rem; opacity: 0; pointer-events: none; }
+  .density-arrow-right { right: 0.5rem; }
+
   .density-strip {
     position: relative;
     margin: 0;
-    padding: 0 3.5rem;
+    padding: 0 3rem;
     height: auto;
     user-select: none;
+    min-width: 5000px;
   }
 
   /* Period label strip above the dot line */
@@ -534,8 +621,16 @@
     border-radius: 50%;
     top: 30%;
     transform: translate(-50%, -50%);
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: pointer;
     z-index: 2;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .density-dot:hover {
+    transform: translate(-50%, -50%) scale(1.6);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    z-index: 10;
   }
 
   .density-dot.inactive {
@@ -551,16 +646,67 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 3;
     border: 2px solid var(--cream);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .density-cluster:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+    z-index: 10;
   }
 
   .density-cluster.inactive {
     opacity: 0.15;
+  }
+
+  .density-popover {
+    position: fixed;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    padding: 0.6rem 0;
+    z-index: 1000;
+    min-width: 220px;
+    max-width: 320px;
+    max-height: 350px;
+    overflow-y: auto;
+  }
+  .density-popover::after {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    right: 0;
+    height: 14px;
+  }
+
+  .density-popover-item {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink);
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: background 0.1s;
+    text-decoration: none;
+  }
+  .density-popover-item:hover {
+    background: rgba(208, 2, 27, 0.05);
+    border-left-color: var(--rust);
+  }
+  .density-popover-year {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-left: 0.3rem;
   }
 
   .cluster-count {
@@ -710,6 +856,14 @@
 
   .density-panel-close:hover {
     opacity: 1;
+  }
+
+  .density-hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--rust);
+    font-style: italic;
+    margin-bottom: 1.25rem;
   }
 
   /* ─── MAP OVERLAY (fullscreen) ─── */
@@ -1128,8 +1282,8 @@
     .filter-pill .pill-x { font-size: 0.6rem; }
 
     /* Density strip / period minimap */
-    .density-strip { margin: 0; padding: 0 1rem; }
-    .period-strip { flex-wrap: wrap; gap: 3px; }
+    .density-strip { margin: 0; padding: 0 1.5rem; min-width: 3500px; }
+    .period-strip { flex-wrap: nowrap; gap: 3px; }
     .density-dots { height: 2.5rem; }
     .density-dot { width: 5px; height: 5px; }
     .density-label { font-size: 0.75rem; top: calc(30% + 1rem); }
@@ -1298,6 +1452,14 @@
     }
   }
 
+  @keyframes btt-pulse {
+    0% { transform: scale(0.85); opacity: 0; }
+    25% { transform: scale(1.15); opacity: 1; }
+    50% { transform: scale(0.95); }
+    75% { transform: scale(1.12); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
   .back-to-top {
     position: fixed;
     bottom: 2.5rem;
@@ -1305,9 +1467,11 @@
     transform: none;
     padding: 1rem 2rem;
     border-radius: 2rem;
-    background: var(--rust);
+    background: rgba(208, 2, 27, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: var(--cream);
-    border: none;
+    border: 1px solid rgba(208, 2, 27, 0.3);
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     font-size: 1.15rem;
@@ -1320,19 +1484,21 @@
     gap: 0.4rem;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, background 0.2s;
     z-index: 999;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 20px rgba(208, 2, 27, 0.25), 0 2px 8px rgba(0,0,0,0.1);
     white-space: nowrap;
   }
 
   .back-to-top.visible {
     opacity: 1;
     pointer-events: auto;
+    animation: btt-pulse 0.7s ease-out;
   }
 
   .back-to-top:hover {
-    opacity: 1;
+    background: rgba(208, 2, 27, 0.9);
+    box-shadow: 0 6px 24px rgba(208, 2, 27, 0.35), 0 2px 8px rgba(0,0,0,0.12);
   }
   /* ─── VIEW TABS ─── */
   .view-tabs {
@@ -1847,9 +2013,6 @@
         <button class="filtres-action-btn" onclick="closeAllControlsMenus(); openMapOverlay()">
           <span class="filtres-action-icon">⛶</span> Carte
         </button>
-        <button class="filtres-action-btn" onclick="closeAllControlsMenus(); toggleDensityPanel()">
-          <span class="filtres-action-icon">━</span> Frise chronologique
-        </button>
       </div>
     </div>
     <div class="controls-dropdown" id="tri-dropdown">
@@ -1861,6 +2024,9 @@
         <button class="sort-btn" data-sort="text" onclick="event.stopPropagation(); setSortMode('text')">Ordre du texte</button>
       </div>
     </div>
+    <button class="frise-toggle" id="frise-toggle" onclick="toggleDensityPanel()">
+      <span class="frise-switch" id="frise-switch"><span class="frise-switch-knob"></span></span>Frise
+    </button>
     <div class="search-box">
       <span class="search-icon">⌕</span>
       <input type="text" id="search-input" placeholder="Rechercher…" oninput="handleSearch(this.value)">
@@ -1873,9 +2039,16 @@
       <span class="density-panel-title">Frise chronologique</span>
       <button class="density-panel-close" onclick="closeDensityPanel()">✕</button>
     </div>
-    <div class="density-strip" id="density-strip">
-      <div class="period-strip" id="period-strip"></div>
-      <div class="density-dots" id="density-dots"></div>
+    <div class="density-hint">Cliquez sur une période ou survolez les points pour filtrer les événements.</div>
+    <div class="density-scroll-wrapper" id="density-scroll-wrapper">
+      <button class="density-arrow density-arrow-left" id="density-arrow-left" onclick="scrollDensity(-300)">‹</button>
+      <div class="density-scroll" id="density-scroll">
+        <div class="density-strip" id="density-strip" style="width:5000px">
+          <div class="period-strip" id="period-strip"></div>
+          <div class="density-dots" id="density-dots"></div>
+        </div>
+      </div>
+      <button class="density-arrow density-arrow-right" id="density-arrow-right" onclick="scrollDensity(300)">›</button>
     </div>
   </div>
 
@@ -3938,15 +4111,20 @@ function setSortMode(mode) {
 let activeYearRanges = []; // array of {from, to, label, count}
 
 const periods = [
-  { from: -100000, to: 0,    label: "Antiquité",             fromPct: 0,  toPct: 8  },
-  { from: 0,       to: 1000, label: "Haut Moyen Âge",        fromPct: 8,  toPct: 16 },
-  { from: 1000,    to: 1500, label: "Moyen Âge",             fromPct: 16, toPct: 26 },
-  { from: 1500,    to: 1700, label: "XVIᵉ–XVIIᵉ",           fromPct: 26, toPct: 36 },
-  { from: 1700,    to: 1789, label: "XVIIIᵉ",               fromPct: 36, toPct: 48 },
-  { from: 1789,    to: 1815, label: "Révolution &amp; Empire", fromPct: 48, toPct: 58 },
-  { from: 1815,    to: 1850, label: "1815–1850",             fromPct: 58, toPct: 68 },
-  { from: 1850,    to: 1875, label: "Second Empire",         fromPct: 68, toPct: 84 },
-  { from: 1875,    to: 2026, label: "1875–1903",             fromPct: 84, toPct: 100 }
+  { from: -100000, to: -1000,  label: "Préhistoire",              fromPct: 0,  toPct: 5  },
+  { from: -1000,   to: -100,   label: "Âge du fer &amp; Celtes",  fromPct: 5,  toPct: 12 },
+  { from: -100,    to: 0,      label: "Conquête romaine",          fromPct: 12, toPct: 17 },
+  { from: 0,       to: 476,    label: "Empire romain",             fromPct: 17, toPct: 24 },
+  { from: 476,     to: 1000,   label: "Haut Moyen Âge",            fromPct: 24, toPct: 30 },
+  { from: 1000,    to: 1500,   label: "Moyen Âge",                 fromPct: 30, toPct: 38 },
+  { from: 1500,    to: 1600,   label: "Renaissance",               fromPct: 38, toPct: 44 },
+  { from: 1600,    to: 1700,   label: "XVIIᵉ siècle",             fromPct: 44, toPct: 50 },
+  { from: 1700,    to: 1789,   label: "XVIIIᵉ siècle",            fromPct: 50, toPct: 58 },
+  { from: 1789,    to: 1815,   label: "Révolution &amp; Empire",   fromPct: 58, toPct: 68 },
+  { from: 1815,    to: 1850,   label: "Restauration",              fromPct: 68, toPct: 76 },
+  { from: 1850,    to: 1870,   label: "Second Empire",             fromPct: 76, toPct: 84 },
+  { from: 1870,    to: 1903,   label: "IIIᵉ République",           fromPct: 84, toPct: 92 },
+  { from: 1903,    to: 2026,   label: "XXᵉ siècle",               fromPct: 92, toPct: 100 }
 ];
 
 function yearToPosition(year) {
@@ -3984,7 +4162,7 @@ function renderDensityStrip() {
   }));
 
   // Cluster nearby dots
-  const clusterThreshold = 1.2;
+  const clusterThreshold = 0.5;
   const clusters = [];
   const used = new Set();
   const byPos = [...positioned].sort((a, b) => a.pct - b.pct);
@@ -4010,7 +4188,10 @@ function renderDensityStrip() {
     if (cluster.length === 1) {
       const c = cluster[0];
       return `<div class="density-dot ${c.active ? '' : 'inactive'}"
-        style="left:${c.pct}%; background:${bookColors[c.event.book]}">
+        style="left:${c.pct}%; background:${bookColors[c.event.book]}"
+        data-cluster="${ci}"
+        onmouseenter="showDensityPopover(event, ${ci})"
+        onclick="onDensityDotClick(event, ${ci})">
       </div>`;
     } else {
       const bookCounts = {};
@@ -4019,15 +4200,180 @@ function renderDensityStrip() {
       const color = bookColors[dominantBook];
 
       return `<div class="density-cluster ${anyActive ? '' : 'inactive'}"
-        style="left:${avgPct}%; background:${color}">
+        style="left:${avgPct}%; background:${color}"
+        data-cluster="${ci}"
+        onmouseenter="showDensityPopover(event, ${ci})"
+        onclick="onDensityDotClick(event, ${ci})">
         <span class="cluster-count">${cluster.length}</span>
       </div>`;
     }
   }).join('');
 
+  // Store cluster data globally
+  window._densityClusters = clusters;
+
   // Axis labels
   container.innerHTML += `<div class="density-label density-label-start">Pléistocène</div>`;
   container.innerHTML += `<div class="density-label density-label-end">2026</div>`;
+
+  // Update arrow visibility after render
+  updateDensityArrows();
+}
+
+function scrollDensity(delta) {
+  const scroller = document.getElementById('density-scroll');
+  if (!scroller) return;
+  scroller.scrollBy({ left: delta, behavior: 'smooth' });
+}
+
+function updateDensityArrows() {
+  const scroller = document.getElementById('density-scroll');
+  if (!scroller) return;
+  const leftArr = document.getElementById('density-arrow-left');
+  const rightArr = document.getElementById('density-arrow-right');
+  const atLeft = scroller.scrollLeft <= 5;
+  const atRight = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 5;
+  if (leftArr) {
+    leftArr.style.opacity = atLeft ? '0' : '1';
+    leftArr.style.pointerEvents = atLeft ? 'none' : 'auto';
+  }
+  if (rightArr) {
+    rightArr.style.opacity = atRight ? '0' : '1';
+    rightArr.style.pointerEvents = atRight ? 'none' : 'auto';
+  }
+}
+
+// Attach scroll listener once panel opens
+function initDensityScroll() {
+  const scroller = document.getElementById('density-scroll');
+  const panel = document.getElementById('density-panel');
+  if (scroller && !scroller._scrollListenerAttached) {
+    scroller.addEventListener('scroll', updateDensityArrows);
+    scroller._scrollListenerAttached = true;
+  }
+  // Forward wheel events from anywhere in the panel to the scroller
+  if (panel && !panel._wheelForwardAttached) {
+    panel.addEventListener('wheel', function(e) {
+      if (!scroller) return;
+      // Use deltaX if horizontal scroll, otherwise convert deltaY to horizontal
+      const dx = e.deltaX || e.deltaY;
+      scroller.scrollLeft += dx;
+      e.preventDefault();
+      updateDensityArrows();
+    }, { passive: false });
+    panel._wheelForwardAttached = true;
+  }
+  updateDensityArrows();
+}
+
+function closeDensityPopover() {
+  const existing = document.querySelector('.density-popover');
+  if (existing) existing.remove();
+  window._densityPopPinned = false;
+}
+
+function buildDensityPopover(dot, clusterIdx) {
+  const clusters = window._densityClusters;
+  if (!clusters || !clusters[clusterIdx]) return null;
+  const cluster = clusters[clusterIdx];
+  
+  const pop = document.createElement('div');
+  pop.className = 'density-popover';
+  
+  pop.innerHTML = cluster.map(c => {
+    const e = c.event;
+    const yr = e.year < 0 ? Math.abs(e.year) + ' av. J.-C.' : e.year;
+    const safeTitle = e.title.replace(/'/g, "\\'");
+    return `<div class="density-popover-item" onclick="event.stopPropagation();closeDensityPopover();closeDensityPanel();goToEntry('${safeTitle}')">
+      ${e.title}<span class="density-popover-year">${yr}</span>
+    </div>`;
+  }).join('');
+  
+  document.body.appendChild(pop);
+  
+  // Position: above the dot, overlapping slightly so cursor can slide up into it
+  const rect = dot.getBoundingClientRect();
+  const popW = pop.offsetWidth;
+  const popH = pop.offsetHeight;
+  
+  let left = rect.left;
+  let top = rect.top - popH + 6; // +6 overlap with dot
+  
+  // If overflows top, place below
+  if (top < 12) {
+    top = rect.bottom - 6;
+  }
+  // If overflows right edge, shift left
+  if (left + popW > window.innerWidth - 12) {
+    left = window.innerWidth - popW - 12;
+  }
+  if (left < 12) left = 12;
+  
+  pop.style.left = left + 'px';
+  pop.style.top = top + 'px';
+  
+  // Close on any scroll
+  const closeOnScroll = () => {
+    closeDensityPopover();
+    window.removeEventListener('scroll', closeOnScroll, true);
+  };
+  window.addEventListener('scroll', closeOnScroll, true);
+  
+  return pop;
+}
+
+function showDensityPopover(evt, clusterIdx) {
+  if (window._densityPopPinned) return;
+  
+  const clusters = window._densityClusters;
+  if (!clusters || !clusters[clusterIdx]) return;
+  
+  closeDensityPopover();
+  
+  const dot = evt.currentTarget;
+  const pop = buildDensityPopover(dot, clusterIdx);
+  if (!pop) return;
+  
+  const closeIfOut = (ev) => {
+    if (window._densityPopPinned) return;
+    const overPop = pop.contains(ev.relatedTarget);
+    const overDot = dot.contains(ev.relatedTarget);
+    if (!overPop && !overDot) {
+      closeDensityPopover();
+      dot.removeEventListener('mouseleave', closeIfOut);
+    }
+  };
+  dot.addEventListener('mouseleave', closeIfOut);
+  pop.addEventListener('mouseleave', (ev) => {
+    if (window._densityPopPinned) return;
+    if (!dot.contains(ev.relatedTarget) && !pop.contains(ev.relatedTarget)) {
+      closeDensityPopover();
+    }
+  });
+}
+
+function onDensityDotClick(evt, clusterIdx) {
+  evt.stopPropagation();
+  
+  const clusters = window._densityClusters;
+  if (!clusters || !clusters[clusterIdx]) return;
+  const cluster = clusters[clusterIdx];
+  
+  // Pin the popover for all sizes
+  closeDensityPopover();
+  const dot = evt.currentTarget;
+  const pop = buildDensityPopover(dot, clusterIdx);
+  if (!pop) return;
+  window._densityPopPinned = true;
+  
+  setTimeout(() => {
+    document.addEventListener('click', function _closePinned(ev) {
+      if (!ev.target.closest('.density-popover') && !ev.target.closest('.density-dot') && !ev.target.closest('.density-cluster')) {
+        closeDensityPopover();
+        document.removeEventListener('click', _closePinned);
+      }
+    });
+  }, 10);
 }
 
 let pendingPeriod = null; // kept for compatibility
@@ -4474,14 +4820,21 @@ function closeMapOverlay() {
 
 function toggleDensityPanel() {
   const panel = document.getElementById('density-panel');
+  const btn = document.getElementById('frise-toggle');
   panel.classList.toggle('open');
-  if (panel.classList.contains('open')) {
+  const isOpen = panel.classList.contains('open');
+  if (btn) btn.classList.toggle('active', isOpen);
+  if (isOpen) {
     renderDensityStrip();
+    setTimeout(initDensityScroll, 50);
   }
 }
 
 function closeDensityPanel() {
+  closeDensityPopover();
   document.getElementById('density-panel').classList.remove('open');
+  var btn = document.getElementById('frise-toggle');
+  if (btn) btn.classList.remove('active');
 }
 
 document.addEventListener('keydown', (e) => {
