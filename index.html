@@ -2120,22 +2120,31 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 575" width="1260" height="575" font-family="'Inter', 'Helvetica Neue', sans-serif">
   <style>
     .box-cray { fill: #f0f4f8; stroke: #4a7fad; stroke-width: 0.7; rx: 2; }
-    .n-cray { font-weight: 600; font-size: 7px; fill: #2b5f8a; }
+    .n-cray { font-weight: 600; font-size: 6px; fill: #2b5f8a; }
+    .box-dufresne { fill: #fbf0e6; stroke: #c17f3e; stroke-width: 0.7; rx: 2; }
+    .n-dufresne { font-weight: 600; font-size: 6px; fill: #8a5520; }
+    .box-bieswal { fill: #eef5f5; stroke: #4a9b9b; stroke-width: 0.7; rx: 2; }
+    .n-bieswal { font-weight: 600; font-size: 6px; fill: #2f6b6b; }
+    .box-louys { fill: #f1f0f6; stroke: #7a6aa0; stroke-width: 0.7; rx: 2; }
+    .n-louys { font-weight: 600; font-size: 6px; fill: #50447a; }
     .box-drion { fill: #fdf6e3; stroke: #b8860b; stroke-width: 0.7; rx: 2; }
-    .n-drion { font-weight: 600; font-size: 7px; fill: #8b6508; }
+    .n-drion { font-weight: 600; font-size: 6px; fill: #8b6508; }
     .box-cdm { fill: #faf0f0; stroke: #b85450; stroke-width: 0.7; rx: 2; }
-    .n-cdm { font-weight: 600; font-size: 7px; fill: #8a3533; }
+    .n-cdm { font-weight: 600; font-size: 6px; fill: #8a3533; }
     .box-troye { fill: #f0f5f1; stroke: #6a9b73; stroke-width: 0.7; rx: 2; }
-    .n-troye { font-weight: 600; font-size: 7px; fill: #3d6b45; }
+    .n-troye { font-weight: 600; font-size: 6px; fill: #3d6b45; }
     .box-pirmez { fill: #f3f0f6; stroke: #8b73a8; stroke-width: 0.7; rx: 2; }
-    .n-pirmez { font-weight: 600; font-size: 7px; fill: #5f4d7a; }
+    .n-pirmez { font-weight: 600; font-size: 6px; fill: #5f4d7a; }
     .box-other { fill: #f8f8f6; stroke: #bbb8b0; stroke-width: 0.7; rx: 2; }
-    .n-other { font-weight: 600; font-size: 7px; fill: #555; }
+    .n-other { font-weight: 600; font-size: 6px; fill: #555; }
     .box-my { fill: #fff5f5; stroke: #d0021b; stroke-width: 1; rx: 2; }
-    .n-my { font-weight: 700; font-size: 7px; fill: #d0021b; }
-    .d { font-size: 5.5px; fill: #888888; }
+    .n-my { font-weight: 700; font-size: 6px; fill: #d0021b; }
+    .d { font-size: 5px; fill: #888888; }
     .title { font-size: 10px; font-weight: 600; fill: #1a1a1a; letter-spacing: 0.02em; text-transform: uppercase; }
     .l-cray { stroke: #4a7fad; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-dufresne { stroke: #c17f3e; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-bieswal { stroke: #4a9b9b; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-louys { stroke: #7a6aa0; stroke-width: 1.4; fill: none; opacity: 0.5; }
     .l-drion { stroke: #b8860b; stroke-width: 1.4; fill: none; opacity: 0.5; }
     .l-cdm { stroke: #b85450; stroke-width: 1.4; fill: none; opacity: 0.5; }
     .l-troye { stroke: #6a9b73; stroke-width: 1.4; fill: none; opacity: 0.5; }
@@ -2164,72 +2173,189 @@
   <!-- ColA Bieswal c=255, Coussem c=285, mid=270=Reine -->
   <!-- ═══════════════════════════════════════════════ -->
 
-  <!-- ══════ COL A (x=15) ══════ -->
-  <rect x="15" y="245" width="110" height="20" class="box-other"/>
-  <text x="70" y="254" text-anchor="middle" class="n-other">Charles Bieswal</text>
-  <text x="70" y="262" text-anchor="middle" class="d">1755–1814</text>
-  <rect x="15" y="275" width="110" height="20" class="box-other"/>
-  <text x="70" y="284" text-anchor="middle" class="n-other">Marie de Coussemaker</text>
-  <text x="70" y="292" text-anchor="middle" class="d">1760–1797</text>
-  <!-- B×C mid=270 → Reine c=270 -->
-  <line x1="125" y1="255" x2="132" y2="255" class="l-other"/>
-  <line x1="125" y1="285" x2="132" y2="285" class="l-other"/>
-  <line x1="132" y1="255" x2="132" y2="285" class="l-other dash"/>
-  <line x1="132" y1="270" x2="139" y2="270" class="l-other"/>
-  <line x1="139" y1="270" x2="150" y2="270" class="l-other"/>
+  <!-- ══════ COL A (x=15) — Charles-Augustin's parents' generation ══════ -->
+  <!-- Crayencour grandparents (blue couple) + Reine's parents (Bieswal, teal couple) -->
+  <!-- Michel-Daniel × Thérèse de Gheus couple, c=130 / c=160, bracket mid=145 -->
+  <rect x="15" y="120" width="110" height="20" class="box-cray"/>
+  <text x="70" y="129" text-anchor="middle" class="n-cray">Michel-Daniel C. de Crayencour</text>
+  <text x="70" y="137" text-anchor="middle" class="d">1758–1838</text>
+  <rect x="15" y="150" width="110" height="20" class="box-cray"/>
+  <text x="70" y="159" text-anchor="middle" class="n-cray">Thérèse de Gheus</text>
+  <text x="70" y="167" text-anchor="middle" class="d">1764–1802</text>
+  <rect x="15" y="245" width="110" height="20" class="box-bieswal"/>
+  <text x="70" y="254" text-anchor="middle" class="n-bieswal">Charles Bieswal de Briarde</text>
+  <text x="70" y="262" text-anchor="middle" class="d">1758–1814</text>
+  <rect x="15" y="275" width="110" height="26" class="box-bieswal"/>
+  <text x="70" y="285" text-anchor="middle" class="n-bieswal">Marie Valentine Thérèse</text>
+  <text x="70" y="293" text-anchor="middle" class="n-bieswal">de Coussemaker</text>
+  <text x="70" y="300" text-anchor="middle" class="d">1760–1797</text>
+  <!-- Michel-Daniel × Thérèse bracket (mid=145) → Charles-Augustin (ColB c=235) -->
+  <line x1="125" y1="130" x2="132" y2="130" class="l-cray"/>
+  <line x1="125" y1="160" x2="132" y2="160" class="l-cray"/>
+  <line x1="132" y1="130" x2="132" y2="160" class="l-cray dash"/>
+  <line x1="132" y1="145" x2="139" y2="145" class="l-cray"/>
+  <line x1="139" y1="145" x2="139" y2="235" class="l-cray"/>
+  <line x1="139" y1="235" x2="150" y2="235" class="l-cray"/>
+  <!-- Bieswal couple bracket → Reine (ColB c=295) -->
+  <line x1="125" y1="255" x2="132" y2="255" class="l-bieswal"/>
+  <line x1="125" y1="288" x2="132" y2="288" class="l-bieswal"/>
+  <line x1="132" y1="255" x2="132" y2="288" class="l-bieswal dash"/>
+  <line x1="132" y1="271" x2="143" y2="271" class="l-bieswal"/>
+  <line x1="143" y1="271" x2="143" y2="274" class="l-bieswal"/>
+  <line x1="143" y1="274" x2="150" y2="274" class="l-bieswal"/>
 
-  <!-- ══════ COL B (x=150) ══════ -->
-  <rect x="150" y="230" width="110" height="20" class="box-cray"/>
-  <text x="205" y="239" text-anchor="middle" class="n-cray">Charles C. de Crayencour</text>
+  <!-- ══════ COL B (x=150) — Charles-Augustin × Reine generation ══════ -->
+  <!-- Charles-Augustin (blue) × Reine (teal); Noémi's parents (Dufresne, amber) -->
+  <rect x="150" y="222" width="110" height="26" class="box-cray"/>
+  <text x="205" y="232" text-anchor="middle" class="n-cray">Charles-Augustin</text>
+  <text x="205" y="240" text-anchor="middle" class="n-cray">C. de Crayencour</text>
   <text x="205" y="247" text-anchor="middle" class="d">1792–1850</text>
-  <rect x="150" y="260" width="110" height="20" class="box-other"/>
-  <text x="205" y="269" text-anchor="middle" class="n-other">Reine Bieswal</text>
-  <!-- mid=255 → Charles fils c=255 -->
-  <line x1="260" y1="240" x2="267" y2="240" class="l-cray"/>
-  <line x1="260" y1="270" x2="267" y2="270" class="l-other"/>
-  <line x1="267" y1="240" x2="267" y2="270" class="l-cray dash"/>
-  <line x1="267" y1="255" x2="274" y2="255" class="l-cray"/>
-  <line x1="274" y1="255" x2="285" y2="255" class="l-cray"/>
+  <rect x="150" y="264" width="110" height="20" class="box-bieswal"/>
+  <text x="205" y="273" text-anchor="middle" class="n-bieswal">Reine Bieswal de Briarde</text>
+  <text x="205" y="281" text-anchor="middle" class="d">1792–1874</text>
+  <!-- Noémi's parents (Dufresne) -->
+  <rect x="150" y="350" width="110" height="20" class="box-dufresne"/>
+  <text x="205" y="359" text-anchor="middle" class="n-dufresne">Amable Dufresne</text>
+  <text x="205" y="367" text-anchor="middle" class="d">1801–1875 · notaire</text>
+  <rect x="150" y="380" width="110" height="26" class="box-dufresne"/>
+  <text x="205" y="390" text-anchor="middle" class="n-dufresne">Alexandrine-Joséphine</text>
+  <text x="205" y="398" text-anchor="middle" class="n-dufresne">Dumesnil</text>
+  <text x="205" y="405" text-anchor="middle" class="d">1801–1873</text>
+  <!-- Charles-Augustin × Reine bracket → sibling-bar of their 6 children -->
+  <line x1="260" y1="235" x2="267" y2="235" class="l-cray"/>
+  <line x1="260" y1="274" x2="267" y2="274" class="l-bieswal"/>
+  <line x1="267" y1="235" x2="267" y2="274" class="l-cray dash"/>
+  <line x1="267" y1="254" x2="274" y2="254" class="l-cray"/>
+  <!-- Amable × Alexandrine bracket → Dufresne sibling-bar (Noémi c=335 + Gustave c=360) -->
+  <line x1="260" y1="360" x2="267" y2="360" class="l-dufresne"/>
+  <line x1="260" y1="390" x2="267" y2="390" class="l-dufresne"/>
+  <line x1="267" y1="360" x2="267" y2="390" class="l-dufresne dash"/>
+  <line x1="267" y1="375" x2="271" y2="375" class="l-dufresne"/>
+  <line x1="271" y1="375" x2="271" y2="347" class="l-dufresne"/>
+  <line x1="271" y1="347" x2="278" y2="347" class="l-dufresne"/>
+  <!-- Dufresne sibling-bar -->
+  <line x1="278" y1="335" x2="278" y2="360" class="l-dufresne"/>
+  <line x1="278" y1="335" x2="285" y2="335" class="l-dufresne"/>
+  <line x1="278" y1="360" x2="285" y2="360" class="l-dufresne"/>
 
-  <!-- ══════ COL C (x=285) ══════ -->
-  <rect x="285" y="245" width="110" height="20" class="box-cray" style="stroke-width:1.4;"/>
-  <text x="340" y="254" text-anchor="middle" class="n-cray" style="font-weight:700;">Charles C. de Crayencour</text>
-  <text x="340" y="262" text-anchor="middle" class="d">1822–1898</text>
-  <rect x="285" y="275" width="110" height="20" class="box-other" style="stroke-width:1.4;"/>
-  <text x="340" y="284" text-anchor="middle" class="n-other" style="font-weight:700;">Noémi Dufresnes</text>
-  <text x="340" y="292" text-anchor="middle" class="d">1828–1909</text>
-  <!-- mid=270 → Marie(255)+Michel(285) mid=270 ✓ -->
-  <line x1="395" y1="255" x2="402" y2="255" class="l-cray"/>
-  <line x1="395" y1="285" x2="402" y2="285" class="l-other"/>
-  <line x1="402" y1="255" x2="402" y2="285" class="l-cray dash"/>
-  <line x1="402" y1="270" x2="409" y2="270" class="l-cray"/>
-  <line x1="409" y1="255" x2="409" y2="285" class="l-cray"/>
+  <!-- ══════ COL C (x=285) — Michel-Charles's generation ══════ -->
+  <!-- Sibling-bar collects the 6 Crayencour children (step 30) -->
+  <line x1="274" y1="140" x2="274" y2="290" class="l-cray"/>
+  <line x1="274" y1="140" x2="285" y2="140" class="l-cray"/>
+  <rect x="285" y="130" width="110" height="20" class="box-cray"/>
+  <text x="340" y="137" text-anchor="middle" class="n-cray">Henri</text>
+  <text x="340" y="143" text-anchor="middle" class="n-cray">C. de Crayencour</text>
+  <text x="340" y="149" text-anchor="middle" class="d">1815–</text>
+  <line x1="274" y1="170" x2="285" y2="170" class="l-cray"/>
+  <rect x="285" y="160" width="110" height="20" class="box-cray"/>
+  <text x="340" y="167" text-anchor="middle" class="n-cray">Marie-Caroline</text>
+  <text x="340" y="173" text-anchor="middle" class="n-cray">C. de Crayencour</text>
+  <text x="340" y="179" text-anchor="middle" class="d">1818–1895 · × I. Plichon</text>
+  <line x1="274" y1="200" x2="285" y2="200" class="l-cray"/>
+  <rect x="285" y="190" width="110" height="20" class="box-cray"/>
+  <text x="340" y="197" text-anchor="middle" class="n-cray">Gabrielle</text>
+  <text x="340" y="203" text-anchor="middle" class="n-cray">C. de Crayencour</text>
+  <text x="340" y="209" text-anchor="middle" class="d">1820–</text>
+  <line x1="274" y1="230" x2="285" y2="230" class="l-cray"/>
+  <rect x="285" y="220" width="110" height="20" class="box-cray"/>
+  <text x="340" y="227" text-anchor="middle" class="n-cray">Louise</text>
+  <text x="340" y="233" text-anchor="middle" class="n-cray">C. de Crayencour</text>
+  <text x="340" y="239" text-anchor="middle" class="d">1823–</text>
+  <line x1="274" y1="260" x2="285" y2="260" class="l-cray"/>
+  <rect x="285" y="250" width="110" height="20" class="box-cray"/>
+  <text x="340" y="257" text-anchor="middle" class="n-cray">Valérie</text>
+  <text x="340" y="263" text-anchor="middle" class="n-cray">C. de Crayencour</text>
+  <text x="340" y="269" text-anchor="middle" class="d">1826–1832 · † 6 ans</text>
+  <line x1="274" y1="290" x2="285" y2="290" class="l-cray"/>
+  <rect x="285" y="280" width="110" height="20" class="box-cray" style="stroke-width:1.4;"/>
+  <text x="340" y="287" text-anchor="middle" class="n-cray" style="font-weight:700;">Michel-Charles</text>
+  <text x="340" y="293" text-anchor="middle" class="n-cray" style="font-weight:700;">C. de Crayencour</text>
+  <text x="340" y="299" text-anchor="middle" class="d">1822–1886</text>
+  <!-- Noémi (Dufresne, married in) below Michel-Charles, more breathing room -->
+  <rect x="285" y="325" width="110" height="20" class="box-dufresne" style="stroke-width:1.4;"/>
+  <text x="340" y="334" text-anchor="middle" class="n-dufresne" style="font-weight:700;">Noémi Dufresne</text>
+  <text x="340" y="342" text-anchor="middle" class="d">1828–1909</text>
+  <!-- Gustave/Anatole — Noémi's brother (Dufresne) -->
+  <rect x="285" y="349" width="110" height="22" class="box-dufresne"/>
+  <text x="340" y="357" text-anchor="middle" class="n-dufresne">Gustave / Anatole</text>
+  <text x="340" y="363" text-anchor="middle" class="n-dufresne">Dufresne</text>
+  <text x="340" y="369" text-anchor="middle" class="d">† 29 ans</text>
+  <!-- Berthe's parents (Louys), same generation as Michel-Charles -->
+  <rect x="285" y="400" width="110" height="26" class="box-louys"/>
+  <text x="340" y="410" text-anchor="middle" class="n-louys">Fernand Aimé Louys</text>
+  <text x="340" y="418" text-anchor="middle" class="n-louys">de la Grange</text>
+  <text x="340" y="425" text-anchor="middle" class="d">1838–1904 · baron</text>
+  <rect x="285" y="430" width="110" height="26" class="box-louys"/>
+  <text x="340" y="440" text-anchor="middle" class="n-louys">Marie-Laure Athénaïs</text>
+  <text x="340" y="448" text-anchor="middle" class="n-louys">Le Clément de Saint-Marcq</text>
+  <text x="340" y="455" text-anchor="middle" class="d">1838–1927</text>
+  <!-- Fernand × Marie-Laure bracket → Louys sibling-bar (ColD x=413, mid≈425) -->
+  <line x1="395" y1="413" x2="402" y2="413" class="l-louys"/>
+  <line x1="395" y1="443" x2="402" y2="443" class="l-louys"/>
+  <line x1="402" y1="413" x2="402" y2="443" class="l-louys dash"/>
+  <line x1="402" y1="428" x2="408" y2="428" class="l-louys"/>
+  <line x1="408" y1="428" x2="408" y2="425" class="l-louys"/>
+  <line x1="408" y1="425" x2="413" y2="425" class="l-louys"/>
+  <!-- Michel-Charles × Noémi bracket → their children (ColD) -->
+  <line x1="395" y1="290" x2="402" y2="290" class="l-cray"/>
+  <line x1="395" y1="335" x2="402" y2="335" class="l-dufresne"/>
+  <line x1="402" y1="290" x2="402" y2="335" class="l-cray dash"/>
+  <line x1="402" y1="312" x2="409" y2="312" class="l-cray"/>
+  <line x1="409" y1="312" x2="409" y2="255" class="l-cray"/>
   <line x1="409" y1="255" x2="420" y2="255" class="l-cray"/>
-  <line x1="409" y1="285" x2="420" y2="285" class="l-cray"/>
 
-  <!-- ══════ COL D (x=420) ══════ -->
-  <rect x="420" y="245" width="110" height="20" class="box-cray"/>
-  <text x="475" y="254" text-anchor="middle" class="n-cray">Marie</text>
-  <text x="475" y="262" text-anchor="middle" class="d">D. 1902</text>
+  <!-- ══════ COL D (x=420) — Michel's generation ══════ -->
+  <!-- Sibling-bar collects Michel-Charles's 3 children (c:225,255,285) -->
+  <line x1="409" y1="225" x2="409" y2="285" class="l-cray"/>
+  <line x1="409" y1="225" x2="420" y2="225" class="l-cray"/>
+  <rect x="420" y="214" width="110" height="22" class="box-cray"/>
+  <text x="475" y="223" text-anchor="middle" class="n-cray">Gabrielle</text>
+  <text x="475" y="231" text-anchor="middle" class="d">1852–1866 · † 14 ans</text>
+  <!-- Marie -->
+  <line x1="409" y1="255" x2="420" y2="255" class="l-cray"/>
+  <rect x="420" y="246" width="110" height="18" class="box-cray"/>
+  <text x="475" y="255" text-anchor="middle" class="n-cray">Marie</text>
+  <text x="475" y="262" text-anchor="middle" class="d">1868–1902</text>
+  <!-- Michel the father (FROZEN c=285) — bold, continues to Marguerite -->
+  <line x1="409" y1="285" x2="420" y2="285" class="l-cray"/>
   <rect x="420" y="275" width="110" height="20" class="box-cray" style="stroke-width:1.4;"/>
-  <text x="475" y="284" text-anchor="middle" class="n-cray" style="font-weight:700;">Michel de Crayencour</text>
+  <text x="475" y="284" text-anchor="middle" class="n-cray" style="font-weight:700;">Michel</text>
   <text x="475" y="292" text-anchor="middle" class="d">1853–1929</text>
-  <!-- 1er mariage -->
-  <line x1="475" y1="295" x2="475" y2="350" class="l-other dash"/>
-  <text x="492" y="319" class="d" style="font-style:italic;">1er mariage</text>
-  <rect x="420" y="350" width="110" height="20" class="box-other"/>
-  <text x="475" y="359" text-anchor="middle" class="n-other">Berthe</text>
-  <text x="475" y="367" text-anchor="middle" class="d">1881–1899 · Louys de la Grange</text>
-  <rect x="420" y="380" width="110" height="20" class="box-other"/>
-  <text x="475" y="389" text-anchor="middle" class="n-other">Baudouin</text>
-  <text x="475" y="397" text-anchor="middle" class="d">Louys de la Grange</text>
-  <line x1="420" y1="360" x2="413" y2="360" class="l-other"/>
-  <line x1="420" y1="390" x2="413" y2="390" class="l-other"/>
-  <line x1="413" y1="360" x2="413" y2="390" class="l-other"/>
-  <!-- Petit Michel -->
-  <line x1="475" y1="322" x2="530" y2="322" class="l-cray"/>
-  <rect x="530" y="314" width="70" height="16" class="box-cray"/>
-  <text x="565" y="324" text-anchor="middle" class="n-cray">Petit Michel</text>
+  <!-- Michel's 1st marriage → Berthe (dashed) -->
+  <line x1="475" y1="295" x2="475" y2="350" class="l-louys dash"/>
+  <!-- Berthe + her 5 Louys siblings, sibling-bar at x=413 (step 30) -->
+  <rect x="420" y="342" width="110" height="16" class="box-louys"/>
+  <text x="475" y="350" text-anchor="middle" class="n-louys">Berthe</text>
+  <text x="475" y="356" text-anchor="middle" class="d">1861–1899</text>
+  <rect x="420" y="372" width="110" height="16" class="box-louys"/>
+  <text x="475" y="380" text-anchor="middle" class="n-louys">Baudouin</text>
+  <text x="475" y="386" text-anchor="middle" class="d">1863–</text>
+  <rect x="420" y="402" width="110" height="16" class="box-louys"/>
+  <text x="475" y="410" text-anchor="middle" class="n-louys">Gabrielle</text>
+  <text x="475" y="416" text-anchor="middle" class="d">1866–1899</text>
+  <rect x="420" y="432" width="110" height="16" class="box-louys"/>
+  <text x="475" y="440" text-anchor="middle" class="n-louys">Claudine</text>
+  <text x="475" y="446" text-anchor="middle" class="d">1872–1917</text>
+  <rect x="420" y="462" width="110" height="16" class="box-louys"/>
+  <text x="475" y="470" text-anchor="middle" class="n-louys">Fernand</text>
+  <text x="475" y="476" text-anchor="middle" class="d">1874–1950</text>
+  <rect x="420" y="492" width="110" height="16" class="box-louys"/>
+  <text x="475" y="500" text-anchor="middle" class="n-louys">Madeleine</text>
+  <text x="475" y="506" text-anchor="middle" class="d">1877–1915</text>
+  <!-- Louys sibling-bar -->
+  <line x1="413" y1="350" x2="413" y2="500" class="l-louys"/>
+  <line x1="413" y1="350" x2="420" y2="350" class="l-louys"/>
+  <line x1="413" y1="380" x2="420" y2="380" class="l-louys"/>
+  <line x1="413" y1="410" x2="420" y2="410" class="l-louys"/>
+  <line x1="413" y1="440" x2="420" y2="440" class="l-louys"/>
+  <line x1="413" y1="470" x2="420" y2="470" class="l-louys"/>
+  <line x1="413" y1="500" x2="420" y2="500" class="l-louys"/>
+  <!-- Michel-Joseph (half-brother) — filiation branches off the Michel × Berthe marriage line at y=322 -->
+  <line x1="475" y1="322" x2="520" y2="322" class="l-cray"/>
+  <rect x="520" y="313" width="70" height="18" class="box-cray"/>
+  <text x="555" y="322" text-anchor="middle" class="n-cray">Michel-Joseph</text>
+  <text x="555" y="329" text-anchor="middle" class="d">1885–1966</text>
+
 
   <!-- ══════ COL E (x=720): 9 kids c:105..345 ══════ -->
   <rect x="720" y="95" width="110" height="20" class="box-cdm"/>
@@ -2304,7 +2430,7 @@
 
   <!-- ══════ COL F (x=855) ══════ -->
   <rect x="855" y="190" width="110" height="20" class="box-cdm" style="stroke-width:1.4;"/>
-  <text x="910" y="199" text-anchor="middle" class="n-cdm" style="font-weight:700;">Arthur de C. de Marchienne</text>
+  <text x="910" y="199" text-anchor="middle" class="n-cdm" style="font-weight:700;">Arthur de C. de M.</text>
   <text x="910" y="207" text-anchor="middle" class="d">1831–1890</text>
   <rect x="855" y="240" width="110" height="20" class="box-troye" style="stroke-width:1.4;"/>
   <text x="910" y="249" text-anchor="middle" class="n-troye" style="font-weight:700;">Mathilde Troye</text>
@@ -2345,7 +2471,7 @@
   <!-- Amélie c=310, Irénée c=340 -->
   <rect x="990" y="300" width="110" height="20" class="box-drion"/>
   <text x="1045" y="309" text-anchor="middle" class="n-drion">Amélie Drion</text>
-  <text x="1045" y="317" text-anchor="middle" class="d">× Victor Pirmez</text>
+  <text x="1045" y="317" text-anchor="middle" class="d">~1807–1860</text>
   <rect x="990" y="330" width="110" height="20" class="box-drion"/>
   <text x="1045" y="339" text-anchor="middle" class="n-drion">Irénée Drion</text>
   <text x="1045" y="347" text-anchor="middle" class="d">D. 1894</text>
@@ -2361,20 +2487,27 @@
   <rect x="990" y="450" width="110" height="20" class="box-pirmez"/>
   <text x="1045" y="459" text-anchor="middle" class="n-pirmez">Hyacinthe Pirmez</text>
 
-  <!-- Irénée×Benjamin mid=355 → Octave(340)+Rémo(370) mid=355 ✓ -->
+  <!-- Irénée × Benjamin → their 3 sons (Octave, Émile, Rémo) via sibling-bar -->
+  <!-- Couple bracket: Irénée (c=340) × Benjamin (c=370), mid=355 -->
   <line x1="990" y1="340" x2="983" y2="340" class="l-drion"/>
   <line x1="990" y1="370" x2="983" y2="370" class="l-pirmez"/>
   <line x1="983" y1="340" x2="983" y2="370" class="l-pirmez dash"/>
   <line x1="983" y1="355" x2="976" y2="355" class="l-pirmez"/>
-  <line x1="976" y1="340" x2="976" y2="370" class="l-pirmez"/>
-  <line x1="976" y1="340" x2="965" y2="340" class="l-pirmez"/>
-  <line x1="976" y1="370" x2="965" y2="370" class="l-pirmez"/>
-  <rect x="865" y="330" width="100" height="20" class="box-pirmez"/>
-  <text x="915" y="339" text-anchor="middle" class="n-pirmez">Octave Pirmez</text>
-  <text x="915" y="347" text-anchor="middle" class="d">1832–1883</text>
-  <rect x="865" y="360" width="100" height="20" class="box-pirmez"/>
-  <text x="915" y="369" text-anchor="middle" class="n-pirmez">Rémo Pirmez</text>
-  <text x="915" y="377" text-anchor="middle" class="d">1843–1872</text>
+  <!-- feed into sibling-bar midpoint (sons c=325,355,385 → mid=355) -->
+  <line x1="976" y1="355" x2="971" y2="355" class="l-pirmez"/>
+  <line x1="971" y1="325" x2="971" y2="385" class="l-pirmez"/>
+  <line x1="971" y1="325" x2="965" y2="325" class="l-pirmez"/>
+  <line x1="971" y1="355" x2="965" y2="355" class="l-pirmez"/>
+  <line x1="971" y1="385" x2="965" y2="385" class="l-pirmez"/>
+  <rect x="865" y="315" width="100" height="20" class="box-pirmez"/>
+  <text x="915" y="324" text-anchor="middle" class="n-pirmez">Octave Pirmez</text>
+  <text x="915" y="332" text-anchor="middle" class="d">1832–1883</text>
+  <rect x="865" y="345" width="100" height="20" class="box-pirmez"/>
+  <text x="915" y="354" text-anchor="middle" class="n-pirmez">Émile Pirmez</text>
+  <text x="915" y="362" text-anchor="middle" class="d">1835–1884</text>
+  <rect x="865" y="375" width="100" height="20" class="box-pirmez"/>
+  <text x="915" y="384" text-anchor="middle" class="n-pirmez">Rémo Pirmez</text>
+  <text x="915" y="392" text-anchor="middle" class="d">1843–1872</text>
 
   <!-- Pirmez siblings bar -->
   <line x1="1100" y1="370" x2="1107" y2="370" class="l-pirmez"/>
@@ -2382,6 +2515,11 @@
   <line x1="1107" y1="400" x2="1100" y2="400" class="l-pirmez"/>
   <line x1="1107" y1="430" x2="1100" y2="430" class="l-pirmez"/>
   <line x1="1107" y1="460" x2="1100" y2="460" class="l-pirmez"/>
+
+  <!-- Amélie Drion × Victor Pirmez marriage (dashed, bows right past sibling bar) -->
+  <line x1="1100" y1="310" x2="1116" y2="310" class="l-pirmez"/>
+  <line x1="1100" y1="434" x2="1116" y2="434" class="l-pirmez"/>
+  <line x1="1116" y1="310" x2="1116" y2="434" class="l-pirmez dash"/>
 
   <!-- ══════ COL H (x=1120) ══════ -->
   <!-- Stanislas c=235, du Wooz c=265. Mid=250=Louis ✓ -->
@@ -2398,7 +2536,7 @@
   <!-- Robeaulx c=295, Ferdinand c=325, épouse c=355 -->
   <rect x="1120" y="285" width="110" height="20" class="box-drion"/>
   <text x="1175" y="294" text-anchor="middle" class="n-drion">Mme de Robeaulx</text>
-  <rect x="1120" y="315" width="110" height="20" class="box-drion" style="stroke-width:0.9;"/>
+  <rect x="1120" y="315" width="110" height="20" class="box-drion"/>
   <text x="1175" y="324" text-anchor="middle" class="n-drion">Ferdinand Drion</text>
   <text x="1175" y="332" text-anchor="middle" class="d">~1769–1829</text>
   <rect x="1120" y="345" width="110" height="20" class="box-other" style="stroke-dasharray:3,2;"/>
@@ -3003,7 +3141,7 @@ const events = [
     year: 1793,
     month: "1793–1794",
     title: "La Terreur et le Comité de salut public",
-    description: "<strong>1793–1794.</strong> Face à l'invasion étrangère, aux soulèvements intérieurs (Vendée, fédéralisme girondin) et à la crise économique, la Convention instaure en septembre 1793 un gouvernement révolutionnaire fondé sur la terreur comme instrument de salut public. Le Comité de salut public — douze membres dont <span class=\"person-link\" data-pid=\"robespierre\">Robespierre</span>, <span class=\"person-link\" data-pid=\"saint_just\">Saint-Just</span>, <span class=\"person-link\" data-pid=\"couthon\">Couthon</span> et <span class=\"person-link\" data-pid=\"carnot\">Carnot</span> — concentre le pouvoir exécutif. Le Tribunal révolutionnaire juge et condamne à un rythme croissant. Les factions révolutionnaires sont éliminées l'une après l'autre : les <span class=\"person-link\" data-pid=\"hebert\">Hébert</span>istes d'abord (partisans de la déchristianisation radicale et du contrôle économique, emmenés par <span class=\"person-link\" data-pid=\"hebert\">Jacques-René Hébert</span>, journaliste du <em>Père Duchesne</em>), guillotinés en mars 1794 ; puis les <span class=\"person-link\" data-pid=\"danton\">Danton</span>istes (partisans de la clémence et de la fin de la Terreur, regroupés autour de <span class=\"person-link\" data-pid=\"danton\">Georges Danton</span> et de <span class=\"person-link\" data-pid=\"desmoulins\">Camille Desmoulins</span>, ami d'enfance de <span class=\"person-link\" data-pid=\"robespierre\">Robespierre</span>), guillotinés en avril 1794. La logique de la Terreur dévore ses propres architectes : chaque victoire contre une faction renforce les survivants tout en rétrécissant leur base.",
+    description: "<strong>France, septembre 1793 – juillet 1794.</strong> Phase la plus violente de la Révolution française, ouverte par la mise « à l'ordre du jour de la Terreur » votée par la Convention le 5 septembre 1793, sous la pression des sans-culottes parisiens et face à la triple menace de la guerre extérieure (coalition européenne), de la guerre de Vendée et des insurrections fédéralistes. Le pouvoir se concentre entre les mains du Comité de salut public — douze membres dont <span class=\"person-link\" data-pid=\"robespierre\">Maximilien Robespierre</span>, <span class=\"person-link\" data-pid=\"saint_just\">Saint-Just</span>, <span class=\"person-link\" data-pid=\"couthon\">Couthon</span> et <span class=\"person-link\" data-pid=\"carnot\">Carnot</span>. La <em>loi des suspects</em> (17 septembre 1793) autorise l'arrestation de quiconque « n'a rien fait pour la liberté ». Le Tribunal révolutionnaire juge et condamne à un rythme croissant. Les factions révolutionnaires sont éliminées l'une après l'autre : les Hébertistes d'abord (partisans de la déchristianisation radicale et du contrôle économique, emmenés par <span class=\"person-link\" data-pid=\"hebert\">Jacques-René Hébert</span>, journaliste du <em>Père Duchesne</em>), guillotinés en mars 1794 ; puis les Dantonistes (partisans de la clémence et de la fin de la Terreur, regroupés autour de <span class=\"person-link\" data-pid=\"danton\">Georges Danton</span> et de <span class=\"person-link\" data-pid=\"desmoulins\">Camille Desmoulins</span>, ami d'enfance de <span class=\"person-link\" data-pid=\"robespierre\">Robespierre</span>), guillotinés en avril 1794. La loi du 22 prairial an II (10 juin 1794) supprime la défense et ne laisse que le choix entre l'acquittement et la guillotine : durant les quarante-sept jours de la <em>Grande Terreur</em> qui suit, 1 376 personnes sont exécutées à Paris, parmi lesquelles Lavoisier, Malesherbes et André Chénier. <span class=\"person-link\" data-pid=\"robespierre\">Robespierre</span>, mis en minorité à la Convention le 9 thermidor an II (27 juillet 1794), est arrêté et guillotiné le lendemain avec <span class=\"person-link\" data-pid=\"saint_just\">Saint-Just</span> et vingt autres robespierristes. Le bilan total est estimé à environ 17 000 condamnations à mort prononcées, sans compter les exécutions sommaires en Vendée et à Lyon ni les dizaines de milliers de morts en détention. Le clergé non assermenté, qui avait refusé de prêter serment à la Constitution civile de 1790, en est l'une des cibles principales.",
     book: 1,
     chapter: "La Tournée des Châteaux",
     textOrder: 60
@@ -4726,6 +4864,231 @@ const events = [
     book: 2,
     chapter: "Le jeune Michel-Charles",
     textOrder: 296
+  },
+  {
+    year: -450,
+    month: "Ve siècle av. J.-C.",
+    title: "Empédocle et la mors ignea",
+    description: `<strong>Sicile, vers 450 av. J.-C.</strong> <span class="person-link" data-pid="empedocle">Empédocle</span> d'Agrigente (vers 494–434 av. J.-C.), philosophe présocratique, médecin et poète, auteur du poème <em>Sur la nature</em> dont il ne subsiste qu'une trentaine de fragments. Sa doctrine repose sur quatre racines — feu, air, eau, terre — mêlées et séparées par deux forces antagonistes, Amour et Haine. La tradition lui prête une fin volontaire dans le cratère de l'Etna : la <em>mors ignea</em>, mort par le feu, censée témoigner de sa nature divine. Variante hostile : il aurait voulu disparaître pour faire croire à son apothéose, et le volcan aurait rejeté l'une de ses sandales de bronze. La légende est rapportée par Diogène Laërce et Horace ; elle a nourri toute une postérité poétique, jusqu'à Hölderlin et son drame inachevé <em>Der Tod des Empedokles</em>.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 297
+  },
+  {
+    year: 125,
+    month: "printemps 125",
+    title: "L'ascension d'Hadrien sur l'Etna",
+    description: `<strong>Sicile, printemps 125.</strong> Au retour d'un long voyage à travers la Grèce et les provinces d'Orient, <span class="person-link" data-pid="hadrien">Hadrien</span>, alors âgé d'une cinquantaine d'années, fait escale en Sicile et gravit l'Etna pour y voir le lever du soleil sur la mer Ionienne, réputé prendre toutes les couleurs de l'arc-en-ciel. L'épisode est rapporté en deux lignes par l'<em>Histoire Auguste</em> (<em>Vita Hadriani</em> 13.3), seule source antique sur la course. C'est l'un des rares témoignages d'une ascension volcanique entreprise pour la beauté du spectacle plutôt que pour un motif religieux ou militaire. Quelques années plus tard, en Syrie, l'empereur gravira de la même manière le mont Casius pour y voir l'aube.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 298
+  },
+  {
+    year: -600,
+    month: "",
+    title: "L'ustrinum et le bûcher de Démophon",
+    description: `<strong>Italie et Attique.</strong> L'<em>ustrinum</em> est la fosse rectangulaire, taillée au module humain, où les Romains brûlaient leurs morts. La crémation domine les pratiques funéraires de la République et du Haut-Empire avant que l'inhumation, sous l'influence chrétienne, ne s'impose à partir du III<sup>e</sup> siècle. — Le rite parallèle dans le monde grec est celui de Déméter et de l'enfant Démophon, raconté dans l'<em>Hymne homérique à Déméter</em> (vers 600 av. J.-C.). Déméter, déesse des moissons, cherche partout sa fille Perséphone, enlevée par Hadès aux Enfers ; folle de chagrin, elle erre déguisée en vieille femme et arrive à Éleusis, où le roi Céléos et la reine Métanire la recueillent comme nourrice de leur fils Démophon. Reconnaissante, la déesse veut faire de l'enfant un immortel : chaque nuit, à l'insu de ses parents, elle l'enduit d'ambroisie et le pose dans le feu pour y brûler sa part mortelle. Une nuit, Métanire surprend la scène et pousse un cri d'horreur ; furieuse, Déméter retire l'enfant des flammes et déclare qu'il restera mortel comme les autres hommes. Avant de quitter Éleusis, elle ordonne aux habitants de lui bâtir un temple et leur enseigne les rites secrets qui deviendront les <strong>mystères d'Éleusis</strong>. Célébrés chaque automne pendant plus de mille ans, jusqu'à leur interdiction par Théodose en 392, ces rites étaient ouverts à tout Grec — hommes, femmes, esclaves — moyennant un serment de silence absolu. Les initiés effectuaient une procession à pied de vingt kilomètres entre Athènes et Éleusis, jeûnaient en mémoire du deuil de Déméter, puis buvaient le <em>kykéon</em>, mélange d'eau, d'orge et de menthe, peut-être psychoactif (certains chercheurs y ont supposé la présence d'ergot, parasite de l'orge à propriétés hallucinogènes). Ils pénétraient ensuite dans le <em>Telesterion</em>, vaste salle d'initiation à demi souterraine, où, dans la pénombre coupée d'éclats de flammes, leur étaient « dits, montrés et faits » des actes rituels que personne n'a jamais révélés — sans doute la mise en scène de la descente de Perséphone, sa réapparition, et la présentation d'un épi de blé comme révélation suprême. Les initiés, dit la tradition, en ressortaient affranchis de la peur de la mort.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 299
+  },
+  {
+    year: 1830,
+    month: "",
+    title: "Le buste de Tibère et la Niobide — poignées de porte",
+    description: `<strong>Italie, XVII<sup>e</sup> siècle.</strong> Les bronzes décrits — un buste de <span class="person-link" data-pid="tibere">Tibère</span> usé et une jeune Niobide bouche ouverte — ont été convertis en poignées de porte à l'époque baroque, sans doute en Vénétie : on en voit d'analogues au palais des Doges de Venise. Tibère (42 av. J.-C.–37 apr. J.-C.) est le second empereur romain, successeur d'Auguste, qui se retira sur l'île de Capri au terme d'un règne sombre. Les Niobides sont les enfants de Niobé, reine de Thèbes, foudroyés par Apollon et Artémis pour punir l'orgueil de leur mère devant Léto ; le motif de la jeune fille atteinte en pleine course est l'un des grands sujets de la statuaire hellénistique, popularisé en Europe par les copies romaines (notamment le groupe des Offices à Florence, redécouvert en 1583). Le réemploi baroque d'antiques en éléments décoratifs — encriers, pieds de table, heurtoirs — était courant en Italie aux XVII<sup>e</sup> et XVIII<sup>e</sup> siècles.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 300
+  },
+  {
+    year: 1520,
+    month: "premier tiers du XVIe siècle",
+    title: "Bernardino Luini, élève de Léonard",
+    description: `<strong>Lombardie, premier tiers du XVI<sup>e</sup> siècle.</strong> <span class="person-link" data-pid="luini">Bernardino Luini</span> (vers 1480–1532), peintre milanais, est l'un des principaux suiveurs de Léonard de Vinci en Lombardie. Sa carrière se déploie surtout dans la fresque — Santa Maria degli Angeli à Lugano, Saronno, Saint-Maurice-Majeur à Milan — où il transpose dans un registre dévot et tendre le <em>sfumato</em>, les sourires indéfinissables et les visages androgynes du maître. La <em>Pudeur et Vanité</em> évoquée ici renvoie à une composition célèbre, dérivée d'un original perdu de Léonard, dont la version la plus connue se trouvait au XIX<sup>e</sup> siècle au palais Sciarra à Rome (aujourd'hui collection Rothschild) : deux femmes côte à côte, l'une voilée et grave (Pudeur, identifiée à sainte Marthe), l'autre parée et souriante (Vanité, identifiée à Marie-Madeleine avant sa conversion). Le sujet est aussi appelé <em>La Conversion de la Madeleine</em> et a été copié à l'infini par l'atelier de Luini et ses suiveurs.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 301
+  },
+  {
+    year: 1820,
+    month: "premier tiers du XIXe siècle",
+    title: "Camées, mosaïques romaines : la mode néoclassique",
+    description: `<strong>Rome, premier tiers du XIX<sup>e</sup> siècle.</strong> La pierre dure gravée — camée taillé en relief, intaille creusée en creux — connaît sous l'Empire et la Restauration une faveur intense, soutenue par la redécouverte de Pompéi et Herculanum. Les voyageurs en rapportent par séries entières, montés en bagues, broches, parures. Parallèlement se développe à Rome une production artisanale de broches « en micro-mosaïque » représentant le Colisée, la place Saint-Pierre ou le Vésuve sous la lune. La référence ultime de la sculpture néoclassique reste <span class="person-link" data-pid="canova">Antonio Canova</span> (1757–1822), Vénitien fixé à Rome, et son rival danois <span class="person-link" data-pid="thorvaldsen">Bertel Thorvaldsen</span> (1770–1844), dont les ateliers forment deux générations d'artistes européens.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 302
+  },
+  {
+    year: -400,
+    month: "Ve siècle av. J.-C.",
+    title: "Les Latomies de Syracuse",
+    description: `<strong>Sicile, V<sup>e</sup> siècle av. J.-C.</strong> Les <em>latomies</em> (du grec <em>latomia</em>, « lieu où l'on coupe la pierre ») sont d'immenses carrières de calcaire à ciel ouvert, creusées dans le plateau qui domine Syracuse pour extraire les blocs ayant servi à bâtir la cité grecque. À mesure que les ouvriers descendaient, ils laissaient sur place de gigantesques fosses aux parois verticales hautes de plusieurs dizaines de mètres, parfois reliées par des galeries souterraines. Le tyran Denys l'Ancien (vers 432–367 av. J.-C.) y enferma sept mille prisonniers athéniens après l'échec désastreux de l'expédition de Sicile (413 av. J.-C.) ; Thucydide en a laissé une description célèbre. Couvertes au fil des siècles d'une végétation luxuriante de figuiers, citronniers et lauriers, les latomies sont devenues l'un des lieux pittoresques obligés du voyage en Sicile au XIX<sup>e</sup> siècle. La plus visitée, la <em>Latomia del Paradiso</em>, abrite la grotte dite « Oreille de Denys », baptisée ainsi par le Caravage en 1608, dont l'acoustique remarquable aurait permis au tyran d'écouter les conversations de ses prisonniers.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 303
+  },
+  {
+    year: 1835,
+    month: "décembre 1835",
+    title: "« La pâle Adriatique » de Musset",
+    description: `<strong>Paris, 1835.</strong> Les expressions citent <span class="person-link" data-pid="musset">Alfred de Musset</span>, <em>La Nuit de décembre</em>, publiée dans la <em>Revue des Deux Mondes</em> en décembre 1835 et recueillie dans les <em>Poésies nouvelles</em>. C'est l'une des quatre <em>Nuits</em> écrites au lendemain de la rupture avec George Sand : « À Venise, à l'affreux Lido, / Où vient sur l'herbe d'un tombeau / Mourir la pâle Adriatique ». Le Lido — longue langue de sable séparant la lagune de Venise de l'Adriatique — était alors un lieu désolé, parsemé de tombes : on y enterrait notamment les Juifs de la ville et les protestants étrangers, qui n'avaient pas droit aux cimetières catholiques. Les pêcheurs vénitiens y avaient leurs cabanons. La transformation en station balnéaire à la mode ne commencera qu'à la fin du XIX<sup>e</sup> siècle.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 304
+  },
+  {
+    year: 1761,
+    month: "",
+    title: "Julie d'Étanges et le pèlerinage à Clarens",
+    description: `<strong>Lac Léman, 1761.</strong> Julie d'Étanges est l'héroïne de <em>Julie ou la Nouvelle Héloïse</em> de Jean-Jacques Rousseau, roman épistolaire publié en 1761, l'un des plus grands succès du XVIII<sup>e</sup> siècle. L'action se déroule à Clarens, village du Léman entre Vevey et Montreux, où Julie et son ancien précepteur Saint-Preux vivent un amour impossible avant qu'elle n'épouse Wolmar. Tout au long du XIX<sup>e</sup> siècle, Clarens demeure un lieu de pèlerinage littéraire pour les voyageurs romantiques — Byron, Shelley, Lamartine — qui y cherchent les hêtraies, les vignobles et le « bosquet de Julie » évoqués par Rousseau.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 305
+  },
+  {
+    year: 1830,
+    month: "vers 1830",
+    title: "Le panthéon poétique d'un jeune voyageur de 1830",
+    description: `<strong>France, vers 1830.</strong> Les noms accolés appartiennent à la bibliothèque obligée d'un jeune lettré romantique. <span class="person-link" data-pid="tibulle">Albius Tibullus</span> (vers 55–19 av. J.-C.), élégiaque latin contemporain d'Horace et de Properce, chante dans des distiques d'une douceur célèbre l'amour rustique et la paix des campagnes : son recueil est la matrice de l'élégie tendre. <span class="person-link" data-pid="klopstock">Friedrich Gottlieb Klopstock</span> (1724–1803), poète allemand, auteur du <em>Messias</em> (1748–1773), vaste épopée chrétienne en hexamètres inspirée du <em>Paradis perdu</em> de Milton, ouvre la poésie allemande à autre chose qu'au modèle français et annonce le <em>Sturm und Drang</em>. <span class="person-link" data-pid="hegesippe_moreau">Hégésippe Moreau</span> (1810–1838), poète parisien d'origine modeste, vit en bohème, meurt à 28 ans de tuberculose à l'hospice de la Charité ; son recueil <em>Le Myosotis</em>, paru l'année de sa mort, lui vaut la réputation d'un Chatterton français. Sainte-Beuve préfacera ses œuvres en 1860.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 306
+  },
+  {
+    year: -50,
+    month: "Antiquité",
+    title: "Le passereau de Lesbie et le chien d'Ulysse",
+    description: `<strong>Antiquité.</strong> Les deux textes auxquels il est fait allusion sont les pleurs d'animaux les plus célèbres de la littérature antique. <span class="person-link" data-pid="catulle">Catulle</span> (vers 84–54 av. J.-C.), dans le <em>Carmen</em> 3 (« <em>Lugete, o Veneres Cupidinesque…</em> »), pleure la mort du moineau familier de sa maîtresse Lesbie : poème de quelques vers qui inaugure dans la poésie latine la possibilité d'une élégie sur un animal. Dans l'<em>Odyssée</em> (chant XVII), Ulysse rentré à Ithaque sous les traits d'un mendiant est reconnu, seul des vivants, par son vieux chien Argos couché sur un tas de fumier : l'animal, qui l'avait attendu vingt ans, remue la queue, baisse les oreilles, et meurt aussitôt — épisode des plus connus de la fidélité animale dans la culture occidentale.`,
+    book: 2,
+    chapter: "Le jeune Michel-Charles",
+    textOrder: 307
+  },
+  {
+    year: 1848,
+    month: "",
+    title: "La révolution de février 1848 à Lille",
+    description: `<strong>Lille, février 1848.</strong> La révolution de février 1848 fut un soulèvement national qui renversa la monarchie de Juillet et fonda la IIᵉ République. Partie de Paris, elle gagna les grandes villes de province, dont Lille. Le « bal à la préfecture » était une fête mondaine que donnait le préfet orléaniste, représentant local du roi <span class="person-link" data-pid="louis_philippe">Louis-Philippe Iᵉʳ</span> : la nouvelle de l'insurrection parisienne y tomba en pleine soirée, trop tard pour qu'on l'annulât. Louis-Philippe abdiqua le 24 février et s'enfuit en Angleterre déguisé sous le nom de « Mr Smith ». Les jours suivants, l'agitation gagna la rue lilloise et la préfecture devint le foyer des troubles. Les « caves de Lille » qu'évoque le texte étaient des logements souterrains où s'entassaient des familles ouvrières entières, sans air ni jour ; le médecin Villermé en avait décrit la misère dès 1840, et <span class="person-link" data-pid="victor_hugo">Victor Hugo</span>, après une visite en 1851, les rendit tristement célèbres.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 308
+  },
+  {
+    year: 1840,
+    month: "",
+    title: "Guizot et les mœurs de la monarchie de Juillet",
+    description: `<strong>France, 1840–1848.</strong> <span class="person-link" data-pid="guizot">François Guizot</span>, historien protestant devenu homme d'État, dirige en fait le gouvernement de Louis-Philippe de 1840 jusqu'à la chute du régime. Son nom résume une politique : le droit de vote restait réservé aux citoyens assez riches pour payer un certain montant d'impôt, et Guizot refusa obstinément de l'étendre à un plus grand nombre — sa formule « Enrichissez-vous par le travail et par l'épargne » est restée le mot d'ordre d'une bourgeoisie satisfaite. « Les gens de Guizot » désigne donc ce milieu de notables conservateurs, austères et anglophiles, dont les manières affectées survivent chez un magistrat de province bien après 1848.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 309
+  },
+  {
+    year: 1670,
+    month: "",
+    title: "Le buste de Bossuet et l'éloquence sacrée",
+    description: `<strong>France, XVIIᵉ siècle.</strong> <span class="person-link" data-pid="bossuet">Jacques-Bénigne Bossuet</span>, évêque de Meaux, fut le grand orateur religieux du règne de Louis XIV : ses <em>Oraisons funèbres</em> — celles d'Henriette d'Angleterre, du prince de Condé — étaient encore, au XIXᵉ siècle, le modèle scolaire de « l'éloquence sacrée », c'est-à-dire de la grande prose oratoire chrétienne. Posséder son buste dans sa bibliothèque, pour un magistrat catholique et lettré, signalait à la fois la dévotion et la culture classique.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 310
+  },
+  {
+    year: 1830,
+    month: "",
+    title: "Le tricolore du Roi-Citoyen",
+    description: `<strong>France, 1830.</strong> En montant sur le trône après les Trois Glorieuses de juillet 1830, <span class="person-link" data-pid="louis_philippe">Louis-Philippe</span> abandonne le drapeau blanc des Bourbons et rétablit le drapeau tricolore comme emblème national, geste destiné à rallier l'héritage révolutionnaire et impérial. Surnommé le « Roi-Citoyen » pour cette image de souverain bourgeois et libéral, il avait fait du tricolore le symbole de son régime ; le voir flotter au sommet d'un clocher d'église, comme à Sainte-Catherine de Lille, datait précisément le tableau de l'époque orléaniste.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 311
+  },
+  {
+    year: 1434,
+    month: "",
+    title: "Les Arnolfini de Van Eyck",
+    description: `<strong>Bruges, 1434.</strong> Le tableau évoqué est le <em>Portrait des époux Arnolfini</em> de <span class="person-link" data-pid="van_eyck">Jan van Eyck</span>, l'une des œuvres les plus célèbres de la peinture flamande, aujourd'hui à la National Gallery de Londres. Il représente un riche marchand italien établi à Bruges et sa femme dans une chambre où chaque objet — les socques de bois posés au sol, le miroir convexe au mur, le lit conjugal, le petit chien — porte une charge symbolique liée au mariage et à la prospérité du foyer. Van Eyck passe pour l'un des premiers maîtres de la peinture à l'huile, technique qui permet la minutie et la profondeur lumineuse caractéristiques de l'œuvre.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 312
+  },
+  {
+    year: 1606,
+    month: "",
+    title: "Le siège de Banquo",
+    description: `<strong>Écosse, scène de <em>Macbeth</em>.</strong> Dans la tragédie de <span class="person-link" data-pid="shakespeare">William Shakespeare</span> (vers 1606), Macbeth, devenu roi d'Écosse après avoir assassiné le roi Duncan, fait tuer son ancien compagnon d'armes Banquo. Lors d'un banquet, le fantôme ensanglanté de Banquo vient s'asseoir à la place réservée à Macbeth, visible de lui seul ; Macbeth s'épouvante devant ce que ses convives ne voient que comme un siège vide. « Le siège de Banquo » désigne donc une chaise qu'on laisse inoccupée et qui semble hantée par un absent.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 313
+  },
+  {
+    year: 1831,
+    month: "",
+    title: "Deux citations interrompues : Virgile et Hugo",
+    description: `<strong>Deux vers parmi les plus connus du XIXᵉ siècle lettré.</strong> Le latin renvoie à l'<em>Énéide</em> de <span class="person-link" data-pid="virgile">Virgile</span> (chant VII, vers 9) : « <em>splendet tremulo sub lumine pontus</em> », « la mer brille sous une lumière tremblante » — la lune se reflétant sur les flots tandis que les vaisseaux d'Énée quittent le port à la tombée de la nuit. C'était l'image classique du clair de lune sur l'eau, apprise par cœur de tout élève formé au latin. La seconde citation, « le cercle de famille », ouvre le poème de <span class="person-link" data-pid="victor_hugo">Victor Hugo</span> « Lorsque l'enfant paraît » (<em>Les Feuilles d'automne</em>, 1831) : « Lorsque l'enfant paraît, le cercle de famille / Applaudit à grands cris » — l'un des morceaux les plus récités du siècle sur les joies de l'enfance.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 314
+  },
+  {
+    year: 1860,
+    month: "",
+    title: "La campagne de Chine de 1860",
+    description: `<strong>Chine, 1860.</strong> L'épisode renvoie à l'expédition franco-britannique de 1860, dernière phase de la seconde guerre de l'opium : sous prétexte de venger un missionnaire et d'ouvrir la Chine au commerce, un corps expéditionnaire marche sur Pékin. À la bataille du pont de Palikao, le 21 septembre 1860, l'artillerie française fauche la cavalerie mandchoue et mongole — les « cavaliers jaunes » armés de piques et de flèches — qui chargeait à découvert : une dizaine de morts du côté européen, un millier du côté chinois. L'expédition s'acheva par le pillage et l'incendie du Palais d'Été. Le récit de salon que rapporte le texte appartient à la vision impériale du temps, qui opposait « nations civilisées » et « barbares ».`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 315
+  },
+  {
+    year: 1845,
+    month: "",
+    title: "L'Algérie de Bugeaud : razzias et enfumades",
+    description: `<strong>Algérie, années 1840.</strong> <span class="person-link" data-pid="bugeaud">Thomas Robert Bugeaud</span>, gouverneur général de l'Algérie de 1840 à 1847, mena la conquête contre les tribus ralliées à l'émir Abd el-Kader. Faute de batailles rangées contre une guérilla mobile, l'armée pratiqua la razzia : on attaquait les villages soupçonnés de soutenir la résistance, on brûlait les hameaux et les récoltes, on enlevait les troupeaux. La pratique culmina dans les enfumades de 1844–1845 : des populations entières — hommes, femmes et enfants — réfugiées dans des grottes furent asphyxiées par des feux allumés à l'entrée. Ce sont ces opérations que le texte évoque à travers les hameaux réduits en cendres et les « gourbis », les huttes des paysans algériens.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 316
+  },
+  {
+    year: 1858,
+    month: "",
+    title: "Le fond jacobin sous l'Empire bonapartiste",
+    description: `<strong>France, Second Empire.</strong> Le passage touche à un paradoxe du régime de <span class="person-link" data-pid="napoleon_iii">Napoléon III</span>. Le bonapartisme se réclamait de la Révolution de 1789 et de l'État centralisé hérité du jacobinisme — l'Empereur aimait répéter « J'appartiens à la Révolution » —, tout en s'appuyant sur l'ordre, la propriété, l'armée et l'Église. Un fonctionnaire impérial pouvait donc porter en lui ce « fond jacobin » : attachement à l'État fort et égalitaire né de la Révolution, méfiance envers les prétentions nobiliaires de l'Ancien Régime. Mais après l'attentat manqué d'Orsini contre l'Empereur, en 1858, une loi de sûreté générale permit de condamner sans procès les anciens opposants de gauche : c'est en ce sens que « l'Empire se garde à droite », surveillant les républicains tout en revendiquant l'héritage révolutionnaire.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 317
+  },
+  {
+    year: 1865,
+    month: "",
+    title: "Le milieu intellectuel : Darwin, Renan, Taine",
+    description: `<strong>France, milieu du XIXᵉ siècle.</strong> Le texte situe Michel-Charles à contre-courant des grands noms qui dominaient alors la pensée. <span class="person-link" data-pid="darwin">Charles Darwin</span>, dont <em>L'Origine des espèces</em> (1859) bouleversait l'idée de la création ; <span class="person-link" data-pid="renan">Ernest Renan</span>, dont la <em>Vie de Jésus</em> (1863) traitait le Christ en personnage historique et fit scandale ; <span class="person-link" data-pid="taine">Hippolyte Taine</span>, théoricien d'une histoire et d'une critique fondées sur « la race, le milieu et le moment ». Contre cette modernité positiviste et évolutionniste, Michel-Charles relit <span class="person-link" data-pid="condillac">Condillac</span>, philosophe sensualiste du XVIIIᵉ siècle, et <span class="person-link" data-pid="tacite">Tacite</span>, l'historien latin — les auteurs de sa formation classique. Quant à l'histoire « d'Adam à Louis XIV en six périodes », c'est le cadre providentiel hérité de <span class="person-link" data-pid="bossuet">Bossuet</span>, déjà périmé à l'âge de la science.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 318
+  },
+  {
+    year: 1877,
+    month: "",
+    title: "La Fille Élisa et Offenbach : la modernité de 1877",
+    description: `<strong>Paris, années 1870.</strong> Les deux références mesurent la distance entre Michel-Charles et la culture parisienne du moment. <em>La Fille Élisa</em> (1877) est un roman d'<span class="person-link" data-pid="goncourt">Edmond de Goncourt</span> : l'histoire d'une prostituée qui assassine son amant soldat et finit en prison, étude naturaliste des maisons closes qui fit un succès de scandale. <span class="person-link" data-pid="offenbach">Jacques Offenbach</span> régnait sur l'opérette parisienne avec ses œuvres satiriques et ses « couplets » entraînants.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 319
+  },
+  {
+    year: 1830,
+    month: "",
+    title: "Noémi en Doña Sol",
+    description: `<strong>France, théâtre romantique.</strong> Doña Sol est l'héroïne d'<em>Hernani</em>, le drame de <span class="person-link" data-pid="victor_hugo">Victor Hugo</span> dont la première, en 1830 à la Comédie-Française, déclencha la « bataille d'Hernani » entre classiques et romantiques. Jeune femme noble, passionnée, aimée de trois hommes, Doña Sol incarnait au théâtre la grande amoureuse romantique.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 320
+  },
+  {
+    year: 1860,
+    month: "",
+    title: "Le duc de Morny",
+    description: `<strong>Paris, Second Empire.</strong> « Dîner chez Morny », c'était fréquenter le sommet du pouvoir. <span class="person-link" data-pid="morny">Charles de Morny</span>, demi-frère de <span class="person-link" data-pid="napoleon_iii">Napoléon III</span> — fils naturel de la reine Hortense —, fut l'un des organisateurs du coup d'État de 1851 qui porta Louis-Napoléon au pouvoir absolu, puis président du Corps législatif. Homme d'affaires, viveur et arbitre des élégances, il tenait l'un des salons les plus en vue de l'Empire ; y être reçu signalait qu'on appartenait au monde qui comptait.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 321
   }
 ];
 
@@ -5649,7 +6012,32 @@ const eventCoords = {
   293: [41.9, 12.48, "Rome"],
   294: [45.46, 9.19, "Milan / Rome / Vérone"],
   295: [41.85, 12.52, "Via Appia, Rome"],
-  296: [37.98, 23.73, "Athènes"]
+  296: [37.98, 23.73, "Athènes"],
+  297: [37.51, 14.99, "Etna, Sicile"],
+  298: [37.75, 14.99, "Etna, Sicile"],
+  299: [38.04, 23.54, "Éleusis"],
+  300: [45.43, 12.34, "Palais des Doges, Venise"],
+  301: [45.46, 9.19, "Milan"],
+  302: [41.90, 12.48, "Rome"],
+  303: [37.07, 15.28, "Syracuse"],
+  304: [45.41, 12.36, "Lido, Venise"],
+  305: [46.43, 6.89, "Clarens, lac Léman"],
+  306: [48.86, 2.35, "Paris"],
+  307: [37.97, 23.72, "Athènes / Rome"],
+  308: [50.63, 3.06, "Lille"],
+  309: [48.86, 2.35, "Paris"],
+  310: [48.96, 2.88, "Meaux"],
+  311: [50.64, 3.06, "Lille — Sainte-Catherine"],
+  312: [51.21, 3.22, "Bruges"],
+  313: [56.49, -4.20, "Écosse"],
+  314: [50.79, 2.73, "Mont-Noir"],
+  315: [39.90, 116.40, "Pékin — Palikao"],
+  316: [36.10, 0.50, "Dahra, Algérie"],
+  317: [48.86, 2.35, "Paris"],
+  318: [48.86, 2.35, "Paris"],
+  319: [48.86, 2.35, "Paris"],
+  320: [48.86, 2.35, "Comédie-Française, Paris"],
+  321: [48.86, 2.35, "Paris"]
 };
 
 let map = null;
@@ -6037,6 +6425,17 @@ const DYNASTY_COLORS = {
 };
 
 const PEOPLE = [
+  {id:"guizot",name:"François Guizot",dates:"1787–1874",dynasty:"cultural",role:"Historien et homme d'État · France",bio:"Historien protestant et homme d'État. Chef de fait du gouvernement de Louis-Philippe de 1840 à 1848, il refuse tout élargissement du suffrage censitaire ; sa chute accompagne celle de la monarchie de Juillet en février 1848.",entries:["Guizot et les mœurs de la monarchie de Juillet"]},
+  {id:"van_eyck",name:"Jan van Eyck",dates:"vers 1390–1441",dynasty:"cultural",role:"Peintre · Flandre (Bruges)",bio:"Peintre des Pays-Bas bourguignons, l'un des premiers maîtres de la peinture à l'huile. Son <em>Portrait des époux Arnolfini</em> (1434) est l'une des œuvres les plus célèbres de l'art flamand.",entries:["Les Arnolfini de Van Eyck"]},
+  {id:"shakespeare",name:"William Shakespeare",dates:"1564–1616",dynasty:"cultural",role:"Dramaturge et poète · Angleterre",bio:"Dramaturge et poète anglais. Auteur de <em>Macbeth</em> (vers 1606), tragédie écossaise dont la scène du banquet hanté par le fantôme de Banquo est restée proverbiale.",entries:["Le siège de Banquo"]},
+  {id:"virgile",name:"Virgile",dates:"70–19 av. J.-C.",dynasty:"cultural",role:"Poète · Rome",bio:"Poète latin du siècle d'Auguste, auteur de l'<em>Énéide</em>, des <em>Géorgiques</em> et des <em>Bucoliques</em>. Sa poésie était le socle de la formation classique au latin jusqu'au XIXᵉ siècle.",entries:["Deux citations interrompues : Virgile et Hugo"]},
+  {id:"bugeaud",name:"Thomas Robert Bugeaud",dates:"1784–1849",dynasty:"other_royal",role:"Maréchal, gouverneur de l'Algérie",bio:"Maréchal de France, gouverneur général de l'Algérie de 1840 à 1847. Maître d'œuvre de la conquête contre Abd el-Kader, son nom reste associé aux razzias et aux enfumades pratiquées contre les populations civiles.",entries:["L'Algérie de Bugeaud : razzias et enfumades"]},
+  {id:"darwin",name:"Charles Darwin",dates:"1809–1882",dynasty:"cultural",role:"Naturaliste · Angleterre",bio:"Naturaliste anglais. Son <em>Origine des espèces</em> (1859) fonde la théorie de l'évolution par sélection naturelle et bouleverse l'idée d'une création fixe des êtres vivants.",entries:["Le milieu intellectuel : Darwin, Renan, Taine"]},
+  {id:"taine",name:"Hippolyte Taine",dates:"1828–1893",dynasty:"cultural",role:"Philosophe et historien · France",bio:"Philosophe, historien et critique. Théoricien du déterminisme « race, milieu, moment », il fut l'une des grandes figures du positivisme français du Second Empire.",entries:["Le milieu intellectuel : Darwin, Renan, Taine"]},
+  {id:"condillac",name:"Étienne Bonnot de Condillac",dates:"1714–1780",dynasty:"cultural",role:"Philosophe · France",bio:"Philosophe des Lumières, principal représentant du sensualisme : pour lui toutes les connaissances dérivent des sensations. Auteur du <em>Traité des sensations</em> (1754).",entries:["Le milieu intellectuel : Darwin, Renan, Taine"]},
+  {id:"tacite",name:"Tacite",dates:"vers 55–120",dynasty:"cultural",role:"Historien · Rome",bio:"Historien latin, auteur des <em>Annales</em> et des <em>Histoires</em>. Son style dense et son regard sévère sur les empereurs en firent un classique de l'éducation latine.",entries:["Le milieu intellectuel : Darwin, Renan, Taine"]},
+  {id:"goncourt",name:"Edmond de Goncourt",dates:"1822–1896",dynasty:"cultural",role:"Écrivain · France",bio:"Écrivain naturaliste, qui écrivit longtemps avec son frère Jules. Son roman <em>La Fille Élisa</em> (1877), sur une prostituée meurtrière, fit un succès de scandale. Son testament fonde l'Académie Goncourt.",entries:["La Fille Élisa et Offenbach : la modernité de 1877"]},
+  {id:"morny",name:"Charles de Morny",dates:"1811–1865",dynasty:"other_royal",role:"Duc, président du Corps législatif · France",bio:"Demi-frère de Napoléon III, fils naturel de la reine Hortense. Organisateur du coup d'État de 1851, puis président du Corps législatif. Homme d'affaires et figure mondaine du Second Empire.",entries:["Le duc de Morny"]},
   {id:"philippe_hardi",name:"Philippe le Hardi",dates:"1342–1404",dynasty:"bourgogne",role:"Duc de Bourgogne · Flandre, Artois",bio:"Duc de Bourgogne 1363–1404. Fils du roi Jean II le Bon, fonde la branche bourguignonne des Valois.",entries:["Les Ducs de Bourgogne"]},
   {id:"jean_sans_peur",name:"Jean sans Peur",dates:"1371–1419",dynasty:"bourgogne",role:"Duc de Bourgogne · Flandre, Artois",bio:"Duc de Bourgogne 1404–1419. Fait assassiner le duc d'Orléans (1407), déclenchant la guerre civile entre Armagnacs et Bourguignons. Assassiné sur le pont de Montereau.",entries:["Les Ducs de Bourgogne"]},
   {id:"philippe_bon",name:"Philippe le Bon",dates:"1396–1467",dynasty:"bourgogne",role:"Duc de Bourgogne · Flandre, Brabant, Hollande, Hainaut",bio:"Duc de Bourgogne 1419–1467. Fondateur de l'Ordre de la Toison d'or (1430). Sa cour est la plus brillante d'Europe.",entries:["Les Ducs de Bourgogne"]},
@@ -6082,7 +6481,7 @@ const PEOPLE = [
   {id:"nicolas_ii",name:"Nicolas II",dates:"1868–1918",dynasty:"other_royal",role:"Dernier tsar de Russie",entries:["Ses timides héritiers"]},
   {id:"gustave_iii",name:"Gustave III",dates:"1746–1792",dynasty:"other_royal",role:"Roi de Suède",entries:["Le comte de Haga"]},
   {id:"napoleon",name:"Napoléon",dates:"1769–1821",dynasty:"other_royal",role:"Empereur des Français",entries:["Waterloo","Le Congrès de Vienne","La Campagne de France et les gardes d'honneur","Huit régimes en cinquante ans"]},
-  {id:"napoleon_iii",name:"Napoléon III",dates:"1808–1873",dynasty:"other_royal",role:"Empereur des Français",bio:"Empereur 1852–1870. Neveu de Napoléon Iᵉʳ, prend le pouvoir par coup d'État (1851). Modernise Paris et l'économie, mais sa politique étrangère — Mexique, guerre franco-prussienne — aboutit à la catastrophe de Sedan et à la chute de l'Empire.",entries:["L'expédition du Mexique et la tragédie de Charlotte","Le scandale de Tannhäuser à Paris","Aspromonte et Mentana — les marches de Garibaldi sur Rome","L'humiliation de Sedan","La proclamation de la République","L'Empire libéral","« Le majestueux vestige… du mariage d'Eugénie de Montijo avec Napoléon III »","Huit régimes en cinquante ans"]},
+  {id:"napoleon_iii",name:"Napoléon III",dates:"1808–1873",dynasty:"other_royal",role:"Empereur des Français",bio:"Empereur 1852–1870. Neveu de Napoléon Iᵉʳ, prend le pouvoir par coup d'État (1851). Modernise Paris et l'économie, mais sa politique étrangère — Mexique, guerre franco-prussienne — aboutit à la catastrophe de Sedan et à la chute de l'Empire.",entries:["L'expédition du Mexique et la tragédie de Charlotte","Le scandale de Tannhäuser à Paris","Aspromonte et Mentana — les marches de Garibaldi sur Rome","L'humiliation de Sedan","La proclamation de la République","L'Empire libéral","« Le majestueux vestige… du mariage d'Eugénie de Montijo avec Napoléon III »","Huit régimes en cinquante ans","Le fond jacobin sous l'Empire bonapartiste","Le duc de Morny"]},
   {id:"bismarck",name:"Otto von Bismarck",dates:"1815–1898",dynasty:"other_royal",role:"Chancelier · Prusse, Empire allemand",bio:"Ministre-président de Prusse (1862), puis chancelier de l'Empire allemand (1871–1890). Architecte de l'unification allemande par trois guerres successives contre le Danemark, l'Autriche et la France.",entries:["La guerre du Schleswig-Holstein","Sadowa et la Confédération germanique","La proclamation de l'Empire allemand","L'humiliation de Sedan","La proclamation de la République"]},
   {id:"victor_emmanuel",name:"Victor-Emmanuel II",dates:"1820–1878",dynasty:"other_royal",role:"Roi · Piémont-Sardaigne, puis Italie",bio:"Roi de Sardaigne-Piémont (1849), puis premier roi d'Italie (1861–1878). Avec Cavour et Garibaldi, artisan de l'unification italienne.",entries:["La guerre du Piémont","Aspromonte et Mentana — les marches de Garibaldi sur Rome","La Rome de Michel-Charles : Saint-Pierre, le Capitole et le Vittoriano à venir","De la chute des Bourbons de Naples à l'unification italienne","La Maison de Savoie, monarchie bourgeoise"]},
   {id:"charlotte_belgique",name:"Charlotte de Belgique",dates:"1840–1927",dynasty:"other_royal",role:"Impératrice du Mexique",bio:"Fille de Léopold I<sup>er</sup> des Belges. Épouse l'archiduc Maximilien (1857). Impératrice du Mexique 1864–67. Sombre dans la folie en 1866 après l'échec de ses missions auprès de Napoléon III et du pape. Recluse au château de Bouchout pendant soixante ans.",entries:["L'expédition du Mexique et la tragédie de Charlotte"]},
@@ -6145,7 +6544,7 @@ const PEOPLE = [
   {id:"cesar",name:"Jules César",dates:"100–44 av. J.-C.",dynasty:"other_royal",role:"Consul, dictateur · Rome",bio:"Conquérant de la Gaule (58–50 av. J.-C.). Ses <em>Commentaires</em> sont la première source écrite sur les peuples belges.",entries:["La Citadelle et les tribus celtes","Les Morins de Thérouanne et les Ménapiens de Cassel","« Vercingétorix étranglé… Éponine exécutée »","Le lointain visage des ancêtres","Teutatès, Bélénos, les Mères, Nahalania, Épona","Carnac, Stonehenge, Chartres… et le druide Diviciacus"]},
   {id:"trajan",name:"Trajan",dates:"53–117",dynasty:"other_royal",role:"Empereur romain",bio:"Premier empereur originaire des provinces (Italica, Hispanie). Commandant des armées de Germanie Inférieure à Cologne avant son accession.",entries:["Ce légionnaire de race tongre","Publius Aelius Hadrianus"]},
   {id:"nerva",name:"Nerva",dates:"30–98",dynasty:"other_royal",role:"Empereur romain",bio:"Empereur 96–98. Dernier des Flaviens par adoption. Meurt le 27 janvier 98, Trajan lui succède.",entries:["Ce légionnaire de race tongre","Publius Aelius Hadrianus"]},
-  {id:"hadrien",name:"Hadrien",dates:"76–138",dynasty:"other_royal",role:"Empereur romain",bio:"Empereur 117–138. Petit-neveu et successeur de Trajan. Sujet des <em>Mémoires d'Hadrien</em> de Yourcenar.",entries:["Publius Aelius Hadrianus","La Villa d'Hadrien à Tivoli","L'<em>Histoire Auguste</em>","Bossuet et l'<em>Histoire universelle</em>","Catulle et Suétone : la Rome érotique","L'Antinoüs Albani, le cardinal Albani et la mort de Winckelmann","<em>Quinze ans aux armées</em>"]},
+  {id:"hadrien",name:"Hadrien",dates:"76–138",dynasty:"other_royal",role:"Empereur romain",bio:"Empereur 117–138. Petit-neveu et successeur de Trajan. Sujet des <em>Mémoires d'Hadrien</em> de Yourcenar.",entries:["Publius Aelius Hadrianus","La Villa d'Hadrien à Tivoli","L'<em>Histoire Auguste</em>","Bossuet et l'<em>Histoire universelle</em>","Catulle et Suétone : la Rome érotique","L'Antinoüs Albani, le cardinal Albani et la mort de Winckelmann","<em>Quinze ans aux armées</em>","L'ascension d'Hadrien sur l'Etna"]},
   {id:"lothaire_ii",name:"Lothaire II",dates:"835–869",dynasty:"other_royal",role:"Roi de Lotharingie",bio:"Roi de Lotharingie — territoire entre France et terres germaniques d'où descendent la Lorraine et les Pays-Bas.",entries:["Lothaire et les cartulaires des Baillencourt"]},
   // ─── Medieval ───
   {id:"bockhold",name:"Hans Bockhold",dates:"1509–1536",dynasty:"other_royal",role:"Meneur anabaptiste",bio:"Aussi connu sous le nom de Jan de Leyde. S'empare de Münster (1534), instaure un régime théocratique millénariste. Repris et exécuté avec une brutalité exemplaire.",entries:["Hans Bockhold et la répression des Anabaptistes de Münster"]},
@@ -6160,7 +6559,7 @@ const PEOPLE = [
   {id:"maximilien_henri",name:"Maximilien-Henri de Bavière",dates:"1621–1688",dynasty:"religious",role:"Prince-évêque de Liège",bio:"Prince-évêque francophile. Écrase définitivement les Grignoux après le traité de Nimègue (1678).",entries:["Le Traité de Nimègue"]},
   {id:"frederic_ii",name:"Frédéric II de Prusse",dates:"1712–1786",dynasty:"other_royal",role:"Roi · Prusse",bio:"Roi de Prusse 1740–1786. Dit « le Grand ». Stratège militaire et philosophe des Lumières, ami de Voltaire. La guerre de Sept Ans l'établit comme grande puissance européenne.",entries:["La Guerre de Sept Ans"]},
   // ─── 19th century ───
-  {id:"victor_hugo",name:"Victor Hugo",dates:"1802–1885",dynasty:"cultural",role:"Écrivain",bio:"Poète, romancier, dramaturge. Son recueil <em>L'Année Terrible</em> (1872) donne son nom à la période 1870–71.",entries:["L'Année Terrible","« Les Travaux et les Jours, Théocrite, Tibulle, Lucrèce… »","Victor Hugo"]},
+  {id:"victor_hugo",name:"Victor Hugo",dates:"1802–1885",dynasty:"cultural",role:"Écrivain",bio:"Poète, romancier, dramaturge. Son recueil <em>L'Année Terrible</em> (1872) donne son nom à la période 1870–71.",entries:["L'Année Terrible","« Les Travaux et les Jours, Théocrite, Tibulle, Lucrèce… »","Victor Hugo","La révolution de février 1848 à Lille","Deux citations interrompues : Virgile et Hugo","Noémi en Doña Sol"]},
   {id:"thiers",name:"Adolphe Thiers",dates:"1797–1877",dynasty:"other_royal",role:"Chef du pouvoir exécutif · France",bio:"Élu chef du pouvoir exécutif en février 1871. Négocie la paix avec Bismarck, puis ordonne l'écrasement de la Commune.",entries:["La Commune de Paris","La proclamation de la République"]},
   {id:"gambetta",name:"Léon Gambetta",dates:"1838–1882",dynasty:"other_royal",role:"Homme politique · France",bio:"Proclame la République le 4 septembre 1870 depuis l'Hôtel de Ville. Organise la résistance pendant le siège de Paris.",entries:["La proclamation de la République"]},
   {id:"moltke",name:"Helmuth von Moltke",dates:"1800–1891",dynasty:"other_royal",role:"Chef d'état-major · Prusse",bio:"Architecte des victoires prussiennes contre l'Autriche (1866) et la France (1870). Encercle l'armée française à Sedan.",entries:["L'humiliation de Sedan"]},
@@ -6172,7 +6571,7 @@ const PEOPLE = [
   {id:"giap",name:"Võ Nguyên Giáp",dates:"1911–2013",dynasty:"other_royal",role:"Général · Viêtnam",bio:"Stratège de la victoire de Diên Biên Phu. Considéré comme l'un des plus grands tacticiens militaires du XXᵉ siècle.",entries:["Les morts de Diên Biên Phu"]},
   {id:"ben_bella",name:"Ahmed Ben Bella",dates:"1916–2012",dynasty:"other_royal",role:"Président · Algérie",bio:"Dirigeant du FLN. Enlevé par l'armée française en 1956. Premier président de l'Algérie indépendante (1962–1965).",entries:["L'enlèvement de Ben Bella"]},
   {id:"nasser",name:"Gamal Abdel Nasser",dates:"1918–1970",dynasty:"other_royal",role:"Président · Égypte",bio:"Nationalise le Canal de Suez en 1956, provoquant la crise de Suez. Figure majeure du panarabisme.",entries:["L'équipée de Suez"]},
-  {id:"offenbach",name:"Jacques Offenbach",dates:"1819–1880",dynasty:"cultural",role:"Compositeur",bio:"Maître de l'opérette. <em>La Belle Hélène</em>, <em>La Grande-Duchesse de Gérolstein</em>. Incarnation musicale de la fête impériale du Second Empire.",entries:["Le Paris du Second Empire"]},
+  {id:"offenbach",name:"Jacques Offenbach",dates:"1819–1880",dynasty:"cultural",role:"Compositeur",bio:"Maître de l'opérette. <em>La Belle Hélène</em>, <em>La Grande-Duchesse de Gérolstein</em>. Incarnation musicale de la fête impériale du Second Empire.",entries:["Le Paris du Second Empire","La Fille Élisa et Offenbach : la modernité de 1877"]},
   {id:"la_paiva",name:"La Païva",dates:"1819–1884",dynasty:"cultural",role:"Courtisane",bio:"Née Esther Lachmann. Courtisane d'origine russe devenue marquise. Son hôtel particulier des Champs-Élysées est un symbole du luxe du Second Empire.",entries:["Le Paris du Second Empire"]},
   {id:"schneider",name:"Hortense Schneider",dates:"1833–1920",dynasty:"cultural",role:"Chanteuse d'opérette",bio:"Triomphe dans les rôles-titres d'Offenbach. Fréquentée par les têtes couronnées de passage à Paris.",entries:["Le Paris du Second Empire"]},
   {id:"theresa",name:"Thérésa",dates:"1837–1913",dynasty:"cultural",role:"Chanteuse de café-concert",bio:"Née Emma Valadon. Première grande vedette du café-concert français.",entries:["Le Paris du Second Empire"]},
@@ -6201,7 +6600,7 @@ const PEOPLE = [
   {id:"tennyson",name:"Alfred, Lord Tennyson",dates:"1809–1892",dynasty:"cultural",role:"Poète lauréat · Royaume-Uni",bio:"Poète lauréat britannique de 1850 à 1892. Auteur d'<em>In Memoriam A.H.H.</em> (1850).",entries:["Tennyson"]},
   {id:"conrad",name:"Joseph Conrad",dates:"1857–1924",dynasty:"cultural",role:"Romancier",bio:"Né Józef Teodor Konrad Korzeniowski en Pologne. Marin devenu romancier anglophone. Auteur d'<em>Au cœur des ténèbres</em> (1899).",entries:["Joseph Conrad"]},
   {id:"chateaubriand",name:"François-René de Chateaubriand",dates:"1768–1848",dynasty:"cultural",role:"Écrivain et homme politique",bio:"Figure fondatrice du romantisme français. Auteur de <em>René</em> (1802), des <em>Mémoires d'outre-tombe</em> et de l'<em>Itinéraire de Paris à Jérusalem</em> (1811).",entries:["« L'Itinéraire de Paris à Jérusalem et la Prière sur l'Acropole »"]},
-  {id:"renan",name:"Ernest Renan",dates:"1823–1892",dynasty:"cultural",role:"Écrivain et philologue",bio:"Auteur de la <em>Vie de Jésus</em> (1863) et de la <em>Prière sur l'Acropole</em> (1883). Historien des religions, hébraïsant.",entries:["« L'Itinéraire de Paris à Jérusalem et la Prière sur l'Acropole »"]},
+  {id:"renan",name:"Ernest Renan",dates:"1823–1892",dynasty:"cultural",role:"Écrivain et philologue",bio:"Auteur de la <em>Vie de Jésus</em> (1863) et de la <em>Prière sur l'Acropole</em> (1883). Historien des religions, hébraïsant.",entries:["« L'Itinéraire de Paris à Jérusalem et la Prière sur l'Acropole »","Le milieu intellectuel : Darwin, Renan, Taine"]},
   {id:"francois_joseph",name:"François-Joseph Iᵉʳ",dates:"1830–1916",dynasty:"habsbourg_austria",role:"Empereur · Autriche-Hongrie",bio:"Empereur d'Autriche et roi de Hongrie de 1848 à 1916. Père de l'archiduc Rodolphe. Époux d'Élisabeth de Bavière.",entries:["Mayerling"]},
   {id:"ferdinand_drion",name:"Ferdinand Drion",dates:"~1769–1829",dynasty:"drion",role:"Père des quatre sœurs Drion",bio:"Possesseur de verreries, clouteries et houillères à Suarlée. Mourut vers la soixantaine, laissant ses diamants à ses quatre filles âgées de dix-sept à vingt-deux ans.",entries:["« Quelques âmes inquiètes penchées sur les sutras hindous et sur Swedenborg »"]},
   {id:"flore_drion",name:"Flore Drion",dates:"~1811–~1831",dynasty:"drion",role:"Mère d'Arthur de C. de M.",bio:"Aînée des sœurs Drion. Épousa Joseph-Ghislain de Cartier de Marchienne à Suarlée. Accoucha de son fils Arthur à Marchienne ; mourut trois jours plus tard.",entries:["« Quelques âmes inquiètes penchées sur les sutras hindous et sur Swedenborg »"]},
@@ -6213,7 +6612,7 @@ const PEOPLE = [
   {id:"platon",name:"Platon",dates:"~428–348 av. J.-C.",dynasty:"cultural",role:"Philosophe",bio:"Philosophe athénien, fondateur de l'Académie. Théorie des Formes idéales. Auteur de la <em>République</em>, du <em>Banquet</em>, du <em>Phédon</em>.",entries:["« La réponse de Platon n'est pas celle d'Aristote, celle d'Héraclite n'est pas celle d'Empédocle »"]},
   {id:"aristote",name:"Aristote",dates:"384–322 av. J.-C.",dynasty:"cultural",role:"Philosophe",bio:"Élève de Platon, fondateur du Lycée. Logique, physique, métaphysique, éthique, politique, poétique. Précepteur d'Alexandre le Grand.",entries:["« La réponse de Platon n'est pas celle d'Aristote, celle d'Héraclite n'est pas celle d'Empédocle »"]},
   {id:"heraclite",name:"Héraclite",dates:"~535–475 av. J.-C.",dynasty:"cultural",role:"Philosophe présocratique",bio:"D'Éphèse. Le devenir perpétuel, le feu comme principe, l'unité des contraires. « On ne se baigne jamais deux fois dans le même fleuve. »",entries:["« La réponse de Platon n'est pas celle d'Aristote, celle d'Héraclite n'est pas celle d'Empédocle »"]},
-  {id:"empedocle",name:"Empédocle",dates:"~490–430 av. J.-C.",dynasty:"cultural",role:"Philosophe présocratique",bio:"D'Agrigente. Les quatre éléments, l'Amour et la Haine comme forces cosmiques, la transmigration des âmes.",entries:["« La réponse de Platon n'est pas celle d'Aristote, celle d'Héraclite n'est pas celle d'Empédocle »"]},
+  {id:"empedocle",name:"Empédocle",dates:"~490–430 av. J.-C.",dynasty:"cultural",role:"Philosophe présocratique",bio:"D'Agrigente. Les quatre éléments, l'Amour et la Haine comme forces cosmiques, la transmigration des âmes.",entries:["« La réponse de Platon n'est pas celle d'Aristote, celle d'Héraclite n'est pas celle d'Empédocle »","Empédocle et la mors ignea"]},
   {id:"schopenhauer",name:"Arthur Schopenhauer",dates:"1788–1860",dynasty:"cultural",role:"Philosophe",bio:"Auteur de <em>Le Monde comme volonté et comme représentation</em> (1818/1844). Premier philosophe européen majeur à s'engager avec la pensée bouddhiste et hindoue.  L'existence comme souffrance, la Volonté aveugle comme principe du monde.",entries:["« Cette mer de larmes qu'il emprunte à travers Schopenhauer aux sutras bouddhiques »"]},
   {id:"joseph_ghislain",name:"Joseph-Ghislain de C. de M.",dates:"~1800–~1840",dynasty:"family",role:"Arrière-grand-père de Yourcenar",bio:"Confirmé dans sa noblesse par Guillaume Iᵉʳ de Hollande en 1824. Colonel de la garde bourgeoise et bourgmestre de Marchienne après 1830. Épousa Flore Drion au château de la Boverie, Suarlée. Mourut quadragénaire.",entries:["« Quelques âmes inquiètes penchées sur les sutras hindous et sur Swedenborg »"]},
   {id:"isabelle_cartier",name:"Isabelle de C. de M.",dates:"1855–1917",dynasty:"family",role:"Fille aînée d'Arthur et Mathilde",bio:"Dite Isa. Épousa son cousin le baron Georges de Cartier d'Yves. Trois enfants : un fils aîné (continua la lignée), une fille Mathilde — maladive, « affublée d'un hideux béret, fait l'effet d'une totale maldonne : elle quittera ce monde de bonne heure » — et Louise, héroïque infirmière de la Grande Guerre, forte blonde aux yeux bleus, adorée et redoutée de son hôpital. Louise mourut d'un cancer dû aux rayons X. Yourcenar la visita en 1954.",entries:["« La Dolly d'Anna Karénine, sa contemporaine »"]},
@@ -6233,7 +6632,7 @@ const PEOPLE = [
   {id:"bourget",name:"Paul Bourget",dates:"1852–1935",dynasty:"cultural",role:"Romancier · Critique",bio:"Romancier psychologique, chef de file du roman d'analyse. <em>Cruelle Énigme</em> (1885), <em>Le Disciple</em> (1889). Académie française 1894.",entries:["« Thaïs, Madame Chrysanthème et Cruelle Énigme »"]},
   {id:"la_bruyere",name:"Jean de La Bruyère",dates:"1645–1696",dynasty:"cultural",role:"Moraliste · Paris, Versailles",bio:"Auteur des <em>Caractères</em> (1688), galerie de portraits moraux de la société française. Le personnage de Ménalque, le distrait, est calqué sur le comte de Brancas. Son passage sur les paysans est l'un des textes les plus célèbres sur la misère rurale.",entries:["Le duc de Brancas et Maria Walewska","La Bruyère et Fénelon — les misères de la guerre"]},
   {id:"walewska",name:"Maria Walewska",dates:"1786–1817",dynasty:"cultural",role:"Comtesse polonaise · Maîtresse de Napoléon",entries:["Le duc de Brancas et Maria Walewska"]},
-  {id:"musset",name:"Alfred de Musset",dates:"1810–1857",dynasty:"cultural",role:"Poète · Dramaturge",bio:"Poète romantique. Auteur des <em>Nuits</em>, de <em>Lorenzaccio</em> (1834), des <em>Premières Poésies</em>. Le poème <em>Lucie</em> (1835) contient le célèbre vers sur la musique : « Fille de la douleur, harmonie ! harmonie ! »",entries:["« Harmonie, harmonie, langue que pour l'amour inventa le génie… »","Luther à Rome et le <em>Lorenzaccio</em> de Musset"]},
+  {id:"musset",name:"Alfred de Musset",dates:"1810–1857",dynasty:"cultural",role:"Poète · Dramaturge",bio:"Poète romantique. Auteur des <em>Nuits</em>, de <em>Lorenzaccio</em> (1834), des <em>Premières Poésies</em>. Le poème <em>Lucie</em> (1835) contient le célèbre vers sur la musique : « Fille de la douleur, harmonie ! harmonie ! »",entries:["« Harmonie, harmonie, langue que pour l'amour inventa le génie… »","Luther à Rome et le <em>Lorenzaccio</em> de Musset","« La pâle Adriatique » de Musset"]},
   {id:"widor",name:"Charles-Marie Widor",dates:"1844–1937",dynasty:"cultural",role:"Organiste · Compositeur",bio:"Organiste de Saint-Sulpice à Paris pendant 64 ans (1870–1934). Successeur de César Franck au Conservatoire. Inventeur de la symphonie pour orgue (dix au total). Parmi ses élèves : Vierne, Dupré, Tournemire, Schweitzer, Milhaud, Honegger, Varèse.",entries:["« Un des bons élèves de Widor »"]},
   {id:"donatello",name:"Donatello",dates:"~1386–1466",dynasty:"cultural",role:"Sculpteur · Florence",bio:"Donato di Niccolò di Betto Bardi. Figure majeure du premier Quattrocento florentin. Sculpteur du <em>David</em> en bronze, du <em>Gattamelata</em> de Padoue, des bas-reliefs de San Lorenzo.",entries:["Donatello"]},
   {id:"raphael",name:"Raphaël",dates:"1483–1520",dynasty:"cultural",role:"Peintre · Architecte",bio:"Raffaello Sanzio da Urbino. La <em>Madonna Sixtina</em> (1512–1513), conservée à la Gemäldegalerie Alte Meister de Dresde depuis 1754, est l'une des peintures les plus célèbres au monde.",entries:["La Madone de Dresde et la Glyptothèque de Munich"]},
@@ -6314,7 +6713,7 @@ const PEOPLE = [
   {id:"charlotte_corday",name:"Charlotte Corday",dates:"1768–1793",dynasty:"revolution",role:"Aristocrate, tyrannicide · Caen, Paris",bio:"Marie-Anne Charlotte de Corday d'Armont. Aristocrate normande, descendante de Corneille, sympathisante des Girondins modérés. Assassina le député Marat dans son bain le 13 juillet 1793. Guillotinée quatre jours plus tard. Surnommée par Lamartine « l'ange de l'assassinat ».",entries:["La veuve Capet et Charlotte Corday"]},
   {id:"charles_x",name:"Charles X",dates:"1757–1836",dynasty:"bourbon",role:"Roi · France, Navarre",bio:"Frère cadet de Louis XVI et Louis XVIII. Roi de France 1824–1830. Chassé par les Trois Glorieuses (juillet 1830) après ses ordonnances de Saint-Cloud qui restreignaient la liberté de la presse. Meurt en exil à Goritz (Autriche).",entries:["Frohsdorf, Henri V et le légitimisme","Huit régimes en cinquante ans","Béranger et Désaugiers, chansonniers de la France","De la chute des Bourbons de Naples à l'unification italienne"]},
   {id:"henri_v_chambord",name:"Henri V, comte de Chambord",dates:"1820–1883",dynasty:"bourbon",role:"Prétendant légitimiste · France",bio:"Fils posthume du duc de Berry, petit-fils de Charles X. Exilé en 1830, vit à Frohsdorf en Autriche à partir de 1844. Reconnu comme « Henri V » par les légitimistes. En 1873, son refus d'abandonner le drapeau blanc fait échouer la restauration monarchique et ouvre la voie à la Troisième République.",entries:["Frohsdorf, Henri V et le légitimisme"]},
-  {id:"louis_philippe",name:"Louis-Philippe Iᵉʳ",dates:"1773–1850",dynasty:"bourbon",role:"Roi · Français (Maison d'Orléans)",bio:"Roi des Français 1830–1848, dit le « Roi-Citoyen ». Issu de la branche cadette d'Orléans, porté au trône par les Trois Glorieuses (juillet 1830). Sa monarchie constitutionnelle et bourgeoise, attachée au drapeau tricolore, s'effondre lors de la révolution de février 1848 ; il meurt en exil en Angleterre.",entries:["Frohsdorf, Henri V et le légitimisme","Huit régimes en cinquante ans"]},
+  {id:"louis_philippe",name:"Louis-Philippe Iᵉʳ",dates:"1773–1850",dynasty:"bourbon",role:"Roi · Français (Maison d'Orléans)",bio:"Roi des Français 1830–1848, dit le « Roi-Citoyen ». Issu de la branche cadette d'Orléans, porté au trône par les Trois Glorieuses (juillet 1830). Sa monarchie constitutionnelle et bourgeoise, attachée au drapeau tricolore, s'effondre lors de la révolution de février 1848 ; il meurt en exil en Angleterre.",entries:["Frohsdorf, Henri V et le légitimisme","Huit régimes en cinquante ans","La révolution de février 1848 à Lille","Le tricolore du Roi-Citoyen"]},
   {id:"dumas_pere",name:"Alexandre Dumas père",dates:"1802–1870",dynasty:"cultural",role:"Romancier, dramaturge · Paris",bio:"Romancier et dramaturge romantique. Auteur des Trois Mousquetaires (1844) et du Comte de Monte-Cristo (1844–1846). Petit-fils par sa grand-mère paternelle d'une esclave de Saint-Domingue. Pilier du romantisme français, il écrit aussi des poèmes mis en musique pour le répertoire des salons.",entries:["<em>L'Ange</em> d'Alexandre Dumas"]},
   {id:"bernin",name:"Gian Lorenzo Bernini, dit le Bernin",dates:"1598–1680",dynasty:"cultural",role:"Sculpteur, architecte · Rome",bio:"Sculpteur et architecte italien, figure dominante du baroque romain. Auteur de la colonnade de la place Saint-Pierre (1656–1667), du baldaquin de Saint-Pierre, de l'<em>Extase de sainte Thérèse</em>, et de nombreuses fontaines romaines.",entries:["La Rome de Michel-Charles : Saint-Pierre, le Capitole et le Vittoriano à venir","L'Hermaphrodite endormi et la Vénus de Médicis"]},
   {id:"michel_ange",name:"Michel-Ange",dates:"1475–1564",dynasty:"cultural",role:"Sculpteur, peintre, architecte · Florence, Rome",bio:"Michelangelo Buonarroti, figure centrale de la Haute Renaissance. Sculpteur du <em>David</em> (1504) et de la <em>Pietà</em> du Vatican (1499) ; peintre de la voûte de la Sixtine (1508–1512) et du <em>Jugement dernier</em> (1536–1541) ; architecte du dôme de Saint-Pierre, de la place du Capitole et de la Sagrestia Nuova de San Lorenzo.",entries:["La Rome de Michel-Charles : Saint-Pierre, le Capitole et le Vittoriano à venir","Le tombeau des Médicis à Florence","Apollon, Laocoon, Vénus de Milo : le canon antique et ses marges","Le palais Farnèse"]},
@@ -6322,9 +6721,9 @@ const PEOPLE = [
   {id:"holderlin",name:"Friedrich Hölderlin",dates:"1770–1843",dynasty:"cultural",role:"Poète · Allemagne",bio:"Poète allemand, auteur du roman <em>Hypérion</em> (1797–1799) et de poèmes consacrés à une Grèce divine et perdue. Sombre dans la folie en 1806 ; passe les trente-sept dernières années de sa vie dans une tour à Tübingen.",entries:["La redécouverte romantique de la Grèce préclassique"]},
   {id:"nerval",name:"Gérard de Nerval",dates:"1808–1855",dynasty:"cultural",role:"Poète, écrivain · Paris",bio:"Poète et écrivain romantique français, traducteur du <em>Faust</em> de Goethe. Auteur des <em>Chimères</em>, sonnets ésotériques, et d'<em>Aurélia</em>, récit hallucinatoire publié peu avant son suicide.",entries:["La redécouverte romantique de la Grèce préclassique"]},
   {id:"guerin",name:"Maurice de Guérin",dates:"1810–1839",dynasty:"cultural",role:"Poète · France",bio:"Poète français mort de la tuberculose à 28 ans. Auteur en 1835 du <em>Centaure</em>, poème en prose où la créature mi-homme mi-cheval raconte sa naissance dans une grotte — l'un des textes fondateurs du genre du poème en prose en français.",entries:["La redécouverte romantique de la Grèce préclassique"]},
-  {id:"bossuet",name:"Jacques-Bénigne Bossuet",dates:"1627–1704",dynasty:"religious",role:"Évêque, théologien · Meaux",bio:"Évêque de Meaux et précepteur du Grand Dauphin, fils de Louis XIV. Auteur du <em>Discours sur l'histoire universelle</em> (1681), conçu comme un manuel d'éducation princière. Surnommé « l'Aigle de Meaux » pour ses oraisons funèbres. Défenseur du gallicanisme contre la papauté.",entries:["Bossuet et l'<em>Histoire universelle</em>"]},
+  {id:"bossuet",name:"Jacques-Bénigne Bossuet",dates:"1627–1704",dynasty:"religious",role:"Évêque, théologien · Meaux",bio:"Évêque de Meaux et précepteur du Grand Dauphin, fils de Louis XIV. Auteur du <em>Discours sur l'histoire universelle</em> (1681), conçu comme un manuel d'éducation princière. Surnommé « l'Aigle de Meaux » pour ses oraisons funèbres. Défenseur du gallicanisme contre la papauté.",entries:["Bossuet et l'<em>Histoire universelle</em>","Le buste de Bossuet et l'éloquence sacrée","Le milieu intellectuel : Darwin, Renan, Taine"]},
   {id:"antinous",name:"Antinoüs",dates:"vers 110–130",dynasty:"other_royal",role:"Favori d'Hadrien · Bithynie, Rome",bio:"Jeune Bithynien aimé de l'empereur Hadrien. Mort noyé dans le Nil en 130 dans des circonstances obscures. Hadrien le fait diviniser, fonde la ville d'Antinoöpolis sur le lieu de sa mort, et fait sculpter son image dans tout l'Empire — l'un des derniers grands types iconographiques de l'Antiquité païenne.",entries:["Bossuet et l'<em>Histoire universelle</em>","L'Antinoüs Albani, le cardinal Albani et la mort de Winckelmann"]},
-  {id:"catulle",name:"Catulle",dates:"vers 87–54 av. J.-C.",dynasty:"cultural",role:"Poète · Vérone, Rome",bio:"Poète latin né à Vérone. Auteur de cent seize <em>Carmina</em> mêlant invectives, tendresse et érotisme cru. Sa muse principale, qu'il appelle Lesbie, est la noble Clodia.",entries:["Catulle et Suétone : la Rome érotique"]},
+  {id:"catulle",name:"Catulle",dates:"vers 87–54 av. J.-C.",dynasty:"cultural",role:"Poète · Vérone, Rome",bio:"Poète latin né à Vérone. Auteur de cent seize <em>Carmina</em> mêlant invectives, tendresse et érotisme cru. Sa muse principale, qu'il appelle Lesbie, est la noble Clodia.",entries:["Catulle et Suétone : la Rome érotique","Le passereau de Lesbie et le chien d'Ulysse"]},
   {id:"suetone",name:"Suétone",dates:"vers 70–140",dynasty:"cultural",role:"Biographe, secrétaire d'Hadrien · Rome",bio:"Caius Suetonius Tranquillus, biographe et fonctionnaire impérial. Secrétaire <em>ab epistulis</em> d'Hadrien, dont il sera congédié. Auteur des <em>Vies des douze Césars</em> (vers 119–122), biographies des empereurs de César à Domitien, source principale de l'imaginaire de la décadence romaine.",entries:["Catulle et Suétone : la Rome érotique"]},
   {id:"winckelmann",name:"Johann Joachim Winckelmann",dates:"1717–1768",dynasty:"cultural",role:"Historien de l'art · Allemagne, Rome",bio:"Fondateur de l'histoire de l'art. Bibliothécaire du cardinal Albani à Rome. Auteur de l'<em>Histoire de l'art chez les Anciens</em> (1764), qui fonde le canon néoclassique européen en faisant de l'Apollon du Belvédère « le plus haut idéal de l'art ». Assassiné à Trieste en juin 1768 par Francesco Arcangeli.",entries:["Apollon, Laocoon, Vénus de Milo : le canon antique et ses marges","L'Antinoüs Albani, le cardinal Albani et la mort de Winckelmann"]},
   {id:"albani",name:"Alessandro Albani",dates:"1692–1779",dynasty:"religious",role:"Cardinal, collectionneur · Rome",bio:"Neveu du pape Clément XI. Cardinal, antiquaire et collectionneur de sculpture antique. Fait construire sur la Via Salaria entre 1747 et 1763 la villa Albani pour abriter sa collection. Son bibliothécaire et conservateur est Winckelmann.",entries:["L'Antinoüs Albani, le cardinal Albani et la mort de Winckelmann"]},
@@ -6336,7 +6735,14 @@ const PEOPLE = [
   {id:"mussolini",name:"Benito Mussolini",dates:"1883–1945",dynasty:"other_royal",role:"Duce · Italie fasciste",bio:"Né à Predappio (Romagne). Ancien socialiste devenu nationaliste pendant la Première Guerre mondiale. Fonde les <em>Fasci di combattimento</em> en 1919, puis le Parti national fasciste en 1921. Nommé président du Conseil par Victor-Emmanuel III après la Marche sur Rome (28–30 octobre 1922). Dictateur à partir de 1925. Renversé en juillet 1943, installé par les Allemands à la tête de la République sociale italienne de Salò, fusillé par des partisans le 28 avril 1945 et pendu par les pieds Piazzale Loreto à Milan.",entries:["La Meta Sudans","La Marche sur Rome","La chute du fascisme : Vérone, les Fosses Ardéatines, le Piazzale Loreto"]},
   {id:"ciano",name:"Galeazzo Ciano",dates:"1903–1944",dynasty:"other_royal",role:"Ministre, gendre de Mussolini · Italie",bio:"Comte de Cortellazzo et de Buccari. Époux d'Edda Mussolini, fille aînée du Duce. Ministre des Affaires étrangères 1936–1943, longtemps considéré comme l'héritier politique de Mussolini. Vote en faveur de l'ordre du jour Grandi au Grand Conseil du 24–25 juillet 1943. Jugé pour trahison au procès de Vérone et fusillé le 11 janvier 1944, attaché à une chaise et tiré dans le dos.",entries:["La chute du fascisme : Vérone, les Fosses Ardéatines, le Piazzale Loreto"]},
   {id:"claretta_petacci",name:"Clara « Claretta » Petacci",dates:"1912–1945",dynasty:"other_royal",role:"Maîtresse de Mussolini · Italie",bio:"Fille d'un médecin du palais apostolique. Maîtresse de Mussolini à partir de 1936. Refuse de quitter le Duce en avril 1945 et l'accompagne dans sa fuite vers la frontière suisse. Arrêtée avec lui le 27 avril près de Dongo sur le lac de Côme, fusillée le lendemain à Giulino di Mezzegra. Sa dépouille est pendue par les pieds avec celle de Mussolini Piazzale Loreto à Milan.",entries:["La chute du fascisme : Vérone, les Fosses Ardéatines, le Piazzale Loreto"]},
-  {id:"dumont_urville",name:"Jules Dumont d'Urville",dates:"1790–1842",dynasty:"cultural",role:"Officier de marine, explorateur · France",bio:"Enseigne de vaisseau en 1820 lors de la découverte de la Vénus de Milo sur l'île de Milos ; il alerte l'ambassade de France à Constantinople, qui rachète la statue. Devenu amiral, il explore l'Océanie et l'Antarctique. Mort dans le déraillement de Versailles en mai 1842 avec sa femme et son fils.",entries:["Apollon, Laocoon, Vénus de Milo : le canon antique et ses marges"]}
+  {id:"dumont_urville",name:"Jules Dumont d'Urville",dates:"1790–1842",dynasty:"cultural",role:"Officier de marine, explorateur · France",bio:"Enseigne de vaisseau en 1820 lors de la découverte de la Vénus de Milo sur l'île de Milos ; il alerte l'ambassade de France à Constantinople, qui rachète la statue. Devenu amiral, il explore l'Océanie et l'Antarctique. Mort dans le déraillement de Versailles en mai 1842 avec sa femme et son fils.",entries:["Apollon, Laocoon, Vénus de Milo : le canon antique et ses marges"]},
+  {id:"tibere",name:"Tibère",dates:"42 av. J.-C.–37 apr. J.-C.",dynasty:"other_royal",role:"Empereur · Rome",bio:"Tiberius Claudius Nero. Beau-fils et successeur d'Auguste, empereur 14–37 apr. J.-C. Général efficace dans les guerres germaniques avant son accession, son règne fut marqué par la concentration du pouvoir, la multiplication des procès de <em>lèse-majesté</em> et le retrait progressif de l'empereur à Capri à partir de 26. La tradition antique, hostile (Tacite, Suétone), en a fait l'archétype du tyran soupçonneux et débauché.",entries:["Le buste de Tibère et la Niobide — poignées de porte"]},
+  {id:"luini",name:"Bernardino Luini",dates:"v. 1480–1532",dynasty:"cultural",role:"Peintre · Lombardie",bio:"Né à Dumenza, près du lac Majeur. Suiveur de Léonard de Vinci à Milan, principal interprète lombard du <em>sfumato</em> léonardesque. Auteur de vastes cycles de fresques à Saronno, Lugano (Santa Maria degli Angeli), Saint-Maurice-Majeur de Milan. Sa <em>Pudeur et Vanité</em>, dérivée d'un original perdu de Léonard, a été copiée à l'infini par son atelier. Sa popularité atteint son apogée chez les voyageurs romantiques du XIX<sup>e</sup> siècle.",entries:["Bernardino Luini, élève de Léonard"]},
+  {id:"canova",name:"Antonio Canova",dates:"1757–1822",dynasty:"cultural",role:"Sculpteur néoclassique · Venise, Rome",bio:"Né à Possagno (Vénétie), fixé à Rome à partir de 1781. Sculpteur dominant du néoclassicisme européen, auteur de <em>Psyché ranimée par le baiser de l'Amour</em> (1793, Louvre), de la <em>Pauline Borghese en Vénus victorieuse</em> (1808) et des monuments funéraires de Clément XIII et Clément XIV à Saint-Pierre de Rome. Recruté par Napoléon pour des portraits monumentaux, il négocia après 1815 le retour à Rome des œuvres pillées par les armées françaises.",entries:["Camées, mosaïques romaines : la mode néoclassique"]},
+  {id:"thorvaldsen",name:"Bertel Thorvaldsen",dates:"1770–1844",dynasty:"cultural",role:"Sculpteur néoclassique · Copenhague, Rome",bio:"Sculpteur danois, élève de l'Académie de Copenhague, arrivé à Rome en 1797. Rival et continuateur de Canova, il y dirige pendant quarante ans un vaste atelier formant des élèves de toute l'Europe. Auteur du <em>Lion de Lucerne</em> (1820–1821) en mémoire des gardes suisses tombés aux Tuileries, du tombeau de Pie VII à Saint-Pierre, et d'un imposant cycle religieux pour la cathédrale de Copenhague. Le Thorvaldsens Museum, fondé de son vivant à Copenhague, conserve la quasi-totalité de ses modèles.",entries:["Camées, mosaïques romaines : la mode néoclassique"]},
+  {id:"tibulle",name:"Albius Tibullus",dates:"v. 55–19 av. J.-C.",dynasty:"cultural",role:"Poète élégiaque · Rome",bio:"Élégiaque latin contemporain d'Horace et de Properce, membre du cercle littéraire de Messalla Corvinus. Ses deux livres d'<em>Élégies</em>, écrits dans un latin d'une douceur célèbre, chantent l'amour rustique, la paix des campagnes et la nostalgie d'un âge d'or. Quintilien le place au premier rang des élégiaques romains. Sa poésie a influencé toute la tradition élégiaque européenne.",entries:["Le panthéon poétique d'un jeune voyageur de 1830"]},
+  {id:"klopstock",name:"Friedrich Gottlieb Klopstock",dates:"1724–1803",dynasty:"cultural",role:"Poète · Allemagne",bio:"Né à Quedlinburg. Auteur du <em>Messias</em> (1748–1773), épopée chrétienne en hexamètres non rimés inspirée du <em>Paradis perdu</em> de Milton, première grande œuvre épique allemande depuis le Moyen Âge. Ses odes, profanes ou religieuses, libèrent la poésie allemande des modèles français rationalistes et préparent le <em>Sturm und Drang</em>. Mahler met en musique l'ode <em>Die Auferstehung</em> dans le finale de sa Deuxième Symphonie.",entries:["Le panthéon poétique d'un jeune voyageur de 1830"]},
+  {id:"hegesippe_moreau",name:"Hégésippe Moreau",dates:"1810–1838",dynasty:"cultural",role:"Poète romantique · Paris, Provins",bio:"Pierre-Jacques Roulliot dit Hégésippe Moreau. Élevé à Provins, correcteur d'imprimerie, participant aux journées de juillet 1830. Vit en bohème à Paris, dans la misère. Son recueil <em>Le Myosotis</em> paraît l'année de sa mort à 28 ans, à l'hospice de la Charité, de tuberculose. L'image romantique du poète maudit mort jeune en fait, aux yeux du XIX<sup>e</sup> siècle, un Chatterton français. Sainte-Beuve préface l'édition de ses œuvres en 1860.",entries:["Le panthéon poétique d'un jeune voyageur de 1830"]}
 ];
 
 const PEOPLE_MAP = Object.fromEntries(PEOPLE.map(p => [p.id, p]));
