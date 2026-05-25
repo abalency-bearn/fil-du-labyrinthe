@@ -2121,12 +2121,12 @@
   <style>
     .box-cray { fill: #f0f4f8; stroke: #4a7fad; stroke-width: 0.7; rx: 2; }
     .n-cray { font-weight: 600; font-size: 6px; fill: #2b5f8a; }
-    .box-dufresne { fill: #fbf0e6; stroke: #c17f3e; stroke-width: 0.7; rx: 2; }
-    .n-dufresne { font-weight: 600; font-size: 6px; fill: #8a5520; }
-    .box-bieswal { fill: #eef5f5; stroke: #4a9b9b; stroke-width: 0.7; rx: 2; }
-    .n-bieswal { font-weight: 600; font-size: 6px; fill: #2f6b6b; }
-    .box-louys { fill: #f1f0f6; stroke: #7a6aa0; stroke-width: 0.7; rx: 2; }
-    .n-louys { font-weight: 600; font-size: 6px; fill: #50447a; }
+    .box-dufresne { fill: #f7efe8; stroke: #a96a3c; stroke-width: 0.7; rx: 2; }
+    .n-dufresne { font-weight: 600; font-size: 6px; fill: #7a4a22; }
+    .box-bieswal { fill: #f4f5e6; stroke: #97a03c; stroke-width: 0.7; rx: 2; }
+    .n-bieswal { font-weight: 600; font-size: 6px; fill: #5f6620; }
+    .box-louys { fill: #f9eef3; stroke: #bd6a8f; stroke-width: 0.7; rx: 2; }
+    .n-louys { font-weight: 600; font-size: 6px; fill: #8f3f64; }
     .box-drion { fill: #fdf6e3; stroke: #b8860b; stroke-width: 0.7; rx: 2; }
     .n-drion { font-weight: 600; font-size: 6px; fill: #8b6508; }
     .box-cdm { fill: #faf0f0; stroke: #b85450; stroke-width: 0.7; rx: 2; }
@@ -2142,9 +2142,9 @@
     .d { font-size: 5px; fill: #888888; }
     .title { font-size: 10px; font-weight: 600; fill: #1a1a1a; letter-spacing: 0.02em; text-transform: uppercase; }
     .l-cray { stroke: #4a7fad; stroke-width: 1.4; fill: none; opacity: 0.5; }
-    .l-dufresne { stroke: #c17f3e; stroke-width: 1.4; fill: none; opacity: 0.5; }
-    .l-bieswal { stroke: #4a9b9b; stroke-width: 1.4; fill: none; opacity: 0.5; }
-    .l-louys { stroke: #7a6aa0; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-dufresne { stroke: #a96a3c; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-bieswal { stroke: #97a03c; stroke-width: 1.4; fill: none; opacity: 0.5; }
+    .l-louys { stroke: #bd6a8f; stroke-width: 1.4; fill: none; opacity: 0.5; }
     .l-drion { stroke: #b8860b; stroke-width: 1.4; fill: none; opacity: 0.5; }
     .l-cdm { stroke: #b85450; stroke-width: 1.4; fill: none; opacity: 0.5; }
     .l-troye { stroke: #6a9b73; stroke-width: 1.4; fill: none; opacity: 0.5; }
@@ -2307,15 +2307,33 @@
   <!-- ══════ COL D (x=420) — Michel's generation ══════ -->
   <!-- Sibling-bar collects Michel-Charles's 3 children (c:225,255,285) -->
   <line x1="409" y1="225" x2="409" y2="285" class="l-cray"/>
+  <!-- Marie (top slot, c=225) × Paul de Sacy (above), children Ernest + Jeanne -->
   <line x1="409" y1="225" x2="420" y2="225" class="l-cray"/>
-  <rect x="420" y="214" width="110" height="22" class="box-cray"/>
-  <text x="475" y="223" text-anchor="middle" class="n-cray">Gabrielle</text>
-  <text x="475" y="231" text-anchor="middle" class="d">1852–1866 · † 14 ans</text>
-  <!-- Marie -->
+  <!-- Paul de Sacy (married in) above, with clear band below for the children -->
+  <rect x="420" y="130" width="110" height="18" class="box-other"/>
+  <text x="475" y="142" text-anchor="middle" class="n-other">Paul de Sacy</text>
+  <rect x="420" y="216" width="110" height="18" class="box-cray"/>
+  <text x="475" y="225" text-anchor="middle" class="n-cray">Marie</text>
+  <text x="475" y="232" text-anchor="middle" class="d">1868–1902</text>
+  <!-- Paul × Marie marriage line (dashed), midpoint feeds children rightward -->
+  <line x1="475" y1="148" x2="475" y2="216" class="l-cray dash"/>
+  <line x1="475" y1="182" x2="513" y2="182" class="l-cray"/>
+  <!-- children sibling-bar at x=513 (Ernest c=167, Jeanne c=197, mid=182) -->
+  <line x1="513" y1="167" x2="513" y2="197" class="l-cray"/>
+  <line x1="513" y1="167" x2="520" y2="167" class="l-cray"/>
+  <line x1="513" y1="197" x2="520" y2="197" class="l-cray"/>
+  <!-- Ernest + Jeanne — same column (x=520) and size (70×18) as Michel-Joseph -->
+  <rect x="520" y="158" width="70" height="18" class="box-cray"/>
+  <text x="555" y="167" text-anchor="middle" class="n-cray">Ernest</text>
+  <text x="555" y="174" text-anchor="middle" class="d">de Sacy</text>
+  <rect x="520" y="188" width="70" height="18" class="box-cray"/>
+  <text x="555" y="197" text-anchor="middle" class="n-cray">Jeanne</text>
+  <text x="555" y="204" text-anchor="middle" class="d">de Sacy</text>
+  <!-- Gabrielle (middle slot, c=255) -->
   <line x1="409" y1="255" x2="420" y2="255" class="l-cray"/>
-  <rect x="420" y="246" width="110" height="18" class="box-cray"/>
-  <text x="475" y="255" text-anchor="middle" class="n-cray">Marie</text>
-  <text x="475" y="262" text-anchor="middle" class="d">1868–1902</text>
+  <rect x="420" y="244" width="110" height="22" class="box-cray"/>
+  <text x="475" y="253" text-anchor="middle" class="n-cray">Gabrielle</text>
+  <text x="475" y="261" text-anchor="middle" class="d">1852–1866 · † 14 ans</text>
   <!-- Michel the father (FROZEN c=285) — bold, continues to Marguerite -->
   <line x1="409" y1="285" x2="420" y2="285" class="l-cray"/>
   <rect x="420" y="275" width="110" height="20" class="box-cray" style="stroke-width:1.4;"/>
@@ -2572,27 +2590,36 @@
   <!-- ══════ LEGEND ══════ -->
   <line x1="30" y1="520" x2="1230" y2="520" stroke="#e8e8e8" stroke-width="0.4"/>
 
-  <text x="50" y="538" class="n-other" style="font-style:italic;font-size:6px;">Famille paternelle</text>
-  <rect x="145" y="530" width="10" height="10" class="box-cray"/>
-  <text x="161" y="539" class="n-cray">Crayencour</text>
+  <!-- Paternal row (all four paternal families) -->
+  <text x="50" y="539" class="n-other" style="font-style:italic;font-size:6px;">Famille paternelle</text>
+  <rect x="150" y="531" width="10" height="10" class="box-cray"/>
+  <text x="166" y="540" class="n-cray">Crayencour</text>
+  <rect x="270" y="531" width="10" height="10" class="box-bieswal"/>
+  <text x="286" y="540" class="n-bieswal">Bieswal de Briarde</text>
+  <rect x="425" y="531" width="10" height="10" class="box-dufresne"/>
+  <text x="441" y="540" class="n-dufresne">Dufresne</text>
+  <rect x="530" y="531" width="10" height="10" class="box-louys"/>
+  <text x="546" y="540" class="n-louys">Louys de la Grange</text>
 
-  <text x="50" y="556" class="n-other" style="font-style:italic;font-size:6px;">Famille maternelle</text>
-  <rect x="145" y="548" width="10" height="10" class="box-cdm"/>
-  <text x="161" y="557" class="n-cdm">Cartier de Marchienne</text>
-  <rect x="270" y="548" width="10" height="10" class="box-drion"/>
-  <text x="286" y="557" class="n-drion">Drion</text>
-  <rect x="320" y="548" width="10" height="10" class="box-troye"/>
-  <text x="336" y="557" class="n-troye">Troye</text>
-  <rect x="375" y="548" width="10" height="10" class="box-pirmez"/>
-  <text x="391" y="557" class="n-pirmez">Pirmez</text>
+  <!-- Maternal row (all four maternal families) -->
+  <text x="50" y="557" class="n-other" style="font-style:italic;font-size:6px;">Famille maternelle</text>
+  <rect x="150" y="549" width="10" height="10" class="box-cdm"/>
+  <text x="166" y="558" class="n-cdm">Cartier de Marchienne</text>
+  <rect x="270" y="549" width="10" height="10" class="box-troye"/>
+  <text x="286" y="558" class="n-troye">Troye</text>
+  <rect x="425" y="549" width="10" height="10" class="box-drion"/>
+  <text x="441" y="558" class="n-drion">Drion</text>
+  <rect x="530" y="549" width="10" height="10" class="box-pirmez"/>
+  <text x="546" y="558" class="n-pirmez">Pirmez</text>
 
-  <rect x="445" y="530" width="10" height="28" class="box-other"/>
-  <text x="461" y="548" class="n-other">Autres</text>
+  <!-- Autres + line-style key -->
+  <rect x="690" y="531" width="10" height="28" class="box-other"/>
+  <text x="706" y="549" class="n-other">Autres</text>
 
-  <line x1="520" y1="537" x2="550" y2="537" class="l-other"/>
-  <text x="557" y="541" class="n-other">filiation</text>
-  <line x1="520" y1="555" x2="550" y2="555" class="l-other dash"/>
-  <text x="557" y="559" class="n-other">mariage</text>
+  <line x1="800" y1="538" x2="830" y2="538" class="l-other"/>
+  <text x="837" y="542" class="n-other">filiation</text>
+  <line x1="800" y1="556" x2="830" y2="556" class="l-other dash"/>
+  <text x="837" y="560" class="n-other">mariage</text>
 </svg>
 
     </div>
@@ -5089,6 +5116,78 @@ const events = [
     book: 2,
     chapter: "Rue Marais",
     textOrder: 321
+  },
+  {
+    year: 1852,
+    month: "1852–1870",
+    title: "Le Second Empire, « beau songe »",
+    description: `<strong>France, 1852–1870.</strong> Le régime de <span class="person-link" data-pid="napoleon_iii">Napoléon III</span> a transformé le pays : réseau ferroviaire national, percement des grands boulevards de Paris, banques d'investissement, expansion industrielle, stations thermales et balnéaires en plein essor. Les bals et dîners hebdomadaires que Michel-Charles évoque faisaient partie de cette vie officielle : organisés par les préfets, « empereurs au petit pied » dans leur département, ils réunissaient hauts fonctionnaires, officiers et notables fidèles au régime. Cette prospérité visible reposait pourtant sur un pouvoir autoritaire né du coup d'État de 1851 — presse muselée, opposition réduite au silence, suffrage universel contenu par le découpage des circonscriptions —, et la fortune se concentrait alors plus qu'à aucun autre moment du siècle ; derrière l'abondance affichée subsistaient le chômage ouvrier et une misère que la fête impériale masquait.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 322
+  },
+  {
+    year: 1871,
+    month: "1871–1880",
+    title: "Préfet du Nord, puis fonctionnaire limogé",
+    description: `<strong>Lille, 1871–1880.</strong> À la chute de l'Empire, un arrêté du président du Conseil daté du 12 mars 1871 nomma Michel-Charles préfet du Nord, fonction qu'il exerça quelques semaines avant d'être remplacé. La nomination, puis la révocation, étaient publiées au <em>Journal Officiel</em>, organe où paraissaient les actes officiels de l'État. Son successeur à la préfecture du Nord fut <span class="person-link" data-pid="paul_cambon">Paul Cambon</span>, qui tenta plus tard d'adoucir sa mise à l'écart en lui offrant une présidence honoraire — que Michel-Charles refusa. Cambon devint l'un des grands diplomates de la Troisième République : ambassadeur à Londres de 1898 à 1920, il fut l'un des artisans de l'Entente cordiale de 1904.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 323
+  },
+  {
+    year: 1870,
+    month: "1870–1871",
+    title: "« Vous n'aurez pas l'Alsace et la Lorraine »",
+    description: `<strong>France, 1870–1871.</strong> La guerre contre la Prusse, déclarée en juillet 1870, tourna vite au désastre : l'armée française fut écrasée à Sedan début septembre, <span class="person-link" data-pid="napoleon_iii">Napoléon III</span> fut fait prisonnier, et l'Empire tomba. Le traité de Francfort, en mai 1871, donna à l'Allemagne l'Alsace et une partie de la Lorraine. La chanson <em>Vous n'aurez pas l'Alsace et la Lorraine</em> naquit après cette perte : c'était un chant de revanche, qui promettait le retour des provinces annexées — ce qui explique l'ironie de Michel-Charles, ces provinces étant alors déjà allemandes.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 324
+  },
+  {
+    year: 1871,
+    month: "mars–mai 1871",
+    title: "La Commune et la « semaine sanglante »",
+    description: `<strong>Paris, mars–mai 1871.</strong> Après la défaite, Paris insurgé se donna un gouvernement révolutionnaire, la Commune, du 18 mars au 28 mai 1871. Le gouvernement réfugié à Versailles la réprima dans le sang : lors de la « semaine sanglante » de mai, l'armée versaillaise exécuta des milliers d'insurgés et en déporta des milliers d'autres. Les prisonniers communards furent conduits à Versailles, où des badauds vinrent les voir passer. <span class="person-link" data-pid="victor_hugo">Victor Hugo</span>, alors en exil puis de retour, prit la défense des vaincus ; « le vieux de Guernesey » désigne l'écrivain, qui avait passé les années de l'Empire dans cette île anglo-normande et y avait écrit contre Napoléon III.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 325
+  },
+  {
+    year: 1875,
+    month: "",
+    title: "Badinguet, Leroux, Proudhon : les papiers cachés du cousin Henri",
+    description: `<strong>Lille, vers 1875.</strong> Les vieux pamphlets et cahiers retrouvés à la mort d'un cousin renvoient aux oppositions politiques du XIX<sup>e</sup> siècle. « Badinguet » était le sobriquet moqueur de <span class="person-link" data-pid="napoleon_iii">Napoléon III</span>, du nom de l'ouvrier dont il aurait emprunté les habits pour s'évader du fort de Ham en 1846 ; les républicains l'employaient pour railler l'empereur. <span class="person-link" data-pid="pierre_leroux">Pierre Leroux</span> (1797–1871) et <span class="person-link" data-pid="proudhon">Pierre-Joseph Proudhon</span> (1809–1865) étaient deux théoriciens du socialisme français : le premier passe pour avoir popularisé le mot « socialisme », le second, auteur de la formule « la propriété, c'est le vol », fut l'un des pères de l'anarchisme.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 326
+  },
+  {
+    year: 1760,
+    month: "XVIIIᵉ siècle",
+    title: "« La Religieuse » de Diderot",
+    description: `<strong>France, XVIII<sup>e</sup> siècle.</strong> <em>La Religieuse</em>, roman de <span class="person-link" data-pid="diderot">Denis Diderot</span> écrit vers 1760 et publié seulement en 1796, raconte l'histoire d'une jeune femme cloîtrée contre sa volonté et persécutée au couvent. Le livre vise les vœux forcés et l'enfermement des religieuses sans vocation, thème de débat sous les Lumières.`,
+    book: 2,
+    chapter: "Rue Marais",
+    textOrder: 327
+  },
+  {
+    year: -500,
+    month: "Grèce antique",
+    title: "Ananké",
+    description: `<strong>Grèce antique.</strong> Ananké (Ἀνάγκη) est le mot grec qui désigne la nécessité, la contrainte, l'inéluctable. Dans la mythologie, c'est une divinité primordiale personnifiant la force à laquelle nul, pas même les dieux, n'échappe ; mère des Moires (les Parques) selon Platon, elle préside au destin. Le mot doit sa célébrité littéraire à <span class="person-link" data-pid="victor_hugo">Victor Hugo</span>, qui dit avoir trouvé « ANÁΓKH » gravé sur un mur de Notre-Dame de Paris et en avoir tiré l'inspiration de son roman de 1831, où la fatalité pèse sur tous les personnages. Chez Hugo, le mot est lié à l'image de la prison.`,
+    book: 2,
+    chapter: "Ananké",
+    textOrder: 328
+  },
+  {
+    year: 1880,
+    month: "",
+    title: "Le modèle du Saint-Loup de Proust",
+    description: `<strong>Paris–Nice, fin du XIX<sup>e</sup> siècle.</strong> Le compagnon d'armes de Michel à Lille était le fils du Salignac de Fénelon que Michel-Charles avait fréquenté rue Marais. Une génération plus tard, son propre fils, Bertrand de Salignac-Fénelon (1878–1914), jeune diplomate ami proche de <span class="person-link" data-pid="proust">Marcel Proust</span>, compta parmi les modèles de Robert de Saint-Loup dans <em>À la recherche du temps perdu</em> : comme le personnage, il s'engagea et fut tué dès les premiers mois de la guerre de 1914 tout en continuant d'admirer la culture allemande. Le compagnon de Michel, père de ce Bertrand, appartenait quant à lui au monde léger du Second Empire — celui de <em>La Belle Hélène</em>, l'opérette de <span class="person-link" data-pid="offenbach">Jacques Offenbach</span> — plutôt qu'à l'univers wagnérien plus grave de <em>La Walkyrie</em>, opéra de <span class="person-link" data-pid="wagner">Richard Wagner</span>.`,
+    book: 2,
+    chapter: "Ananké",
+    textOrder: 329
   }
 ];
 
@@ -6037,7 +6136,15 @@ const eventCoords = {
   318: [48.86, 2.35, "Paris"],
   319: [48.86, 2.35, "Paris"],
   320: [48.86, 2.35, "Comédie-Française, Paris"],
-  321: [48.86, 2.35, "Paris"]
+  321: [48.86, 2.35, "Paris"],
+  322: [48.86, 2.35, "Paris"],
+  323: [50.63, 3.06, "Lille"],
+  324: [49.70, 4.94, "Sedan"],
+  325: [48.86, 2.35, "Paris"],
+  326: [50.63, 3.06, "Lille"],
+  327: [48.86, 2.35, "Paris"],
+  328: [48.853, 2.349, "Notre-Dame de Paris"],
+  329: [48.86, 2.35, "Paris"]
 };
 
 let map = null;
@@ -6436,6 +6543,11 @@ const PEOPLE = [
   {id:"tacite",name:"Tacite",dates:"vers 55–120",dynasty:"cultural",role:"Historien · Rome",bio:"Historien latin, auteur des <em>Annales</em> et des <em>Histoires</em>. Son style dense et son regard sévère sur les empereurs en firent un classique de l'éducation latine.",entries:["Le milieu intellectuel : Darwin, Renan, Taine"]},
   {id:"goncourt",name:"Edmond de Goncourt",dates:"1822–1896",dynasty:"cultural",role:"Écrivain · France",bio:"Écrivain naturaliste, qui écrivit longtemps avec son frère Jules. Son roman <em>La Fille Élisa</em> (1877), sur une prostituée meurtrière, fit un succès de scandale. Son testament fonde l'Académie Goncourt.",entries:["La Fille Élisa et Offenbach : la modernité de 1877"]},
   {id:"morny",name:"Charles de Morny",dates:"1811–1865",dynasty:"other_royal",role:"Duc, président du Corps législatif · France",bio:"Demi-frère de Napoléon III, fils naturel de la reine Hortense. Organisateur du coup d'État de 1851, puis président du Corps législatif. Homme d'affaires et figure mondaine du Second Empire.",entries:["Le duc de Morny"]},
+  {id:"paul_cambon",name:"Paul Cambon",dates:"1843–1924",dynasty:"other_royal",role:"Préfet, puis diplomate · France",bio:"Préfet du Nord de 1877 à 1882, succédant à Michel-Charles. Il passa ensuite dans la diplomatie : résident général à Tunis, puis ambassadeur à Madrid, Constantinople et enfin Londres (1898–1920), où il fut l'un des artisans de l'Entente cordiale de 1904.",entries:["Préfet du Nord, puis fonctionnaire limogé"]},
+  {id:"pierre_leroux",name:"Pierre Leroux",dates:"1797–1871",dynasty:"cultural",role:"Philosophe, théoricien socialiste · France",bio:"Philosophe et publiciste, l'un des fondateurs du socialisme français. On lui attribue la diffusion du mot « socialisme » dans les années 1830.",entries:["Badinguet, Leroux, Proudhon : les papiers cachés du cousin Henri"]},
+  {id:"proudhon",name:"Pierre-Joseph Proudhon",dates:"1809–1865",dynasty:"cultural",role:"Théoricien · France",bio:"Théoricien politique, auteur de la formule « la propriété, c'est le vol » (1840). Premier à se réclamer de l'anarchisme, il est l'une des figures majeures du socialisme du XIX<sup>e</sup> siècle.",entries:["Badinguet, Leroux, Proudhon : les papiers cachés du cousin Henri"]},
+  {id:"diderot",name:"Denis Diderot",dates:"1713–1784",dynasty:"cultural",role:"Écrivain, philosophe · France",bio:"Figure majeure des Lumières, maître d'œuvre de l'<em>Encyclopédie</em>. Son roman <em>La Religieuse</em>, écrit vers 1760 et publié en 1796, dénonce l'enfermement des religieuses sans vocation.",entries:["« La Religieuse » de Diderot"]},
+  {id:"proust",name:"Marcel Proust",dates:"1871–1922",dynasty:"cultural",role:"Écrivain · France",bio:"Auteur d'<em>À la recherche du temps perdu</em>. Plusieurs de ses amis servirent de modèles à ses personnages : Bertrand de Salignac-Fénelon compte parmi les modèles de Robert de Saint-Loup.",entries:["Le modèle du Saint-Loup de Proust"]},
   {id:"philippe_hardi",name:"Philippe le Hardi",dates:"1342–1404",dynasty:"bourgogne",role:"Duc de Bourgogne · Flandre, Artois",bio:"Duc de Bourgogne 1363–1404. Fils du roi Jean II le Bon, fonde la branche bourguignonne des Valois.",entries:["Les Ducs de Bourgogne"]},
   {id:"jean_sans_peur",name:"Jean sans Peur",dates:"1371–1419",dynasty:"bourgogne",role:"Duc de Bourgogne · Flandre, Artois",bio:"Duc de Bourgogne 1404–1419. Fait assassiner le duc d'Orléans (1407), déclenchant la guerre civile entre Armagnacs et Bourguignons. Assassiné sur le pont de Montereau.",entries:["Les Ducs de Bourgogne"]},
   {id:"philippe_bon",name:"Philippe le Bon",dates:"1396–1467",dynasty:"bourgogne",role:"Duc de Bourgogne · Flandre, Brabant, Hollande, Hainaut",bio:"Duc de Bourgogne 1419–1467. Fondateur de l'Ordre de la Toison d'or (1430). Sa cour est la plus brillante d'Europe.",entries:["Les Ducs de Bourgogne"]},
@@ -6481,7 +6593,7 @@ const PEOPLE = [
   {id:"nicolas_ii",name:"Nicolas II",dates:"1868–1918",dynasty:"other_royal",role:"Dernier tsar de Russie",entries:["Ses timides héritiers"]},
   {id:"gustave_iii",name:"Gustave III",dates:"1746–1792",dynasty:"other_royal",role:"Roi de Suède",entries:["Le comte de Haga"]},
   {id:"napoleon",name:"Napoléon",dates:"1769–1821",dynasty:"other_royal",role:"Empereur des Français",entries:["Waterloo","Le Congrès de Vienne","La Campagne de France et les gardes d'honneur","Huit régimes en cinquante ans"]},
-  {id:"napoleon_iii",name:"Napoléon III",dates:"1808–1873",dynasty:"other_royal",role:"Empereur des Français",bio:"Empereur 1852–1870. Neveu de Napoléon Iᵉʳ, prend le pouvoir par coup d'État (1851). Modernise Paris et l'économie, mais sa politique étrangère — Mexique, guerre franco-prussienne — aboutit à la catastrophe de Sedan et à la chute de l'Empire.",entries:["L'expédition du Mexique et la tragédie de Charlotte","Le scandale de Tannhäuser à Paris","Aspromonte et Mentana — les marches de Garibaldi sur Rome","L'humiliation de Sedan","La proclamation de la République","L'Empire libéral","« Le majestueux vestige… du mariage d'Eugénie de Montijo avec Napoléon III »","Huit régimes en cinquante ans","Le fond jacobin sous l'Empire bonapartiste","Le duc de Morny"]},
+  {id:"napoleon_iii",name:"Napoléon III",dates:"1808–1873",dynasty:"other_royal",role:"Empereur des Français",bio:"Empereur 1852–1870. Neveu de Napoléon Iᵉʳ, prend le pouvoir par coup d'État (1851). Modernise Paris et l'économie, mais sa politique étrangère — Mexique, guerre franco-prussienne — aboutit à la catastrophe de Sedan et à la chute de l'Empire.",entries:["L'expédition du Mexique et la tragédie de Charlotte","Le scandale de Tannhäuser à Paris","Aspromonte et Mentana — les marches de Garibaldi sur Rome","L'humiliation de Sedan","La proclamation de la République","L'Empire libéral","« Le majestueux vestige… du mariage d'Eugénie de Montijo avec Napoléon III »","Huit régimes en cinquante ans","Le fond jacobin sous l'Empire bonapartiste","Le duc de Morny","Le Second Empire, « beau songe »","« Vous n'aurez pas l'Alsace et la Lorraine »","La Commune et la « semaine sanglante »","Badinguet, Leroux, Proudhon : les papiers cachés du cousin Henri"]},
   {id:"bismarck",name:"Otto von Bismarck",dates:"1815–1898",dynasty:"other_royal",role:"Chancelier · Prusse, Empire allemand",bio:"Ministre-président de Prusse (1862), puis chancelier de l'Empire allemand (1871–1890). Architecte de l'unification allemande par trois guerres successives contre le Danemark, l'Autriche et la France.",entries:["La guerre du Schleswig-Holstein","Sadowa et la Confédération germanique","La proclamation de l'Empire allemand","L'humiliation de Sedan","La proclamation de la République"]},
   {id:"victor_emmanuel",name:"Victor-Emmanuel II",dates:"1820–1878",dynasty:"other_royal",role:"Roi · Piémont-Sardaigne, puis Italie",bio:"Roi de Sardaigne-Piémont (1849), puis premier roi d'Italie (1861–1878). Avec Cavour et Garibaldi, artisan de l'unification italienne.",entries:["La guerre du Piémont","Aspromonte et Mentana — les marches de Garibaldi sur Rome","La Rome de Michel-Charles : Saint-Pierre, le Capitole et le Vittoriano à venir","De la chute des Bourbons de Naples à l'unification italienne","La Maison de Savoie, monarchie bourgeoise"]},
   {id:"charlotte_belgique",name:"Charlotte de Belgique",dates:"1840–1927",dynasty:"other_royal",role:"Impératrice du Mexique",bio:"Fille de Léopold I<sup>er</sup> des Belges. Épouse l'archiduc Maximilien (1857). Impératrice du Mexique 1864–67. Sombre dans la folie en 1866 après l'échec de ses missions auprès de Napoléon III et du pape. Recluse au château de Bouchout pendant soixante ans.",entries:["L'expédition du Mexique et la tragédie de Charlotte"]},
@@ -6518,7 +6630,7 @@ const PEOPLE = [
   {id:"malthus",name:"Thomas R. Malthus",dates:"1766–1834",dynasty:"cultural",role:"Pasteur, économiste",bio:"Auteur de l'<em>Essai sur le principe de population</em> (1798). Soutient que seuls famine, guerre et maladie (ou la continence volontaire) empêchent la population de dépasser les ressources. Inspiration majeure de Darwin.",entries:["Malthus et la « production humaine en série »"]},
   {id:"baudelaire",name:"Charles Baudelaire",dates:"1821–1867",dynasty:"cultural",role:"Poète",bio:"Auteur des <em>Fleurs du mal</em> (1857), condamné pour outrage aux bonnes mœurs. Passe ses dernières années à Bruxelles (1864–66), accumulant des notes pour <em>Pauvre Belgique !</em>. Frappé d'aphasie en 1866, meurt à Paris en 1867.",entries:["Baudelaire et les sansonnets aux yeux crevés","Le scandale de Tannhäuser à Paris"]},
   {id:"julien_apostat",name:"Julien l'Apostat",dates:"331–363",dynasty:"other_royal",role:"Empereur romain",bio:"Empereur 361–363. Neveu de Constantin, tente de restaurer le paganisme. Lettré et ascète, auteur du <em>Misopogon</em>. Meurt en campagne contre les Perses.",entries:["Julien l'Apostat et le retour au paganisme"]},
-  {id:"wagner",name:"Richard Wagner",dates:"1813–1883",dynasty:"cultural",role:"Compositeur",bio:"Compositeur allemand. Révolutionne l'opéra avec le concept d'œuvre d'art totale (<em>Gesamtkunstwerk</em>). Le scandale de <em>Tannhäuser</em> à Paris (1861) cristallise les tensions culturelles franco-allemandes.",entries:["Le scandale de Tannhäuser à Paris","Siegfried","Wagner à Venise","Louis de Bavière","« Le Lohengrin soupçonné de démence »","« La Musique de l'Avenir » — Tristan, Isolde, Wotan, les filles du Rhin","« La Péri et La Banshee… La Walkyrie »"]},
+  {id:"wagner",name:"Richard Wagner",dates:"1813–1883",dynasty:"cultural",role:"Compositeur",bio:"Compositeur allemand. Révolutionne l'opéra avec le concept d'œuvre d'art totale (<em>Gesamtkunstwerk</em>). Le scandale de <em>Tannhäuser</em> à Paris (1861) cristallise les tensions culturelles franco-allemandes.",entries:["Le scandale de Tannhäuser à Paris","Siegfried","Wagner à Venise","Louis de Bavière","« Le Lohengrin soupçonné de démence »","« La Musique de l'Avenir » — Tristan, Isolde, Wotan, les filles du Rhin","« La Péri et La Banshee… La Walkyrie »","Le modèle du Saint-Loup de Proust"]},
   {id:"garibaldi",name:"Giuseppe Garibaldi",dates:"1807–1882",dynasty:"other_royal",role:"Général · Italie",bio:"Héros de l'unification italienne. Conquiert le royaume des Deux-Siciles avec ses Mille (1860). Ses deux marches sur Rome échouent à Aspromonte (1862) et Mentana (1867).",entries:["Aspromonte et Mentana — les marches de Garibaldi sur Rome","« Les soldats de Garibaldi »","De la chute des Bourbons de Naples à l'unification italienne"]},
   {id:"flourens",name:"Gustave Flourens",dates:"1838–1871",dynasty:"cultural",role:"Biologiste, communard",bio:"Destitué de sa chaire au Collège de France pour athéisme. Aventurier politique, se met au service de l'insurrection crétoise. Nommé général des remparts pendant la Commune, abattu par les Versaillais à Chatou le 3 avril 1871.",entries:["Gustave Flourens et la Commune"]},
   {id:"abelard",name:"Pierre Abélard",dates:"1079–1142",dynasty:"cultural",role:"Philosophe",entries:["Le Paris d'Abélard"]},
@@ -6559,7 +6671,7 @@ const PEOPLE = [
   {id:"maximilien_henri",name:"Maximilien-Henri de Bavière",dates:"1621–1688",dynasty:"religious",role:"Prince-évêque de Liège",bio:"Prince-évêque francophile. Écrase définitivement les Grignoux après le traité de Nimègue (1678).",entries:["Le Traité de Nimègue"]},
   {id:"frederic_ii",name:"Frédéric II de Prusse",dates:"1712–1786",dynasty:"other_royal",role:"Roi · Prusse",bio:"Roi de Prusse 1740–1786. Dit « le Grand ». Stratège militaire et philosophe des Lumières, ami de Voltaire. La guerre de Sept Ans l'établit comme grande puissance européenne.",entries:["La Guerre de Sept Ans"]},
   // ─── 19th century ───
-  {id:"victor_hugo",name:"Victor Hugo",dates:"1802–1885",dynasty:"cultural",role:"Écrivain",bio:"Poète, romancier, dramaturge. Son recueil <em>L'Année Terrible</em> (1872) donne son nom à la période 1870–71.",entries:["L'Année Terrible","« Les Travaux et les Jours, Théocrite, Tibulle, Lucrèce… »","Victor Hugo","La révolution de février 1848 à Lille","Deux citations interrompues : Virgile et Hugo","Noémi en Doña Sol"]},
+  {id:"victor_hugo",name:"Victor Hugo",dates:"1802–1885",dynasty:"cultural",role:"Écrivain",bio:"Poète, romancier, dramaturge. Son recueil <em>L'Année Terrible</em> (1872) donne son nom à la période 1870–71.",entries:["L'Année Terrible","« Les Travaux et les Jours, Théocrite, Tibulle, Lucrèce… »","Victor Hugo","La révolution de février 1848 à Lille","Deux citations interrompues : Virgile et Hugo","Noémi en Doña Sol","La Commune et la « semaine sanglante »","Ananké"]},
   {id:"thiers",name:"Adolphe Thiers",dates:"1797–1877",dynasty:"other_royal",role:"Chef du pouvoir exécutif · France",bio:"Élu chef du pouvoir exécutif en février 1871. Négocie la paix avec Bismarck, puis ordonne l'écrasement de la Commune.",entries:["La Commune de Paris","La proclamation de la République"]},
   {id:"gambetta",name:"Léon Gambetta",dates:"1838–1882",dynasty:"other_royal",role:"Homme politique · France",bio:"Proclame la République le 4 septembre 1870 depuis l'Hôtel de Ville. Organise la résistance pendant le siège de Paris.",entries:["La proclamation de la République"]},
   {id:"moltke",name:"Helmuth von Moltke",dates:"1800–1891",dynasty:"other_royal",role:"Chef d'état-major · Prusse",bio:"Architecte des victoires prussiennes contre l'Autriche (1866) et la France (1870). Encercle l'armée française à Sedan.",entries:["L'humiliation de Sedan"]},
@@ -6571,7 +6683,7 @@ const PEOPLE = [
   {id:"giap",name:"Võ Nguyên Giáp",dates:"1911–2013",dynasty:"other_royal",role:"Général · Viêtnam",bio:"Stratège de la victoire de Diên Biên Phu. Considéré comme l'un des plus grands tacticiens militaires du XXᵉ siècle.",entries:["Les morts de Diên Biên Phu"]},
   {id:"ben_bella",name:"Ahmed Ben Bella",dates:"1916–2012",dynasty:"other_royal",role:"Président · Algérie",bio:"Dirigeant du FLN. Enlevé par l'armée française en 1956. Premier président de l'Algérie indépendante (1962–1965).",entries:["L'enlèvement de Ben Bella"]},
   {id:"nasser",name:"Gamal Abdel Nasser",dates:"1918–1970",dynasty:"other_royal",role:"Président · Égypte",bio:"Nationalise le Canal de Suez en 1956, provoquant la crise de Suez. Figure majeure du panarabisme.",entries:["L'équipée de Suez"]},
-  {id:"offenbach",name:"Jacques Offenbach",dates:"1819–1880",dynasty:"cultural",role:"Compositeur",bio:"Maître de l'opérette. <em>La Belle Hélène</em>, <em>La Grande-Duchesse de Gérolstein</em>. Incarnation musicale de la fête impériale du Second Empire.",entries:["Le Paris du Second Empire","La Fille Élisa et Offenbach : la modernité de 1877"]},
+  {id:"offenbach",name:"Jacques Offenbach",dates:"1819–1880",dynasty:"cultural",role:"Compositeur",bio:"Maître de l'opérette. <em>La Belle Hélène</em>, <em>La Grande-Duchesse de Gérolstein</em>. Incarnation musicale de la fête impériale du Second Empire.",entries:["Le Paris du Second Empire","La Fille Élisa et Offenbach : la modernité de 1877","Le modèle du Saint-Loup de Proust"]},
   {id:"la_paiva",name:"La Païva",dates:"1819–1884",dynasty:"cultural",role:"Courtisane",bio:"Née Esther Lachmann. Courtisane d'origine russe devenue marquise. Son hôtel particulier des Champs-Élysées est un symbole du luxe du Second Empire.",entries:["Le Paris du Second Empire"]},
   {id:"schneider",name:"Hortense Schneider",dates:"1833–1920",dynasty:"cultural",role:"Chanteuse d'opérette",bio:"Triomphe dans les rôles-titres d'Offenbach. Fréquentée par les têtes couronnées de passage à Paris.",entries:["Le Paris du Second Empire"]},
   {id:"theresa",name:"Thérésa",dates:"1837–1913",dynasty:"cultural",role:"Chanteuse de café-concert",bio:"Née Emma Valadon. Première grande vedette du café-concert français.",entries:["Le Paris du Second Empire"]},
